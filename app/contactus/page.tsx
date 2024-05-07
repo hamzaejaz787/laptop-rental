@@ -1,5 +1,5 @@
 import React from "react";
-import contact_bg from "../../assets/contactus_bg.png";
+import contact_bg from "@/public/contactus_bg.png";
 import ContactForm from "@/components/ContactForm";
 
 const Page = () => {
