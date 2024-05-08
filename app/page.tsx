@@ -1,9 +1,10 @@
 import Image from "next/image";
+import Dell_E5440 from "./dell_e5440/page";
 
 export default function Home() {
   return (
     <>
-      <h1>Laptop Rental</h1>
+      <Dell_E5440/>
     </>
   );
 }
