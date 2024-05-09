@@ -1,9 +1,7 @@
 "use client";
-
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -23,7 +21,6 @@ const formSchema = z.object({
     message: "Username must be at least 2 characters.",
   }),
 });
-
 export function ContactForm() {
   const form = useForm();
   const onSubmit = () => {
@@ -40,13 +37,9 @@ export function ContactForm() {
                 name="username"
                 render={({ field }) => (
                   <FormItem className="w-[49%]">
-                    {/* <FormLabel>Username</FormLabel> */}
                     <FormControl>
                       <Input placeholder="Your Name" {...field} />
                     </FormControl>
-                    {/* <FormDescription>
-                This is your public display name.
-              </FormDescription> */}
                     <FormMessage />
                   </FormItem>
                 )}
@@ -56,13 +49,10 @@ export function ContactForm() {
                 name="email"
                 render={({ field }) => (
                   <FormItem className="w-[49%]">
-                    {/* <FormLabel>Username</FormLabel> */}
                     <FormControl>
                       <Input placeholder="Your Email" {...field} />
                     </FormControl>
-                    {/* <FormDescription>
-                This is your public display name.
-              </FormDescription> */}
+
                     <FormMessage />
                   </FormItem>
                 )}
@@ -74,13 +64,9 @@ export function ContactForm() {
                 name="contact"
                 render={({ field }) => (
                   <FormItem className="w-[49%]">
-                    {/* <FormLabel>Username</FormLabel> */}
                     <FormControl>
                       <Input placeholder="Contact Number" {...field} />
                     </FormControl>
-                    {/* <FormDescription>
-                This is your public display name.
-              </FormDescription> */}
                     <FormMessage />
                   </FormItem>
                 )}
@@ -90,13 +76,9 @@ export function ContactForm() {
                 name="company"
                 render={({ field }) => (
                   <FormItem className="w-[49%]">
-                    {/* <FormLabel>Username</FormLabel> */}
                     <FormControl>
                       <Input placeholder="Company Name" {...field} />
                     </FormControl>
-                    {/* <FormDescription>
-                This is your public display name.
-              </FormDescription> */}
                     <FormMessage />
                   </FormItem>
                 )}
@@ -108,13 +90,10 @@ export function ContactForm() {
                 name="location"
                 render={({ field }) => (
                   <FormItem className="w-full">
-                    {/* <FormLabel>Username</FormLabel> */}
                     <FormControl>
                       <Input placeholder="Location" {...field} />
                     </FormControl>
-                    {/* <FormDescription>
-                This is your public display name.
-              </FormDescription> */}
+
                     <FormMessage />
                   </FormItem>
                 )}
@@ -128,12 +107,9 @@ export function ContactForm() {
                   <FormItem className="w-full">
                     {/* <FormLabel>Username</FormLabel> */}
                     <FormControl>
-                      {/* <Input placeholder="Message" {...field} /> */}
                       <Textarea placeholder="Message" {...field} />
                     </FormControl>
-                    {/* <FormDescription>
-                This is your public display name.
-              </FormDescription> */}
+
                     <FormMessage />
                   </FormItem>
                 )}
