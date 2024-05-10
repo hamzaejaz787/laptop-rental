@@ -1,17 +1,40 @@
+'use client'
 import Image from 'next/image';
-import React from 'react';
+import React, {useState} from 'react';
 import { MdNavigateNext, MdOutlineScreenshot, MdOutlineStorage } from "react-icons/md";
 import { SiTicktick } from "react-icons/si";
 import { IoHardwareChipOutline } from "react-icons/io5";
 import { Separator } from '@/components/ui/separator';
 import { FaMinus, FaPlus } from "react-icons/fa6";
 import { Button } from '@/components/ui/button';
+import Laptop_card from '@/components/Laptop_card';
+import { Input } from '@/components/ui/input';
+import { IoMdSearch } from "react-icons/io";
+import { AccordionFAQ } from '@/components/Accordion';
+
+
+
+
+  
 
 function Dell_E5440() {
+  const [activeButton, setActiveButton] = useState(0);
+
+  const FAQ_buttoncontents = <AccordionFAQ/>;
+
+
+  const handleButtonClick = (index: any) => {
+    setActiveButton(index);
+  };
+
+  const buttonContents = [
+    `We at Laptop Rentals understand whether you're hosting a conference, trade show, or business event, having access to reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.understand whether you'.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.We at Laptop Rentals understand whether you're hosting a conference, trade show, or business event, having access to reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.understand whether you'.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.We at Laptop Rentals understand whether you're hosting a conference, trade show, or business event, having access to reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.understand whether you'.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.We at Laptop Rentals understand whether you're hosting a conference, trade show, or business event, having access to reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.understand whether you'.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.We at Laptop Rentals understand whether you're hosting a conference, trade show, or business event, having access to reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.understand whether you'.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.`,
+    'This is a guide on how to use the product.',
+    'These are reviews from customers who have used the product.',
+  ];
   return (
     <div className='flex flex-col'>
-      {/* Background Image */}
-      <div className='relative'>
+      <div className='relative '>
         <Image src='/dell_bg.png' alt='' width={3000} height={50} />
 
         {/* Content */}
@@ -36,7 +59,7 @@ function Dell_E5440() {
         </div>
         <div className='flex flex-col pl-10 pt-5 pr-20 gap-3'>
           <p className='font-extrabold  text-[34px]'>DELL E5440 LATITUDE</p>
-          <p className='line-clamp-2 text-gray text-[15px]'>We at Laptop Rentals understand whether you're hosting a conference, trade show, or business event, having access to a conference, trade.</p>
+          <p className='line-clamp-2 text-gray text-[15px]'>We at Laptop Rentals understand whether you are hosting a conference, trade show, or business event, having access to a conference, trade.</p>
           <div className='flex flex-col gap-2'>
           <div className='flex items-center gap-6 font-medium text-[14px]'>
           <SiTicktick color='D61837'/>
@@ -87,12 +110,61 @@ function Dell_E5440() {
           
         </div>
       </div>
-      <div className='flex gap-4 pt-10'>
-        <Button variant='link'>Description</Button>
-        <Button variant='link'>Product Guide</Button>
-        <Button variant='link'>Reviews</Button>
+      <div className="flex flex-col gap-4 pt-10">
+      <div className="flex font-semibold text-[16px] justify-center">
+      {['Description', 'Product Guide', 'Reviews'].map((label, index) => (
+        <Button
+          key={index}
+          variant="link"
+          className={`${activeButton === index? 'text-red-600' : ''} flex`}
+          onClick={() => handleButtonClick(index)}
+        >
+          {label}
+        </Button>
+      ))}
+      </div>
+      <div className="mt-4 ml-20 mr-20 font-medium text-[14px]">
+        {buttonContents[activeButton]}
       </div>
     </div>
+    <p className='text-[40px] font-bold text-center'>Related Products</p>
+    <div className='flex gap-4 items-center justify-center'>
+    <Laptop_card/>
+    <Laptop_card/>
+    <Laptop_card/>
+    </div>
+    <div className=''>
+    <p className='text-[40px] font-bold text-center'>Frequently Asked Questions</p>
+    <p className='text-[14px] line-clamp-2 text-center pr-96 pl-96'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus accusantium error eius amet quaerat nostrum ducimus voluptas, eum deserunt? Ab facilis animi doloribus nulla molestias atque, quos odio sequi repellendus.</p>
+    <div className='flex justify-center mt-4'>
+    <form className='w-full max-w-md'>
+      <div className='relative flex items-center text-gray-400 focus-within:text-gray-600 justify-between'>
+      <Input type='text' name='search' placeholder='Search' className='px-3 py-4 font-medium placeholder-gray-500ntext-black border-none ring-2 ring-gray-300 focus:ring-gray-500 focus:ring-2'/>
+      <IoMdSearch className='w-7 h-7 absolute ml-96  ' color="D61837"/>
+      </div>
+      </form>
+    </div>
+    <div className="flex flex-col gap-4 pt-10">
+      <div className="flex font-semibold text-[16px] justify-center">
+      {['General', 'Trust and Safety', 'Services'].map((label, index) => (
+        <Button
+          key={index}
+          variant="link"
+          className={`${activeButton === index? 'text-red-600' : ''} flex`}
+          onClick={() => handleButtonClick(index)}
+        >
+          {label}
+        </Button>
+      ))}
+      </div>
+      <div className="mt-4 ml-20 mr-20 font-medium text-[14px] mt-4 mb-4">
+  {FAQ_buttoncontents}
+</div>
+
+    </div>
+    
+</div>
+        </div>
   );
 }
 
