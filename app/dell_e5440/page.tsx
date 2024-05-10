@@ -20,12 +20,12 @@ import { AccordionFAQ } from '@/components/Accordion';
 function Dell_E5440() {
   const [activeButton, setActiveButton] = useState(0);
 
+  const FAQ_buttoncontents = <AccordionFAQ/>;
+
+
   const handleButtonClick = (index: any) => {
     setActiveButton(index);
   };
-  const FAQ_buttoncontents = [
-    <AccordionFAQ/>
-  ];
 
   const buttonContents = [
     `We at Laptop Rentals understand whether you're hosting a conference, trade show, or business event, having access to reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.understand whether you'.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.We at Laptop Rentals understand whether you're hosting a conference, trade show, or business event, having access to reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.understand whether you'.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.We at Laptop Rentals understand whether you're hosting a conference, trade show, or business event, having access to reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.understand whether you'.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.We at Laptop Rentals understand whether you're hosting a conference, trade show, or business event, having access to reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.understand whether you'.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.We at Laptop Rentals understand whether you're hosting a conference, trade show, or business event, having access to reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.understand whether you'.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.`,
@@ -35,7 +35,7 @@ function Dell_E5440() {
   return (
     <div className='flex flex-col'>
       <div className='relative '>
-        <img src='/dell_bg.png' alt='' />
+        <Image src='/dell_bg.png' alt='' width={3000} height={50} />
 
         {/* Content */}
         <div className='absolute inset-0 flex flex-col items-center justify-center'>
@@ -158,8 +158,9 @@ function Dell_E5440() {
       ))}
       </div>
       <div className="mt-4 ml-20 mr-20 font-medium text-[14px] mt-4 mb-4">
-        {FAQ_buttoncontents[activeButton]}
-      </div>
+  {FAQ_buttoncontents}
+</div>
+
     </div>
     
 </div>
