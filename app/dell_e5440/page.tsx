@@ -9,17 +9,23 @@ import { FaMinus, FaPlus } from "react-icons/fa6";
 import { Button } from '@/components/ui/button';
 import Laptop_card from '@/components/Laptop_card';
 import { Input } from '@/components/ui/input';
+import { IoMdSearch } from "react-icons/io";
+import { AccordionFAQ } from '@/components/Accordion';
+
 
 
 
   
 
 function Dell_E5440() {
-  const [activeButton, setActiveButton] = useState(0); // store the active button index
+  const [activeButton, setActiveButton] = useState(0);
 
   const handleButtonClick = (index: any) => {
     setActiveButton(index);
   };
+  const FAQ_buttoncontents = [
+    <AccordionFAQ/>
+  ];
 
   const buttonContents = [
     `We at Laptop Rentals understand whether you're hosting a conference, trade show, or business event, having access to reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.understand whether you'.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.We at Laptop Rentals understand whether you're hosting a conference, trade show, or business event, having access to reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.understand whether you'.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.We at Laptop Rentals understand whether you're hosting a conference, trade show, or business event, having access to reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.understand whether you'.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.We at Laptop Rentals understand whether you're hosting a conference, trade show, or business event, having access to reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.understand whether you'.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.We at Laptop Rentals understand whether you're hosting a conference, trade show, or business event, having access to reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.understand whether you'.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you'.`,
@@ -28,9 +34,8 @@ function Dell_E5440() {
   ];
   return (
     <div className='flex flex-col'>
-      {/* Background Image */}
-      <div className='relative'>
-        <Image src='/dell_bg.png' alt='' width={3000} height={50} />
+      <div className='relative '>
+        <img src='/dell_bg.png' alt='' />
 
         {/* Content */}
         <div className='absolute inset-0 flex flex-col items-center justify-center'>
@@ -131,14 +136,32 @@ function Dell_E5440() {
     <div className=''>
     <p className='text-[40px] font-bold text-center'>Frequently Asked Questions</p>
     <p className='text-[14px] line-clamp-2 text-center pr-96 pl-96'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus accusantium error eius amet quaerat nostrum ducimus voluptas, eum deserunt? Ab facilis animi doloribus nulla molestias atque, quos odio sequi repellendus.</p>
-    <div className='flex items-center'>
-        <input className='w-[80%] py-2 px-4 rounded-l-md' type="email" placeholder='Search'/>
-        <button className='bg-gray-200 text-gray-600 px-4 py-2 rounded-r-md'>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className='h-6 w-6'>
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-        </button>
+    <div className='flex justify-center mt-4'>
+    <form className='w-full max-w-md'>
+      <div className='relative flex items-center text-gray-400 focus-within:text-gray-600 justify-between'>
+      <Input type='text' name='search' placeholder='Search' className='px-3 py-4 font-medium placeholder-gray-500ntext-black border-none ring-2 ring-gray-300 focus:ring-gray-500 focus:ring-2'/>
+      <IoMdSearch className='w-7 h-7 absolute ml-96  ' color="D61837"/>
+      </div>
+      </form>
     </div>
+    <div className="flex flex-col gap-4 pt-10">
+      <div className="flex font-semibold text-[16px] justify-center">
+      {['General', 'Trust and Safety', 'Services'].map((label, index) => (
+        <Button
+          key={index}
+          variant="link"
+          className={`${activeButton === index? 'text-red-600' : ''} flex`}
+          onClick={() => handleButtonClick(index)}
+        >
+          {label}
+        </Button>
+      ))}
+      </div>
+      <div className="mt-4 ml-20 mr-20 font-medium text-[14px] mt-4 mb-4">
+        {FAQ_buttoncontents[activeButton]}
+      </div>
+    </div>
+    
 </div>
         </div>
   );
