@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Footer from '@/app/Components/Footer';
+import Header from '@/app/Components/Header';
+
 import localFont from "@next/font/local";
 
 const poppins = localFont({
@@ -30,6 +33,8 @@ const barlow = localFont({
   ],
   variable: "--font-barlow",
 });
+
+
 export const metadata: Metadata = {
   title: "Laptop Rental",
 };
@@ -42,6 +47,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.variable} font-sans`}>{children}</body>
+      
+      
+      <Header />
+        {children}
+        <Footer/>
+        </body>
     </html>
   );
 }
