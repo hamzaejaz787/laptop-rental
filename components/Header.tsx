@@ -29,14 +29,14 @@ function Header() {
             className="flex items-center"
           />
         </div>
-        <div>
+        <div className="flex pl-10 pr-10">
           <Navbar />
         </div>
         <div className="flex items-center gap-2 pr-2">
-          <Button>Get a quote</Button>
-          <MdOutlineLocationOn size={25} />
-          <MdAddShoppingCart size={25} />
-          <IoSearchSharp size={25} />
+          <Button className='font-Poppins text-[12px] border border-none bg-[#D61837]'>Get a quote</Button>
+          <MdOutlineLocationOn size={20} />
+          <MdAddShoppingCart size={20} />
+          <IoSearchSharp size={20} />
         </div>
       </div>
       {/* </div> */}

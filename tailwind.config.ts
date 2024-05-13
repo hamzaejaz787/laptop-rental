@@ -1,3 +1,4 @@
+import { fontFamily } from "tailwindcss/defaultTheme";
 import type { Config } from "tailwindcss"
 
 const config = {
@@ -72,6 +73,12 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      fontFamily: {
+        Exo : ["var(--font-Exo)"],
+        Poppins: ["var(--font-Poppins)"],
+        Barlow: ["var(--font-Barlow)",],
+        Inter: ["var(--font-Inter)"]
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
