@@ -11,9 +11,9 @@ function Footer() {
   return (
     <footer className='bottom-0'>
       {/* Image with absolute positioning */}
-      <div className=''>
+      <div className='flex w-full sm:w-full'>
         <div className='absolute'>
-        <Image src='/Subtract.png' alt='' width={2000} height={240}/>
+        <img src='/Subtract.png' alt='' />
       </div>
       
       {/* Content */}
