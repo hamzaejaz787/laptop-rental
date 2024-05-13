@@ -10,11 +10,13 @@ const Banner = ({ btn, title, text }: any) => {
         className="w-full h-96 relative"
       />
       <div className="pb-1 absolute left-0 w-full flex flex-col justify-center items-center">
-        <h2 className="text-4xl text-white font-bold">{title}</h2>
-        <p className="text-base text-white text-center w-[60%]">{text}</p>
-        <button className="py-2 px-4 rounded-sm bg-[#D61837] text-white">
-          {btn}
-        </button>
+        <h2 className="text-4xl text-white font-bold mb-4">{title}</h2>
+        <p className="text-sm text-white text-center mb-6 w-[60%]">{text}</p>
+        {btn && (
+          <button className="py-2 px-4 rounded-sm bg-[#D61837] text-white">
+            {btn}
+          </button>
+        )}
       </div>
     </div>
   );
