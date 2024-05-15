@@ -28,7 +28,7 @@ export function ContactForm() {
   };
   return (
     <div className="flex flex-col mt-10 gap-4 w-[80%] m-auto justify-between lg:flex-row">
-      <div className="w-[100%] md:w-[100%] flex-grow lg:w-[68%]">
+      <div className="w-full">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <div className="flex gap-4 w-full">
@@ -121,7 +121,7 @@ export function ContactForm() {
           </form>
         </Form>
       </div>
-      <div className="w-[100%] rounded-sm flex-grow bg-[#D61837] py-8 flex justify-center items-center lg:w-[30%] ">
+      <div className="w-full rounded-sm bg-[#D61837] py-8 flex justify-center items-center lg:max-w-xs">
         <ContactsOptions />
       </div>
     </div>
