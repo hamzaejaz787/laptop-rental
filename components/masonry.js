@@ -72,7 +72,7 @@ export default function MasonryGrid(){
         <div>
             <img src="/img9.png" alt="" style={{ width: "100%", height: "100%" }} />
         </div>
-        <div style={{ gridRow: "span 2" }}>
+        <div >
             <img src="https://images.unsplash.com/photo-1546260863-51e27ff43c68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="" style={{ width: "100%", height: "100%" }} />
         </div>
         <div>
@@ -80,9 +80,6 @@ export default function MasonryGrid(){
         </div>
         <div>
             <img src="https://images.unsplash.com/photo-1545844895-1bf88a0213a8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="" style={{ width: "100%", height: "100%" }} />
-        </div>
-        <div>
-            <img src="https://images.unsplash.com/photo-1545862434-853c6375b9f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="" style={{ width: "100%", height: "100%" }} />
         </div>
     </div>
   )

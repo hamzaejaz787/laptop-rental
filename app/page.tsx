@@ -6,9 +6,8 @@ import Event_page from "./event_rental/page";
 export default function Home() {
   return (
     <>
-    <Event_page/>
-    {/* <Gallery/> */}
-      {/* <Dell_E5440/> */}
+    <Gallery/>
+      <Dell_E5440/>
     </>
   );
 }

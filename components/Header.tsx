@@ -4,6 +4,8 @@ import { Navbar } from "@/components/navbar";
 import { Button } from "@/components/ui/button";
 import { IoSearchSharp } from "react-icons/io5";
 import { MdAddShoppingCart, MdOutlineLocationOn } from "react-icons/md";
+import { HiBars3BottomRight } from "react-icons/hi2";
+
 
 function Header() {
   return (
@@ -37,6 +39,7 @@ function Header() {
           <MdOutlineLocationOn size={20} />
           <MdAddShoppingCart size={20} />
           <IoSearchSharp size={20} />
+          <HiBars3BottomRight  size={25} className="md:hidden"/>
         </div>
       </div>
       {/* </div> */}
