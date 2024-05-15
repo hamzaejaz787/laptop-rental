@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useState } from "react";
 import { SiTicktick } from "react-icons/si";
+import Image from "next/image";
 
 function Gallery() {
     const [activeButton, setActiveButton] = useState(0);
@@ -13,22 +14,23 @@ function Gallery() {
     };
 
     const ContentImages = [
-        <Event_image />,
+        <Event_image key="event_image" />,
         "lorem",
         "lorem",
         "lorem"
-    ]
+    ];
+    
     return (
         <div className="pb-10">
             <div className="relative">
 
-                <img src="/gallery_bg.png" alt="" className="w-full object-cover pt-16 md:h-[400px] lg:h-[500px]" />
+                <Image src="/gallery_bg.png" alt="" height={1000} width={1000} className="w-full object-cover pt-16 md:h-[400px] lg:h-[500px]" />
 
                 {/* Content */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
                     <p className="font-[800] text-white text-[40px] font-Barlow md:text-3xl lg:text-5xl">GALLERY</p>
                     <div className="flex text-white items-center font-Poppins text-[14px] line-clamp-2 text-center pr-72 pl-72 ">
-                        We at Laptop Rentals understand whether you're hosting whether you're hosting We at Laptop Rentals understand at Laptop Rentals understand
+                        We at Laptop Rentals understand whether you&apos;re hosting whether you&apos;re hosting We at Laptop Rentals understand at Laptop Rentals understand
                     </div>
                 </div>
             </div>

@@ -13,7 +13,7 @@ function Footer() {
       {/* Image with absolute positioning */}
       <div className=''>
         <div className='absolute'>
-        <img src='/Subtract.png' alt='' />
+        <Image src='/Subtract.png' alt='' width={5000} height={1000} className='w-full h-full'/>
       </div>
       
       {/* Content */}

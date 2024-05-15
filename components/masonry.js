@@ -40,46 +40,46 @@
 // export default MasonryGrid;
 
 
-
+import Image from "next/image"
 
 export default function MasonryGrid(){
   return(
     <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gridAutoRows: "200px", gridGap: "5px", gridAutoFlow: "dense" }}>
         <div style={{ gridColumn: "span 2"}}>
-            <img src="/img1.png" alt="" style={{ width: "100%", height: "100%" }} />
+            <Image height={1000} width={1000} src="/img1.png" alt="" style={{ width: "100%", height: "100%" }} />
         </div>
         <div >
-            <img src="/img8.png" alt="" style={{ width: "100%", height: "100%" }} />
+            <Image height={1000} width={1000} src="/img8.png" alt="" style={{ width: "100%", height: "100%" }} />
         </div>
         <div>
-            <img src="/img4.png" alt="" style={{ width: "100%", height: "100%" }} />
+            <Image height={1000} width={1000} src="/img4.png" alt="" style={{ width: "100%", height: "100%" }} />
         </div>
         <div >
-            <img src="/img7.png" alt="" style={{ width: "100%", height: "100%" }} />
+            <Image height={1000} width={1000} src="/img7.png" alt="" style={{ width: "100%", height: "100%" }} />
         </div>
         <div style={{ gridRow: "span 2" }}>
-            <img src="/img6.png" alt="" style={{ width: "100%", height: "100%" }} />
+            <Image height={1000} width={1000} src="/img6.png" alt="" style={{ width: "100%", height: "100%" }} />
         </div>
         <div>
-            <img src="/img5.png" alt="" style={{ width: "100%", height: "100%" }} />
+            <Image height={1000} width={1000} src="/img5.png" alt="" style={{ width: "100%", height: "100%" }} />
         </div>
         <div style={{ gridColumn: "span 2" }}>
-            <img src="/img2.png" alt="" style={{ width: "100%", height: "100%" }} />
+            <Image height={1000} width={1000} src="/img2.png" alt="" style={{ width: "100%", height: "100%" }} />
         </div>
         <div style={{ gridColumn: "span 2", gridRow: "span 2" }}>
-            <img src="/img3.png" alt="" style={{ width: "100%", height: "100%" }} />
+            <Image height={1000} width={1000} src="/img3.png" alt="" style={{ width: "100%", height: "100%" }} />
         </div>
         <div>
-            <img src="/img9.png" alt="" style={{ width: "100%", height: "100%" }} />
+            <Image src="/img9.png" alt="" height={1000} width={1000} style={{ width: "100%", height: "100%" }} />
         </div>
         <div >
-            <img src="https://images.unsplash.com/photo-1546260863-51e27ff43c68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="" style={{ width: "100%", height: "100%" }} />
+            <Image height={1000} width={1000} src="/img9.png" alt="" style={{ width: "100%", height: "100%" }} />
         </div>
         <div>
-            <img src="https://images.unsplash.com/photo-1546046142-8f8fae7de558?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="" style={{ width: "100%", height: "100%" }} />
+            <Image src="/img9.png" alt="" height={1000} width={1000} style={{ width: "100%", height: "100%" }} />
         </div>
         <div>
-            <img src="https://images.unsplash.com/photo-1545844895-1bf88a0213a8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="" style={{ width: "100%", height: "100%" }} />
+            <Image src="/img9.png" alt="" height={1000} width={1000} style={{ width: "100%", height: "100%" }} />
         </div>
     </div>
   )
