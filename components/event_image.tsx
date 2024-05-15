@@ -1,4 +1,6 @@
-export default function Event_image() {
+import Image from 'next/image';
+
+export default function EventImage() {
     const images = [
         { src: "/event_img7.png" },
         { src: "/event_img9.png" },
@@ -15,15 +17,20 @@ export default function Event_image() {
         <div className="flex flex-wrap justify-center gap-4">
             {images.map((image, index) => (
                 <div key={index} className="relative w-60 h-60">
-                    <img
+                    <Image
                         src="/imageframe.png"
                         alt="frame"
-                        className="absolute inset-0 w-full h-full object-cover rounded-lg"
+                        layout="fill"
+                        objectFit="cover"
+                        className="absolute inset-0 rounded-lg"
                     />
-                    <img
+                    <Image
+                        key={index} // Adding key prop here
                         src={image.src}
                         alt={`Event Image ${index + 1}`}
-                        className="relative w-full h-full object-cover rounded-lg"
+                        layout="fill"
+                        objectFit="cover"
+                        className="relative rounded-lg"
                     />
                 </div>
             ))}

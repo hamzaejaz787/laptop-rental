@@ -45,7 +45,7 @@ function Dell_E5440() {
     <>
       <div className="relative">
         
-        <img src="/dell_bg.png" alt="" className="w-full object-cover pt-16 md:h-[400px] lg:h-[500px]"/>
+        <Image src="/dell_bg.png" alt="" width={1000} height= {1000} className="w-full object-cover pt-16 md:h-[400px] lg:h-[500px]"/>
 
         {/* Content */}
         <div className="absolute inset-0 flex flex-col items-center justify-center">
