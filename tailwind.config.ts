@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-import { fontFamily } from "tailwindcss/defaultTheme";
-import type { Config } from "tailwindcss"
-=======
 import type { Config } from "tailwindcss";
->>>>>>> 8cb7803408663c9055e95e15be1ebf0abcdf9332
+const { fontFamily } = require("tailwindcss/defaultTheme");
 
 const config = {
   darkMode: ["class"],
@@ -25,6 +21,10 @@ const config = {
     extend: {
       fontFamily: {
         sans: ["var(--font-poppins)"],
+        Exo: ["var(--font-Exo)"],
+        Poppins: ["var(--font-Poppins)"],
+        Barlow: ["var(--font-Barlow)"],
+        Inter: ["var(--font-Inter)"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -80,12 +80,6 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
-      fontFamily: {
-        Exo : ["var(--font-Exo)"],
-        Poppins: ["var(--font-Poppins)"],
-        Barlow: ["var(--font-Barlow)",],
-        Inter: ["var(--font-Inter)"]
-      }
     },
   },
   plugins: [require("tailwindcss-animate")],
