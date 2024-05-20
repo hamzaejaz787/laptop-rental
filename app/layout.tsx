@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/app/Components/Header";
-import Footer from "@/app/Components/Footer";
+import Header from "@/app/components/Header";
+import Footer from "@/app/components/Footer";
 import localFont from "@next/font/local";
 
 const poppins = localFont({
