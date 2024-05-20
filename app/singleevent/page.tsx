@@ -2,6 +2,7 @@ import Banner from "@/components/Banner";
 import ImageInfo from "@/components/ImageInfo";
 import eventrental1 from "@/public/eventrental1.jpg";
 import EventsCarousel from "./components/EventsCarousel";
+import FAQ from "./components/FAQ";
 const page = () => {
   return (
     <div>
@@ -23,6 +24,16 @@ const page = () => {
       <EventsCarousel
         title="We don&lsquo;t need to take into account"
         text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porttitor dictum lectus at ultricies. elit. In porttitor "
+      />
+      <Banner
+        title="EVENT RENTALS"
+        text="We at Laptop Rentals understand whether you're hosting a conference, trade show, or business event, having access"
+        btn="Get a Quote"
+      />
+      <FAQ
+        title="Frequently Asked Question"
+        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+sed doeiusmod tempor incididunt ut labore et dolore."
       />
     </div>
   );

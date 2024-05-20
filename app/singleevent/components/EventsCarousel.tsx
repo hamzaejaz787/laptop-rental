@@ -154,7 +154,7 @@ const EventsCarousel = ({ title, text }: any) => {
             {products.map((product) => (
               <CarouselItem
                 key={product.index}
-                className="basis-1/2 md:basis-1/3 lg:basis-1/4 p-0"
+                className="md:basis-1/2 lg:basis-1/3 2xl:basis-1/4 p-0"
               >
                 <div className="p-1">
                   <Card className="p-8">
@@ -172,7 +172,7 @@ const EventsCarousel = ({ title, text }: any) => {
                       <p className="text-sm font-sans mb-4">
                         {product.details}
                       </p>
-                      <div className="flex w-full justify-center items-center gap-5">
+                      <div className="flex flex-wrap w-full justify-center items-center gap-5">
                         {product.icons.map((icon) => (
                           <div
                             key={icon.index}
