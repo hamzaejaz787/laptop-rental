@@ -4,7 +4,6 @@ import * as React from "react"
 import Link from "next/link"
 
 import { cn } from "@/lib/utils"
-// import { Icons } from "@/components/icons"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -55,7 +54,8 @@ const components: { title: string; href: string; description: string }[] = [
 
 export function Navbar() {
   return (
-    <NavigationMenu>
+    <div className="hidden md:flex">
+      <NavigationMenu>
       <NavigationMenuList>
       <NavigationMenuItem>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
@@ -134,6 +134,8 @@ export function Navbar() {
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
+    </div>
+    
   )
 }
 

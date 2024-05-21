@@ -1,47 +1,41 @@
+"use client"
 import React from "react";
 import Image from "next/image";
-import { Navbar } from "@/components/navbar";
-import { Button } from "@/components/ui/button";
 import { IoSearchSharp } from "react-icons/io5";
-import { MdAddShoppingCart, MdOutlineLocationOn } from "react-icons/md";
+import { MdOutlineLocationOn, MdAddShoppingCart } from "react-icons/md";
+import { Navbar } from "./navbar";
+import { Button } from "./ui/button";
+import { MobileMenu } from "./mobileMenu";
 
 function Header() {
   return (
-    <div className="fixed left-0 right-0 top-0 z-50">
-      {/* <div className="relative"> */}
-      <div className="w-full lg:w-full h-[50px] bg-[#D61837]"></div>
-      <div className="absolute">
+    <div className="fixed left-0 right-0 top-0 z-50 ">
+      <div className=" w-full md:h-10 h-5 bg-[#D61837]"></div>
+      <div className="flex relative justify-between items-center md:px-10 md:py-2 px-2 py-1">
+        {" "}
+        <Image src="/Vector.png" alt="" fill={true}  className="-z-10" />
+        
         <Image
-          src="/Vector.png"
-          alt=""
-          height={250}
-          width={5000}
-          className=""
+          src="/laptop_rental_logo.png"
+          alt="laptop Logo"
+          width={50}
+          height={50}
+          className="md:h-11 md:w-28 "
+          
         />
-      </div>
-      <div className="flex relative justify-between items-center pl-10 pr-10 pt-3">
-        <div>
-          <Image
-            src="/laptop_rental_logo.png"
-            alt="laptop Logo"
-            height={40.53}
-            width={100}
-            className="flex items-center"
-          />
-        </div>
-        <div className="flex pl-10 pr-10">
+        <div className="flex md:pl-10 md:pr-10">
           <Navbar />
+          
         </div>
-        <div className="flex items-center gap-2 pr-2">
-          <Button className="font-Poppins text-[12px] border border-none bg-[#D61837]">
-            Get a quote
-          </Button>
-          <MdOutlineLocationOn size={20} />
-          <MdAddShoppingCart size={20} />
-          <IoSearchSharp size={20} />
+        <div className="flex items-center md:gap-2 pr-2 gap-1">
+          <Button className='font-Poppins h-4 md:h-8 w-16 md:w-24 md:text-[14px] text-[9px] border border-none bg-[#D61837]'>Get a quote</Button>
+          <MdOutlineLocationOn size={15} className="md:size-6"/>
+          <MdAddShoppingCart size={15} className="md:size-6"/>
+          <IoSearchSharp size={15} className="md:size-6"/>
+          <MobileMenu/>
+                    {/* <HiBars3BottomRight  size={25} className="md:hidden"/> */}
         </div>
       </div>
-      {/* </div> */}
     </div>
   );
 }

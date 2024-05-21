@@ -1,51 +1,138 @@
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+"use client"
+import React, { useState } from "react";
+import Link from 'next/link'
+import Image from 'next/image'
 import {
   Sheet,
-  SheetClose,
   SheetContent,
-  SheetDescription,
   SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet"
-import { HiBars3BottomRight } from "react-icons/hi2"
+} from "@/components/ui/sheet";
+import { HiBars3BottomRight } from "react-icons/hi2";
+import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, NavigationMenuTrigger, NavigationMenuContent } from "@radix-ui/react-navigation-menu";
+import { navigationMenuTriggerStyle } from "./ui/navigation-menu";
+import { cn } from "@/lib/utils";
 
-export function SheetDemo() {
+export function MobileMenu() {
+  const [open, setOpen] = useState(false);
+
+  const handleClose = () => setOpen(false);
+
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-      <HiBars3BottomRight/>
+        <HiBars3BottomRight className="md:hidden md:size-16" size={15} />
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent side={"left"} className="pt-10 bg-gradient-to-t from-red-300 w-48 flex-col justify-center">
         <SheetHeader>
-          <SheetTitle>Edit profile</SheetTitle>
-          <SheetDescription>
-            Make changes to your profile here. Click save when you&apos;re done.
-          </SheetDescription>
-        </SheetHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Name
-            </Label>
-            <Input id="name" value="Pedro Duarte" className="col-span-3" />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Username
-            </Label>
-            <Input id="username" value="@peduarte" className="col-span-3" />
-          </div>
-        </div>
-        <SheetFooter>
-          <SheetClose asChild>
-            <Button type="submit">Save changes</Button>
-          </SheetClose>
-        </SheetFooter>
+          <SheetTitle  className="pb-4 flex justify-center">
+          <Image
+          src="/laptop_rental_logo.png"
+          alt="laptop Logo"
+          width={150}
+          height={150}
+          
+        />
+          </SheetTitle>
+                </SheetHeader>
+                <NavigationMenu>
+      <NavigationMenuList className="flex-col justify-center">
+      <NavigationMenuItem>
+            <NavigationMenuLink className={`${navigationMenuTriggerStyle()} ` }>
+              <Link href={"/homepage"} onClick={handleClose}> Home</Link>
+            </NavigationMenuLink>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger className="font-medium text-sm font-Exo text-[12px] pl-3">Event Type</NavigationMenuTrigger>
+          <NavigationMenuContent >
+            <ul className="grid pl-5 font-medium font-Exo text-sm">
+              
+              <Link href="/eventrental" className="text-[10px] " onClick={handleClose}>
+              Event Rental
+              </Link>
+              <Link href="/singleevent" className=" text-[10px] " onClick={handleClose}>
+              Coporate Event
+              </Link>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger className="font-medium text-sm font-Exo text-[12px] pl-3">Technology Rental</NavigationMenuTrigger>
+          <NavigationMenuContent >
+            <ul className="grid pl-5 font-medium font-Exo text-sm">
+              
+              <Link href="/" className="text-[10px] " onClick={handleClose}>
+              Technology Rental
+              </Link>
+              <Link href="/singleevent" className=" text-[10px] " onClick={handleClose}>
+              Laptop Rental
+              <ul className="grid pl-7 font-medium font-Exo text-sm">
+              <Link href="/singleevent" className=" text-[10px] " onClick={handleClose}>
+              Dell Laptop Rental
+              </Link>
+              </ul>
+              </Link>
+              <Link href="/singleevent" className=" text-[10px] " onClick={handleClose}>
+              Laptop Rental
+              </Link>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()} onClick={handleClose}>
+              News Events
+            </NavigationMenuLink>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()} onClick={handleClose}>
+              Gallery
+            </NavigationMenuLink>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()} onClick={handleClose}>
+              About Us
+            </NavigationMenuLink>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()} onClick={handleClose}>
+              Contact Us
+            </NavigationMenuLink>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
       </SheetContent>
+      <SheetFooter>
+        <div></div>
+      <div className=" w-full md:h-10 h-5 bg-[#D61837]"></div>
+      </SheetFooter>
     </Sheet>
-  )
+  );
 }
+
+const ListItem = React.forwardRef<
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a">
+>(({ className, title, children, ...props }, ref) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          className={cn(
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            className
+          )}
+          {...props}
+        >
+          <div className="text-sm font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  )
+})
+ListItem.displayName = "ListItem"

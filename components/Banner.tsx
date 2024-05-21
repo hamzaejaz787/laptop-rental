@@ -7,11 +7,11 @@ const Banner = ({ btn, title, text }: any) => {
       <Image
         src={banner_bg}
         alt="aboutus_banner"
-        className="w-full h-96 relative"
+        className="w-full md:h-96  relative"
       />
       <div className="pb-1 absolute left-0 w-full flex flex-col justify-center items-center">
-        <h2 className="text-4xl text-white font-bold mb-4">{title}</h2>
-        <p className="text-sm text-white font-sans text-center mb-6 w-[60%]">
+        <h2 className="md:text-4xl text-[14px] text-bold text-white font-bold md:mb-4 uppercase">{title}</h2>
+        <p className="md:text-sm text-white font-sans text-[5px] text-center w-[60%]">
           {text}
         </p>
         {btn && (
