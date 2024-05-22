@@ -146,9 +146,9 @@ function Dell_E5440() {
       </div>
       <p className="text-[40px] font-bold text-center font-Barlow mt-10 mb-5">Related Products</p>
       <div className="flex gap-4 items-center justify-center">
-        <Laptop_card clicked={clickedCards[0]} onClick={() => handleCardClick(0)}/>
-        <Laptop_card clicked={clickedCards[1]} onClick={() => handleCardClick(1)}/>
-        <Laptop_card clicked={clickedCards[2]} onClick={() => handleCardClick(2)}/>
+        <Laptop_card clicked={clickedCards[0]} onClick={() => handleCardClick(0)} src={"/ipad.png"} text={"iPad WiFi 10.5 Cellular"} description={"Upgrade your technological experience with advance features"} ram={"16GB"} storage={"512GB"} display={"10.5"} />
+        <Laptop_card clicked={clickedCards[1]} onClick={() => handleCardClick(1)} src={"/ipad.png"} text={"iPad WiFi 10.5 Cellular"} description={"Upgrade your technological experience with advance features"} ram={"16GB"} storage={"512GB"} display={"10.5"}/>
+        <Laptop_card clicked={clickedCards[2]} onClick={() => handleCardClick(2)} src={"/ipad.png"} text={"iPad WiFi 10.5 Cellular"} description={"Upgrade your technological experience with advance features"} ram={"16GB"} storage={"512GB"} display={"10.5"}/>
       </div>
       <div className="">
         <p className="text-[40px] font-bold text-center mt-10">
