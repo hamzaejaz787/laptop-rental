@@ -3,6 +3,7 @@ import Banner from "@/components/Banner";
 import Laptop_card from "@/components/Laptop_card";
 import Frame from "@/components/frame";
 import Hp_servicesolution from "@/components/hp_servicesolution";
+import Sidebar from "@/components/sidebar";
 import React, { useState } from "react";
 
 function SingleTechRental() {
@@ -25,7 +26,8 @@ function SingleTechRental() {
       />
       <Frame color="text-black" />
       <div className="grid grid-cols-[30%,70%] md:pt-5 pt-3 md:px-10 px-3 md:gap-5 gap-2">
-        <div className="bg-black">
+        <div >
+          <Sidebar/>
         </div>
         <div className="flex flex-wrap gap-3">
           {clickedCards.map((clicked, index) => (
