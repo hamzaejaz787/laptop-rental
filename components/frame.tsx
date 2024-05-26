@@ -14,8 +14,7 @@ function Frame({ color }:any) {
   ];
 
   return (
-    <div className='flex items-center justify-center'>
-      <div className="flex gap-3 items-center justify-center object-center">
+      <div className="flex  justify-between items-center h-full">
         {items.map((item, index) => (
           <div key={index} className="flex-col justify-center items-center object-center">
             <div>
@@ -38,7 +37,7 @@ function Frame({ color }:any) {
             </div>
           </div>
         ))}
-      </div>
+      
      </div>
   );
 }

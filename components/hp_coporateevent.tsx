@@ -34,16 +34,16 @@ function HpCorporateEvent() {
   };
 
   return (
-    <div className='grid grid-cols-[40%,60%] md:pl-20 md:pr-20 pl-5 pr-5'>
+    <div className='grid md:grid-cols-[40%,60%] grid-rows md:pl-20 md:pr-20 pl-5 pr-5'>
       <div>
-        <p className='font-Barlow md:font-[800] font-bold md:text-[34px] text-[8px] text-start md:pt-16 pt-3'>Browse for Our Events to Rent The Products.</p>
-        <p className='text-gray md:text-[15px] text-[4px] font-Poppins text-start  md:pb-5 pb-2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  adipiscing Lorem ipsum dolor sit amet, consectetur adipiscing elit, </p>
-        <div className='flex md:gap-3 gap-1'>
+        <p className='font-Barlow md:font-[800] font-bold md:text-[34px] text-[14px] md:text-start text-center md:pt-16 pt-3'>Browse for Our Events to Rent The Products.</p>
+        <p className='text-gray md:text-[15px] text-[8px] font-Poppins md:text-start text-center md:pb-5 pb-2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  adipiscing Lorem ipsum dolor sit amet, consectetur adipiscing elit, </p>
+        <div className='flex md:gap-3 gap-1 md:justify-start justify-center '>
           <FaCircleChevronLeft size={12} className='md:h-10 md:w-10' color={iconColor.left} onClick={() => handleIconClick('left')} />
           <FaCircleChevronRight size={12} className='md:h-10 md:w-10' color={iconColor.right} onClick={() => handleIconClick('right')} />
         </div>
       </div>
-      <div className='flex gap-3'>
+      <div className='flex md:gap-3 gap-12 md:flex-row flex-col md:mt-0 mt-3 mb-5  justify-center items-center '>
         {images.slice(currentIndex,currentIndex + 2).map((img, index) => (
           <Hp_imgframe key={index} src={img.src} alt={img.alt} text={img.text} />
         ))}

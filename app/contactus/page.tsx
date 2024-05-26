@@ -10,12 +10,11 @@ const Page = () => {
         className="flex flex-col justify-center items-center bg-no-repeat bg-center w-full h-96"
       >
         <div className="bg-cover object-cover flex flex-col justify-center items-center w-[60%] h-full">
-          <h1 className="text-4xl text-white font-bold">CONTACT US</h1>
-          <p className="text-base text-white text-center">
+          <h1 className="md:text-4xl text-[16px] text-bold text-white font-bold uppercase">CONTACT US</h1>
+          <p className="md:text-base text-white font-sans text-[8px] text-center w-[60%]">
             We at Laptop Rentals understand whether you are hosting whether
             you are hosting We at Laptop Rentals understand at Laptop Rentals
-            understand
-            We at Laptop Rentals understand whether you&apos;re hosting whether
+            understand We at Laptop Rentals understand whether you&apos;re hosting whether
             you&apos;re hosting We at Laptop Rentals understand at Laptop
             Rentals understand
           </p>

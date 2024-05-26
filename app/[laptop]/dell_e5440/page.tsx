@@ -15,9 +15,10 @@ import Laptop_card from "@/components/Laptop_card";
 import { Input } from "@/components/ui/input";
 import { IoMdSearch } from "react-icons/io";
 import { AccordionFAQ } from "@/components/Accordion";
+import Banner from "@/components/Banner";
 
 function Dell_E5440() {
-  const [clickedCards, setClickedCards] = useState([false, false, false]); // Track clicked state of each card
+  const [clickedCards, setClickedCards] = useState([false, false, false, false]); // Track clicked state of each card
 
   const handleCardClick = (index: any) => {
     const updatedClickedCards = clickedCards.map((clicked, i) =>
@@ -43,15 +44,19 @@ function Dell_E5440() {
   ];
   return (
     <>
-      <div className="relative">
+    <Banner
+    title= "DELL ES5440 LATITUDE"
+    text= "Home > Laptop. Dell Laptop rental >Product Page Name"
+    />
+      {/* <div className="relative">
         
         <Image src="/dell_bg.png" alt="" width={1000} height= {1000} className="w-full object-cover pt-16 md:h-[400px] lg:h-[500px]"/>
 
         {/* Content */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center">
+        {/* <div className="absolute inset-0 flex flex-col items-center justify-center">
           <p className="font-[800] text-white text-[40px] font-Barlow md:text-3xl lg:text-5xl">DELL E5440 LATTITUDE</p>
           <div className="flex text-white items-center font-Inter text-[14px] md:text-base lg:text-lg">
-            <p>Home</p>
+            <p>Homee</p>
             <MdNavigateNext />
             <p>Laptop</p>
             <MdNavigateNext />
@@ -59,15 +64,15 @@ function Dell_E5440() {
             <MdNavigateNext />
             <p>Product Page Name</p>
           </div>
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
 
       {/* Photo Frame and Laptop */}
-      <div className="flex pt-20 pl-20 ">
+      <div className="flex pl-10  items-center md:flex-row flex-col pt-5  gap-10 md:pt-10">
         <div>
-          <Image src="/imageframe.png" alt="" width={1280} height={1280} />
+          <Image src="/imageframe.png" alt="" width={1280} height={1280}  className="w-full h-[20%] md:h-[50%]"/>
         </div>
-        <div className="flex flex-col pl-10 pt-5 pr-20 gap-2">
+        <div className="flex flex-col  pt-5 md:pt-20 gap-2 md:pl-10">
           <p className="font-[800] font-Barlow text-[34px]">DELL E5440 LATITUDE</p>
           <p className="line-clamp-2 text-gray text-[15px] font-Poppins font-#595959">
             We at Laptop Rentals understand whether you are hosting a
@@ -128,7 +133,7 @@ function Dell_E5440() {
         </div>
       </div>
       <div className="flex flex-col gap-4 pt-10">
-        <div className="flex font-[600] text-[16px] justify-center font-Barlow underline underline-offset-4 ">
+        <div className="flex font-[600] text-[16px] justify-center font-Barlow underline underline-offset-4 gap-5 ">
           {["Description", "Product Guide", "Reviews"].map((label, index) => (
             <Button
               key={index}
@@ -145,16 +150,18 @@ function Dell_E5440() {
         </div>
       </div>
       <p className="text-[40px] font-bold text-center font-Barlow mt-10 mb-5">Related Products</p>
-      <div className="flex gap-4 items-center justify-center">
+      <div className="flex md:flex-row gap-4 flex-wrap items-center justify-center">
         <Laptop_card clicked={clickedCards[0]} onClick={() => handleCardClick(0)} src={"/ipad.png"} text={"iPad WiFi 10.5 Cellular"} description={"Upgrade your technological experience with advance features"} ram={"16GB"} storage={"512GB"} display={"10.5"} />
         <Laptop_card clicked={clickedCards[1]} onClick={() => handleCardClick(1)} src={"/ipad.png"} text={"iPad WiFi 10.5 Cellular"} description={"Upgrade your technological experience with advance features"} ram={"16GB"} storage={"512GB"} display={"10.5"}/>
         <Laptop_card clicked={clickedCards[2]} onClick={() => handleCardClick(2)} src={"/ipad.png"} text={"iPad WiFi 10.5 Cellular"} description={"Upgrade your technological experience with advance features"} ram={"16GB"} storage={"512GB"} display={"10.5"}/>
+        <Laptop_card clicked={clickedCards[3]} onClick={() => handleCardClick(3)} src={"/ipad.png"} text={"iPad WiFi 10.5 Cellular"} description={"Upgrade your technological experience with advance features"} ram={"16GB"} storage={"512GB"} display={"10.5"}/>
+
       </div>
       <div className="">
         <p className="text-[40px] font-bold text-center mt-10">
           Frequently Asked Questions
         </p>
-        <p className="text-[14px] line-clamp-2 text-center pr-96 pl-96">
+        <p className="text-[14px] line-clamp-3 text-center md:pr-96 md:pl-96">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
           Necessitatibus accusantium error eius amet quaerat nostrum ducimus
           voluptas, eum deserunt? Ab facilis animi doloribus nulla molestias
@@ -174,7 +181,7 @@ function Dell_E5440() {
           </form>
         </div>
         <div className="flex flex-col gap-4 pt-10">
-          <div className="flex font-semibold text-[16px] justify-center">
+          <div className="flex font-[600] text-[16px] justify-center font-Barlow underline underline-offset-4 gap-5">
             {["General", "Trust and Safety", "Services"].map((label, index) => (
               <Button
                 key={index}

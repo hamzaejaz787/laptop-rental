@@ -2,7 +2,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Button } from "@/components/ui/button";
+import Button from "@/components/button";
 import {
   Form,
   FormControl,
@@ -115,9 +115,8 @@ export function ContactForm() {
                 )}
               />
             </div>
-            <Button type="submit" className="bg-[#D61837]">
-              Contact Us
-            </Button>
+            <Button link={"/"} txt="Contact Us"/>
+            
           </form>
         </Form>
       </div>

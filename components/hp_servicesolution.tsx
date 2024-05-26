@@ -4,16 +4,16 @@ import Image from 'next/image'
 function Hp_servicesolution() {
   return (
     <div className='flex flex-col md:pl-20 pl-3 md:pr-20 pr-3 md:pt-10 pt-5 md:pb-10 pb-5'>
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-5 justify-center'>
+      <div className='grid grid-cols-2 md:grid-cols-2 gap-5 justify-center'>
         <div className='flex flex-col'>
           <div className='md:w-48 w-32'>
           <p className='font-Barlow font-semibold text-[10px] md:text-[16px] uppercase text-[#D61837]'style={{ borderBottom: '2px dashed #D61837' }}>services we provide</p>
           </div>
-          <p className='font-Barlow font-bold text-[8px] md:text-[28px]'>Event Services Solution</p>
+          <p className='font-Barlow font-bold text-[20px] md:text-[28px]'>Event Services Solution</p>
         </div>
         <div className='flex gap-3'>
-          <div className='bg-[#D61837] w-1 h-5 md:w-3 md:h-[70px]'></div>
-          <p className='font-Poppins font-normal text-[5px] md:text-[12px]'>We at Laptop Rentals understand whether you&apos;re hosting a conference, show, or business event, having access to reliable and high-quality technology can make all the difference. We at Laptop Rentals understand whether technology can make all the difference.</p>
+          <div className='bg-[#D61837] w-1 h-full md:w-3 md:h-[70px]'></div>
+          <p className='font-Poppins font-normal text-[5px] md:text-[12px] align-middle'>We at Laptop Rentals understand whether you&apos;re hosting a conference, show, or business event, having access to reliable and high-quality technology can make all the difference. We at Laptop Rentals understand whether technology can make all the difference.</p>
         </div>
       </div>
       <div className='flex-col relative mt-5'>

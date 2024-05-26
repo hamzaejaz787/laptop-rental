@@ -26,7 +26,7 @@ function Footer() {
         <div className="text-white  text-[9px] md:text-[28px] md:text-left text-start font-Poppins font-[500px]">
           <p >Need Any Outdoor Event WiFi Rental Services?</p>
         </div>
-        <Button className='w-24 md:w-40 h-4  md:h-12 md:mb-2 md-1 font-Poppins border border-none bg-[#D61837] text-[10px] md:text-[18px]'>Request a quote</Button>
+        <Button className='w-24 md:w-40 h-4  md:h-12 md:mb-2 mb-1 mr-2  font-Poppins border rounded-sm border-none bg-[#D61837] text-[10px] md:text-[18px]'><Link href={"/form"}>Request a quote</Link></Button>
       </div>
 
       </div>
@@ -63,16 +63,16 @@ function Footer() {
             <h1 className='pb-1 font-bold md:text-[16px] text-[8px] text-white  font-Barlow'>Contact Us</h1>
             <div className='flex gap-2'>
             <IoIosCall size={20} color='white'/>
-            <p className='font-normal md:text-[13px] text-[6px] text-white font-Poppins'>(219) 900-5700</p>
+            <Link className='font-normal md:text-[13px] text-[6px] text-white font-Poppins' href={"/contactus"}>(219) 900-5700</Link>
             </div>
             <div className='flex gap-2 items-center'>
             <MdEmail size={20} color='white'/>
-            <p className='font-normal md:text-[13px] text-[6px] text-white font-Poppins'>laptop@gmail.com</p>
+            <Link className='font-normal md:text-[13px] text-[6px] text-white font-Poppins' href={"/contactus"}>laptop@gmail.com</Link>
             </div>
             <div className='flex gap-2 items-center'>
             <MdOutlineLocationOn size={25} color='white'/>
             <div>
-            <p className='font-normal md:text-[13px] text-[6px] text-white font-Poppins md:line-clamp-2 line-clamp-2 pr-2 md:pr-0'>2508 Sydney -------,TX 78746 Australia</p>
+            <Link className='font-normal md:text-[13px] text-[6px] text-white font-Poppins md:line-clamp-2 line-clamp-2 pr-2 md:pr-0' href={"/contactus"}>2508 Sydney -------,TX 78746 Australia</Link>
             </div>
             
             </div>
@@ -80,12 +80,12 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="md:pl-10 md:pr-10 pl-5 pr-5 pt-7">
+      <div className="md:pl-10 md:pr-10 pl-5 pr-5 pt-3">
       <Separator orientation="horizontal"/></div>
       
-      <div className='justify-between md:pl-10 pl-5 md:pt-100 text-white flex'>
+      <div className='justify-between md:pl-10 pl-5 md:pt-100 items-center text-white flex'>
         <div className="font-normal md:text-[13px] text-[5px] text-white font-Poppins">Copyright © 2024 Laptop Rental. All Rights Reserved.</div>
-        <div className="flex md:gap-5  md:pr-10 pr-5">
+        <div className="flex md:gap-5  md:pr-10 pr-5 items-center">
           <p className='font-normal md:text-[13px] text-[5px] text-white font-Poppins'>Terms & Conditions  | Privacy Policy | Disclaimer</p>
           <BiSolidUpArrowCircle size='25' onClick={scrollToTop}/>
         </div>

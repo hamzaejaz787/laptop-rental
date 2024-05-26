@@ -8,11 +8,12 @@ import Hp_events from "@/components/hp_events";
 import Hp_event2 from "@/components/hp_events2";
 import Hp_servicesolution from "@/components/hp_servicesolution";
 import Frame from "@/components/frame";
+import Link from "next/link";
 
 
 function HomePage() {
   return (
-    <div className="md:pb-10 pb-3">
+    <div className="md:pb-10 pb-3 ">
       <div className="relative">
         <Image
           src="/homepage_bg.png"
@@ -24,8 +25,8 @@ function HomePage() {
 
         {/* Content */}
 
-        <div className="absolute inset-0 flex-col md:items-start items-center justify-center md:pl-20 md:pt-40  md:pb-10">
-          <div className="pt-16 md:pt-0 items-center flex-col justify-center ">
+        <div className="absolute inset-0 flex-col flex md:items-start items-center justify-center md:justify-start md:pl-20 md:pt-40  md:pb-10">
+          <div className=" items-center flex-col justify-center ">
           <div className="font-Barlow md:text-[30px] text-[9px] text-white text-center md:text-start font-[500px] ">
             W O R L D &apos; S &nbsp; B I G G E S T
           </div>
@@ -48,7 +49,9 @@ function HomePage() {
           
           <div className="flex justify-center items-center md:justify-start ">
           <Button className="w-[70px] md:w-40 h-5  md:h-12 font-Poppins border border-none bg-[#D61837] text-white text-[9px] md:text-[18px]">
+            <Link href={"/techrental"}>
             Tech Rental
+            </Link>
           </Button>
         </div>
           
@@ -61,7 +64,7 @@ function HomePage() {
             width={5000}
             className="md:h-76 md:w-full"
           />
-          <div className="md:px-28 pt-3 px-[20px] flex items-center justify-center absolute">
+          <div className="md:px-28  px-4 absolute md:justify-center md:items-center w-full  h-full">
             
           <Frame color="text-white"/>
           </div>

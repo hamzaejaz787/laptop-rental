@@ -1,5 +1,3 @@
-"use client"
-
 import * as React from "react"
 import Link from "next/link"
 
@@ -14,7 +12,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 
-const components: { title: string; href: string }[] = [
+const components: { title: string; href: string; subcomponents?: { title: string; href: string }[] }[] = [
   {
     title: "Technological Rental",
     href: "/",
@@ -24,20 +22,28 @@ const components: { title: string; href: string }[] = [
     href: "/singletechrental",
   },
   {
-    title: "Progress",
-    href: "/docs/primitives/progress",
+    title: "Tablet Rental",
+    href: "/",
   },
   {
-    title: "Scroll-area",
-    href: "/docs/primitives/scroll-area",
+    title: "Mobile Rental",
+    href: "/",
   },
   {
-    title: "Tabs",
-    href: "/docs/primitives/tabs",
+    title: "AV Rental",
+    href: "/",
   },
   {
-    title: "Tooltip",
-    href: "/docs/primitives/tooltip",
+    title: "Screen Rental",
+    href: "/",
+  },
+  {
+    title: "Event WiFi Rental",
+    href: "/",
+  },
+  {
+    title: "Event Services",
+    href: "/",
   },
 ]
 
@@ -45,73 +51,74 @@ export function Navbar() {
   return (
     <div className="hidden md:flex">
       <NavigationMenu>
-      <NavigationMenuList>
-      <NavigationMenuItem>
+        <NavigationMenuList>
+          <NavigationMenuItem>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-            <Link href={"/homepage"}> Home</Link>
-              
+              <Link href={"/homepage"}> Home</Link>
             </NavigationMenuLink>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Event Type</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid gap-3 p-6 md:w-[180px] ">
-              <ListItem href="/eventrental" title="Event Rental">
-              </ListItem>
-              <ListItem href="/singleevent" title="Coporate Event">
-              </ListItem>
-              <ListItem href="/docs/primitives/typography" title="Typography">
-              </ListItem>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Technology Rental</NavigationMenuTrigger>
-          <NavigationMenuContent >
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[200px] md:grid-cols-2 lg:w-[600px] ">
-              {components.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
-                >
-                </ListItem>
-              ))}
-            </ul>
-          </NavigationMenuContent>
-          
-        </NavigationMenuItem>
-        <NavigationMenuItem>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Event Type</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="grid gap-3 p-6 md:w-[180px] ">
+                <ListItem href="/eventrental" title="Event Rental" />
+                <ListItem href="/singleevent" title="Coporate Event" />
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Technology Rental</NavigationMenuTrigger>
+            <NavigationMenuContent >
+              <ul className="grid w-[400px] gap-3 p-4 md:w-[200px] md:grid-cols-2 lg:w-[600px] ">
+                {components.map((component) => (
+                  <React.Fragment key={component.title}>
+                    <ListItem
+                      title={component.title}
+                      href={component.href}
+                    />
+                    {component.subcomponents && component.subcomponents.map((subcomponent) => (
+                      <ListItem
+                        key={subcomponent.title}
+                        title={subcomponent.title}
+                        href={subcomponent.href}
+                        isSubcomponent
+                      />
+                    ))}
+                  </React.Fragment>
+                ))}
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              News Events
+              <Link href={"/blogs"}>News Events</Link>
             </NavigationMenuLink>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Gallery
+              <Link href={"/gallery"}>Gallery</Link>
             </NavigationMenuLink>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              About Us
+              <Link href={"/aboutus"}>About Us</Link>
             </NavigationMenuLink>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Contact Us
+              <Link href={"/contactus"}>Contact Us</Link>
             </NavigationMenuLink>
-        </NavigationMenuItem>
-      </NavigationMenuList>
-    </NavigationMenu>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
     </div>
-    
   )
 }
 
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
+  { title: string; href: string; isSubcomponent?: boolean }
+>(({ title, href, isSubcomponent }, ref) => {
   return (
     <li>
       <NavigationMenuLink asChild>
@@ -119,14 +126,11 @@ const ListItem = React.forwardRef<
           ref={ref}
           className={cn(
             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className
+            isSubcomponent && "pl-6", // Add left padding for subcomponents
           )}
-          {...props}
+          href={href}
         >
           <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {children}
-          </p>
         </a>
       </NavigationMenuLink>
     </li>

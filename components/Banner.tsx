@@ -9,9 +9,9 @@ const Banner = ({ btn, title, text }: any) => {
         alt="aboutus_banner"
         className="w-full md:h-96  relative"
       />
-      <div className="pb-1 absolute left-0 w-full flex flex-col justify-center items-center">
-        <h2 className="md:text-4xl text-[14px] text-bold text-white font-bold md:mb-4 uppercase">{title}</h2>
-        <p className="md:text-sm text-white font-sans text-[5px] text-center w-[60%]">
+      <div className="pb-1 absolute left-0 w-full flex flex-col justify-center items-center md:gap-5 gap-2">
+        <h2 className="md:text-4xl text-[16px] text-bold text-white font-bold uppercase">{title}</h2>
+        <p className="md:text-base text-white font-sans text-[8px] text-center w-[60%]">
           {text}
         </p>
         {btn && (

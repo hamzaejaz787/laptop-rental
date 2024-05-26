@@ -5,18 +5,18 @@ import { Button } from './ui/button';
 function Hp_imgframe({ src, alt, text }: any) {
   return (
     <div >
-        <div className='relative mt-3 md:mt-0'>
-      <Image src={src} alt={alt} width={300} height={300} className='md:h-760 md:w-500'/>
-      <div>
-        <Image src={"/hp_img.png"} alt='' width={500} height={500} className="w-[60px] md:w-[250px] md:h-[200px]  h-[50px] absolute bottom-[23px] left-[36px] md:top-32 md:left-[150px] transform -translate-x-1/2 -translate-y-1/2"/>
-        <p className='hidden md:flex text-[#D61837] md:pl-6 md:top-[240px] text-sm left-[8px] bottom-[26px] absolute'>----------------------------------</p>
-        <p className=' md:hidden flex text-[#D61837] text-sm left-[7px] md:pl-6 bottom-[33px]  absolute'>-------</p>
-                <div className='text-start absolute md:top-[270px] md:left-10 bottom-[1px] top-[65px] left-2'>
-          <p className='font-Inter font-semibold md:font-bold md:text-[18px] text-[4px]'>{text}</p>
+        <div className='relative md:h-[300px] md:w-[250px] h-[300px] w-[250px] '>
+      <Image src={src} alt={alt} width={1000} height={1000} className='md:h-[350px] md:w-[300px] h-[350px] w-[300px]'/>
+      <div className='absolute items-center justify-center bottom-[27%] left-[8%]'>
+        <Image src={"/hp_img.png"} alt='' width={500} height={500} className=" md:h-[50%] md:w-[90%] h-[50%] w-[90%]"/>
+        <p className='hidden md:flex text-[#D61837] md:pl-3 text-sm '>----------------------------------</p>
+        <p className=' md:hidden flex text-[#D61837] text-sm  mr-5 ' style={{ borderBottom: '2px dashed #D61837', padding:'10px'}}></p>
+                <div className='text-start absolute pr-1 md:mr-2 mr-2'>
+          <p className='font-Inter font-semibold md:font-bold md:text-[18px] text-[14px]'>{text}</p>
           
-          <p className='  font-Poppins font-normal text-black text-[2px] md:pb-3'>Get in contact us to start planning<br/>your own adventure. Get in contact us<br/>to start planning your own adventure</p>
-          {/* <p className='md:hidden flex font-Poppins font-normal text-[3px] md:pb-3'>Get in contact us to start planning your<br/>own adventure. Get in contact us to start planning your own adventure</p> */}
-          <Button className="w-8 md:w-40 absolute py-0 h-2 mt-2 mb-10 md:h-8 font-Poppins border border-none bg-[#D61837] text-[4px] md:text-[12px] md:top-4 top-3">
+          <p className=' hidden md:flex font-Poppins font-normal  text-black text-[2px] md:text-[10px] md:pb-2'>Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure</p>
+          <p className='md:hidden flex font-Poppins font-normal text-[10px] text-black '>Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure</p>
+          <Button className="w-[90%] md:w-[90%] py-0 mb-10 md:h-5  font-Poppins border border-none bg-[#D61837] text-[10px] md:text-[11px] ">
           Explore Event
           </Button>
         </div>

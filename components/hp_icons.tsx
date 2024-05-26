@@ -93,7 +93,7 @@ function Hp_icons() {
               </div>
             
             
-              <p className="md:font-[900px] font-semibold md:text-[34px] text-[5px] font-Barlow">100+</p>
+              <p className="md:font-[900px] font-bold md:text-[34px] text-[5px] font-Barlow">100+</p>
               <p className="md:font-bold font-medium font-Barlow text-[3px] md:text-[14px]">Clients</p>
               </div>
               <div className="flex-col justify-center">
@@ -115,7 +115,7 @@ function Hp_icons() {
               </div>
             
             
-              <p className="md:font-[900px] font-semibold md:text-[34px] text-[5px] font-Barlow">100+</p>
+              <p className="md:font-[900px] font-bold md:text-[34px] text-[5px] font-Barlow">100+</p>
               <p className="md:font-bold font-medium font-Barlow text-[3px] md:text-[14px]">Clients</p>
               </div>
     </div>

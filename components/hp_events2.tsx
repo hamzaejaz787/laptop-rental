@@ -34,7 +34,7 @@ function Hp_event2() {
           <Button className="w-20 md:w-40 h-4 md:h-12 font-Poppins border text-black border-none bg-white text-[9px] md:text-[18px]">
             Get a quote
           </Button>
-          <div className="md:w-36 md:h-1 md:ml-[800px] ml-[100px] md:mt-5 bg-white w-1 h-12"></div>
+          <div className="md:w-36 md:h-1 md:ml-[800px] ml-[100px] md:mt-5 bg-white w-10 h-12"></div>
 
         </div>
         </div>
