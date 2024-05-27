@@ -5,6 +5,7 @@ import { Rating } from 'react-simple-star-rating'
 
 import Btn from './button'
 import Form from './form'
+import Link from 'next/link'
 
 function Hp_form() {
   const [rating, setRating] = useState(0)
@@ -22,7 +23,8 @@ function Hp_form() {
       <div className='flex-col md:justify-start justify-center'>
         <div className='flex md:flex-col md:justify-start md:items-start justify-center items-center gap-2 md:gap-8'>
           <Button className="w-20 md:w-40 h-4 md:h-12 font-Poppins border border-none bg-[#D61837] text-[9px] md:text-[18px]">
-            Rent Event
+            <Link href="/form">Request a quote</Link>
+            
           </Button>
           <div className='flex items-center md:w-36 w-[50px] h-[50px] md:pt-28 md:pr-10 '>
             <Rating

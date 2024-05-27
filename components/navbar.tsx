@@ -15,7 +15,7 @@ import {
 const components: { title: string; href: string; subcomponents?: { title: string; href: string }[] }[] = [
   {
     title: "Technological Rental",
-    href: "/",
+    href: "/techrental",
   },
   {
     title: "Laptop Rental",
@@ -58,7 +58,7 @@ export function Navbar() {
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Event Type</NavigationMenuTrigger>
+            <NavigationMenuTrigger className="text-[13px]">Event Type</NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid gap-3 p-6 md:w-[180px] ">
                 <ListItem href="/eventrental" title="Event Rental" />
@@ -67,7 +67,7 @@ export function Navbar() {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Technology Rental</NavigationMenuTrigger>
+            <NavigationMenuTrigger className="text-[13px]">Technology Rental</NavigationMenuTrigger>
             <NavigationMenuContent >
               <ul className="grid w-[400px] gap-3 p-4 md:w-[200px] md:grid-cols-2 lg:w-[600px] ">
                 {components.map((component) => (

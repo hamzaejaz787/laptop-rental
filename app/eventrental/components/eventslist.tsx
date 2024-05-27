@@ -1,4 +1,34 @@
+import Hp_imgframe from "@/components/hp_imgframe";
 import React from "react";
+
+interface Image {
+  src: string;
+  alt: string;
+  text: string;
+  link: string;
+}
+
+const images = [
+  { src: "/hp_imgframe.png", alt: '', text: "Corporate Event", link: "/singleevent" },
+  { src: "/hp_imgframe.png", alt: '', text: "Business Event", link: "/singleevent" },
+  { src: "/hp_imgframe.png", alt: '', text: "Rental Event", link: "/singleevent" },
+  { src: "/hp_imgframe.png", alt: '', text: "Rental Event", link: "/singleevent" },
+  { src: "/hp_imgframe.png", alt: '', text: "Corporate Event", link: "/singleevent" },
+  { src: "/hp_imgframe.png", alt: '', text: "Business Event", link: "/singleevent" },
+  { src: "/hp_imgframe.png", alt: '', text: "Rental Event", link: "/singleevent" },
+  { src: "/hp_imgframe.png", alt: '', text: "Rental Event", link: "/singleevent" },
+  { src: "/hp_imgframe.png", alt: '', text: "Corporate Event", link: "/singleevent" },
+  { src: "/hp_imgframe.png", alt: '', text: "Business Event", link: "/singleevent" },
+  { src: "/hp_imgframe.png", alt: '', text: "Rental Event", link: "/singleevent" },
+  { src: "/hp_imgframe.png", alt: '', text: "Rental Event", link: "/singleevent" },
+];
+const chunkArray = (arr: any[], size: number) => {
+  const chunks = [];
+  for (let i = 0; i < arr.length; i += size) {
+    chunks.push(arr.slice(i, size + i));
+  }
+  return chunks;
+};
 
 const Eventslist = () => {
   return (
@@ -11,6 +41,11 @@ const Eventslist = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porttitor
           dictum lectus at ultricies. elit. In porttitor
         </p>
+      </div>
+      <div className="grid gap-12  grid-rows lg:grid-cols-4 justify-center items-center">
+        {images.map((img, index) => (
+          <Hp_imgframe key={index} src={img.src} alt={img.alt} text={img.text} link={img.link} />
+        ))}
       </div>
     </div>
   );

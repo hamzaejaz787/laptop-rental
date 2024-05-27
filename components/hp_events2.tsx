@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import { Button } from './ui/button'
+import Link from 'next/link'
 
 function Hp_event2() {
   return (
@@ -32,7 +33,7 @@ function Hp_event2() {
           We at Laptop Rentals understand whether you&apos;re hosting a conference, trade show, or business event, having access 
           </div>
           <Button className="w-20 md:w-40 h-4 md:h-12 font-Poppins border text-black border-none bg-white text-[9px] md:text-[18px]">
-            Get a quote
+            <Link href="/quote">Get a quote </Link>
           </Button>
           <div className="md:w-36 md:h-1 md:ml-[800px] ml-[100px] md:mt-5 bg-white w-10 h-12"></div>
 

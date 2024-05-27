@@ -81,7 +81,9 @@ function HomePage() {
         </p>
         <div className="flex justify-center items-center">
           <Button className="w-[70px] md:w-40 h-5  md:h-12 font-Poppins border border-none bg-[#D61837] text-white text-[9px] md:text-[18px]">
+            <Link href={"/form"}>
             Get a quote
+            </Link>
           </Button>
         </div>
         <div className="md:flex hidden md:gap-6 gap-2 pt-3 md:pt-0 px-3 md:pl-20 md:pr-10 justify-center">

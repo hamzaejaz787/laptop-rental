@@ -3,6 +3,8 @@ import { useRef } from "react";
 import Autoplay from "embla-carousel-autoplay";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
+
+import { useRouter } from 'next/navigation';
 import {
   Carousel,
   CarouselContent,
@@ -15,10 +17,11 @@ import ram from "@/public/ram.png";
 import storage from "@/public/storage.png";
 import display from "@/public/display.png";
 import { Button } from "@/components/ui/button";
+import Laptop_card from "@/components/Laptop_card";
 var products = [
   {
     index: 1,
-    image: ipad,
+    image: "/ipad.png",
     name: "iPad Wifi 10.5 Cellular",
     details: "Upgrade your technology experience with the advanced features.",
     icons: [
@@ -41,7 +44,7 @@ var products = [
   },
   {
     index: 2,
-    image: ipad,
+    image: "/ipad.png",
     name: "iPad Wifi 10.5 Cellular 2",
     details: "Upgrade your technology experience with the advanced features.",
     icons: [
@@ -64,7 +67,7 @@ var products = [
   },
   {
     index: 3,
-    image: ipad,
+    image: "/ipad.png",
     name: "iPad Wifi 10.5 Cellular 3",
     details: "Upgrade your technology experience with the advanced features.",
     icons: [
@@ -87,7 +90,7 @@ var products = [
   },
   {
     index: 4,
-    image: ipad,
+    image: "/ipad.png",
     name: "iPad Wifi 10.5 Cellular 4",
     details: "Upgrade your technology experience with the advanced features.",
     icons: [
@@ -110,7 +113,7 @@ var products = [
   },
   {
     index: 5,
-    image: ipad,
+    image: "/ipad.png",
     name: "iPad Wifi 10.5 Cellular 5",
     details: "Upgrade your technology experience with the advanced features.",
     icons: [
@@ -134,6 +137,16 @@ var products = [
 ];
 const EventsCarousel = ({ title, text }: any) => {
   const plugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
+
+  // Assuming you have defined these variables and functions elsewhere
+  const clickedCards: boolean[] = [];
+  const handleCardClick = (index: number) => {};
+  const router = useRouter();
+  const handleRequestQuote = () => {
+    // Navigate to the desired page when "Request Quote" button is clicked
+    router.push('/form'); // Adjust the route as needed
+  };
+
   return (
     <div className="w-[80%] m-auto mt-10 md:mt-14 lg:mt-20">
       <div className="w-full flex flex-col justify-center items-center">
@@ -158,53 +171,18 @@ const EventsCarousel = ({ title, text }: any) => {
               >
                 <div className="p-1">
                   <Card className="p-8">
-                    <CardContent className="flex flex-col items-center justify-center p-0">
-                      <Image
-                        src={product.image}
-                        alt=""
-                        width={300}
-                        height={300}
-                        // className="w-20 h-20"
-                      />
-                      <h3 className="w-full text-start text-xl font-bold">
-                        {product.name}
-                      </h3>
-                      <p className="text-sm font-sans mb-4">
-                        {product.details}
-                      </p>
-                      <div className="flex flex-wrap w-full justify-center items-center gap-5">
-                        {product.icons.map((icon) => (
-                          <div
-                            key={icon.index}
-                            className="flex flex-col justify-center items-center border border-gray-200 rounded-sm px-8 py-2"
-                          >
-                            <Image
-                              src={icon.logo}
-                              alt="iconspec"
-                              width={20}
-                              height={20}
-                              className="mb-4"
-                            />
-                            <p className="text-sm text-center">{icon.desc}</p>
-                          </div>
-                        ))}
-                      </div>
-                      <div className="w-full flex justify-center items-center mt-8">
-                        <Button
-                          //   style={{ border: "5px 0 0 5px" }}
-                          className="py-6 px-4 w-[80%] text-lg font-sans rounded-none bg-[#D61837] text-white"
-                        >
-                          Request Quote
-                        </Button>
-                        <Button
-                          //   style={{ border: "5px 0 0 5px" }}
-
-                          className="py-6 rounded-none px-4 flex w-[20%] flex-grow"
-                        >
-                          +
-                        </Button>
-                      </div>
-                    </CardContent>
+                    <Laptop_card
+                      onRequestQuote={handleRequestQuote}
+                      key={product.index} // Assuming product index is unique
+                      clicked={clickedCards[product.index]}
+                      onClick={() => handleCardClick(product.index)}
+                      src={product.image}
+                      text={product.name}
+                      description={product.details}
+                      ram="16GB" // Example ram value
+                      storage="512GB" // Example storage value
+                      display="10.5" // Example display value
+                    />
                   </Card>
                 </div>
               </CarouselItem>
@@ -219,3 +197,4 @@ const EventsCarousel = ({ title, text }: any) => {
 };
 
 export default EventsCarousel;
+

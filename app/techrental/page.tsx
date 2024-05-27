@@ -1,12 +1,21 @@
-"use client";
-import Banner from "@/components/Banner";
-import Laptop_card from "@/components/Laptop_card";
-import Frame from "@/components/frame";
-import Hp_servicesolution from "@/components/hp_servicesolution";
-import Sidebar from "@/components/sidebar";
-import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+// pages/index.tsx (TechRental)
 
+"use client";
+
+import Banner from '@/components/Banner';
+import ImageInfo from '@/components/ImageInfo';
+import Frame from '@/components/frame';
+import React, { useState, useEffect } from 'react';
+import eventrental1 from '@/public/eventrental1.jpg';
+import Laptop_card from '@/components/Laptop_card';
+import Sidebar from "@/components/sidebar";
+import { PaginationDemo } from '@/components/pagination';
+
+import { ImPageBreak } from "react-icons/im";
+import { FaWater } from 'react-icons/fa';
+import { useRouter } from 'next/navigation';
+
+// Mock data for item details
 const itemDetails: { [key: string]: { src: string; ram: string; storage: string; display: string } } = {
   'Dell Laptop': {
     src: '/dell.png',
@@ -53,10 +62,14 @@ const itemDetails: { [key: string]: { src: string; ram: string; storage: string;
   // Add details for other categories as needed
 };
 
-function SingleTechRental() {
+function TechRental() {
   const [clickedCards, setClickedCards] = useState(
     Array(9).fill(false) // Adjust array length to match the number of cards
   );
+  const [selectedCategory, setSelectedCategory] = useState<string>('Laptop Rental');
+  const [filteredItems, setFilteredItems] = useState<string[]>([]);
+  const router = useRouter();
+
 
   const handleCardClick = (index: number) => {
     const updatedClickedCards = clickedCards.map((clicked, i) =>
@@ -64,12 +77,6 @@ function SingleTechRental() {
     );
     setClickedCards(updatedClickedCards);
   };
-  
-  const [selectedCategory, setSelectedCategory] = useState<string>('Laptop Rental');
-  const [filteredItems, setFilteredItems] = useState<string[]>([]);
-  const router = useRouter();
-
-
 
   const handleCategorySelect = (category: string, items: string[]) => {
     setSelectedCategory(category);
@@ -97,18 +104,23 @@ function SingleTechRental() {
   return (
     <div>
       <Banner
-        title="Laptop Rental"
-        text="We at Laptop Rentals understand whether you're hosting whether you're hosting We at Laptop Rentals understand at Laptop Rentals understand"
+        btn="Request a Quote"
+        link="/form"
+        text="We at laptop rental hosting event. We at laptop rental hosting event. We at laptop rental hosting event. We at laptop rental hosting event."
+        title="Technology Rental"
       />
-      <Frame color="text-black" />
-      <div className="grid grid-cols-[30%,70%] md:pt-10 pt-5 md:px-10 px-3 md:gap-5 gap-2">
-        <div >
-          <Sidebar onCategorySelect={function (category: string, items: string[]): void {
-            throw new Error("Function not implemented.");
-          } }/>
+      <Frame />
+      <ImageInfo
+        title="Empower Your Business with Flexible and Reliable IT Equipment Rentals"
+        image={eventrental1}
+        text="We at Laptop Rentals understand whether you&lsquo;re hosting a conference, trade show, or business event, having access to reliable and high-quality technology can make all.We at Laptop "
+      />
+      <div className="grid grid-cols-[30%,70%] md:pt-10 pt-3 md:px-10 px-3 md:gap-5 gap-2">
+        <div>
+          <Sidebar onCategorySelect={handleCategorySelect} />
         </div>
         <div className="flex flex-wrap gap-3">
-        {filteredItems.map((item, index) => (
+          {filteredItems.map((item, index) => (
             <Laptop_card
             onRequestQuote={handleRequestQuote} // Pass the callback function as a prop
             key={index}
@@ -124,17 +136,22 @@ function SingleTechRental() {
           
           
           ))}
+          {/* <PaginationDemo currentPage={currentPage} totalPages={totalPages} handlePageChange={handlePageChange} /> */}
         </div>
       </div>
-      <div>
-        <Hp_servicesolution />
-        <div className="flex flex-col items-center justify-center md:px-40 px-10 md:pb-5 pb-3">
-        <p className='font-Barlow font-bold text-[20px] md:text-[28px] text-center'>We don&apos;t need to take into account age and past faliure and past failure</p>
-          <p className="font-Poppins font-normal text-[14px] md:text-[18px] text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident voluptatum itaque voluptate sint magnam quia.</p>
-        </div>
-      </div>
+      <ImageInfo
+        title="Regarding Your Investment Our Breakage Policy"
+        image={eventrental1}
+        reverse
+        text="We at Laptop Rentals understand whether you&lsquo;re hosting a conference, trade show, or business event, having access to reliable and high-quality technology can make all.We at Laptop Rentals understand whether you.reliable and high-quality technology can make all.We at Laptop"
+        items={[
+          { icon: ImPageBreak, desc: "Accidental Breakage" },
+          { icon: FaWater, desc: "Water Damage" },
+          { icon: ImPageBreak, desc: "Extended Warranty" },
+        ]}
+      />
     </div>
   );
 }
 
-export default SingleTechRental;
+export default TechRental;

@@ -1,8 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
 import { Button } from './ui/button';
+import Link from 'next/link';
 
-function Hp_imgframe({ src, alt, text }: any) {
+function Hp_imgframe({ src, alt, text, link }: any) {
   return (
     <div >
         <div className='relative md:h-[300px] md:w-[250px] h-[300px] w-[250px] '>
@@ -17,7 +18,8 @@ function Hp_imgframe({ src, alt, text }: any) {
           <p className=' hidden md:flex font-Poppins font-normal  text-black text-[2px] md:text-[10px] md:pb-2'>Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure</p>
           <p className='md:hidden flex font-Poppins font-normal text-[10px] text-black '>Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure</p>
           <Button className="w-[90%] md:w-[90%] py-0 mb-10 md:h-5  font-Poppins border border-none bg-[#D61837] text-[10px] md:text-[11px] ">
-          Explore Event
+          <Link href={link}>Explore Event</Link>
+          
           </Button>
         </div>
       </div> 
