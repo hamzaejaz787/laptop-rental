@@ -39,7 +39,7 @@ const images = [
     link: "/singleevent",
   },
 ];
-const page = () => {
+const Page = () => {
   const [clickedCards, setClickedCards] = useState([
     false,
     false,
@@ -151,6 +151,7 @@ const page = () => {
           <div className="flex font-[600] text-[16px] justify-center font-Barlow underline underline-offset-4 gap-5">
             {["General", "Trust and Safety", "Services"].map((label, index) => (
               <Button
+              key={index}
                 variant="link"
                 className={`${
                   activeButton === index ? "text-red-600" : ""
@@ -170,4 +171,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

@@ -3,6 +3,7 @@ import React, { useRef } from 'react';
 import Image from 'next/image';
 import Autoplay from 'embla-carousel-autoplay';
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from './ui/carousel';
+import { Card, CardContent } from './ui/card';
 
 function Frame({ color }: any) {
   const items = [
@@ -19,7 +20,7 @@ function Frame({ color }: any) {
   return (
     <div>
       {/* For larger screens */}
-      <div className="justify-between items-center h-full md:px-10 px-5 md:flex hidden">
+      <div className="justify-between items-center h-full md:px-5 px-5 md:flex hidden">
         {items.map((item, index) => (
           <div key={index} className="flex-col justify-center items-center object-center">
             <div>
@@ -45,43 +46,54 @@ function Frame({ color }: any) {
       </div>
 
       {/* For smaller screens */}
-      <div className="md:hidden flex w-full">
-        <Carousel
-          plugins={[plugin.current]}
-          onMouseEnter={plugin.current.stop}
-          onMouseLeave={plugin.current.reset}
-          className="w-full"
-        >
-          <CarouselContent className="flex space-x-4">
-            {items.map((item, index) => (
-              <CarouselItem key={index} className="flex justify-center min-w-[50%]"> {/* Adjust min-w to show multiple items */}
-                <div className="flex-col justify-center items-center object-center">
-                  <div>
-                    <Image
-                      src={item.src}
-                      alt={item.text}
-                      loading="lazy"
-                      height={1000}
-                      width={1000}
-                      className="w-20 h-20"
-                    />
-                  </div>
-                  <div className="flex justify-center items-center gap-[2px]">
-                    <p className={`font-Barlow font-normal text-[12px] ${color} items-start text-center`}>
-                      {item.text}
-                    </p>
-                    <div className="bg-[#D61837] w-6 h-6 items-center mt-2">
-                      <Image src={"/drag_click.png"} alt="" height={40} width={40} className="h-6 w-6" />
-                    </div>
-                  </div>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="border-2 border-[#D61837] border-dashed rounded-full absolute left-2 top-1/2 transform -translate-y-1/2" />
-          <CarouselNext className="border-2 border-[#D61837] border-dashed rounded-full absolute right-2 top-1/2 transform -translate-y-1/2" />
-        </Carousel>
-      </div>
+      <div className="md:hidden flex w-full px-8">
+      <Carousel
+        plugins={[plugin.current]}
+        onMouseEnter={plugin.current.stop}
+        onMouseLeave={plugin.current.reset}
+        opts={{
+          align: "start",
+        }}
+        className="w-full"
+      >
+        <CarouselContent>
+          {items.map((item, index) => (
+            <CarouselItem
+              key={1}
+              className="pb-1 basis-1/3 md:basis-1/4 lg:basis-1/6 p-0 "
+            >
+              <div className="pl-3 flex-col">
+                <Card className="p-0">
+                  <CardContent className="flex flex-col items-center justify-center p-0 ">
+<div>
+<Image
+                  src={item.src}
+                alt={item.text}
+                loading="lazy"
+                height={1000}
+                width={1000}
+                className="md:w-36 md:h-36 w-20 h-20"
+              />
+</div>
+                
+              <div className="flex md:flex-col justify-center items-center gap-[2px] md:gap-0">
+              <p className={`font-Barlow md:font-[400px] font-normal md:text-[20px] text-[12px] ${color} items-start text-center`}>
+                {item.text}
+              </p>
+              <div className="bg-[#D61837] md:w-8 md:h-8 w-6 h-6 items-center md:mt-2">
+                <Image src={"/drag_click.png"} alt="" height={40} width={40} className="h-6 w-6 md:h-8 md:w-8" />
+              </div>
+            </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious className="border-2 bg-transparent border-[#D61837] border-dashed rounded-full" color='FFFFFF' />
+        <CarouselNext className="border-2 border-[#D61837] border-dashed rounded-full" />
+      </Carousel>
+      </div> 
     </div>
   );
 }

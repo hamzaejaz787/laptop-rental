@@ -33,7 +33,12 @@ function Dell_E5440() {
 
   const [activeButton, setActiveButton] = useState(0);
   const [quantity, setQuantity] = useState(1);
-  const FAQ_buttoncontents: React.ReactNode[] = [<AccordionFAQ />, <AccordionFAQ/>, <AccordionFAQ/>];
+  const FAQ_buttoncontents: React.ReactNode[] = [
+    <AccordionFAQ key="faq-1" />,
+    <AccordionFAQ key="faq-2" />,
+    <AccordionFAQ key="faq-3" />,
+  ];
+  
   const router = useRouter();
 
 const handleIncrementQuantity = () => {
@@ -211,6 +216,7 @@ const handleDecrementQuantity = () => {
           <div className="flex font-[600] text-[16px] justify-center font-Barlow underline underline-offset-4 gap-5">
             {["General", "Trust and Safety", "Services"].map((label, index) => (
               <Button
+              key={index}
                 variant="link"
                 className={`${
                   activeButton === index ? "text-red-600" : ""

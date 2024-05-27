@@ -77,7 +77,8 @@ const config = {
         Exo : ["var(--font-Exo)"],
         Poppins: ["var(--font-Poppins)"],
         Barlow: ["var(--font-Barlow)",],
-        Inter: ["var(--font-Inter)"]
+        Inter: ["var(--font-Inter)"],
+        Raleway: ["var(--font-Raleway)"],
       }
     },
   },

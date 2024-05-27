@@ -32,7 +32,7 @@ const chunkArray = (arr: any[], size: number) => {
 
 const Eventslist = () => {
   return (
-    <div className="mt-10 md:mt-14 lg:mt-20">
+    <div className="mt-10 md:mt-14 lg:mt-20 md:px-20 px-5">
       <div>
         <h2 className="text-3xl mb-3 font-bold text-center">
           We don&lsquo;t need to take into account
@@ -42,7 +42,7 @@ const Eventslist = () => {
           dictum lectus at ultricies. elit. In porttitor
         </p>
       </div>
-      <div className="grid gap-12  grid-rows lg:grid-cols-4 justify-center items-center">
+      <div className="grid gap-12  grid-cols-2 lg:grid-cols-4 justify-center items-center">
         {images.map((img, index) => (
           <Hp_imgframe key={index} src={img.src} alt={img.alt} text={img.text} link={img.link} />
         ))}
