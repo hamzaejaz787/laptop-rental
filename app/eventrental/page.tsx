@@ -3,10 +3,11 @@ import Banner from "@/components/Banner";
 import ImageInfo from "@/components/ImageInfo";
 import eventrental1 from "@/public/eventrental1.jpg";
 import testimg from "@/public/testcutimage.jpg";
-import Eventslist from "./components/eventslist";
+import Eventslist from "./_components/eventslist";
 import CTA from "@/components/CTA";
-import { TechCarousel } from "./components/TechCarousel";
-const EventPage = () => {
+import { TechCarousel } from "./_components/TechCarousel";
+import { getEvents } from "@/data/loaders";
+const EventPage = async () => {
   return (
     <div>
       <Banner

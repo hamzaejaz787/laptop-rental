@@ -13,8 +13,7 @@
 //     { src: "/img2.png", width: "25%", height: 250 },
 //     { src: "/img3.png", width: "25%", height: 250 },
 //     { src: "/img9.png", width: "25%", height: 250 },
-    
-    
+
 // ];
 
 // function MasonryGrid (){
@@ -39,48 +38,127 @@
 
 // export default MasonryGrid;
 
+import Image from "next/image";
 
-import Image from "next/image"
-
-export default function MasonryGrid(){
-  return(
-    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gridAutoRows: "200px", gridGap: "5px", gridAutoFlow: "dense" }}>
-        <div style={{ gridColumn: "span 2"}}>
-            <Image height={1000} width={1000} src="/img1.png" alt="" style={{ width: "100%", height: "100%" }} />
-        </div>
-        <div >
-            <Image height={1000} width={1000} src="/img8.png" alt="" style={{ width: "100%", height: "100%" }} />
-        </div>
-        <div>
-            <Image height={1000} width={1000} src="/img4.png" alt="" style={{ width: "100%", height: "100%" }} />
-        </div>
-        <div >
-            <Image height={1000} width={1000} src="/img7.png" alt="" style={{ width: "100%", height: "100%" }} />
-        </div>
-        <div style={{ gridRow: "span 2" }}>
-            <Image height={1000} width={1000} src="/img6.png" alt="" style={{ width: "100%", height: "100%" }} />
-        </div>
-        <div>
-            <Image height={1000} width={1000} src="/img5.png" alt="" style={{ width: "100%", height: "100%" }} />
-        </div>
-        <div style={{ gridColumn: "span 2" }}>
-            <Image height={1000} width={1000} src="/img2.png" alt="" style={{ width: "100%", height: "100%" }} />
-        </div>
-        <div style={{ gridColumn: "span 2", gridRow: "span 2" }}>
-            <Image height={1000} width={1000} src="/img3.png" alt="" style={{ width: "100%", height: "100%" }} />
-        </div>
-        <div>
-            <Image src="/img9.png" alt="" height={1000} width={1000} style={{ width: "100%", height: "100%" }} />
-        </div>
-        <div >
-            <Image height={1000} width={1000} src="/img9.png" alt="" style={{ width: "100%", height: "100%" }} />
-        </div>
-        <div>
-            <Image src="/img9.png" alt="" height={1000} width={1000} style={{ width: "100%", height: "100%" }} />
-        </div>
-        <div>
-            <Image src="/img9.png" alt="" height={1000} width={1000} style={{ width: "100%", height: "100%" }} />
-        </div>
+export default function MasonryGrid() {
+  return (
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+        gridAutoRows: "200px",
+        gridGap: "5px",
+        gridAutoFlow: "dense",
+      }}
+    >
+      <div style={{ gridColumn: "span 2" }}>
+        <Image
+          height={1000}
+          width={1000}
+          src="/img1.png"
+          alt=""
+          style={{ width: "100%", height: "100%" }}
+        />
+      </div>
+      <div>
+        <Image
+          height={1000}
+          width={1000}
+          src="/img8.png"
+          alt=""
+          style={{ width: "100%", height: "100%" }}
+        />
+      </div>
+      <div>
+        <Image
+          height={1000}
+          width={1000}
+          src="/img4.png"
+          alt=""
+          style={{ width: "100%", height: "100%" }}
+        />
+      </div>
+      <div>
+        <Image
+          height={1000}
+          width={1000}
+          src="/img7.png"
+          alt=""
+          style={{ width: "100%", height: "100%" }}
+        />
+      </div>
+      <div style={{ gridRow: "span 2" }}>
+        <Image
+          height={1000}
+          width={1000}
+          src="/img6.png"
+          alt=""
+          style={{ width: "100%", height: "100%" }}
+        />
+      </div>
+      <div>
+        <Image
+          height={1000}
+          width={1000}
+          src="/img5.png"
+          alt=""
+          style={{ width: "100%", height: "100%" }}
+        />
+      </div>
+      <div style={{ gridColumn: "span 2" }}>
+        <Image
+          height={1000}
+          width={1000}
+          src="/img2.png"
+          alt=""
+          style={{ width: "100%", height: "100%" }}
+        />
+      </div>
+      <div style={{ gridColumn: "span 2", gridRow: "span 2" }}>
+        <Image
+          height={1000}
+          width={1000}
+          src="/img3.png"
+          alt=""
+          style={{ width: "100%", height: "100%" }}
+        />
+      </div>
+      <div>
+        <Image
+          src="/img9.png"
+          alt=""
+          height={1000}
+          width={1000}
+          style={{ width: "100%", height: "100%" }}
+        />
+      </div>
+      <div>
+        <Image
+          height={1000}
+          width={1000}
+          src="/img9.png"
+          alt=""
+          style={{ width: "100%", height: "100%" }}
+        />
+      </div>
+      <div>
+        <Image
+          src="/img9.png"
+          alt=""
+          height={1000}
+          width={1000}
+          style={{ width: "100%", height: "100%" }}
+        />
+      </div>
+      <div>
+        <Image
+          src="/img9.png"
+          alt=""
+          height={1000}
+          width={1000}
+          style={{ width: "100%", height: "100%" }}
+        />
+      </div>
     </div>
-  )
+  );
 }

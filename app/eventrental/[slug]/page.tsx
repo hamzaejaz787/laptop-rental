@@ -2,8 +2,8 @@
 import Banner from "@/components/Banner";
 import ImageInfo from "@/components/ImageInfo";
 import eventrental1 from "@/public/eventrental1.jpg";
-import EventsCarousel from "./components/EventsCarousel";
-import FAQ from "./components/FAQ";
+import EventsCarousel from "./_components/EventsCarousel";
+import FAQ from "./_components/FAQ";
 import MasonryGrid from "@/components/masonry";
 import Hp_imgframe from "@/components/hp_imgframe";
 import { Button } from "@/components/ui/button";
@@ -58,9 +58,9 @@ const Page = () => {
   const [activeButton, setActiveButton] = useState(0);
 
   const FAQ_buttoncontents = [
-    <AccordionFAQ key={0}/>,
-    <AccordionFAQ key={1}/>,
-    <AccordionFAQ key={2}/>,
+    <AccordionFAQ key={0} />,
+    <AccordionFAQ key={1} />,
+    <AccordionFAQ key={2} />,
   ];
 
   const handleButtonClick = (index: any) => {
@@ -151,7 +151,7 @@ const Page = () => {
           <div className="flex font-[600] text-[16px] justify-center font-Barlow underline underline-offset-4 gap-5">
             {["General", "Trust and Safety", "Services"].map((label, index) => (
               <Button
-              key={index}
+                key={index}
                 variant="link"
                 className={`${
                   activeButton === index ? "text-red-600" : ""
