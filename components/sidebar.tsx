@@ -1,5 +1,3 @@
-// pages/index.tsx
-
 import { ChevronRight } from 'lucide-react';
 import React, { useState } from 'react';
 
@@ -8,8 +6,13 @@ interface Category {
   items: string[];
 }
 
-const Sidebar: React.FC = () => {
+interface SidebarProps {
+  onCategorySelect: (category: string, items: string[]) => void;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ onCategorySelect }) => {
   const [searchTerm, setSearchTerm] = useState<string>('');
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [isLaptopListOpen, setIsLaptopListOpen] = useState<boolean>(false);
   const [isCategoryListOpen, setIsCategoryListOpen] = useState<{ [key: string]: boolean }>({});
 
@@ -26,6 +29,9 @@ const Sidebar: React.FC = () => {
       ...prevState,
       [category]: !prevState[category],
     }));
+    setSelectedCategory(category);
+    // Notify parent component about the selected category and its items
+    onCategorySelect(category, otherCategories.find(cat => cat.category === category)?.items ?? []);
   };
 
   const filterItems = (items: string[]) => {
@@ -83,12 +89,16 @@ const Sidebar: React.FC = () => {
             onChange={handleSearchChange}
           />
         </div>
-        <div className="mb-4">
+        <div className="">
           <h2 className="text-lg font-bold mb-2">Product Categories</h2>
           <div className="mb-2">
             <h3
-              className="text-red-500 font-semibold cursor-pointer flex"
-              onClick={toggleLaptopList}
+              className={`font-semibold cursor-pointer flex ${selectedCategory === 'Laptop Rental' ? 'text-red-500' : 'text-black'}`}
+              onClick={() => {
+                toggleLaptopList();
+                setSelectedCategory('Laptop Rental');
+                onCategorySelect('Laptop Rental', laptopItems);
+              }}
             >
               <ChevronRight className={`mr-2 ${isLaptopListOpen ? 'rotate-90' : ''}`} />
               Laptop Rental
@@ -106,11 +116,10 @@ const Sidebar: React.FC = () => {
           </div>
         </div>
         <div>
-          <h2 className="text-lg font-bold mb-2">Other Categories</h2>
           {otherCategories.map((category, index) => (
             <div key={index} className="mb-2">
               <h3
-                className="text-gray-700 font-semibold cursor-pointer flex"
+                className={`font-semibold cursor-pointer flex ${selectedCategory === category.category ? 'text-red-500' : 'text-black'}`}
                 onClick={() => toggleCategoryList(category.category)}
               >
                 <ChevronRight className={`mr-2 ${isCategoryListOpen[category.category] ? 'rotate-90' : ''}`} />

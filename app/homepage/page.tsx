@@ -8,11 +8,12 @@ import Hp_events from "@/components/hp_events";
 import Hp_event2 from "@/components/hp_events2";
 import Hp_servicesolution from "@/components/hp_servicesolution";
 import Frame from "@/components/frame";
+import Link from "next/link";
 
 
 function HomePage() {
   return (
-    <div className="md:pb-10 pb-3">
+    <div className="md:pb-10 pb-3 ">
       <div className="relative">
         <Image
           src="/homepage_bg.png"
@@ -24,15 +25,15 @@ function HomePage() {
 
         {/* Content */}
 
-        <div className="absolute inset-0 flex-col md:items-start items-center justify-center md:pl-20 md:pt-40  md:pb-10">
-          <div className="pt-16 md:pt-0 items-center flex-col justify-center ">
-          <div className="font-Barlow md:text-[30px] text-[9px] text-white text-center md:text-start font-[500px] ">
+        <div className="absolute inset-0 flex-col flex md:items-start items-center justify-center md:justify-start md:pl-20 md:pt-40  md:pb-10">
+          <div className=" items-center flex-col justify-center ">
+          <div className="font-Barlow md:text-[30px] text-[12px] text-white text-center md:text-start font-[500px] ">
             W O R L D &apos; S &nbsp; B I G G E S T
           </div>
           <div className="flex items-center gap-2 justify-center md:justify-start">
             <div className="md:w-1 md:h-28 bg-white w-1 h-9 hidden md:flex"></div>
             <div className="md:flex-col flex items-center justify-center">
-              <p className="md:hidden flex md:text-[50px] md:line-clamp-2 text-[14px] md:font-[900px] text-center justify-center md:text-start font-bold text-white font-Barlow">
+              <p className="md:hidden flex md:text-[50px] md:line-clamp-2 text-[28px] md:font-[900px] text-center justify-center md:text-start font-bold text-white font-Barlow">
                 EVENT RENTALS
               </p>
               <p className="hidden md:flex md:text-[50px] md:line-clamp-2 text-[14px] md:font-[900px] text-center justify-center md:text-start font-bold text-white font-Barlow">
@@ -41,14 +42,16 @@ function HomePage() {
               {/* <p className="md:text-[50px] text-[30px] md:font-[900px] font-bold text-white font-Barlow">RENATLS</p> */}
             </div>
           </div>
-          <div className="flex line-clamp-2 text-white font-Poppins md:text-[16px] font-normal text-[5px] pt-0  md:text-start text-center items-center justify-center md:justify-start md:pb-3 pb-2">
+          <div className="flex line-clamp-2 text-white font-Poppins md:text-[16px] font-normal text-[8px] pt-0  md:text-start text-center items-center justify-center md:justify-start md:pb-3 pb-2">
             We at Laptop Rentals understand whether you&apos;re hosting a conference, a conference you&apos;re hosting a conference.
           </div>
           </div>
           
           <div className="flex justify-center items-center md:justify-start ">
-          <Button className="w-[70px] md:w-40 h-5  md:h-12 font-Poppins border border-none bg-[#D61837] text-white text-[9px] md:text-[18px]">
+          <Button className="w-[80px] md:w-40 h-8  md:h-12 font-Poppins border border-none bg-[#D61837] text-white text-[12px] md:text-[18px]">
+            <Link href={"/techrental"}>
             Tech Rental
+            </Link>
           </Button>
         </div>
           
@@ -61,7 +64,7 @@ function HomePage() {
             width={5000}
             className="md:h-76 md:w-full"
           />
-          <div className="md:px-28 pt-3 px-[20px] flex items-center justify-center absolute">
+          <div className="md:px-5  px-4 absolute md:justify-center md:items-center w-full  h-full">
             
           <Frame color="text-white"/>
           </div>
@@ -78,7 +81,9 @@ function HomePage() {
         </p>
         <div className="flex justify-center items-center">
           <Button className="w-[70px] md:w-40 h-5  md:h-12 font-Poppins border border-none bg-[#D61837] text-white text-[9px] md:text-[18px]">
+            <Link href={"/form"}>
             Get a quote
+            </Link>
           </Button>
         </div>
         <div className="md:flex hidden md:gap-6 gap-2 pt-3 md:pt-0 px-3 md:pl-20 md:pr-10 justify-center">

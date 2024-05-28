@@ -68,36 +68,54 @@ export function MobileMenu() {
               </Link>
               <Link href="/singleevent" className=" text-[10px] " onClick={handleClose}>
               Laptop Rental
-              <ul className="grid pl-7 font-medium font-Exo text-sm">
-              <Link href="/singleevent" className=" text-[10px] " onClick={handleClose}>
-              Dell Laptop Rental
-              </Link>
-              </ul>
               </Link>
               <Link href="/singleevent" className=" text-[10px] " onClick={handleClose}>
-              Laptop Rental
+              Tablet Rental
+              </Link>
+              <Link href="/singleevent" className=" text-[10px] " onClick={handleClose}>
+              Mobile Rental
+              </Link>
+              <Link href="/singleevent" className=" text-[10px] " onClick={handleClose}>
+              AV Rental
+              </Link>
+              <Link href="/singleevent" className=" text-[10px] " onClick={handleClose}>
+              Screen Rental
+              </Link>
+              <Link href="/singleevent" className=" text-[10px] " onClick={handleClose}>
+              Event WiFi Rental
+              </Link>
+              <Link href="/singleevent" className=" text-[10px] " onClick={handleClose}>
+              Event Services
               </Link>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
             <NavigationMenuLink className={navigationMenuTriggerStyle()} onClick={handleClose}>
+            <Link href={"/blogs"}>
               News Events
+              </Link>
             </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
             <NavigationMenuLink className={navigationMenuTriggerStyle()} onClick={handleClose}>
+            <Link href={"/gallery"}>
               Gallery
+              </Link>
             </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
             <NavigationMenuLink className={navigationMenuTriggerStyle()} onClick={handleClose}>
+            <Link href={"/aboutus"}>
               About Us
+              </Link>
             </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
             <NavigationMenuLink className={navigationMenuTriggerStyle()} onClick={handleClose}>
+            <Link href={"/contactus"}>
               Contact Us
+              </Link>
             </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>

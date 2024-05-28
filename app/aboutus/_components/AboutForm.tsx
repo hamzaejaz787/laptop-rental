@@ -35,7 +35,7 @@ export function AboutForm() {
           </h2>
           <p className="text-sm text-center mb-8">
             We at Laptop Rentals understand whether you&lsquo;re hosting a
-            conference, <br></br>a conference you&lsquo;re hosting a conference.
+            conference, a conference you&lsquo;re hosting a conference.
           </p>
         </div>
         <Form {...form}>

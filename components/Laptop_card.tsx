@@ -1,5 +1,6 @@
-"use client";
-import React, { useState } from "react";
+// Laptop_card.js
+
+import React from "react";
 import Image from "next/image";
 import { MdOutlineScreenshot, MdOutlineStorage } from "react-icons/md";
 import { IoHardwareChipOutline } from "react-icons/io5";
@@ -11,14 +12,28 @@ interface LaptopCardProps {
   onClick: () => void;
   src: string;
   text: string;
-  description:string
-  ram:string;
+  description: string;
+  ram: string;
   storage: string;
-  display:string;
-
+  display: string;
+  onRequestQuote: () => void; // Callback function for handling "Request Quote" action
 }
 
-const Laptop_card: React.FC<LaptopCardProps> = ({ clicked, onClick, src, text, description, ram, storage, display}) => {
+const Laptop_card: React.FC<LaptopCardProps> = ({
+  clicked,
+  onClick,
+  src,
+  text,
+  description,
+  ram,
+  storage,
+  display,
+  onRequestQuote,
+}) => {
+  const handleRequestQuote = () => {
+    onRequestQuote(); // Call the callback function to handle "Request Quote" action
+  };
+
   return (
     <div
       className={`Flex flex-col md:h-[300px] h-[160px] md:w-64 w-44 border-2 border-dashed md:px-3 px-2 pb-2 ${
@@ -68,7 +83,10 @@ const Laptop_card: React.FC<LaptopCardProps> = ({ clicked, onClick, src, text, d
         </div>
       </div>
       <div className="grid grid-cols-[75%,25%] md:h-8 md:mt-4 mt-1  h-4">
-        <Button className="flex bg-[#D61837] rounded-l-sm font-Poppins items-center md:pl-3 md:pr-3 justify-center text-white md:text-[14px] text-[8px] w-full">
+        <Button
+          className="flex bg-[#D61837] rounded-l-sm font-Poppins items-center md:pl-3 md:pr-3 justify-center text-white md:text-[14px] text-[8px] w-full"
+          onClick={handleRequestQuote}
+        >
           Request Quote
         </Button>
         <div className="flex bg-black md:w-18 px-[9px] items-center rounded-r-sm justify-center">

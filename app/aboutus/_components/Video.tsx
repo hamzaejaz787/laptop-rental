@@ -3,7 +3,7 @@ const Video = () => {
   return (
     <div className="w-[80%] m-auto mt-10 md:mt-14 lg:mt-20">
       <h2 className="text-4xl mb-3 font-bold text-center">
-        Looking For IT Equipment Rental <br></br> Services For Your Event
+        Looking For IT Equipment Rental Services For Your Event
       </h2>
       <p className="text-sm text-center mb-8">
         We at Laptop Rentals understand whether you&lsquo;re hosting a
