@@ -10,7 +10,7 @@ const BlogDetails = ({ title, text, btnlink }: any) => {
       <p className="text-sm mb-3 text-black text-start w-full font-sans">
         {text}
       </p>
-      <Link href={"#"}>
+      <Link href={btnlink}>
         <p className="text-sm flex font-semibold gap-2 items-center">
           Read More
           <span>

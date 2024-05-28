@@ -188,8 +188,8 @@ const EventsCarousel = ({ title, text }: any) => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="border-2 border-[#D61837] border-dashed rounded-full" />
-          <CarouselNext className="border-2 border-[#D61837] border-dashed rounded-full" />
+          <CarouselPrevious className="border-2 border-[#D61837] border-dashed rounded-full" color="black" />
+          <CarouselNext className="border-2 border-[#D61837] border-dashed rounded-full" color="black"/>
         </Carousel>
       </div>
     </div>

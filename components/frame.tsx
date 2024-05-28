@@ -90,8 +90,8 @@ function Frame({ color }: any) {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="border-2 bg-transparent border-[#D61837] border-dashed rounded-full" color='FFFFFF' />
-        <CarouselNext className="border-2 border-[#D61837] border-dashed rounded-full" />
+        <CarouselPrevious className="border-2 bg-transparent border-[#D61837] border-dashed rounded-full" color='white' />
+        <CarouselNext className="border-2 border-[#D61837] border-dashed rounded-full" color='white' />
       </Carousel>
       </div> 
     </div>
