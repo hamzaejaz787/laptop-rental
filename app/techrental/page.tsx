@@ -9,7 +9,6 @@ import React, { useState, useEffect } from 'react';
 import eventrental1 from '@/public/eventrental1.jpg';
 import Laptop_card from '@/components/Laptop_card';
 import Sidebar from "@/components/sidebar";
-import { PaginationDemo } from '@/components/pagination';
 
 import { ImPageBreak } from "react-icons/im";
 import { FaWater } from 'react-icons/fa';

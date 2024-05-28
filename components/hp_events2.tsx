@@ -32,7 +32,7 @@ function Hp_event2() {
           <div className="flex text-white font-Poppins md:text-[16px] text-center font-normal text-[8px] pt-0 md:text-left md:pb-3 pb-2">
           We at Laptop Rentals understand whether you&apos;re hosting a conference, trade show, or business event, having access 
           </div>
-          <Button className="w-20 md:w-40 h-9 rounded-sm md:h-12 font-Poppins border text-black border-none bg-white text-[9px] md:text-[18px]">
+          <Button asChild className="w-20 md:w-40 h-9 rounded-sm md:h-12 font-Poppins border text-black border-none bg-white text-[9px] md:text-[18px]">
             <Link href="/form">Get a quote </Link>
           </Button>
           <div className="md:w-36 md:h-1 md:ml-[800px] ml-[100px] md:mt-5 bg-white w-10 h-12 md:flex hidden"></div>

@@ -105,7 +105,7 @@ const Blogs = () => {
               <BlogDetails
                 title={blog.title}
                 text={blog.description}
-                btnlink="#"
+                btnlink="/singleblogpage"
               />
             </div>
           ))}

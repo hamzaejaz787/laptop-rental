@@ -162,7 +162,7 @@ const handleDecrementQuantity = () => {
       <div className="flex flex-col gap-4 pt-10">
         <div className="flex font-[600] text-[16px] justify-center font-Barlow underline underline-offset-4 gap-5 ">
           {["Description", "Product Guide", "Reviews"].map((label, index) => (
-            <Button
+            <Button 
               key={index}
               variant="link"
               className={`${activeButton === index ? "text-red-600" : ""} flex`}

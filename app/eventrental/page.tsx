@@ -2,7 +2,6 @@ import React from "react";
 import Banner from "@/components/Banner";
 import ImageInfo from "@/components/ImageInfo";
 import eventrental1 from "@/public/eventrental1.jpg";
-import testimg from "@/public/testcutimage.jpg";
 import Eventslist from "./components/eventslist";
 import CTA from "@/components/CTA";
 import { TechCarousel } from "./components/TechCarousel";

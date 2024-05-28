@@ -6,12 +6,12 @@ import Hp_imgframe from './hp_imgframe';
 import { FaCircleChevronLeft, FaCircleChevronRight } from "react-icons/fa6";
 
 const images = [
-  { src: "/hp_imgframe.png", alt: '', text: "Coporate Event", link: "/singleevent" },
-  { src: "/hp_imgframe.png", alt: '', text: "Business Event", link: "/singleevent"  },
-  { src: "/hp_imgframe.png", alt: '', text: "Rental Event", link: "/singleevent"  },
-  { src: "/hp_imgframe.png", alt: '', text: "Work Event", link: "/singleevent"  },
-  { src: "/hp_imgframe.png", alt: '', text: "Laptop Event", link: "/singleevent"  },
-  { src: "/hp_imgframe.png", alt: '', text: "Hello Event", link: "/singleevent"  },
+  { src: "/hp_imgframe.png", alt: '', text: "Coporate Event", link: "/singleevent", desc: "Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure", btn:"Explore Event" },
+  { src: "/hp_imgframe.png", alt: '', text: "Business Event", link: "/singleevent",  desc: "Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure", btn:"Explore Event"   },
+  { src: "/hp_imgframe.png", alt: '', text: "Rental Event", link: "/singleevent",  desc: "Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure", btn:"Explore Event"   },
+  { src: "/hp_imgframe.png", alt: '', text: "Work Event", link: "/singleevent",  desc: "Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure", btn:"Explore Event"   },
+  { src: "/hp_imgframe.png", alt: '', text: "Laptop Event", link: "/singleevent",  desc: "Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure", btn:"Explore Event"   },
+  { src: "/hp_imgframe.png", alt: '', text: "Hello Event", link: "/singleevent",  desc: "Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure", btn:"Explore Event"   },
 ];
 
 function HpCorporateEvent() {
@@ -45,7 +45,7 @@ function HpCorporateEvent() {
       </div>
       <div className='flex md:gap-3 gap-12 md:flex-row flex-col md:mt-0 mt-3 mb-5  justify-center items-center '>
         {images.slice(currentIndex,currentIndex + 2).map((img, index) => (
-          <Hp_imgframe key={index} src={img.src} alt={img.alt} text={img.text} link={img.link}/>
+          <Hp_imgframe key={index} src={img.src} alt={img.alt} text={img.text} link={img.link} desc={img.desc} btn={img.btn}  />
         ))}
       </div>
     </div>

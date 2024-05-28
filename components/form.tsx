@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "./ui/input";
 import { ScrollArea } from "./ui/scroll-area";
 import Image from "next/image";
+import Link from "next/link";
 
 function Form({ setPopUp }: any) {
   const cardsData = [
@@ -356,8 +357,10 @@ function Form({ setPopUp }: any) {
           <p className="line-clamp-4 font-Poppins md:text-[10px] text-[8px]">
             {card.description}
           </p>
-          <Button className="w-16 md:w-36 h-5 md:h-8 font-Poppins border border-none bg-[#D61837] text-[9px] md:text-[12px]">
+          <Button asChild className="w-16 md:w-36 h-5 md:h-8 font-Poppins border border-none bg-[#D61837] text-[9px] md:text-[12px]">
+            <Link href="#">
             Rent a Product
+            </Link>
           </Button>
         </div>
       </div>
