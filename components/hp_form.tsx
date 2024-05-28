@@ -22,7 +22,7 @@ function Hp_form() {
     <div className='md:pl-20 md:pr-10 pl-5 pr-5 grid md:pt-10 pt-3 md:grid-cols-[35%,65%]'>
       <div className='flex-col md:justify-start justify-center'>
         <div className='flex md:flex-col md:justify-start md:items-start justify-center items-center gap-2 md:gap-8'>
-          <Button className="w-20 md:w-40 h-4 md:h-12 font-Poppins border border-none bg-[#D61837] text-[9px] md:text-[18px]">
+          <Button asChild className="w-20 md:w-40 h-4 md:h-12 font-Poppins border border-none bg-[#D61837] text-[9px] md:text-[18px]">
             <Link href="/form">Request a quote</Link>
             
           </Button>

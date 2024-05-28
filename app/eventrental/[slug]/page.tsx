@@ -11,32 +11,39 @@ import { Input } from "@/components/ui/input";
 import { IoMdSearch } from "react-icons/io";
 import { useState } from "react";
 import { AccordionFAQ } from "@/components/Accordion";
-import Link from "next/link";
 
 const images = [
   {
     src: "/hp_imgframe.png",
     alt: "",
-    text: "Coporate Event",
+    text: "Corporate Event",
     link: "/singleevent",
+    desc: "Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure",
+    btn: "Explore Event",
   },
   {
     src: "/hp_imgframe.png",
     alt: "",
     text: "Business Event",
     link: "/singleevent",
+    desc: "Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure",
+    btn: "Explore Event",
   },
   {
     src: "/hp_imgframe.png",
     alt: "",
     text: "Rental Event",
     link: "/singleevent",
+    desc: "Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure",
+    btn: "Explore Event",
   },
   {
     src: "/hp_imgframe.png",
     alt: "",
     text: "Rental Event",
     link: "/singleevent",
+    desc: "Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure",
+    btn: "Explore Event",
   },
 ];
 const Page = () => {
@@ -118,6 +125,8 @@ const Page = () => {
             alt={img.alt}
             text={img.text}
             link={img.link}
+            desc={img.desc}
+            btn={img.btn}
           />
         ))}
       </div>

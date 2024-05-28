@@ -6,9 +6,11 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { useState } from "react";
 import { SiTicktick } from "react-icons/si";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 function Gallery() {
     const [activeButton, setActiveButton] = useState(0);
+    const router = useRouter();
     const handleButtonClick = (index: any) => {
         setActiveButton(index);
     };
@@ -19,6 +21,11 @@ function Gallery() {
         "lorem",
         "lorem"
     ];
+
+    const handleRequestQuote = () => {
+        // Navigate to the desired page when "Request Quote" button is clicked
+        router.push('/form'); // Adjust the route as needed
+      };
     
     return (
         <div className="pb-10">
@@ -75,7 +82,7 @@ function Gallery() {
                     </div>
                     
                     <div className=" flex pl-5 pt-5 justify-center">
-                        <Button className='font-Poppins border md:w-80 w-60 border-none bg-[#D61837]'>Rent Event</Button>
+                        <Button className='font-Poppins border md:w-80 w-60 border-none bg-[#D61837]' onClick={() => handleRequestQuote()}>Rent Event</Button>
                     </div>
 
                 </div>

@@ -26,7 +26,7 @@ function Footer() {
         <div className="text-white  text-[9px] md:text-[28px] md:text-left text-start font-Poppins font-[500px]">
           <p >Need Any Outdoor Event WiFi Rental Services?</p>
         </div>
-        <Button className='w-24 md:w-40 h-4  md:h-12 md:mb-2 mb-1 mr-2  font-Poppins border rounded-sm border-none bg-[#D61837] text-[10px] md:text-[18px]'><Link href={"/form"}>Request a quote</Link></Button>
+        <Button asChild className='w-24 md:w-40 h-4  md:h-12 md:mb-2 mb-1 mr-2  font-Poppins border rounded-sm border-none bg-[#D61837] text-[10px] md:text-[18px]'><Link href={"/form"}>Request a quote</Link></Button>
       </div>
 
       </div>
