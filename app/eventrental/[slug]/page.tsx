@@ -1,16 +1,15 @@
-"use client";
 import Banner from "@/components/Banner";
 import ImageInfo from "@/components/ImageInfo";
 import eventrental1 from "@/public/eventrental1.jpg";
 import EventsCarousel from "./_components/EventsCarousel";
-import FAQ from "./_components/FAQ";
+
 import MasonryGrid from "@/components/masonry";
 import Hp_imgframe from "@/components/hp_imgframe";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { IoMdSearch } from "react-icons/io";
-import { useState } from "react";
+
 import { AccordionFAQ } from "@/components/Accordion";
+import { getEventBySlug } from "@/data/loaders";
+import { PageProps } from "@/lib/definitions";
+import { Metadata } from "next";
 
 const images = [
   {
@@ -46,39 +45,35 @@ const images = [
     btn: "Explore Event",
   },
 ];
-const Page = () => {
-  const [clickedCards, setClickedCards] = useState([
-    false,
-    false,
-    false,
-    false,
-  ]); // Track clicked state of each card
 
-  const handleCardClick = (index: any) => {
-    const updatedClickedCards = clickedCards.map((clicked, i) =>
-      i === index ? true : false
-    );
-    setClickedCards(updatedClickedCards);
-    setActiveButton(index);
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const slug = params.slug;
+  const data = await getEventBySlug(slug);
+
+  return {
+    title: data.MetaTitle,
+    description: data.MetaDescription,
+    keywords: data.MetaKeywords,
+    alternates: {
+      canonical: data.MetaCanonical,
+    },
   };
+}
 
-  const [activeButton, setActiveButton] = useState(0);
+const Page = async ({ params }: PageProps) => {
+  const slug = params.slug;
+  const data = await getEventBySlug(slug);
 
-  const FAQ_buttoncontents = [
-    <AccordionFAQ key={0} />,
-    <AccordionFAQ key={1} />,
-    <AccordionFAQ key={2} />,
-  ];
-
-  const handleButtonClick = (index: any) => {
-    setActiveButton(index);
-  };
+  console.log(data);
 
   return (
     <div>
       <Banner
-        title="CORPORATE EVENT"
-        text="We at Laptop Rentals understand whether you&lsquo;re hosting whether you&lsquo;re hosting We at Laptop Rentals understand at Laptop Rentals understand"
+        title={data.IntroTitle}
+        text={data.IntroText}
+        image={data.IntroBanner}
       />
       <ImageInfo
         title="Empower Your Business with Flexible and Reliable IT Equipment Rentals"
@@ -96,9 +91,11 @@ const Page = () => {
         text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porttitor dictum lectus at ultricies. elit. In porttitor "
       />
       <Banner
-        title="EVENT RENTALS"
-        text="We at Laptop Rentals understand whether you're hosting a conference, trade show, or business event, having access"
+        title={data.CtaTitle}
+        text={data.CtaDescription}
         btn="Get a Quote"
+        link="/form"
+        image={data.CtaImage}
       />
       <div className=" md:pl-16 md:pr-16 pl-5 pr-5">
         <p className="font-[800]  font-Barlow md:text-[34px] text-[20px] text-center md:pt-16 pt-5">
@@ -140,7 +137,9 @@ const Page = () => {
           voluptas, eum deserunt? Ab facilis animi doloribus nulla molestias
           atque, quos odio sequi repellendus.
         </p>
-        <div className="flex justify-center mt-4">
+
+        <AccordionFAQ />
+        {/* <div className="flex justify-center mt-4">
           <form className="w-full max-w-md">
             <div className="relative flex items-center text-gray-400 focus-within:text-gray-600 justify-between">
               <Input
@@ -174,7 +173,7 @@ const Page = () => {
           <div className="mt-4 ml-20 mr-20 font-medium text-[14px] mb-4">
             {FAQ_buttoncontents[activeButton]}
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

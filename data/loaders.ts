@@ -47,4 +47,6 @@ export async function getEventBySlug(slug: string) {
       },
     },
   });
+
+  return await fetchData(url.href);
 }
