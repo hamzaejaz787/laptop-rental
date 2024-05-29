@@ -25,7 +25,7 @@ const Banner = ({ btn, title, text, link, image }: BannerProps) => {
   if (image) imageurl = baseurl + image?.url;
 
   return (
-    <div className="relative mt-10 md:mt-14 lg:mt-20 flex justify-center items-center">
+    <div className="relative flex justify-center items-center">
       <Image
         src={imageurl || banner_bg}
         alt={image?.alternativeText || ""}

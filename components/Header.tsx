@@ -13,9 +13,7 @@ async function Header() {
 
   return (
     <div className="fixed left-0 right-0 top-0 z-50 ">
-      <div className="w-full md:h-10 h-5 bg-[#D61837]"></div>
       <div className="flex relative justify-between items-center md:px-10 md:py-2 px-2 py-1">
-        {" "}
         <Image src="/Vector.png" alt="" fill={true} className="-z-10" />
         <Image
           src="/laptop_rental_logo.png"

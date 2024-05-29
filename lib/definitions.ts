@@ -25,3 +25,8 @@ export interface BannerProps {
   image?: BannerImageProps;
   items?: BannerItem[];
 }
+
+export interface ProductInfoTabItemProps {
+  value: string;
+  content: string;
+}

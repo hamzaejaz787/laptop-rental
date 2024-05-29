@@ -4,7 +4,7 @@ import EventsCarousel from "./_components/EventsCarousel";
 import MasonryGrid from "@/components/masonry";
 import Hp_imgframe from "@/components/hp_imgframe";
 import { getEventBySlug } from "@/data/loaders";
-import { BannerProps, PageProps } from "@/lib/definitions";
+import { PageProps } from "@/lib/definitions";
 import { Metadata } from "next";
 import Faqs from "@/components/Faqs";
 
