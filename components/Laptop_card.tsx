@@ -36,7 +36,7 @@ const Laptop_card: React.FC<LaptopCardProps> = ({
 
   return (
     <div
-      className={`Flex flex-col md:h-[300px] h-[160px] md:w-64 w-44 border-2 border-dashed md:px-3 px-2 pb-2 ${
+      className={`md:h-[300px] h-[160px] md:w-64 w-44 border-2 border-dashed md:px-3 px-2 pb-2 ${
         clicked ? "border-red-500" : "border-gray-600"
       }`}
       onClick={onClick}

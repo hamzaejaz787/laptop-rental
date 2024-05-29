@@ -20,7 +20,12 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 function Dell_E5440() {
-  const [clickedCards, setClickedCards] = useState([false, false, false, false]); // Track clicked state of each card
+  const [clickedCards, setClickedCards] = useState([
+    false,
+    false,
+    false,
+    false,
+  ]); // Track clicked state of each card
 
   const handleCardClick = (index: any) => {
     const updatedClickedCards = clickedCards.map((clicked, i) =>
@@ -30,7 +35,6 @@ function Dell_E5440() {
     setActiveButton(index);
   };
 
-
   const [activeButton, setActiveButton] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const FAQ_buttoncontents: React.ReactNode[] = [
@@ -38,28 +42,28 @@ function Dell_E5440() {
     <AccordionFAQ key="faq-2" />,
     <AccordionFAQ key="faq-3" />,
   ];
-  
+
   const router = useRouter();
 
-const handleIncrementQuantity = () => {
-  setQuantity((prevQuantity) => prevQuantity + 1);
-}
+  const handleIncrementQuantity = () => {
+    setQuantity((prevQuantity) => prevQuantity + 1);
+  };
 
-const handleDecrementQuantity = () => {
-  if (quantity > 1) {
-    setQuantity((prevQuantity) => prevQuantity - 1);
-  }
-}
+  const handleDecrementQuantity = () => {
+    if (quantity > 1) {
+      setQuantity((prevQuantity) => prevQuantity - 1);
+    }
+  };
 
   const handleButtonClick = (index: any) => {
     if (index < buttonContents.length) {
       setActiveButton(index);
     }
   };
-  
+
   const handleRequestQuote = () => {
     // Navigate to the desired page when "Request Quote" button is clicked
-    router.push('/form'); // Adjust the route as needed
+    router.push("/form"); // Adjust the route as needed
   };
 
   const buttonContents = [
@@ -67,19 +71,16 @@ const handleDecrementQuantity = () => {
     "This is a guide on how to use the product.",
     "These are reviews from customers who have used the product.",
   ];
-  
+
   return (
     <>
-    <Banner
-    title= "DELL ES5440 LATITUDE"
-    text= "Home > Laptop. Dell Laptop rental >Product Page Name"
-    />
+      <Banner title="DELL ES5440 LATITUDE" text="" />
       {/* <div className="relative">
         
         <Image src="/dell_bg.png" alt="" width={1000} height= {1000} className="w-full object-cover pt-16 md:h-[400px] lg:h-[500px]"/>
 
         {/* Content */}
-        {/* <div className="absolute inset-0 flex flex-col items-center justify-center">
+      {/* <div className="absolute inset-0 flex flex-col items-center justify-center">
           <p className="font-[800] text-white text-[40px] font-Barlow md:text-3xl lg:text-5xl">DELL E5440 LATTITUDE</p>
           <div className="flex text-white items-center font-Inter text-[14px] md:text-base lg:text-lg">
             <p>Homee</p>
@@ -96,10 +97,18 @@ const handleDecrementQuantity = () => {
       {/* Photo Frame and Laptop */}
       <div className="flex pl-10  items-center md:flex-row flex-col pt-5  gap-10 md:pt-10">
         <div>
-          <Image src="/imageframe.png" alt="" width={1280} height={1280}  className="w-full h-[20%] md:h-[700px] md:w-[1000px]"/>
+          <Image
+            src="/imageframe.png"
+            alt=""
+            width={1280}
+            height={1280}
+            className="w-full h-[20%] md:h-[700px] md:w-[1000px]"
+          />
         </div>
         <div className="flex flex-col gap-2 md:pl-10">
-          <p className="font-[800] font-Barlow text-[34px]">DELL E5440 LATITUDE</p>
+          <p className="font-[800] font-Barlow text-[34px]">
+            DELL E5440 LATITUDE
+          </p>
           <p className="line-clamp-2 text-gray text-[15px] font-Poppins font-#595959">
             We at Laptop Rentals understand whether you are hosting a
             conference, trade show, or business event, having access to a
@@ -123,7 +132,9 @@ const handleDecrementQuantity = () => {
               <p>We at Laptop Rentals understand</p>
             </div>
           </div>
-          <p className="font-extrabold text-[20px] font-Poppins">Luggages Include</p>
+          <p className="font-extrabold text-[20px] font-Poppins">
+            Luggages Include
+          </p>
           <div className="flex gap-8">
             <div className="flex flex-col h-24 w-36 border-gray-300 rounded-md border-2 items-center justify-center">
               <IoHardwareChipOutline color="D61837" size={40} />
@@ -140,9 +151,11 @@ const handleDecrementQuantity = () => {
           </div>
           <div className="flex items-center">
             <div className="flex border-gray-300 rounded-sm h-10 w-48 border-2 items-center justify-center gap-6 mt-2 mb-2">
-              <FaMinus onClick={handleDecrementQuantity}/>
+              <FaMinus onClick={handleDecrementQuantity} />
               <Separator orientation="vertical" color="gray" />
-              <p className="font-semibold text-[16px] font-Poppins">{quantity}</p>
+              <p className="font-semibold text-[16px] font-Poppins">
+                {quantity}
+              </p>
               <Separator orientation="vertical" />
               <FaPlus onClick={handleIncrementQuantity} />
             </div>
@@ -151,7 +164,6 @@ const handleDecrementQuantity = () => {
           <div className="flex h-10 ">
             <div className="flex bg-[#D61837] rounded-l-sm font-Poppins items-center pl-10 pr-10 justify-center text-white font-medium text-[16px] w-88">
               <Link href={"/form"}>Request Quote</Link>
-              
             </div>
             <div className="flex bg-black w-20 items-center rounded-r-sm justify-center">
               <FaPlus color="white" size={25} />
@@ -162,7 +174,7 @@ const handleDecrementQuantity = () => {
       <div className="flex flex-col gap-4 pt-10">
         <div className="flex font-[600] text-[16px] justify-center font-Barlow underline underline-offset-4 gap-5 ">
           {["Description", "Product Guide", "Reviews"].map((label, index) => (
-            <Button 
+            <Button
               key={index}
               variant="link"
               className={`${activeButton === index ? "text-red-600" : ""} flex`}
@@ -176,15 +188,62 @@ const handleDecrementQuantity = () => {
           {buttonContents[activeButton]}
         </div>
       </div>
-      <p className="text-[40px] font-bold text-center font-Barlow mt-10 mb-5">Related Products</p>
+      <p className="text-[40px] font-bold text-center font-Barlow mt-10 mb-5">
+        Related Products
+      </p>
       <div className="flex md:flex-row gap-4 flex-wrap items-center justify-center">
-        <Laptop_card clicked={clickedCards[0]} onClick={() => handleCardClick(0)} src={"/ipad.png"} text={"iPad WiFi 10.5 Cellular"} description={"Upgrade your technological experience with advance features"} ram={"16GB"} storage={"512GB"} display={"10.5"} onRequestQuote={handleRequestQuote} 
+        <Laptop_card
+          clicked={clickedCards[0]}
+          onClick={() => handleCardClick(0)}
+          src={"/ipad.png"}
+          text={"iPad WiFi 10.5 Cellular"}
+          description={
+            "Upgrade your technological experience with advance features"
+          }
+          ram={"16GB"}
+          storage={"512GB"}
+          display={"10.5"}
+          onRequestQuote={handleRequestQuote}
         />
-        <Laptop_card clicked={clickedCards[1]} onClick={() => handleCardClick(1)} src={"/ipad.png"} text={"iPad WiFi 10.5 Cellular"} description={"Upgrade your technological experience with advance features"} ram={"16GB"} storage={"512GB"} display={"10.5"} onRequestQuote={handleRequestQuote}
+        <Laptop_card
+          clicked={clickedCards[1]}
+          onClick={() => handleCardClick(1)}
+          src={"/ipad.png"}
+          text={"iPad WiFi 10.5 Cellular"}
+          description={
+            "Upgrade your technological experience with advance features"
+          }
+          ram={"16GB"}
+          storage={"512GB"}
+          display={"10.5"}
+          onRequestQuote={handleRequestQuote}
         />
-        <Laptop_card clicked={clickedCards[2]} onClick={() => handleCardClick(2)} src={"/ipad.png"} text={"iPad WiFi 10.5 Cellular"} description={"Upgrade your technological experience with advance features"} ram={"16GB"} storage={"512GB"} display={"10.5"} onRequestQuote={handleRequestQuote}/>
-        <Laptop_card clicked={clickedCards[3]} onClick={() => handleCardClick(3)} src={"/ipad.png"} text={"iPad WiFi 10.5 Cellular"} description={"Upgrade your technological experience with advance features"} ram={"16GB"} storage={"512GB"} display={"10.5"} onRequestQuote={handleRequestQuote}/>
-
+        <Laptop_card
+          clicked={clickedCards[2]}
+          onClick={() => handleCardClick(2)}
+          src={"/ipad.png"}
+          text={"iPad WiFi 10.5 Cellular"}
+          description={
+            "Upgrade your technological experience with advance features"
+          }
+          ram={"16GB"}
+          storage={"512GB"}
+          display={"10.5"}
+          onRequestQuote={handleRequestQuote}
+        />
+        <Laptop_card
+          clicked={clickedCards[3]}
+          onClick={() => handleCardClick(3)}
+          src={"/ipad.png"}
+          text={"iPad WiFi 10.5 Cellular"}
+          description={
+            "Upgrade your technological experience with advance features"
+          }
+          ram={"16GB"}
+          storage={"512GB"}
+          display={"10.5"}
+          onRequestQuote={handleRequestQuote}
+        />
       </div>
       <div className="">
         <p className="text-[40px] font-bold text-center mt-10">
@@ -216,7 +275,7 @@ const handleDecrementQuantity = () => {
           <div className="flex font-[600] text-[16px] justify-center font-Barlow underline underline-offset-4 gap-5">
             {["General", "Trust and Safety", "Services"].map((label, index) => (
               <Button
-              key={index}
+                key={index}
                 variant="link"
                 className={`${
                   activeButton === index ? "text-red-600" : ""

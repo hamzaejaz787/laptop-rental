@@ -73,7 +73,9 @@ export function Navbar({ eventItems }: { eventItems: EventItemTypes }) {
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuTrigger className="text-[13px]">
-              Event Type
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <Link href={"/eventrental"}>Event Type</Link>
+              </NavigationMenuLink>
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid gap-3 p-6 md:w-[180px] ">
@@ -89,7 +91,9 @@ export function Navbar({ eventItems }: { eventItems: EventItemTypes }) {
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuTrigger className="text-[13px]">
-              Technology Rental
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <Link href={"/techrental"}>Technology Rental</Link>
+              </NavigationMenuLink>
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[200px] md:grid-cols-2 lg:w-[600px] ">

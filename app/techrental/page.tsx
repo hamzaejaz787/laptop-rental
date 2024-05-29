@@ -112,7 +112,6 @@ function TechRental() {
       <Frame />
       <ImageInfo
         title="Empower Your Business with Flexible and Reliable IT Equipment Rentals"
-        image={eventrental1}
         text="We at Laptop Rentals understand whether you&lsquo;re hosting a conference, trade show, or business event, having access to reliable and high-quality technology can make all.We at Laptop "
       />
       <div className="grid grid-cols-[30%,70%] md:pt-10 pt-3 md:px-10 px-3 md:gap-5 gap-2">
@@ -141,7 +140,6 @@ function TechRental() {
       </div>
       <ImageInfo
         title="Regarding Your Investment Our Breakage Policy"
-        image={eventrental1}
         reverse
         text="We at Laptop Rentals understand whether you&lsquo;re hosting a conference, trade show, or business event, having access to reliable and high-quality technology can make all.We at Laptop Rentals understand whether you.reliable and high-quality technology can make all.We at Laptop"
         items={[

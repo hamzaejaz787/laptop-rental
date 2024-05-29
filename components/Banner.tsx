@@ -21,22 +21,23 @@ export interface BannerProps {
 
 const Banner = ({ btn, title, text, link, image }: BannerProps) => {
   const baseurl = getStrapiURL();
-  const imageurl = baseurl + image?.url;
+  let imageurl = "";
+  if (image) imageurl = baseurl + image?.url;
 
   return (
     <div className="relative mt-10 md:mt-14 lg:mt-20 flex justify-center items-center">
       <Image
         src={imageurl || banner_bg}
         alt={image?.alternativeText || ""}
-        width={image?.width}
-        height={image?.height}
-        className="w-full md:h-96 relative"
+        width={image?.width || 1000}
+        height={image?.height || 550}
+        className="w-full h-screen md:max-h-[550px] relative"
       />
-      <div className="pb-1 absolute left-0 w-full flex flex-col justify-center items-center md:gap-5 gap-2">
-        <h2 className="md:text-4xl text-3xl text-bold text-white font-bold uppercase">
+      <div className="p-8 absolute left-0 w-full h-full flex flex-col justify-center items-center gap-4">
+        <h1 className="md:text-4xl text-center text-3xl text-bold text-white font-bold uppercase">
           {title}
-        </h2>
-        <p className="md:text-base text-white font-sans text-[12px] text-center w-[60%]">
+        </h1>
+        <p className="md:text-base text-white/85 font-sans text-center md:max-w-xl md:mx-auto">
           {text}
         </p>
         {btn && link && (

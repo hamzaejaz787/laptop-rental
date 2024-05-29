@@ -4,7 +4,7 @@ import Autoplay from "embla-carousel-autoplay";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 import {
   Carousel,
   CarouselContent,
@@ -144,16 +144,18 @@ const EventsCarousel = ({ title, text }: any) => {
   const router = useRouter();
   const handleRequestQuote = () => {
     // Navigate to the desired page when "Request Quote" button is clicked
-    router.push('/form'); // Adjust the route as needed
+    router.push("/form"); // Adjust the route as needed
   };
 
   return (
     <div className="w-[80%] m-auto mt-10 md:mt-14 lg:mt-20">
       <div className="w-full flex flex-col justify-center items-center">
-        <h3 className="font-sans text-center mb-2 font-bold text-3xl">
-          {title}
+        <h3 className="font-bold font-Barlow text-xl text-center md:pt-16 pt-5">
+          {title}{" "}
         </h3>
-        <p className="w-[50%] font-sans text-sm text-center mb-3">{text}</p>
+        <p className="text-gray-400 font-Poppins text-center md:pb-5 pb-2">
+          {text}
+        </p>
         <Carousel
           plugins={[plugin.current]}
           onMouseEnter={plugin.current.stop}
@@ -188,8 +190,14 @@ const EventsCarousel = ({ title, text }: any) => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="border-2 border-[#D61837] border-dashed rounded-full" color="black" />
-          <CarouselNext className="border-2 border-[#D61837] border-dashed rounded-full" color="black"/>
+          <CarouselPrevious
+            className="hidden md:block border-2 border-[#D61837] border-dashed rounded-full"
+            color="black"
+          />
+          <CarouselNext
+            className="hidden md:block border-2 border-[#D61837] border-dashed rounded-full"
+            color="black"
+          />
         </Carousel>
       </div>
     </div>
@@ -197,4 +205,3 @@ const EventsCarousel = ({ title, text }: any) => {
 };
 
 export default EventsCarousel;
-

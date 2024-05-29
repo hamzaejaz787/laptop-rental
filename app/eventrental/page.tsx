@@ -6,7 +6,7 @@ import testimg from "@/public/testcutimage.jpg";
 import Eventslist from "./_components/eventslist";
 import CTA from "@/components/CTA";
 import { TechCarousel } from "./_components/TechCarousel";
-import { getEvents } from "@/data/loaders";
+
 const EventPage = async () => {
   return (
     <div>
@@ -17,7 +17,6 @@ const EventPage = async () => {
       />
       <ImageInfo
         title="Empower Your Business with Flexible and Reliable IT Equipment Rentals"
-        image={eventrental1}
         text="We at Laptop Rentals understand whether you&lsquo;re hosting a conference, trade show, or business event, having access to reliable and high-quality technology can make all.We at Laptop Rentals understand whether you.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you.understand whether you.reliable and high-quality technology can make all.We at Laptop Rentals understand whether you."
       />
       <Eventslist />
