@@ -161,7 +161,7 @@ function Footer() {
                 <MdEmail size={20} color="white" />
                 <Link
                   className="font-normal md:text-[13px] text-[6px] text-white font-Poppins"
-                  href={"/contactus"}
+                  href={"mailto:laptop@gmail.com"}
                 >
                   laptop@gmail.com
                 </Link>
@@ -173,7 +173,7 @@ function Footer() {
                     className="font-normal md:text-[13px] text-[6px] text-white font-Poppins md:line-clamp-2 line-clamp-2 pr-2 md:pr-0"
                     href={"/contactus"}
                   >
-                    2508 Sydney -------,TX 78746 Australia
+                    2508 Sydney,TX 78746 Australia
                   </Link>
                 </div>
               </div>

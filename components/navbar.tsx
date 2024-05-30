@@ -67,15 +67,11 @@ export function Navbar({ eventItems }: { eventItems: EventItemTypes }) {
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              <Link href={"/"}>Home</Link>
-            </NavigationMenuLink>
+            <ListItem href="/" title="Home" />
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuTrigger className="text-[13px]">
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                <Link href={"/eventrental"}>Event Type</Link>
-              </NavigationMenuLink>
+              <ListItem href="/eventrental" title="Event Type" />
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid gap-3 p-6 md:w-[180px] ">
@@ -91,48 +87,41 @@ export function Navbar({ eventItems }: { eventItems: EventItemTypes }) {
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuTrigger className="text-[13px]">
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                <Link href={"/techrental"}>Technology Rental</Link>
-              </NavigationMenuLink>
+              <ListItem href="/techrental" title="Technology Rental" />
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[200px] md:grid-cols-2 lg:w-[600px] ">
                 {components.map((component) => (
                   <React.Fragment key={component.title}>
-                    <ListItem title={component.title} href={component.href} />
-                    {component.subcomponents &&
-                      component.subcomponents.map((subcomponent) => (
-                        <ListItem
-                          key={subcomponent.title}
-                          title={subcomponent.title}
-                          href={subcomponent.href}
-                          isSubcomponent
-                        />
-                      ))}
+                    <li>
+                      <ListItem title={component.title} href={component.href} />
+                      {component.subcomponents &&
+                        component.subcomponents.map((subcomponent) => (
+                          <ListItem
+                            key={subcomponent.title}
+                            title={subcomponent.title}
+                            href={subcomponent.href}
+                            isSubcomponent
+                          />
+                        ))}
+                    </li>
                   </React.Fragment>
                 ))}
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              <Link href={"/blogs"}>News Events</Link>
-            </NavigationMenuLink>
+            <ListItem href="/blogs" title="News Events" />
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              <Link href={"/gallery"}>Gallery</Link>
-            </NavigationMenuLink>
+            <ListItem href="/gallery" title="Gallery" />
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              <Link href={"/aboutus"}>About Us</Link>
-            </NavigationMenuLink>
+            <ListItem href="/aboutus" title="About Us" />
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              <Link href={"/contactus"}>Contact Us</Link>
-            </NavigationMenuLink>
+            {" "}
+            <ListItem href="/contactus" title="Contact Us" />
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
@@ -145,21 +134,19 @@ const ListItem = React.forwardRef<
   { title: string; href: string; isSubcomponent?: boolean }
 >(({ title, href, isSubcomponent }, ref) => {
   return (
-    <li>
-      <Link
-        legacyBehavior
-        passHref
-        className={cn(
-          "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-          isSubcomponent && "pl-6" // Add left padding for subcomponents
-        )}
-        href={href}
-      >
-        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-          <div className="text-sm font-medium leading-none">{title}</div>
-        </NavigationMenuLink>
-      </Link>
-    </li>
+    <Link
+      legacyBehavior
+      passHref
+      className={cn(
+        "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+        isSubcomponent && "pl-6" // Add left padding for subcomponents
+      )}
+      href={href}
+    >
+      <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+        <div className="text-sm font-medium leading-none">{title}</div>
+      </NavigationMenuLink>
+    </Link>
   );
 });
 ListItem.displayName = "ListItem";
