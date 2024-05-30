@@ -14,7 +14,7 @@ const config = {
     container: {
       center: true,
       screens: {
-        "2xl": "1400px",
+        "2xl": "1600px",
       },
     },
     extend: {
@@ -52,6 +52,7 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        "primary-red": "rgb(214, 24, 55)",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -81,6 +82,9 @@ const config = {
       },
       backgroundImage: {
         "card-pattern": "url('/hp_imgframe.png')",
+      },
+      boxShadow: {
+        "card-shadow": "0 3px 10px rgb(0,0,0,0.2)",
       },
     },
   },

@@ -67,7 +67,7 @@ const ProductCard = ({
           asChild
           className="bg-red-500 font-normal text-lg rounded text-white w-full font-Poppins"
         >
-          <Link href={"/"}>Request Quote</Link>
+          <Link href={"/"}>Learn More</Link>
         </Button>
       </CardFooter>
     </Card>

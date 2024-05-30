@@ -16,13 +16,13 @@ const Aboutus = () => {
       />
       <Video />
       <div>
-          <div className="md:font-[800] font-bold font-Barlow md:text-[34px] text-[14px] text-center md:pt-16 pt-5 md:pb-5">
-            Our Event Services
-            <div>
-              <Hp_icons />
-            </div>
+        <div className="md:font-[800] font-bold font-Barlow md:text-[34px] text-[14px] text-center md:pt-16 pt-5 md:pb-5">
+          Our Event Services
+          <div>
+            <Hp_icons />
           </div>
         </div>
+      </div>
       <Cta />
       <AboutCards />
       <ReviewCarousel />

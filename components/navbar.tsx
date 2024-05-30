@@ -28,36 +28,32 @@ const components: {
   subcomponents?: { title: string; href: string }[];
 }[] = [
   {
-    title: "Technological Rental",
-    href: "/techrental",
-  },
-  {
     title: "Laptop Rental",
-    href: "/singletechrental",
+    href: "/techrental/singletechrental",
   },
   {
     title: "Tablet Rental",
-    href: "/",
+    href: "/techrental/singletechrental",
   },
   {
     title: "Mobile Rental",
-    href: "/",
+    href: "/techrental/singletechrental",
   },
   {
     title: "AV Rental",
-    href: "/",
+    href: "/techrental/singletechrental",
   },
   {
     title: "Screen Rental",
-    href: "/",
+    href: "/techrental/singletechrental",
   },
   {
     title: "Event WiFi Rental",
-    href: "/",
+    href: "/techrental/singletechrental",
   },
   {
     title: "Event Services",
-    href: "/",
+    href: "/techrental/singletechrental",
   },
 ];
 
@@ -74,7 +70,7 @@ export function Navbar({ eventItems }: { eventItems: EventItemTypes }) {
               <ListItem href="/eventrental" title="Event Type" />
             </NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="grid gap-3 p-6 md:w-[180px] ">
+              <ul className="grid gap-3 p-4 md:w-[180px]">
                 {eventItems.data.map((item) => (
                   <ListItem
                     key={item.id}
@@ -90,7 +86,7 @@ export function Navbar({ eventItems }: { eventItems: EventItemTypes }) {
               <ListItem href="/techrental" title="Technology Rental" />
             </NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="grid w-[400px] gap-3 p-4 md:w-[200px] md:grid-cols-2 lg:w-[600px] ">
+              <ul className="grid w-[400px] gap-3 p-4 md:w-[200px] md:grid-cols-2 lg:w-[600px]">
                 {components.map((component) => (
                   <React.Fragment key={component.title}>
                     <li>
@@ -134,17 +130,14 @@ const ListItem = React.forwardRef<
   { title: string; href: string; isSubcomponent?: boolean }
 >(({ title, href, isSubcomponent }, ref) => {
   return (
-    <Link
-      legacyBehavior
-      passHref
-      className={cn(
-        "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-        isSubcomponent && "pl-6" // Add left padding for subcomponents
-      )}
-      href={href}
-    >
-      <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-        <div className="text-sm font-medium leading-none">{title}</div>
+    <Link legacyBehavior passHref href={href}>
+      <NavigationMenuLink
+        className={cn(
+          "block select-none space-y-1 rounded-md p-3 text-primary hover:text-primary-red text-sm font-semibold",
+          isSubcomponent && "pl-6" // Add left padding for subcomponents
+        )}
+      >
+        {title}
       </NavigationMenuLink>
     </Link>
   );

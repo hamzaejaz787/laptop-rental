@@ -28,7 +28,7 @@ async function Header() {
         <div className="flex items-center md:gap-2 pr-2 gap-1">
           <Button
             asChild
-            className="font-Poppins h-4 md:h-8 w-16 md:w-24 md:text-[14px] text-[9px] border border-none bg-[#D61837]"
+            className="font-Poppins h-4 md:h-8 w-16 md:w-24 md:text-[14px] text-[9px] border border-none bg-primary-red"
           >
             <Link href={"/form"}>Get a quote</Link>
           </Button>

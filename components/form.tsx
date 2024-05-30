@@ -111,7 +111,7 @@ function Form({ setPopUp }: any) {
 
   return (
     <div className=" md:h-[920px] mx-3 md:ml-10 mt-20 md:mt-20 grid md:flex-row grid-cols-[50%,50%] mb-5 border md:justify-center md:items-center rounded-sm">
-      <div className="bg-[#D61837] shadow-lg md:w-full h-full w-full overflow-hidden flex justify-center items-center">
+      <div className="bg-primary-red shadow-lg md:w-full h-full w-full overflow-hidden flex justify-center items-center">
         {" "}
         <div className="text-white p-8 max-w-md w-full">
           <div className="text-center mb-6">
@@ -306,7 +306,7 @@ function Form({ setPopUp }: any) {
                 value={formik.values.message}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                className={`bg-transparent text-white p-2 rounded w-full placeholder:text-white placeholder:text-[10px] placeholder:md:text-[12px] placeholder-gray-400 h-20 ${
+                className={`bg-transparent text-white p-2 rounded w-full placeholder:text-white placeholder:text-[10px] placeholder:md:text-[12px] placeholder-gray-400 ${
                   formik.touched.message && formik.errors.message
                     ? "border-red-500"
                     : ""
@@ -331,45 +331,49 @@ function Form({ setPopUp }: any) {
         </div>
       </div>
       <div className="shadow-lg md:w-full h-full flex-col md:pl-5 md:pr-5 md:pt-10 pt-5 pl-5">
-  <p className="font-Barlow md:font-[600px] font-bold md:text-2xl text-[15px] text-center">
-    Select Your Product
-  </p>
-  <p className="font-Barlow text-[#d61837] text-center font-bold">
-    ----------------
-  </p>
-  <div className="flex w-full md:w-full justify-center items-center">
-  <ScrollArea className="md:h-[800px] md:w-[400px] w-48 rounded-md border-none flex justify-between md:justify-start">
-    {cardsData.map((card, index) => (
-      <div key={index} className={`flex md:pl-3 md:pr-3 gap-1 md:gap-0 justify-center ${index !== cardsData.length - 1 ? 'mr-3' : ''}`}>
-        <div>
-          <Image
-            src={card.image}
-            alt=""
-            height={100}
-            width={100}
-            className="md:w-40 md:h-32"
-          />
-        </div>
-        <div className="md:ml-1 gap-3 md:pt-5">
-          <p className="font-Barlow font-bold md:text-[18px] text-[14px]">
-            {card.title}
-          </p>
-          <p className="line-clamp-4 font-Poppins md:text-[10px] text-[8px]">
-            {card.description}
-          </p>
-          <Button asChild className="w-16 md:w-36 h-5 md:h-8 font-Poppins border border-none bg-[#D61837] text-[9px] md:text-[12px]">
-            <Link href="#">
-            Rent a Product
-            </Link>
-          </Button>
+        <p className="font-Barlow md:font-[600px] font-bold md:text-2xl text-[15px] text-center">
+          Select Your Product
+        </p>
+        <p className="font-Barlow text-[#d61837] text-center font-bold">
+          ----------------
+        </p>
+        <div className="flex w-full md:w-full justify-center items-center">
+          <ScrollArea className="md:h-[800px] md:w-[400px] w-48 rounded-md border-none flex justify-between md:justify-start">
+            {cardsData.map((card, index) => (
+              <div
+                key={index}
+                className={`flex md:pl-3 md:pr-3 gap-1 md:gap-0 justify-center ${
+                  index !== cardsData.length - 1 ? "mr-3" : ""
+                }`}
+              >
+                <div>
+                  <Image
+                    src={card.image}
+                    alt=""
+                    height={100}
+                    width={100}
+                    className="md:w-40 md:h-32"
+                  />
+                </div>
+                <div className="md:ml-1 gap-3 md:pt-5">
+                  <p className="font-Barlow font-bold md:text-[18px] text-[14px]">
+                    {card.title}
+                  </p>
+                  <p className="line-clamp-4 font-Poppins md:text-[10px] text-[8px]">
+                    {card.description}
+                  </p>
+                  <Button
+                    asChild
+                    className="w-16 md:w-36 h-5 md:h-8 font-Poppins border border-none bg-primary-red text-[9px] md:text-[12px]"
+                  >
+                    <Link href="#">Rent a Product</Link>
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </ScrollArea>
         </div>
       </div>
-    ))}
-  </ScrollArea>
-  </div>
-  
-</div>
-
     </div>
   );
 }

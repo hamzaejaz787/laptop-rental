@@ -33,14 +33,14 @@ function Footer() {
           </div>
           <Button
             asChild
-            className="w-24 md:w-40 h-4  md:h-12 md:mb-2 mb-1 mr-2  font-Poppins border rounded-sm border-none bg-[#D61837] text-[10px] md:text-[18px]"
+            className="w-24 md:w-40 h-4  md:h-12 md:mb-2 mb-1 mr-2  font-Poppins border rounded-sm border-none bg-primary-red text-[10px] md:text-[18px]"
           >
             <Link href={"/form"}>Request a quote</Link>
           </Button>
         </div>
       </div>
 
-      <div className="grid grid-rows-[80%,10%,10%] absolute inset-x-0  pr-3 bg-[#D61837]  md:h-[380px] ">
+      <div className="grid grid-rows-[80%,10%,10%] absolute inset-x-0  pr-3 bg-primary-red  md:h-[380px] ">
         <div className="grid md:grid-cols-[30%,70%]  md:flex-row flex-col pt-5 items-center justify-center">
           <div className="md:pl-10 md:pr-10 pl-5 pr-5 flex-col items-center justify-center">
             <Image
@@ -62,25 +62,25 @@ function Footer() {
                 Company
               </h2>
               <Link
-                className="font-normal md:text-[13px] text-[6px] font-Poppins text-white"
+                className="font-normal md:text-[13px] text-[6px] font-Poppins text-white hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
                 href={"/"}
               >
                 About
               </Link>
               <Link
-                className="font-normal md:text-[13px] text-[6px] font-Poppins text-white"
+                className="font-normal md:text-[13px] text-[6px] font-Poppins text-white hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
                 href={"/"}
               >
                 Features
               </Link>
               <Link
-                className="font-normal md:text-[13px] text-[6px] font-Poppins text-white"
+                className="font-normal md:text-[13px] text-[6px] font-Poppins text-white hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
                 href={"/"}
               >
                 Works
               </Link>
               <Link
-                className="font-normal md:text-[13px] text-[6px] font-Poppins text-white"
+                className="font-normal md:text-[13px] text-[6px] font-Poppins text-white hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
                 href={"/"}
               >
                 Career
@@ -91,25 +91,25 @@ function Footer() {
                 Help
               </h2>
               <Link
-                className="font-normal md:text-[13px] text-[6px] font-Poppins text-white"
+                className="font-normal md:text-[13px] text-[6px] font-Poppins text-white hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
                 href={"/"}
               >
                 Customer Support
               </Link>
               <Link
-                className="font-normal md:text-[13px] text-[6px] font-Poppins text-white"
+                className="font-normal md:text-[13px] text-[6px] font-Poppins text-white hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
                 href={"/"}
               >
                 Delivery Details
               </Link>
               <Link
-                className="font-normal md:text-[13px] text-[6px] font-Poppins text-white"
+                className="font-normal md:text-[13px] text-[6px] font-Poppins text-white hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
                 href={"/"}
               >
                 Terms & Conditions
               </Link>
               <Link
-                className="font-normal md:text-[13px] text-[6px] font-Poppins text-white"
+                className="font-normal md:text-[13px] text-[6px] font-Poppins text-white hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
                 href={"/"}
               >
                 Privacy Policy
@@ -120,25 +120,25 @@ function Footer() {
                 Resources
               </h2>
               <Link
-                className="font-normal md:text-[13px] text-[6px] text-white font-Poppins"
+                className="font-normal md:text-[13px] text-[6px] text-white font-Poppins hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
                 href={"/"}
               >
                 Free eBooks
               </Link>
               <Link
-                className="font-normal md:text-[13px] text-[6px] text-white font-Poppins"
+                className="font-normal md:text-[13px] text-[6px] text-white font-Poppins hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
                 href={"/"}
               >
                 Development Tutorial
               </Link>
               <Link
-                className="font-normal md:text-[13px] text-[6px] text-white font-Poppins"
+                className="font-normal md:text-[13px] text-[6px] text-white font-Poppins hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
                 href={"/"}
               >
                 How to - Blog
               </Link>
               <Link
-                className="font-normal md:text-[13px] text-[6px] text-white font-Poppins"
+                className="font-normal md:text-[13px] text-[6px] text-white font-Poppins hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
                 href={"/"}
               >
                 Youtube Playlist
@@ -151,7 +151,7 @@ function Footer() {
               <div className="flex gap-2">
                 <IoIosCall size={20} color="white" />
                 <Link
-                  className="font-normal md:text-[13px] text-[6px] text-white font-Poppins"
+                  className="font-normal md:text-[13px] text-[6px] text-white font-Poppins hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
                   href={"/contactus"}
                 >
                   (219) 900-5700
@@ -160,7 +160,7 @@ function Footer() {
               <div className="flex gap-2 items-center">
                 <MdEmail size={20} color="white" />
                 <Link
-                  className="font-normal md:text-[13px] text-[6px] text-white font-Poppins"
+                  className="font-normal md:text-[13px] text-[6px] text-white font-Poppins hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
                   href={"mailto:laptop@gmail.com"}
                 >
                   laptop@gmail.com
@@ -170,7 +170,7 @@ function Footer() {
                 <MdOutlineLocationOn size={25} color="white" />
                 <div>
                   <Link
-                    className="font-normal md:text-[13px] text-[6px] text-white font-Poppins md:line-clamp-2 line-clamp-2 pr-2 md:pr-0"
+                    className="font-normal md:text-[13px] text-[6px] text-white font-Poppins md:line-clamp-2 line-clamp-2 pr-2 md:pr-0 hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
                     href={"/contactus"}
                   >
                     2508 Sydney,TX 78746 Australia

@@ -10,17 +10,6 @@ const Video = () => {
         conference, <br></br>a conference you&lsquo;re hosting a conference.
       </p>
       <div className="w-full flex justify-center">
-        {/* <iframe
-          className="rounded-lg"
-          width="100%"
-          height="515"
-          src="https://www.youtube.com/embed/fHi-XeXPQhE?si=nDwkoyDlGdYBkCvy"
-          title="YouTube video player"
-          // frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          // referrerpolicy="strict-origin-when-cross-origin"
-          // allowfullscreen
-        ></iframe> */}
         <video
           className="w-full h-full rounded-3xl object-cover"
           controls
@@ -28,7 +17,7 @@ const Video = () => {
           muted
           loop
         >
-          <source src="/testvideo.mp4" type="video/mp4" />
+          <source src="/about-us-video.mp4" type="video/mp4" />
         </video>
       </div>
     </div>
