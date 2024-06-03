@@ -2,7 +2,7 @@
 import Banner from "@/components/Banner";
 import Laptop_card from "@/components/Laptop_card";
 import Frame from "@/components/frame";
-import Hp_servicesolution from "@/components/hp_servicesolution";
+
 import Sidebar from "@/components/sidebar";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -133,7 +133,6 @@ function SingleTechRental() {
         </div>
       </div>
       <div>
-        <Hp_servicesolution />
         <div className="flex flex-col items-center justify-center md:px-40 px-10 md:pb-5 pb-3">
           <p className="font-Barlow font-bold text-[20px] md:text-[28px] text-center">
             We don&apos;t need to take into account age and past faliure and
