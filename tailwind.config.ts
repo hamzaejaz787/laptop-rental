@@ -84,7 +84,7 @@ const config = {
         "card-pattern": "url('/hp_imgframe.png')",
       },
       boxShadow: {
-        "card-shadow": "0 3px 10px rgb(0,0,0,0.2)",
+        "3xl": "0 3px 10px rgb(0,0,0,0.2)",
       },
     },
   },

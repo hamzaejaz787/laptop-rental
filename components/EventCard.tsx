@@ -20,13 +20,14 @@ export interface EventCardProps {
 
 const EventCard = ({ data }: { data: EventCardProps }) => {
   return (
-    <Card className="border-none p-4 rounded-sm flex flex-col !shadow-card-shadow">
+    <Card className="border-none p-4 rounded-sm flex flex-col shadow-3xl">
       <CardHeader className="p-0 relative after:content-[''] after:w-full after:border after:my-2 after:border-dashed after:border-primary-red">
         <Image
           src={data.imagesrc}
           alt={data.alternativeText}
           width={200}
           height={200}
+          className="w-full"
         />
       </CardHeader>
       <CardContent className="p-0">

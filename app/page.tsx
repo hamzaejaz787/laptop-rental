@@ -1,19 +1,14 @@
 import React from "react";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import Hp_icons from "@/components/hp_icons";
-import Hp_form from "@/components/hp_form";
-import Hp_coporateevent from "@/components/hp_coporateevent";
 import Hp_events from "@/components/hp_events";
-import Hp_event2 from "@/components/hp_events2";
-import Hp_servicesolution from "@/components/hp_servicesolution";
-
 import HomepageSlider from "./_components/HomepageSlider";
 import HomeSliderText from "./_components/HomeSliderText";
 import CtaButton from "@/components/CtaButton";
 import CurvedLayoutImages from "./_components/CurvedLayoutImages";
-import Hp_imgframe from "@/components/hp_imgframe";
-import EventCard, { EventCardProps } from "@/components/EventCard";
+import { EventCardProps } from "@/components/EventCard";
+import CardsCarousel from "@/components/CardsCarousel";
+import Cta from "./_components/Cta";
+import ServicesTimeline from "./_components/ServicesTimeline";
 
 export default function Home() {
   const eventCardsData: EventCardProps[] = [
@@ -89,28 +84,25 @@ export default function Home() {
         <Hp_icons />
       </section>
 
-      <section className="container p-8 flex gap-8">
+      <section className="container p-8 flex gap-8 lg:gap-20 items-center flex-col lg:flex-row md:overflow-x-hidden">
         <div className="space-y-4">
-          <h2 className="text-4xl font-Barlow font-bold">
+          <h2 className="text-4xl font-Barlow font-bold text-center lg:text-left">
             Looking For Reliable IT Equipment Rental Services For Your Event
           </h2>
-          <p className="text-gray-500">
+          <p className="text-gray-500 text-center lg:text-left">
             We at Laptop Rentals understand whether you&apos;re hosting a
             conference, a conference you&apos;re hosting a conference.
           </p>
         </div>
 
-        <div className="flex gap-4 items-center overflow-x-scroll max-w-3xl p-2">
-          {eventCardsData.map((data, index) => (
-            <EventCard key={index} data={data} />
-          ))}
-        </div>
+        <CardsCarousel data={eventCardsData} />
       </section>
-      <Hp_coporateevent />
+
       <Hp_events />
-      <Hp_event2 />
-      <Hp_form />
-      <Hp_servicesolution />
+      <Cta />
+      {/* <Hp_form /> */}
+
+      <ServicesTimeline />
     </>
   );
 }
