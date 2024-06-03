@@ -12,30 +12,29 @@ async function Header() {
   const eventItems = await getEvents();
 
   return (
-    <div className="fixed left-0 right-0 top-0 z-50 ">
-      <div className="flex relative justify-between items-center md:px-10 md:py-2 px-2 py-1">
-        <Image src="/Vector.png" alt="" fill={true} className="-z-10" />
-        <Image
-          src="/laptop_rental_logo.png"
-          alt="laptop Logo"
-          width={50}
-          height={50}
-          className="md:h-11 md:w-28 "
-        />
-        <div className="hidden md:flex md:pl-10 md:pr-10">
+    <div className="fixed left-0 right-0 top-0 z-50">
+      <div className="flex relative justify-between items-center md:px-10 md:py-2 px-2 py-1 before:content-[''] before:block before:absolute before:left-0 before:top-0 before:bg-white before:w-full before:h-full before:zigzag-border-top">
+        <Link href={"/"}>
+          <Image
+            src="/laptop_rental_logo.png"
+            alt="laptop Logo"
+            width={120}
+            height={75}
+            className="z-50 relative"
+          />
+        </Link>
+        <div className="hidden lg:flex md:pl-10 md:pr-10">
           <Navbar eventItems={eventItems} />
         </div>
-        <div className="flex items-center md:gap-2 pr-2 gap-1">
+        <div className="flex items-center md:gap-2 pr-2 gap-1 z-50 relative">
           <Button
             asChild
             className="font-Poppins h-4 md:h-8 w-16 md:w-24 md:text-[14px] text-[9px] border border-none bg-primary-red"
           >
             <Link href={"/form"}>Get a quote</Link>
           </Button>
-          <Link href={"contactus"}>
-            <MdOutlineLocationOn size={15} className="md:size-6" />
-          </Link>
-          <Link href={"form"}>
+
+          <Link href={"/form"}>
             <MdAddShoppingCart size={15} className="md:size-6" />
           </Link>
           <NavSearch />

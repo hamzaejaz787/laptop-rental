@@ -13,7 +13,7 @@ const CTA = ({ title, text, btn }: any) => {
         <p className="text-sm mb-3 text-white text-center w-[80%] font-sans">
           {text}
         </p>
-        <button className="py-2 px-4 rounded-sm bg-[#D61837] text-white">
+        <button className="py-2 px-4 rounded-sm bg-primary-red text-white">
           {btn}
         </button>
       </div>

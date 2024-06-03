@@ -1,198 +1,165 @@
-"use client";
 import React from "react";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { IoIosCall } from "react-icons/io";
-import { MdEmail, MdOutlineLocationOn } from "react-icons/md";
-import { BiSolidUpArrowCircle } from "react-icons/bi";
+import { MdMailOutline } from "react-icons/md";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
+import CtaButton from "./CtaButton";
+import { FaLocationDot, FaPhone } from "react-icons/fa6";
+import ScrollToTop from "./ScrollToTop";
+
+export interface FooterLinkProps {
+  title: string;
+  href: string;
+}
 
 function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-  return (
-    <footer className="bottom-0">
-      {/* Image with absolute positioning */}
-      <div className="">
-        <div className="absolute ">
-          <Image
-            src="/Subtract.png"
-            alt=""
-            width={5000}
-            height={1500}
-            className="w-full h-full"
-          />
-        </div>
+  const companyListItems: FooterLinkProps[] = [
+    { title: "About", href: "/aboutus" },
+    { title: "Features", href: "/features" },
+    { title: "Works", href: "/works" },
+    { title: "Career", href: "/career" },
+  ];
 
-        {/* Content */}
-        <div className="relative flex justify-between items-center md:pl-20 md:pr-20 pl-3 pr-3 gap-4 md:pt-5 pt-2">
-          <div className="text-white text-left font-Poppins md:text-lg">
-            <p>Need Any Outdoor Event WiFi Rental Services?</p>
-          </div>
-          <Button
-            asChild
-            className="w-24 md:w-40 h-4  md:h-12 md:mb-2 mb-1 mr-2  font-Poppins border rounded-sm border-none bg-primary-red text-[10px] md:text-[18px]"
-          >
-            <Link href={"/form"}>Request a quote</Link>
-          </Button>
-        </div>
+  const helpListItems: FooterLinkProps[] = [
+    { title: "Customer Support", href: "/contact" },
+    { title: "Delivery Details", href: "/delivery-details" },
+    { title: "Terms & Conditions", href: "/terms" },
+    { title: "Privacy Policy", href: "/privacy" },
+  ];
+
+  const resourceListItems: FooterLinkProps[] = [
+    { title: "Free eBooks", href: "/" },
+    { title: "Development Tutorial", href: "/" },
+    { title: "How to - Blog", href: "/" },
+    { title: "Youtube Playlist", href: "/" },
+  ];
+
+  return (
+    <footer>
+      <div className="zigzag-border bg-black py-8 px-14 relative flex flex-col md:flex-row items-center gap-4 justify-center md:justify-between w-full content-center md:rounded-t-full">
+        <h6 className="text-white max-w-sm text-lg capitalize text-center md:text-left">
+          Need any outdoor event rental services?
+        </h6>
+
+        <CtaButton text="Request a quote" href="/form" className="md:mr-0" />
       </div>
 
-      <div className="grid grid-rows-[80%,10%,10%] absolute inset-x-0  pr-3 bg-primary-red  md:h-[380px] ">
-        <div className="grid md:grid-cols-[30%,70%]  md:flex-row flex-col pt-5 items-center justify-center">
-          <div className="md:pl-10 md:pr-10 pl-5 pr-5 flex-col items-center justify-center">
-            <Image
-              src="/logo_red.png"
-              alt=""
-              width="80"
-              height="50"
-              className="md:w-[188px] md:h-[108px]"
-            />
-            <p className="line-clamp-4 text-white font-Poppins md:text-[14px] text-[7px]">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet,
-              necessitatibus blanditiis harum est voluptatibus eaque soluta
-              magnam nostrum asperiores tempora sapiente? Harum.
+      <div className="bg-primary-red p-8 md:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-6 gap-8">
+          <div className="space-y-4 xl:justify-self-center xl:col-span-2">
+            <Link href={"/"}>
+              <Image
+                src="/logo_red.png"
+                alt="laptop Logo"
+                width={200}
+                height={100}
+              />
+            </Link>
+            <p className="text-white">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+              dictum aliquet accumsan porta lectus ridiculus in mattis. Netus
+              sodales in volutpat ullamcorper amet adipiscing fermentum.
             </p>
           </div>
-          <div className="flex md:pl-20 pl-5 gap-3 md:gap-9 md:pr-2 pr-2 pt-5">
-            <div className="flex flex-col md:gap-8 gap-2">
-              <h2 className="pb-1 font-bold md:text-[16px] text-[8px] font-Barlow text-white">
-                Company
-              </h2>
-              <Link
-                className="font-normal md:text-[13px] text-[6px] font-Poppins text-white hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
-                href={"/"}
-              >
-                About
-              </Link>
-              <Link
-                className="font-normal md:text-[13px] text-[6px] font-Poppins text-white hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
-                href={"/"}
-              >
-                Features
-              </Link>
-              <Link
-                className="font-normal md:text-[13px] text-[6px] font-Poppins text-white hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
-                href={"/"}
-              >
-                Works
-              </Link>
-              <Link
-                className="font-normal md:text-[13px] text-[6px] font-Poppins text-white hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
-                href={"/"}
-              >
-                Career
-              </Link>
-            </div>
-            <div className="flex flex-col md:gap-8 gap-2">
-              <h2 className="pb-1 font-bold md:text-[16px] text-[8px] font-Barlow text-white">
-                Help
-              </h2>
-              <Link
-                className="font-normal md:text-[13px] text-[6px] font-Poppins text-white hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
-                href={"/"}
-              >
-                Customer Support
-              </Link>
-              <Link
-                className="font-normal md:text-[13px] text-[6px] font-Poppins text-white hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
-                href={"/"}
-              >
-                Delivery Details
-              </Link>
-              <Link
-                className="font-normal md:text-[13px] text-[6px] font-Poppins text-white hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
-                href={"/"}
-              >
-                Terms & Conditions
-              </Link>
-              <Link
-                className="font-normal md:text-[13px] text-[6px] font-Poppins text-white hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
-                href={"/"}
-              >
-                Privacy Policy
-              </Link>
-            </div>
-            <div className="flex flex-col md:gap-8 gap-2">
-              <h2 className="pb-1 font-bold md:text-[16px] text-[8px] text-white font-Barlow">
-                Resources
-              </h2>
-              <Link
-                className="font-normal md:text-[13px] text-[6px] text-white font-Poppins hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
-                href={"/"}
-              >
-                Free eBooks
-              </Link>
-              <Link
-                className="font-normal md:text-[13px] text-[6px] text-white font-Poppins hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
-                href={"/"}
-              >
-                Development Tutorial
-              </Link>
-              <Link
-                className="font-normal md:text-[13px] text-[6px] text-white font-Poppins hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
-                href={"/"}
-              >
-                How to - Blog
-              </Link>
-              <Link
-                className="font-normal md:text-[13px] text-[6px] text-white font-Poppins hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
-                href={"/"}
-              >
-                Youtube Playlist
-              </Link>
-            </div>
-            <div className="flex flex-col md:gap-8 gap-2 pr-3">
-              <h2 className="pb-1 font-bold md:text-[16px] text-[8px] text-white  font-Barlow">
-                Contact Us
-              </h2>
-              <div className="flex gap-2">
-                <IoIosCall size={20} color="white" />
-                <Link
-                  className="font-normal md:text-[13px] text-[6px] text-white font-Poppins hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
-                  href={"/contactus"}
+
+          <div className="space-y-8 xl:justify-self-center">
+            <h2 className="text-white font-bold text-lg">Company</h2>
+
+            <ul className="space-y-4">
+              {companyListItems.map((item, index) => (
+                <li
+                  key={index}
+                  className="text-white hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in cursor-pointer"
                 >
-                  (219) 900-5700
-                </Link>
-              </div>
-              <div className="flex gap-2 items-center">
-                <MdEmail size={20} color="white" />
+                  <Link href={item.href}>{item.title}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="space-y-8">
+            <h2 className="text-white font-bold text-lg">Help</h2>
+
+            <ul className="space-y-4">
+              {helpListItems.map((item, index) => (
+                <li
+                  key={index}
+                  className="text-white hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in cursor-pointer"
+                >
+                  <Link href={item.href}>{item.title}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="space-y-8">
+            <h2 className="text-white font-bold text-lg">Resources</h2>
+
+            <ul className="space-y-4">
+              {resourceListItems.map((item, index) => (
+                <li
+                  key={index}
+                  className="text-white hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in cursor-pointer"
+                >
+                  <Link href={item.href}>{item.title}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="space-y-8">
+            <h2 className="text-white font-bold text-lg">Contact Us</h2>
+
+            <ul className="space-y-4">
+              <li className="flex items-center gap-4 text-white">
+                <FaPhone size={20} />
                 <Link
-                  className="font-normal md:text-[13px] text-[6px] text-white font-Poppins hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
-                  href={"mailto:laptop@gmail.com"}
+                  href="tel:+2199005700"
+                  className="text-white hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
+                >
+                  (219)-900-5700
+                </Link>
+              </li>
+              <li className="flex items-center gap-4 text-white">
+                <FaLocationDot size={20} />
+                <Link
+                  href="https://maps.app.goo.gl/"
+                  target="_blank"
+                  className="text-white hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
+                >
+                  2508 TX 78746 UK
+                </Link>
+              </li>
+              <li className="flex items-center gap-4 text-white">
+                <MdMailOutline size={20} />
+                <Link
+                  href="mailto:laptop@gmail.com"
+                  className="text-white hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
                 >
                   laptop@gmail.com
                 </Link>
-              </div>
-              <div className="flex gap-2 items-center">
-                <MdOutlineLocationOn size={25} color="white" />
-                <div>
-                  <Link
-                    className="font-normal md:text-[13px] text-[6px] text-white font-Poppins md:line-clamp-2 line-clamp-2 pr-2 md:pr-0 hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
-                    href={"/contactus"}
-                  >
-                    2508 Sydney,TX 78746 Australia
-                  </Link>
-                </div>
-              </div>
-            </div>
+              </li>
+            </ul>
           </div>
-        </div>
-        <div className="md:pl-10 md:pr-10 pl-5 pr-5 pt-3">
-          <Separator orientation="horizontal" />
         </div>
 
-        <div className="justify-between md:pl-10 pl-5 md:pt-100 items-center text-white flex">
-          <div className="font-normal md:text-[13px] text-[5px] text-white font-Poppins">
+        <Separator className="bg-white my-8" />
+
+        <div className="flex items-center justify-center md:justify-between flex-col md:flex-row gap-4">
+          <p className="text-white text-center md:text-left">
             Copyright © 2024 Laptop Rental. All Rights Reserved.
-          </div>
-          <div className="flex md:gap-5  md:pr-10 pr-5 items-center">
-            <p className="font-normal md:text-[13px] text-[5px] text-white font-Poppins">
-              Terms & Conditions | Privacy Policy | Disclaimer
-            </p>
-            <BiSolidUpArrowCircle size="25" onClick={scrollToTop} />
+          </p>
+
+          <div className="space-x-4 flex items-center justify-between md:justify-start w-full md:w-auto">
+            <ul className="flex items-start md:items-center flex-col md:flex-row gap-4 md:gap-0 md:divide-x-2 divide-white">
+              <li className="text-white md:px-4 hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in cursor-pointer">
+                <Link href={"/terms"}>Terms & Conditions</Link>
+              </li>
+              <li className="text-white md:px-4 hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in cursor-pointer">
+                <Link href={"/privacy"}>Privacy Policy</Link>
+              </li>
+              <li className="text-white md:px-4 hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in cursor-pointer">
+                <Link href={"/disclaimer"}>Disclaimer</Link>
+              </li>
+            </ul>
+            <ScrollToTop />
           </div>
         </div>
       </div>
