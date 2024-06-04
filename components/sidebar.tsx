@@ -1,5 +1,5 @@
-import { ChevronRight } from 'lucide-react';
-import React, { useState } from 'react';
+import { ChevronRight } from "lucide-react";
+import React, { useState } from "react";
 
 interface Category {
   category: string;
@@ -11,10 +11,12 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ onCategorySelect }) => {
-  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [searchTerm, setSearchTerm] = useState<string>("");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [isLaptopListOpen, setIsLaptopListOpen] = useState<boolean>(false);
-  const [isCategoryListOpen, setIsCategoryListOpen] = useState<{ [key: string]: boolean }>({});
+  const [isCategoryListOpen, setIsCategoryListOpen] = useState<{
+    [key: string]: boolean;
+  }>({});
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
@@ -31,7 +33,10 @@ const Sidebar: React.FC<SidebarProps> = ({ onCategorySelect }) => {
     }));
     setSelectedCategory(category);
     // Notify parent component about the selected category and its items
-    onCategorySelect(category, otherCategories.find(cat => cat.category === category)?.items ?? []);
+    onCategorySelect(
+      category,
+      otherCategories.find((cat) => cat.category === category)?.items ?? []
+    );
   };
 
   const filterItems = (items: string[]) => {
@@ -41,39 +46,39 @@ const Sidebar: React.FC<SidebarProps> = ({ onCategorySelect }) => {
   };
 
   const laptopItems: string[] = [
-    'Dell Laptop',
-    'Lenovo Laptop',
-    'HP Laptop',
-    'Microsoft Laptop',
-    'MSI Laptop',
-    'Acer Laptop',
-    'Asus Laptop',
+    "Dell Laptop",
+    "Lenovo Laptop",
+    "HP Laptop",
+    "Microsoft Laptop",
+    "MSI Laptop",
+    "Acer Laptop",
+    "Asus Laptop",
   ];
 
   const otherCategories: Category[] = [
     {
-      category: 'Tablet Rental',
-      items: ['iPad', 'Samsung Tablet', 'Amazon Fire Tablet'],
+      category: "Tablet Rental",
+      items: ["iPad", "Samsung Tablet", "Amazon Fire Tablet"],
     },
     {
-      category: 'Mobile Rental',
-      items: ['iPhone', 'Samsung Galaxy', 'Google Pixel'],
+      category: "Mobile Rental",
+      items: ["iPhone", "Samsung Galaxy", "Google Pixel"],
     },
     {
-      category: 'AV Rental',
-      items: ['Projector', 'Speakers', 'Microphone'],
+      category: "AV Rental",
+      items: ["Projector", "Speakers", "Microphone"],
     },
     {
-      category: 'Screen Rental',
-      items: ['LED Screen', 'LCD Screen', 'Touch Screen'],
+      category: "Screen Rental",
+      items: ["LED Screen", "LCD Screen", "Touch Screen"],
     },
     {
-      category: 'Event Wifi Rental',
-      items: ['Portable WiFi', 'Hotspot', 'Router'],
+      category: "Event Wifi Rental",
+      items: ["Portable WiFi", "Hotspot", "Router"],
     },
     {
-      category: 'Event Services',
-      items: ['Catering', 'Security', 'Logistics'],
+      category: "Event Services",
+      items: ["Catering", "Security", "Logistics"],
     },
   ];
 
@@ -93,14 +98,20 @@ const Sidebar: React.FC<SidebarProps> = ({ onCategorySelect }) => {
           <h2 className="text-lg font-bold mb-2">Product Categories</h2>
           <div className="mb-2">
             <h3
-              className={`font-semibold cursor-pointer flex ${selectedCategory === 'Laptop Rental' ? 'text-red-500' : 'text-black'}`}
+              className={`font-semibold cursor-pointer flex ${
+                selectedCategory === "Laptop Rental"
+                  ? "text-red-500"
+                  : "text-black"
+              }`}
               onClick={() => {
                 toggleLaptopList();
-                setSelectedCategory('Laptop Rental');
-                onCategorySelect('Laptop Rental', laptopItems);
+                setSelectedCategory("Laptop Rental");
+                onCategorySelect("Laptop Rental", laptopItems);
               }}
             >
-              <ChevronRight className={`mr-2 ${isLaptopListOpen ? 'rotate-90' : ''}`} />
+              <ChevronRight
+                className={`mr-2 ${isLaptopListOpen ? "rotate-90" : ""}`}
+              />
               Laptop Rental
             </h3>
             {isLaptopListOpen && (
@@ -119,10 +130,18 @@ const Sidebar: React.FC<SidebarProps> = ({ onCategorySelect }) => {
           {otherCategories.map((category, index) => (
             <div key={index} className="mb-2">
               <h3
-                className={`font-semibold cursor-pointer flex ${selectedCategory === category.category ? 'text-red-500' : 'text-black'}`}
+                className={`font-semibold cursor-pointer flex ${
+                  selectedCategory === category.category
+                    ? "text-red-500"
+                    : "text-black"
+                }`}
                 onClick={() => toggleCategoryList(category.category)}
               >
-                <ChevronRight className={`mr-2 ${isCategoryListOpen[category.category] ? 'rotate-90' : ''}`} />
+                <ChevronRight
+                  className={`mr-2 ${
+                    isCategoryListOpen[category.category] ? "rotate-90" : ""
+                  }`}
+                />
                 {category.category}
               </h3>
               {isCategoryListOpen[category.category] && (

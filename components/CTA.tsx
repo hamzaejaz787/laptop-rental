@@ -1,21 +1,47 @@
+import { getStrapiURL } from "@/lib/utils";
 import ctabg from "../public/ctabg.png";
+import CtaButton from "./CtaButton";
 
-const CTA = ({ title, text, btn }: any) => {
+export interface CtaImageProps {
+  alternativeText: string;
+  width: number;
+  height: number;
+  url: string;
+}
+export interface CtaProps {
+  title: string;
+  text: string;
+  href: string;
+  buttonText: string;
+  bgsrc?: CtaImageProps;
+}
+
+const CTA = ({ ctaItems }: { ctaItems: CtaProps }) => {
+  const baseurl = getStrapiURL();
+  let imageurl = "";
+  if (ctaItems.bgsrc) imageurl = baseurl + ctaItems.bgsrc.url;
+
   return (
     <div
-      style={{ backgroundImage: `url(${ctabg.src})` }}
-      className="flex flex-col mt-10 md:mt-14 lg:mt-20 bg-no-repeat bg-center bg-cover w-full h-96 justify-center items-center"
+      style={{
+        backgroundImage: `url(${imageurl || ctabg.src})`,
+      }}
+      className="content-center bg-no-repeat bg-center bg-cover w-full h-dvh max-h-[550px]"
     >
-      <div className="w-[100%] flex flex-col justify-center items-center">
-        <h2 className="text-4xl w-[60%] text-white font-bold mb-3 text-center">
-          {title}
+      <div className="flex flex-col justify-center items-center gap-4 p-4">
+        <h2 className="text-4xl text-white font-bold text-center uppercase">
+          {ctaItems.title}
         </h2>
-        <p className="text-sm mb-3 text-white text-center w-[80%] font-sans">
-          {text}
+        <p className="text-white text-center font-sans md:max-w-3xl mx-auto">
+          {ctaItems.text}
         </p>
-        <button className="py-2 px-4 rounded-sm bg-primary-red text-white">
-          {btn}
-        </button>
+        {ctaItems.href && ctaItems.buttonText && (
+          <CtaButton
+            href={ctaItems.href}
+            text={ctaItems.buttonText}
+            className="py-5"
+          />
+        )}
       </div>
     </div>
   );

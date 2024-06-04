@@ -20,16 +20,12 @@ import samsung from "@/public/samsung.png";
 var techlogos = [apple, dragon, hp, dell, lenovo, samsung, apple, samsung];
 
 export function TechCarousel() {
-  const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true })
-  );
+  const plugin = React.useRef(Autoplay({ delay: 2000 }));
   return (
     <div className="w-[80%] m-auto mt-10 md:mt-14 lg:mt-20 items-center flex flex-col">
       <h4 className="font-bold text-3xl mb-5">Browse By Brands</h4>
       <Carousel
         plugins={[plugin.current]}
-        onMouseEnter={plugin.current.stop}
-        onMouseLeave={plugin.current.reset}
         opts={{
           align: "start",
         }}
@@ -57,8 +53,8 @@ export function TechCarousel() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="border-2 border-[#D61837] border-dashed rounded-full" />
-        <CarouselNext className="border-2 border-[#D61837] border-dashed rounded-full" />
+        <CarouselPrevious className="hidden md:inline-flex border-2 border-[#D61837] border-dashed rounded-full" />
+        <CarouselNext className="hidden md:inline-flex border-2 border-[#D61837] border-dashed rounded-full" />
       </Carousel>
     </div>
   );

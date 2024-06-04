@@ -12,6 +12,9 @@ import { PaginationDemo } from "@/components/pagination";
 import { ImPageBreak } from "react-icons/im";
 import { FaWater } from "react-icons/fa";
 import { useRouter } from "next/navigation";
+import ServicesTimeline from "@/components/ServicesTimeline";
+import SidebarWithTab from "./_components/SidebarWithTab";
+import TabCards from "./_components/TabCards";
 
 // Mock data for item details
 const itemDetails: {
@@ -102,18 +105,24 @@ function TechRental() {
   };
 
   return (
-    <div>
+    <>
       <Banner
         btn="Request a Quote"
         link="/form"
         text="We at laptop rental hosting event. We at laptop rental hosting event. We at laptop rental hosting event. We at laptop rental hosting event."
         title="Technology Rental"
       />
-      <Frame />
+      {/* <Frame /> */}
       <ImageInfo
         title="Empower Your Business with Flexible and Reliable IT Equipment Rentals"
-        text="We at Laptop Rentals understand whether you&lsquo;re hosting a conference, trade show, or business event, having access to reliable and high-quality technology can make all.We at Laptop "
+        text="We at Laptop Rentals understand whether you're hosting a conference, trade show, or business event, having access to reliable and high-quality technology can make all.We at Laptop "
       />
+
+      <div className="flex flex-col md:flex-row gap-8 justify-between container p-8">
+        <SidebarWithTab />
+        <TabCards />
+      </div>
+
       <div className="grid grid-cols-[30%,70%] md:pt-10 pt-3 md:px-10 px-3 md:gap-5 gap-2">
         <div>
           <Sidebar onCategorySelect={handleCategorySelect} />
@@ -138,6 +147,8 @@ function TechRental() {
           {/* <PaginationDemo currentPage={currentPage} totalPages={totalPages} handlePageChange={handlePageChange} /> */}
         </div>
       </div>
+      <ServicesTimeline />
+
       <ImageInfo
         title="Regarding Your Investment Our Breakage Policy"
         reverse
@@ -148,7 +159,7 @@ function TechRental() {
           { icon: ImPageBreak, desc: "Extended Warranty" },
         ]}
       />
-    </div>
+    </>
   );
 }
 

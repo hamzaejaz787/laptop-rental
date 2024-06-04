@@ -5,10 +5,10 @@ import HomepageSlider from "./_components/HomepageSlider";
 import HomeSliderText from "./_components/HomeSliderText";
 import CtaButton from "@/components/CtaButton";
 import CurvedLayoutImages from "./_components/CurvedLayoutImages";
-import { EventCardProps } from "@/components/EventCard";
 import CardsCarousel from "@/components/CardsCarousel";
 import Cta from "./_components/Cta";
-import ServicesTimeline from "./_components/ServicesTimeline";
+import { EventCardProps } from "@/lib/definitions";
+import ServicesTimeline from "@/components/ServicesTimeline";
 
 export default function Home() {
   const eventCardsData: EventCardProps[] = [

@@ -7,9 +7,11 @@ const imageSources = [
   { src: "/img7.png" },
   { src: "/img8.png" },
   { src: "/img9.png" },
-  { src: "/img1.png" },
-  { src: "/img6.png" },
-  { src: "/img5.png" },
+  { src: "/img2.png" },
+  { src: "/img3.png" },
+  { src: "/img4.png" },
+  { src: "/img7.png" },
+  { src: "/img2.png" },
 ];
 
 export default function MasonryGrid() {
@@ -19,10 +21,10 @@ export default function MasonryGrid() {
         <Image
           src={image.src}
           alt=""
-          width={250}
-          height={250}
+          width={300}
+          height={300}
           key={index}
-          className="w-full rounded-md"
+          className="rounded-md object-cover justify-self-center"
         />
       ))}
     </div>

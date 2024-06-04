@@ -11,8 +11,7 @@ import Image from "next/image";
 import { IoHardwareChipOutline } from "react-icons/io5";
 import { PiHardDrives } from "react-icons/pi";
 import { MdOutlineScreenshot } from "react-icons/md";
-import { Button } from "./ui/button";
-import Link from "next/link";
+import CtaButton from "./CtaButton";
 
 export interface ProductCardItemsProps {
   image: string;
@@ -63,12 +62,7 @@ const ProductCard = ({
         </div>
       </CardContent>
       <CardFooter className="p-0 pt-2">
-        <Button
-          asChild
-          className="bg-red-500 font-normal text-lg rounded text-white w-full font-Poppins"
-        >
-          <Link href={"/"}>Learn More</Link>
-        </Button>
+        <CtaButton href={"/eventrental"} text="Learn More" className="w-full" />
       </CardFooter>
     </Card>
   );

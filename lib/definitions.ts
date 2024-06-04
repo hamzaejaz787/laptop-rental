@@ -30,3 +30,12 @@ export interface ProductInfoTabItemProps {
   value: string;
   content: string;
 }
+
+export interface EventCardProps {
+  imagesrc: string;
+  alternativeText: string;
+  title: string;
+  description: string;
+  href: string;
+  ctatext: string;
+}

@@ -89,7 +89,7 @@ const Blogs = () => {
   return (
     <div>
       <Banner
-        title="NEWS & BLOGS"
+        title="News & Blogs"
         text="We at Laptop Rentals understand whether you're hosting whether you're hosting We at Laptop Rentals understand at Laptop Rentals understand"
       />
       <div className="flex mt-10 md:gap-10 md:mt-14 lg:mt-20 lg:flex md:mx-20 mx-10">

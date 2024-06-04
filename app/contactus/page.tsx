@@ -1,25 +1,16 @@
 import React from "react";
 import contact_bg from "@/public/contactus_bg.png";
 import ContactForm from "@/components/ContactForm";
+import Banner from "@/components/Banner";
 
 const Page = () => {
   return (
     <div>
-      <div
-        style={{ backgroundImage: `url(${contact_bg.src})` }}
-        className="flex flex-col justify-center items-center bg-no-repeat bg-center w-full h-96"
-      >
-        <div className="bg-cover object-cover flex flex-col justify-center items-center w-[60%] h-full">
-          <h1 className="md:text-4xl text-[16px] text-bold text-white font-bold uppercase">CONTACT US</h1>
-          <p className="md:text-base text-white font-sans text-[8px] text-center w-[60%]">
-            We at Laptop Rentals understand whether you are hosting whether
-            you are hosting We at Laptop Rentals understand at Laptop Rentals
-            understand We at Laptop Rentals understand whether you&apos;re hosting whether
-            you&apos;re hosting We at Laptop Rentals understand at Laptop
-            Rentals understand
-          </p>
-        </div>
-      </div>
+      <Banner
+        title="Contact us"
+        text="We at Laptop Rentals understand whether you're hosting whether you're hosting We at Laptop Rentals understand at Laptop Rentals understand"
+      />
+
       <div className="w-[80%] m-auto mt-20">
         <h2 className="w-full text-center font-extrabold text-3xl">
           Get In Touch With Us

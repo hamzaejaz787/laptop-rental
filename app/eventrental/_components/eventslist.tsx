@@ -1,135 +1,68 @@
+import EventCard from "@/components/EventCard";
 import Hp_imgframe from "@/components/hp_imgframe";
+import { EventCardProps } from "@/lib/definitions";
 import React from "react";
 
-interface Image {
-  src: string;
-  alt: string;
-  text: string;
-  link: string;
-}
-
-const images = [
-  {
-    src: "/hp_imgframe.png",
-    alt: "",
-    text: "Corporate Event",
-    link: "/singleevent",
-    desc: "Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure",
-    btn: "Explore Event",
-  },
-  {
-    src: "/hp_imgframe.png",
-    alt: "",
-    text: "Business Event",
-    link: "/singleevent",
-    desc: "Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure",
-    btn: "Explore Event",
-  },
-  {
-    src: "/hp_imgframe.png",
-    alt: "",
-    text: "Rental Event",
-    link: "/singleevent",
-    desc: "Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure",
-    btn: "Explore Event",
-  },
-  {
-    src: "/hp_imgframe.png",
-    alt: "",
-    text: "Rental Event",
-    link: "/singleevent",
-    desc: "Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure",
-    btn: "Explore Event",
-  },
-  {
-    src: "/hp_imgframe.png",
-    alt: "",
-    text: "Corporate Event",
-    link: "/singleevent",
-    desc: "Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure",
-    btn: "Explore Event",
-  },
-  {
-    src: "/hp_imgframe.png",
-    alt: "",
-    text: "Business Event",
-    link: "/singleevent",
-    desc: "Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure",
-    btn: "Explore Event",
-  },
-  {
-    src: "/hp_imgframe.png",
-    alt: "",
-    text: "Rental Event",
-    link: "/singleevent",
-    desc: "Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure",
-    btn: "Explore Event",
-  },
-  {
-    src: "/hp_imgframe.png",
-    alt: "",
-    text: "Rental Event",
-    link: "/singleevent",
-    desc: "Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure",
-    btn: "Explore Event",
-  },
-  {
-    src: "/hp_imgframe.png",
-    alt: "",
-    text: "Corporate Event",
-    link: "/singleevent",
-    desc: "Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure",
-    btn: "Explore Event",
-  },
-  {
-    src: "/hp_imgframe.png",
-    alt: "",
-    text: "Business Event",
-    link: "/singleevent",
-    desc: "Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure",
-    btn: "Explore Event",
-  },
-  {
-    src: "/hp_imgframe.png",
-    alt: "",
-    text: "Rental Event",
-    link: "/singleevent",
-    desc: "Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure",
-    btn: "Explore Event",
-  },
-  {
-    src: "/hp_imgframe.png",
-    alt: "",
-    text: "Rental Event",
-    link: "/singleevent",
-    desc: "Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure",
-    btn: "Explore Event",
-  },
-];
-
 const Eventslist = () => {
+  const eventCardsData: EventCardProps[] = [
+    {
+      imagesrc: "/hp_img.png",
+      alternativeText: "",
+      title: "Coporate Event",
+      href: "/singleevent",
+      description:
+        "Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure",
+      ctatext: "Explore Event",
+    },
+    {
+      imagesrc: "/hp_img.png",
+      alternativeText: "",
+      title: "Business Event",
+      href: "/singleevent",
+      description:
+        "Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure",
+      ctatext: "Explore Event",
+    },
+    {
+      imagesrc: "/hp_img.png",
+      alternativeText: "",
+      title: "Work Event",
+      href: "/singleevent",
+      description:
+        "Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure",
+      ctatext: "Explore Event",
+    },
+    {
+      imagesrc: "/hp_img.png",
+      alternativeText: "",
+      title: "Rental Event",
+      href: "/singleevent",
+      description:
+        "Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure",
+      ctatext: "Explore Event",
+    },
+    {
+      imagesrc: "/hp_img.png",
+      alternativeText: "",
+      title: "Laptop Event",
+      href: "/singleevent",
+      description:
+        "Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure",
+      ctatext: "Explore Event",
+    },
+  ];
   return (
-    <div className="mt-10 md:mt-14 lg:mt-20 md:px-20 px-5">
-      <div>
-        <h2 className="text-3xl mb-3 font-bold text-center">
-          We don&lsquo;t need to take into account
-        </h2>
-        <p className="text-sm text-center mb-8">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porttitor
-          dictum lectus at ultricies. elit. In porttitor
-        </p>
-      </div>
-      <div className="grid gap-12  grid-cols-2 lg:grid-cols-4 justify-center items-center">
-        {images.map((img, index) => (
-          <Hp_imgframe
-            key={index}
-            src={img.src}
-            alt={img.alt}
-            text={img.text}
-            link={img.link}
-            desc={img.desc}
-            btn={img.btn}
-          />
+    <div className="p-8 space-y-3 container">
+      <h2 className="text-3xl font-bold text-center">
+        We don&lsquo;t need to take into account
+      </h2>
+      <p className="text-sm text-center">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porttitor
+        dictum lectus at ultricies. elit. In porttitor
+      </p>
+      <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:pt-5 lg:grid-cols-4 items-center">
+        {eventCardsData.map((event, index) => (
+          <EventCard key={index} data={event} />
         ))}
       </div>
     </div>

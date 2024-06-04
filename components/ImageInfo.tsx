@@ -16,18 +16,18 @@ const ImageInfo = ({
   if (image) imageurl = baseurl + image?.url;
   return (
     <div
-      className={`container py-8 px-4 md:p-8 gap-4 flex justify-between items-center flex-col lg:flex-row ${
-        reverse ? "lg:flex-row-reverse" : ""
+      className={`container py-8 px-4 md:p-8 gap-4 flex justify-between items-center flex-col-reverse  ${
+        reverse ? "lg:flex-row-reverse" : "lg:flex-row"
       }`}
     >
       <Image
-        src={imageurl || banner_bg}
+        src={imageurl || "/imageframe.png"}
         alt={image?.alternativeText || ""}
-        width={image?.width || 1000}
-        height={image?.height || 550}
-        className="w-100% lg:w-[48%] md:w-[48%]"
+        width={image?.width || 650}
+        height={image?.height || 650}
+        className=""
       />
-      <div className="w-full lg:w-[48%] md:w-[48%]">
+      <div className="xl:max-w-2xl">
         <h3 className="font-sans mb-2 font-bold text-3xl text-center lg:text-left">
           {title}
         </h3>

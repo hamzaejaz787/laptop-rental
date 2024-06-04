@@ -1,9 +1,15 @@
-"use client"
-import React, { useRef } from 'react';
-import Image from 'next/image';
-import Autoplay from 'embla-carousel-autoplay';
-import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from './ui/carousel';
-import { Card, CardContent } from './ui/card';
+"use client";
+import React from "react";
+import Image from "next/image";
+import Autoplay from "embla-carousel-autoplay";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "./ui/carousel";
+import { Card, CardContent } from "./ui/card";
 
 function Frame({ color }: any) {
   const items = [
@@ -12,17 +18,18 @@ function Frame({ color }: any) {
     { src: "/iphone.png", text: "Mobile Rental" },
     { src: "/avrental.png", text: "AV Rental" },
     { src: "/screen.png", text: "Screen Rental" },
-    { src: "/printer.png", text: "Printer Rental" }
+    { src: "/printer.png", text: "Printer Rental" },
   ];
 
-  const plugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
-
   return (
-    <div>
+    <div className="container">
       {/* For larger screens */}
       <div className="justify-between items-center h-full md:px-5 px-5 md:flex hidden">
         {items.map((item, index) => (
-          <div key={index} className="flex-col justify-center items-center object-center">
+          <div
+            key={index}
+            className="flex-col justify-center items-center object-center"
+          >
             <div>
               <Image
                 src={item.src}
@@ -34,11 +41,19 @@ function Frame({ color }: any) {
               />
             </div>
             <div className="flex md:flex-col justify-center items-center gap-[2px] md:gap-0">
-              <p className={`font-Barlow md:font-[400px] font-normal md:text-[20px] text-[12px] ${color} items-start text-center`}>
+              <p
+                className={`font-Barlow md:font-[400px] font-normal md:text-[20px] text-[12px] ${color} items-start text-center`}
+              >
                 {item.text}
               </p>
               <div className="bg-[#D61837] md:w-8 md:h-8 w-6 h-6 items-center md:mt-2">
-                <Image src={"/drag_click.png"} alt="" height={40} width={40} className="h-6 w-6 md:h-8 md:w-8" />
+                <Image
+                  src={"/drag_click.png"}
+                  alt=""
+                  height={40}
+                  width={40}
+                  className="h-6 w-6 md:h-8 md:w-8"
+                />
               </div>
             </div>
           </div>
@@ -47,63 +62,66 @@ function Frame({ color }: any) {
 
       {/* For smaller screens */}
       <div className="md:hidden flex w-full px-8">
-      <Carousel
-        plugins={[plugin.current]}
-        onMouseEnter={plugin.current.stop}
-        onMouseLeave={plugin.current.reset}
-        opts={{
-          align: "start",
-        }}
-        className="w-full"
-      >
-        <CarouselContent>
-          {items.map((item, index) => (
-            <CarouselItem
-              key={1}
-              className="pb-1 basis-1/3 md:basis-1/4 lg:basis-1/6 p-0 "
-            >
-              <div className="pl-3 flex-col">
-                <Card className="p-0">
-                  <CardContent className="flex flex-col items-center justify-center p-0 ">
-<div>
-<Image
-                  src={item.src}
-                alt={item.text}
-                loading="lazy"
-                height={1000}
-                width={1000}
-                className="md:w-36 md:h-36 w-20 h-20"
-              />
-</div>
-                
-              <div className="flex md:flex-col justify-center items-center gap-[2px] md:gap-0">
-              <p className={`font-Barlow md:font-[400px] font-normal md:text-[20px] text-[12px] ${color} items-start text-center`}>
-                {item.text}
-              </p>
-              <div className="bg-[#D61837] md:w-8 md:h-8 w-6 h-6 items-center md:mt-2">
-                <Image src={"/drag_click.png"} alt="" height={40} width={40} className="h-6 w-6 md:h-8 md:w-8" />
-              </div>
-            </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious className="border-2 bg-transparent border-[#D61837] border-dashed rounded-full" color='white' />
-        <CarouselNext className="border-2 border-[#D61837] border-dashed rounded-full" color='white' />
-      </Carousel>
-      </div> 
+        <Carousel
+          plugins={[
+            Autoplay({
+              delay: 3000,
+            }),
+          ]}
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full"
+        >
+          <CarouselContent>
+            {items.map((item, index) => (
+              <CarouselItem
+                key={index}
+                className="pb-1 basis-1/3 md:basis-1/4 lg:basis-1/6 p-0 "
+              >
+                <div className="pl-3 flex-col">
+                  <Card className="p-0 shadow-none">
+                    <CardContent className="flex flex-col items-center justify-center p-0 ">
+                      <div>
+                        <Image
+                          src={item.src}
+                          alt={item.text}
+                          height={100}
+                          width={100}
+                          className=""
+                        />
+                      </div>
+
+                      <div className="flex flex-col justify-center items-center gap-1">
+                        <p
+                          className={`font-Barlow md:font-[400px] font-normal md:text-[20px] text-[12px] ${color} items-start text-center`}
+                        >
+                          {item.text}
+                        </p>
+                        <div className="bg-[#D61837] md:w-8 md:h-8 w-6 h-6 items-center md:mt-2">
+                          <Image
+                            src={"/drag_click.png"}
+                            alt=""
+                            height={40}
+                            width={40}
+                            className="h-6 w-6 md:h-8 md:w-8"
+                          />
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+      </div>
     </div>
   );
 }
 
 export default Frame;
-
-
-
-
-
 
 // "use client";
 // import { useRef } from "react";
@@ -169,7 +187,7 @@ export default Frame;
 //             </div>
 //           </div>
 //         ))}
-      
+
 //      </div>
 //   );
 //             </CarouselItem>

@@ -8,19 +8,12 @@ import {
 } from "@/components/ui/card";
 import Image from "next/image";
 import CtaButton from "./CtaButton";
-
-export interface EventCardProps {
-  imagesrc: string;
-  alternativeText: string;
-  title: string;
-  description: string;
-  href: string;
-  ctatext: string;
-}
+import { EventCardProps } from "@/lib/definitions";
 
 const EventCard = ({ data }: { data: EventCardProps }) => {
   return (
     <Card className="border-none p-4 rounded-sm flex flex-col shadow-3xl">
+      {" "}
       <CardHeader className="p-0 relative after:content-[''] after:w-full after:border after:my-2 after:border-dashed after:border-primary-red">
         <Image
           src={data.imagesrc}

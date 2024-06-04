@@ -61,7 +61,7 @@ export function Navbar({ eventItems }: { eventItems: EventItemTypes }) {
   return (
     <>
       <NavigationMenu>
-        <NavigationMenuList>
+        <NavigationMenuList className="space-x-2 xl:space-x-4">
           <NavigationMenuItem>
             <ListItem href="/" title="Home" />
           </NavigationMenuItem>
@@ -133,7 +133,7 @@ const ListItem = React.forwardRef<
     <Link legacyBehavior passHref href={href}>
       <NavigationMenuLink
         className={cn(
-          "block select-none space-y-1 rounded-md p-3 text-primary hover:text-primary-red text-sm font-semibold",
+          "block select-none rounded-md text-primary hover:text-primary-red text-sm font-semibold",
           isSubcomponent && "pl-6" // Add left padding for subcomponents
         )}
       >

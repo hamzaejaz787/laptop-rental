@@ -44,7 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} font-sans min-h-dvh`}>
+      <body className={`${poppins.variable} font-sans`}>
         <Header />
         {children}
         <Footer />

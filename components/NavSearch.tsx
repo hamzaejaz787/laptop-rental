@@ -11,13 +11,8 @@ const NavSearch = () => {
   };
   return (
     <div className="flex items-center">
-      {" "}
-      {/* Container for search icon and input field */}
-      <button
-        onClick={toggleSearch}
-        className="text-gray-500 focus:outline-none"
-      >
-        <IoSearchSharp size={15} className="md:size-6" />
+      <button onClick={toggleSearch} className="">
+        <IoSearchSharp size={20} />
       </button>
       {/* {isSearchOpen && (
         <input

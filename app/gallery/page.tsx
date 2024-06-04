@@ -7,6 +7,7 @@ import { useState } from "react";
 import { SiTicktick } from "react-icons/si";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import Banner from "@/components/Banner";
 
 function Gallery() {
   const [activeButton, setActiveButton] = useState(0);
@@ -28,27 +29,12 @@ function Gallery() {
   };
 
   return (
-    <div className="pb-10">
-      <div className="relative">
-        <Image
-          src="/gallery_bg.png"
-          alt=""
-          height={1000}
-          width={1000}
-          className="w-full object-cover md:pt-16 md:h-[400px] "
-        />
+    <div className="">
+      <Banner
+        title="Gallery"
+        text=" We at Laptop Rentals understand whether you're hosting whether"
+      />
 
-        {/* Content */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <p className="font-[800] text-white md:text-[54px] text-[20px] pt-14 md:pt-0 font-Barlow ">
-            GALLERY
-          </p>
-          <div className="flex text-white items-center font-Poppins md:text-[16px] text-[9px] pt-0 line-clamp-2 text-center md:pr-72 md:pl-72 pr-10 pl-10">
-            We at Laptop Rentals understand whether you&apos;re hosting whether
-            you&apos;re hosting
-          </div>
-        </div>
-      </div>
       <div className=" md:pl-10 md:pr-10 pl-5 pr-5">
         <p className="font-[800]  font-Barlow md:text-[34px] text-[20px] text-center md:pt-16 pt-5">
           OUR GALLERY

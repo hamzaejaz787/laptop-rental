@@ -18,7 +18,7 @@ const HomeSliderText = () => {
         conference, a conference you&apos;re hosting a conference.
       </p>
 
-      <CtaButton href="/techrental" text="Tect rental" />
+      <CtaButton href="/techrental" text="Tech rental" />
     </div>
   );
 };
