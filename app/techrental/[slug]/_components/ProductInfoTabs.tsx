@@ -13,7 +13,7 @@ const ProductInfoTabs = ({
   return (
     <div className="p-8 container">
       <Tabs defaultValue={TabItems[0].value}>
-        <TabsList className="grid w-full grid-cols-3 bg-transparent gap-4 max-w-sm mx-auto">
+        <TabsList className="grid w-full grid-cols-2 bg-transparent gap-4 max-w-sm mx-auto">
           {TabItems.map((tab) => (
             <TabsTrigger
               key={tab.value}

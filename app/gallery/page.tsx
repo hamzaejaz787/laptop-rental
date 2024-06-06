@@ -35,7 +35,7 @@ function Gallery() {
         text=" We at Laptop Rentals understand whether you're hosting whether"
       />
 
-      <div className=" md:pl-10 md:pr-10 pl-5 pr-5">
+      <div className="container md:pl-10 md:pr-10 pl-5 pr-5">
         <p className="font-[800]  font-Barlow md:text-[34px] text-[20px] text-center md:pt-16 pt-5">
           OUR GALLERY
         </p>
@@ -45,7 +45,7 @@ function Gallery() {
         </p>
         <MasonryGrid />
       </div>
-      <div className=" pl-10 pr-10">
+      <div className="container pl-10 pr-10">
         <p className="font-[800]  font-Barlow md:text-[34px] text-[20px] text-center md:pt-16 pt-5">
           PAST EVENTS WE RENT
         </p>
@@ -54,7 +54,7 @@ function Gallery() {
           Exercitationem dolores adipisci consequatur aliquam. Ipsa, a!
         </p>
       </div>
-      <div className="grid md:grid-cols-[30%,70%] grid-rows justify-center pl-10 pr-10">
+      <div className="container grid md:grid-cols-[30%,70%] grid-rows justify-center pl-10 pr-10">
         <div className="md:pr-40 items-center flex-col">
           <div className="relative flex items-center justify-center md:pl-0 pt-3">
             <p className="inline-block relative ">
