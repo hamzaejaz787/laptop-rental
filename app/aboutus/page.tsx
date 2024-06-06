@@ -3,16 +3,23 @@ import Video from "./_components/Video";
 import Cta from "./_components/Cta";
 import AboutCards from "./_components/AboutCards";
 import { AboutForm } from "./_components/AboutForm";
-import { ReviewCarousel } from "./_components/ReviewCarousel";
 import Hp_icons from "@/components/hp_icons";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Us page of Laptop Rental AU",
+  description:
+    "The business events industry uplifts and unites people. We're fortunate to be part of it. For all your IT and event technology needs, contact us.",
+};
 
 const Aboutus = () => {
   return (
     <div className="flex flex-col md:pb-10 npb-5">
       <Banner
-        btn="Contact Us"
+        btn="Contact us"
+        link="/contactus"
         title="About Us"
-        text="We at Laptop Rentals understand whether you&lsquo;re hosting whether you&lsquo;re hosting We at Laptop Rentals understand at Laptop Rentals understand"
+        text="Laptop Rental is a global leader in providing cutting-edge event technology services, addressing the persistent challenges businesses face in organising successful events."
       />
       <Video />
       <div>
@@ -25,7 +32,7 @@ const Aboutus = () => {
       </div>
       <Cta />
       <AboutCards />
-      <ReviewCarousel />
+      {/* <ReviewCarousel /> */}
       <AboutForm />
     </div>
   );

@@ -1,121 +1,40 @@
-"use client";
-
+import React from "react";
 import Banner from "@/components/Banner";
 import ImageInfo from "@/components/ImageInfo";
-import Frame from "@/components/frame";
-import React, { useState, useEffect } from "react";
-import eventrental1 from "@/public/eventrental1.jpg";
-import Laptop_card from "@/components/Laptop_card";
-import Sidebar from "@/components/sidebar";
-import { PaginationDemo } from "@/components/pagination";
-
 import { ImPageBreak } from "react-icons/im";
 import { FaWater } from "react-icons/fa";
-import { useRouter } from "next/navigation";
 import ServicesTimeline from "@/components/ServicesTimeline";
 import SidebarWithTab from "./_components/SidebarWithTab";
 import TabCards from "./_components/TabCards";
+import { Metadata } from "next";
 
-// Mock data for item details
-const itemDetails: {
-  [key: string]: { src: string; ram: string; storage: string; display: string };
-} = {
-  "Dell Laptop": {
-    src: "/dell.png",
-    ram: "16GB",
-    storage: "512GB",
-    display: '15.6"',
-  },
-  "Lenovo Laptop": {
-    src: "/dell.png",
-    ram: "8GB",
-    storage: "256GB",
-    display: '14"',
-  },
-  "HP Laptop": {
-    src: "/dell.png",
-    ram: "16GB",
-    storage: "1TB",
-    display: '15.6"',
-  },
-  "Microsoft Laptop": {
-    src: "/dell.png",
-    ram: "16GB",
-    storage: "512GB",
-    display: '13.5"',
-  },
-  "MSI Laptop": {
-    src: "/dell.png",
-    ram: "32GB",
-    storage: "1TB",
-    display: '17"',
-  },
-  "Acer Laptop": {
-    src: "/dell.png",
-    ram: "8GB",
-    storage: "256GB",
-    display: '15.6"',
-  },
-  "Asus Laptop": {
-    src: "/dell.png",
-    ram: "16GB",
-    storage: "512GB",
-    display: '14"',
-  },
-  // Add details for other categories as needed
+export const metadata: Metadata = {
+  title: "Event Technology Rental Excellence",
+  description:
+    "Boost your events with our event technology rental in Australia. Smooth solutions for events like conferences, festivals, and more. Contact us",
+  keywords: [
+    "Technology rental (event technology rental)",
+    "tech rental for events",
+    "technology rental company",
+    "technology rental service",
+    "IT rental (IT rental for events)",
+    "Hire IT equipment (Hire IT equipment for events)",
+  ],
 };
 
 function TechRental() {
-  const [clickedCards, setClickedCards] = useState(
-    Array(9).fill(false) // Adjust array length to match the number of cards
-  );
-  const [selectedCategory, setSelectedCategory] =
-    useState<string>("Laptop Rental");
-  const [filteredItems, setFilteredItems] = useState<string[]>([]);
-  const router = useRouter();
-
-  const handleCardClick = (index: number) => {
-    const updatedClickedCards = clickedCards.map((clicked, i) =>
-      i === index ? true : false
-    );
-    setClickedCards(updatedClickedCards);
-  };
-
-  const handleCategorySelect = (category: string, items: string[]) => {
-    setSelectedCategory(category);
-    setFilteredItems(items);
-  };
-
-  useEffect(() => {
-    // Initialize with Laptop Rental items
-    setFilteredItems([
-      "Dell Laptop",
-      "Lenovo Laptop",
-      "HP Laptop",
-      "Microsoft Laptop",
-      "MSI Laptop",
-      "Acer Laptop",
-      "Asus Laptop",
-    ]);
-  }, []);
-
-  const handleRequestQuote = () => {
-    // Navigate to the desired page when "Request Quote" button is clicked
-    router.push("/form"); // Adjust the route as needed
-  };
-
   return (
     <>
       <Banner
-        btn="Request a Quote"
-        link="/form"
-        text="We at laptop rental hosting event. We at laptop rental hosting event. We at laptop rental hosting event. We at laptop rental hosting event."
-        title="Technology Rental"
+        title="Event Technology Rental Excellence"
+        text="Laptop Rental is your premier destination for event technology rental solutions in Australia."
+        link="/contactus"
+        btn="Contact us"
       />
-      {/* <Frame /> */}
+
       <ImageInfo
-        title="Empower Your Business with Flexible and Reliable IT Equipment Rentals"
-        text="We at Laptop Rentals understand whether you're hosting a conference, trade show, or business event, having access to reliable and high-quality technology can make all.We at Laptop "
+        title="Connect to Excellence: Unlock the Future with Event Technology Rental."
+        text="Enter Laptop Rental – your premier partner for event technology rental in Australia. We specialise in providing a wide range of top-quality tech rental for events. From business conferences and seminars to festivals and product launches, we offer tailored solutions to meet diverse event needs."
       />
 
       <div className="flex flex-col md:flex-row gap-8 justify-between container p-8">
@@ -123,36 +42,13 @@ function TechRental() {
         <TabCards />
       </div>
 
-      <div className="grid grid-cols-[30%,70%] md:pt-10 pt-3 md:px-10 px-3 md:gap-5 gap-2">
-        <div>
-          <Sidebar onCategorySelect={handleCategorySelect} />
-        </div>
-        <div className="flex flex-wrap gap-3">
-          {filteredItems.map((item, index) => (
-            <Laptop_card
-              onRequestQuote={handleRequestQuote} // Pass the callback function as a prop
-              key={index}
-              clicked={clickedCards[index]}
-              onClick={() => handleCardClick(index)}
-              src={itemDetails[item]?.src || "/default-image.png"}
-              text={item}
-              description={
-                "Upgrade your technological experience with advanced features"
-              }
-              ram={itemDetails[item]?.ram || "Unknown"}
-              storage={itemDetails[item]?.storage || "Unknown"}
-              display={itemDetails[item]?.display || "Unknown"}
-            />
-          ))}
-          {/* <PaginationDemo currentPage={currentPage} totalPages={totalPages} handlePageChange={handlePageChange} /> */}
-        </div>
-      </div>
       <ServicesTimeline />
 
       <ImageInfo
-        title="Regarding Your Investment Our Breakage Policy"
+        title="IT Rental for Events"
         reverse
-        text="We at Laptop Rentals understand whether you&lsquo;re hosting a conference, trade show, or business event, having access to reliable and high-quality technology can make all.We at Laptop Rentals understand whether you.reliable and high-quality technology can make all.We at Laptop"
+        text="As a leading technology rental company, our mission is to empower businesses and individuals by providing cutting-edge and reliable technology solutions for their short-term and long-term events needs. Our comprehensive IT rental for events caters to a diverse range of needs, providing top-notch laptops, iPads, and other essential technology. With a focus on reliability and flexibility, our offerings ensure that your event runs smoothly, from hassle-free check-ins to flawless presentations. Our dedicated team is committed to providing 24/7 assistance, both on-site and remotely, ensuring that technical support is readily available whenever you need it. Hire IT equipment for events, and let us contribute to the success of your gatherings with cutting-edge technology and professional support.
+        Your Event, Our Technology Rental Company: Reasons We Stand Out"
         items={[
           { icon: ImPageBreak, desc: "Accidental Breakage" },
           { icon: FaWater, desc: "Water Damage" },

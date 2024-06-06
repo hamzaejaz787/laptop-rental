@@ -34,8 +34,9 @@ export function AboutForm() {
             Leave Your Review
           </h2>
           <p className="text-sm text-center mb-8">
-            We at Laptop Rentals understand whether you&lsquo;re hosting a
-            conference, a conference you&lsquo;re hosting a conference.
+            Your Feedback Matters! Share your experience with Laptop Rental. We
+            value your insights and look forward to hearing about the impact of
+            our cutting-edge technology and top-notch services on your events.
           </p>
         </div>
         <Form {...form}>

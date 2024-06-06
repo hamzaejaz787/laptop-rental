@@ -2,13 +2,20 @@ import React from "react";
 import contact_bg from "@/public/contactus_bg.png";
 import ContactForm from "@/components/ContactForm";
 import Banner from "@/components/Banner";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact US page of Laptop Rental AU",
+  description:
+    "Transform your events with cutting-edge technology. Laptop Rental offers top-tier solutions for seamless engagement. Contact us today!",
+};
 
 const Page = () => {
   return (
     <div>
       <Banner
         title="Contact us"
-        text="We at Laptop Rentals understand whether you're hosting whether you're hosting We at Laptop Rentals understand at Laptop Rentals understand"
+        text="Feel free to contact Laptop Rental in Australia. Whether you have inquiries about our rental offerings, need assistance choosing the right IT equipment for your event, or require technical support during your rental period, our dedicated team is ready to assist you!"
       />
 
       <div className="w-[80%] m-auto mt-20">
@@ -16,8 +23,8 @@ const Page = () => {
           Get In Touch With Us
         </h2>
         <p className="pb-1 w-full text-center text-sm">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porttitor
-          dictum lectus at
+          We&apos;re excited to collaborate with you and make your event a
+          success with the latest technology.
         </p>
       </div>
       <ContactForm />

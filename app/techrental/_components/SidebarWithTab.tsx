@@ -1,9 +1,7 @@
 import React from "react";
-import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { FaChevronRight } from "react-icons/fa6";
-import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const tabItems = [
   "Laptop Rental",

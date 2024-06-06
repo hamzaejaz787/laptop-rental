@@ -14,13 +14,14 @@ function Cta() {
             <span className="md:text-6xl">Product Services</span>
           </h2>
           <p className="text-white text-center md:text-left md:max-w-lg">
-            We at Laptop Rentals understand whether you&apos;re hosting a
-            conference, a conference you&apos;re hosting a conference.
+            Enhance your events with premium rental products. Elevate
+            experiences effortlessly. Reach out to us for seamless excellence.
+            Contact us now!{" "}
           </p>
 
           <CtaButton
-            text="Get A Quote"
-            href="/get-a-quote"
+            text="Call"
+            href="tel:+2199005700"
             className="bg-white text-primary-red hover:text-white focus-within:text-white"
           />
         </div>

@@ -15,8 +15,8 @@ export interface FooterLinkProps {
 function Footer() {
   const companyListItems: FooterLinkProps[] = [
     { title: "About", href: "/aboutus" },
-    { title: "Features", href: "/features" },
-    { title: "Works", href: "/works" },
+    { title: "Events", href: "/eventrental" },
+    { title: "Products", href: "/techrental" },
     { title: "Career", href: "/career" },
   ];
 
@@ -69,7 +69,7 @@ function Footer() {
               {companyListItems.map((item, index) => (
                 <li
                   key={index}
-                  className="text-white hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in cursor-pointer"
+                  className="text-white hover:text-red-400 transition-all duration-200 ease-in cursor-pointer"
                 >
                   <Link href={item.href}>{item.title}</Link>
                 </li>
@@ -83,7 +83,7 @@ function Footer() {
               {helpListItems.map((item, index) => (
                 <li
                   key={index}
-                  className="text-white hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in cursor-pointer"
+                  className="text-white hover:text-red-400 transition-all duration-200 ease-in cursor-pointer"
                 >
                   <Link href={item.href}>{item.title}</Link>
                 </li>
@@ -97,7 +97,7 @@ function Footer() {
               {resourceListItems.map((item, index) => (
                 <li
                   key={index}
-                  className="text-white hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in cursor-pointer"
+                  className="text-white hover:text-red-400 transition-all duration-200 ease-in cursor-pointer"
                 >
                   <Link href={item.href}>{item.title}</Link>
                 </li>
@@ -112,7 +112,7 @@ function Footer() {
                 <FaPhone size={20} />
                 <Link
                   href="tel:+2199005700"
-                  className="text-white hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
+                  className="text-white hover:text-red-400 transition-all duration-200 ease-in"
                 >
                   (219)-900-5700
                 </Link>
@@ -122,7 +122,7 @@ function Footer() {
                 <Link
                   href="https://maps.app.goo.gl/"
                   target="_blank"
-                  className="text-white hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
+                  className="text-white hover:text-red-400 transition-all duration-200 ease-in"
                 >
                   2508 TX 78746 UK
                 </Link>
@@ -131,7 +131,7 @@ function Footer() {
                 <MdMailOutline size={20} />
                 <Link
                   href="mailto:laptop@gmail.com"
-                  className="text-white hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in"
+                  className="text-white hover:text-red-400 transition-all duration-200 ease-in"
                 >
                   laptop@gmail.com
                 </Link>
@@ -149,13 +149,13 @@ function Footer() {
 
           <div className="space-x-4 flex items-center justify-between md:justify-start w-full md:w-auto">
             <ul className="flex items-start md:items-center flex-col md:flex-row gap-4 md:gap-0 md:divide-x-2 divide-white">
-              <li className="text-white md:px-4 hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in cursor-pointer">
+              <li className="text-white md:px-4 hover:text-red-400 transition-all duration-200 ease-in cursor-pointer">
                 <Link href={"/terms"}>Terms & Conditions</Link>
               </li>
-              <li className="text-white md:px-4 hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in cursor-pointer">
+              <li className="text-white md:px-4 hover:text-red-400 transition-all duration-200 ease-in cursor-pointer">
                 <Link href={"/privacy"}>Privacy Policy</Link>
               </li>
-              <li className="text-white md:px-4 hover:text-red-400 focus-within:text-red-400 transition-all duration-200 ease-in cursor-pointer">
+              <li className="text-white md:px-4 hover:text-red-400 transition-all duration-200 ease-in cursor-pointer">
                 <Link href={"/disclaimer"}>Disclaimer</Link>
               </li>
             </ul>

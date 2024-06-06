@@ -9,7 +9,8 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import EventCard, { EventCardProps } from "./EventCard";
+import EventCard from "./EventCard";
+import { EventCardProps } from "@/lib/definitions";
 
 const CardsCarousel = ({ data }: { data: EventCardProps[] }) => {
   return (

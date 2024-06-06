@@ -36,10 +36,6 @@ const TabItems: ProductInfoTabItemProps[] = [
     value: "Product Guide",
     content: "This is a guide on how to use the product.",
   },
-  {
-    value: "Reviews",
-    content: "These are reviews from customers who have used the product.",
-  },
 ];
 
 const ProductCardItems: ProductCardItemsProps[] = [

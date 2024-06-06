@@ -14,11 +14,12 @@ const HomeSliderText = () => {
       </h1>
 
       <p className="text-white text-center md:text-left md:max-w-lg">
-        We at Laptop Rentals understand whether you&apos;re hosting a
-        conference, a conference you&apos;re hosting a conference.
+        Worldwide, rent top-notch laptops and technology. Laptop Rental for
+        events, your tech excellence partner, delivers tailored solutions,
+        guaranteed.{" "}
       </p>
 
-      <CtaButton href="/techrental" text="Tech rental" />
+      <CtaButton href="/contactus" text="Get A Quote" />
     </div>
   );
 };

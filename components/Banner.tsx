@@ -38,9 +38,11 @@ const Banner = ({ btn, title, text, link, image }: BannerProps) => {
         <h1 className="md:text-4xl text-center text-3xl text-bold text-white font-bold uppercase">
           {title}
         </h1>
-        <p className="md:text-base text-white/85 font-sans text-center md:max-w-xl md:mx-auto">
-          {text}
-        </p>
+        {text && text !== "" && (
+          <p className="md:text-base text-white/85 font-sans text-center md:max-w-xl md:mx-auto">
+            {text}
+          </p>
+        )}
         {btn && link && <CtaButton href={link} text={btn} />}
       </div>
     </div>

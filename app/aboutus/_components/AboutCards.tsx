@@ -11,20 +11,20 @@ const AboutCards = () => {
     >
       <AboutCard
         icon={historyIcon}
-        title="Our History"
-        text="Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure Lorem"
+        title="Company History"
+        text="Laptop Rental delivers cutting-edge technology globally, venturing boldly to unconventional locations. With a decade of experience, we prioritise enduring client relationships, offering unmatched IT rental services and logistics."
       />
       <AboutCard
         icon={missionIcon}
         title="Our Mission"
         mleft={true}
-        text="Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure Lorem"
+        text="Dedicated to our clients, we strive to simplify challenges related to location, environment, and technology, providing impactful event solutions that inspire and captivate."
       />
       <AboutCard
         icon={visionIcon}
         mleft3={true}
         title="Our Vision"
-        text="Get in contact us to start planning your own adventure. Get in contact us to start planning your own adventure Lorem"
+        text="Our vision is to be the global leader in transformative event technology, setting new standards of excellence. We aspire to seamlessly blend innovation, client satisfaction, and operational precision for unparalleled event experiences worldwide."
       />
     </div>
   );

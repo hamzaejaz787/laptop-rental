@@ -6,31 +6,31 @@ import { MdAdsClick } from "react-icons/md";
 
 const eventsData = [
   {
-    title: "Corporate Event",
+    title: "Check-in & Registration",
     eventdate: "15th Dec",
     href: "/eventrental/corporate-event",
     image: "/hp_img1.png",
   },
   {
-    title: "Business Event",
+    title: "Event & Festival Wi-Fi",
     eventdate: "15th Dec",
     href: "/eventrental/corporate-event",
     image: "/hp_img2.png",
   },
   {
-    title: "Work Event",
+    title: "Event Apps & Software",
     eventdate: "15th Dec",
     href: "/eventrental/corporate-event",
     image: "/hp_img3.png",
   },
   {
-    title: "Rental Event",
+    title: "Global Fulfilment",
     eventdate: "15th Dec",
     href: "/eventrental/corporate-event",
     image: "/hp_img4.png",
   },
   {
-    title: "Laptop Event",
+    title: "Customer Support",
     eventdate: "15th Dec",
     href: "/eventrental/corporate-event",
     image: "/hp_img5.png",
@@ -41,11 +41,13 @@ function Hp_events() {
   return (
     <section className="container space-y-4 p-8 text-center">
       <h2 className="text-4xl max-w-3xl mx-auto text-center font-Barlow font-bold">
-        We don&apos;t need to take into account age and past failures{" "}
+        G&apos;day Event Organisers and Audiences Down Under{" "}
       </h2>
-      <p className="text-gray-500 text-center max-w-lg mx-auto">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore quam
-        architecto, hic beatae consequuntur{" "}
+      <p className="text-gray-500 text-center max-w-2xl mx-auto">
+        Effortless check-in & registration, seamless event Wi-Fi, cutting-edge
+        event apps, worldwide fulfillment, and dedicated customer support – we
+        help Australian events with unparalleled services for organizers and
+        attendees alike.{" "}
       </p>
 
       <div className="flex items-center gap-8 justify-center h-full flex-col lg:flex-row">

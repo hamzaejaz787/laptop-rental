@@ -158,7 +158,7 @@ export function MobileMenu() {
                 onClick={handleClose}
               >
                 <Link
-                  href={"/blogs"}
+                  href={"/news"}
                   className="text-white focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
                 >
                   News Events

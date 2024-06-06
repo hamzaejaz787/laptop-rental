@@ -6,8 +6,13 @@ const Video = () => {
         Looking For IT Equipment Rental Services For Your Event
       </h2>
       <p className="text-sm text-center mb-8">
-        We at Laptop Rentals understand whether you&lsquo;re hosting a
-        conference, <br></br>a conference you&lsquo;re hosting a conference.
+        Our global enterprise specialises in providing top-of-the-line IT rental
+        services, featuring the latest technology, extensive iPad inventories,
+        and unmatched logistics. We go beyond mere logistical prowess – our
+        dedicated team ensures seamless software integration, accommodating
+        everything from standard apps to bespoke software. The Laptop Rental
+        Difference lies in our commitment to a distinctive attitude and
+        heightened support, available 24/7 for assistance or consultation.{" "}
       </p>
       <div className="w-full flex justify-center">
         <video

@@ -107,7 +107,7 @@ export function Navbar({ eventItems }: { eventItems: EventItemTypes }) {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <ListItem href="/blogs" title="News Events" />
+            <ListItem href="/news" title="News Events" />
           </NavigationMenuItem>
           <NavigationMenuItem>
             <ListItem href="/gallery" title="Gallery" />
