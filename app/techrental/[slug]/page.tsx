@@ -1,12 +1,12 @@
 import React from "react";
-import Banner from "@/components/Banner";
+import { Metadata } from "next";
 import ImageInfo from "@/components/ImageInfo";
 import { ImPageBreak } from "react-icons/im";
 import { FaWater } from "react-icons/fa";
 import ServicesTimeline from "@/components/ServicesTimeline";
 import SidebarWithTab from "../_components/SidebarWithTab";
+import BannerWithImageUrl from "@/components/DynamicBanner";
 import TabCards from "../_components/TabCards";
-import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Event Technology Rental Excellence",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 function TechRental() {
   return (
     <>
-      <Banner
+      <BannerWithImageUrl
         title="Dell Laptop Rental"
         text="Upgrade your next event in Australia with premium Dell laptop rental services from Laptop Rental. We offer a wide range of reliable, high-performance Dell laptops to suit every event needs."
         link="/contactus"

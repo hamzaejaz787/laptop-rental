@@ -1,4 +1,3 @@
-import Banner from "@/components/Banner";
 import ImageInfo from "@/components/ImageInfo";
 import MasonryGrid from "@/components/masonry";
 import { getEventBySlug } from "@/data/loaders";
@@ -9,6 +8,7 @@ import ProductCard, { ProductCardItemsProps } from "@/components/ProductCard";
 import CTA from "@/components/CTA";
 import Eventslist from "../_components/eventslist";
 import CardsSlider from "@/components/CardsSlider";
+import BannerWithImageUrl from "@/components/DynamicBanner";
 
 export async function generateMetadata({
   params,
@@ -87,7 +87,7 @@ const Page = async ({ params }: PageProps) => {
 
   return (
     <div>
-      <Banner
+      <BannerWithImageUrl
         title={data.IntroTitle}
         text={data.IntroText}
         image={data.IntroBanner}

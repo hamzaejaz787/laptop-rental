@@ -1,9 +1,8 @@
 import Image from "next/image";
 import React from "react";
-import banner_bg from "../public/contactus_bg.png";
-import Link from "next/link";
+import banner_bg from "@/public/contactus_bg.png";
 import { getStrapiURL } from "@/lib/utils";
-import CtaButton from "./CtaButton";
+import CtaButton from "@/components/CtaButton";
 
 export interface BannerImageProps {
   alternativeText: string;
@@ -20,11 +19,15 @@ export interface BannerProps {
   image?: BannerImageProps;
 }
 
-const Banner = ({ btn, title, text, link, image }: BannerProps) => {
+const BannerWithImageUrl = ({ btn, title, text, link, image }: BannerProps) => {
+  const baseurl = getStrapiURL();
+  let imageurl = "";
+  if (image) imageurl = baseurl + image?.url;
+
   return (
     <div className="relative flex justify-center items-center">
       <Image
-        src={image?.url || banner_bg}
+        src={imageurl || banner_bg}
         alt={image?.alternativeText || ""}
         width={image?.width || 1000}
         height={image?.height || 550}
@@ -45,4 +48,4 @@ const Banner = ({ btn, title, text, link, image }: BannerProps) => {
   );
 };
 
-export default Banner;
+export default BannerWithImageUrl;

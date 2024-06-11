@@ -3,7 +3,6 @@ import React from "react";
 import { MdOutlineScreenshot } from "react-icons/md";
 import { SiTicktick } from "react-icons/si";
 import { IoHardwareChipOutline } from "react-icons/io5";
-import Banner from "@/components/Banner";
 import Link from "next/link";
 import Faqs, { faqItemsProps } from "@/components/Faqs";
 import ProductInfoTabs from "./_components/ProductInfoTabs";
@@ -12,6 +11,7 @@ import ProductCard, { ProductCardItemsProps } from "@/components/ProductCard";
 import { PiHardDrives } from "react-icons/pi";
 import { Button } from "@/components/ui/button";
 import CardsSlider from "@/components/CardsSlider";
+import BannerWithImageUrl from "@/components/DynamicBanner";
 
 const FaqItemsData: faqItemsProps[] = [
   {
@@ -89,7 +89,7 @@ const ProductCardItems: ProductCardItemsProps[] = [
 async function ProductPage({ params }: PageProps) {
   return (
     <>
-      <Banner title="Dell ES5440 LATITUDE" text="" />
+      <BannerWithImageUrl title="Dell ES5440 LATITUDE" text="" />
       <section className="container p-8 flex items-center gap-10 justify-between flex-col-reverse lg:flex-row">
         <Image
           src="/imageframe.png"
