@@ -1,46 +1,36 @@
 "use client";
 
 import React from "react";
-import { Input } from "@/components/ui/input";
 import { FaChevronRight } from "react-icons/fa6";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useRouter } from "next/navigation";
 
-const tabItems = ["Laptop Rental", "Tablet Rental", "Mobile Rental"];
-
-const SidebarWithTab = () => {
+const TabSidebar = ({ tabItems }: { tabItems: string[] }) => {
   const router = useRouter();
-  const [tabValue, setTabValue] = React.useState(tabItems[0]);
+  const [tabItem, setTabItem] = React.useState(tabItems[0]);
 
   const handleTabChange = (value: string) => {
-    setTabValue(value);
+    setTabItem(value);
     const url = new URL(window.location.href);
-    url.searchParams.set("product", value.toLocaleLowerCase());
+    url.searchParams.set("event", value.toLocaleLowerCase());
     router.push(url.toString(), { scroll: false });
   };
 
   return (
     <div className="md:max-w-xs h-fit w-full bg-gray-100 border-2 border-gray-300 rounded-sm p-4 space-y-4">
-      <Input
-        placeholder="Search Products..."
-        className="focus-visible:ring-primary-red transition-all ease-in rounded-sm"
-      />
+      <h2 className="text-lg font-bold relative">
+        Past Events
+        <div className="absolute w-full bottom-0 left-0 h-[2px] bg-gray-300 after:content-[''] after:block after:w-1/5 after:h-[2px] after:bg-primary-red" />
+      </h2>
 
-      <div className="space-y-4">
-        <h2 className="text-lg font-bold relative">
-          Product Categories
-          <div className="absolute w-full bottom-0 left-0 h-[2px] bg-gray-300 after:content-[''] after:block after:w-1/5 after:h-[2px] after:bg-primary-red" />
-        </h2>
-
-        <Tabs onValueChange={handleTabChange}>
-          <SidebarTab />
-        </Tabs>
-      </div>
+      <Tabs onValueChange={handleTabChange}>
+        <SidebarTab tabItems={tabItems} />
+      </Tabs>
     </div>
   );
 };
 
-const SidebarTab = () => {
+const SidebarTab = ({ tabItems }: { tabItems: string[] }) => {
   return (
     <TabsList className="block h-full space-y-4 bg-transparent">
       {tabItems.map((item, index) => (
@@ -57,4 +47,4 @@ const SidebarTab = () => {
   );
 };
 
-export default SidebarWithTab;
+export default TabSidebar;

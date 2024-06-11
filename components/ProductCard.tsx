@@ -20,6 +20,8 @@ export interface ProductCardItemsProps {
   ram: string;
   storage: string;
   display: string;
+  category?: string;
+  slug: string;
 }
 
 const ProductCard = ({
@@ -27,8 +29,16 @@ const ProductCard = ({
 }: {
   productCardItem: ProductCardItemsProps;
 }) => {
-  const { display, image, productDescription, productTitle, ram, storage } =
-    productCardItem;
+  //Destructure data
+  const {
+    display,
+    image,
+    productDescription,
+    productTitle,
+    ram,
+    storage,
+    slug,
+  } = productCardItem;
   return (
     <Card className="sm:max-w-xs justify-self-center border-2 border-dashed border-gray-400 rounded-none p-4 hover:border-red-500">
       <CardHeader className="p-0 space-x-1">
@@ -62,7 +72,11 @@ const ProductCard = ({
         </div>
       </CardContent>
       <CardFooter className="p-0 pt-2">
-        <CtaButton href={"/eventrental"} text="Learn More" className="w-full" />
+        <CtaButton
+          href={`/techrental${slug}`}
+          text="Learn More"
+          className="w-full"
+        />
       </CardFooter>
     </Card>
   );

@@ -8,6 +8,7 @@ import Faqs from "@/components/Faqs";
 import ProductCard, { ProductCardItemsProps } from "@/components/ProductCard";
 import CTA from "@/components/CTA";
 import Eventslist from "../_components/eventslist";
+import CardsSlider from "@/components/CardsSlider";
 
 export async function generateMetadata({
   params,
@@ -34,6 +35,7 @@ const ProductCardItems: ProductCardItemsProps[] = [
     ram: "16GB",
     storage: "512GB",
     display: "10.5",
+    slug: "/laptop",
   },
   {
     image: "/screen.png",
@@ -43,6 +45,7 @@ const ProductCardItems: ProductCardItemsProps[] = [
     ram: "32GB",
     storage: "250GB",
     display: "11.5",
+    slug: "/laptop",
   },
   {
     image: "/iphone.png",
@@ -52,6 +55,7 @@ const ProductCardItems: ProductCardItemsProps[] = [
     ram: "32GB",
     storage: "250GB",
     display: "7.5",
+    slug: "/laptop",
   },
   {
     image: "/printer.png",
@@ -61,6 +65,47 @@ const ProductCardItems: ProductCardItemsProps[] = [
     ram: "32GB",
     storage: "250GB",
     display: "11.5",
+    slug: "/laptop",
+  },
+  {
+    image: "/ipad.png",
+    productTitle: "iPad Wifi 10.5 Cellular",
+    productDescription:
+      "Upgrade your technology experience with the advanced features.",
+    ram: "16GB",
+    storage: "512GB",
+    display: "10.5",
+    slug: "/laptop",
+  },
+  {
+    image: "/screen.png",
+    productTitle: "iPad Wifi 10.5 Cellular",
+    productDescription:
+      "Upgrade your technology experience with the advanced features.",
+    ram: "32GB",
+    storage: "250GB",
+    display: "11.5",
+    slug: "/laptop",
+  },
+  {
+    image: "/iphone.png",
+    productTitle: "iPhone 14",
+    productDescription:
+      "Upgrade your technology experience with the advanced features.",
+    ram: "32GB",
+    storage: "250GB",
+    display: "7.5",
+    slug: "/laptop",
+  },
+  {
+    image: "/printer.png",
+    productTitle: "iPad Wifi 10.5 Cellular",
+    productDescription:
+      "Upgrade your technology experience with the advanced features.",
+    ram: "32GB",
+    storage: "250GB",
+    display: "11.5",
+    slug: "/laptop",
   },
 ];
 
@@ -106,11 +151,11 @@ const Page = async ({ params }: PageProps) => {
         <h3 className="font-bold text-3xl text-center font-Barlow">
           Our Products
         </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <CardsSlider>
           {ProductCardItems.map((product, index) => (
             <ProductCard key={index} productCardItem={product} />
           ))}
-        </div>
+        </CardsSlider>
       </div>
       <CTA ctaItems={ctaitems} />
 

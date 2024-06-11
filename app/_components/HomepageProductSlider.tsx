@@ -1,14 +1,23 @@
 "use client";
 
-"use client";
-
 import React from "react";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import { MdAdsClick } from "react-icons/md";
 import Image from "next/image";
+import Link from "next/link";
+
+const images = [
+  "/ipad.png",
+  "/iphone.png",
+  "/laptop.png",
+  "/printer.png",
+  "/screen.png",
+  "/avrental.png",
+];
 
 const HomepageProductSlider = () => {
   return (
@@ -20,24 +29,20 @@ const HomepageProductSlider = () => {
         className="w-4/5 mx-auto"
       >
         <CarouselContent className="ml-0">
-          <CarouselItem className="sm:basis-1/2 lg:basis-1/6 pl-0 md:pl-4 flex items-center justify-center">
-            <Image src={"/ipad.png"} alt="" width={200} height={200} />
-          </CarouselItem>
-          <CarouselItem className="sm:basis-1/2 lg:basis-1/6 pl-0 md:pl-4 flex items-center justify-center">
-            <Image src={"/iphone.png"} alt="" width={200} height={200} />
-          </CarouselItem>
-          <CarouselItem className="sm:basis-1/2 lg:basis-1/6 pl-0 md:pl-4 flex items-center justify-center">
-            <Image src={"/laptop.png"} alt="" width={200} height={200} />
-          </CarouselItem>
-          <CarouselItem className="sm:basis-1/2 lg:basis-1/6 pl-0 md:pl-4 flex items-center justify-center">
-            <Image src={"/printer.png"} alt="" width={200} height={200} />
-          </CarouselItem>
-          <CarouselItem className="sm:basis-1/2 lg:basis-1/6 pl-0 md:pl-4 flex items-center justify-center">
-            <Image src={"/screen.png"} alt="" width={200} height={200} />
-          </CarouselItem>
-          <CarouselItem className="sm:basis-1/2 lg:basis-1/6 pl-0 md:pl-4 flex items-center justify-center">
-            <Image src={"/avrental.png"} alt="" width={200} height={200} />
-          </CarouselItem>
+          {images.map((image, index) => (
+            <CarouselItem
+              key={index}
+              className="sm:basis-1/2 lg:basis-1/6 pl-0 md:pl-4 flex flex-col items-center justify-center"
+            >
+              <Image src={image} alt="" width={200} height={200} />
+              <Link
+                href={"/techrental"}
+                className="hover:text-white text-primary-red text-2xl transition-all"
+              >
+                <MdAdsClick />
+              </Link>
+            </CarouselItem>
+          ))}
         </CarouselContent>
       </Carousel>
     </div>

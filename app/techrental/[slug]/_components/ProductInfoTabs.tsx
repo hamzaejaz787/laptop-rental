@@ -18,7 +18,7 @@ const ProductInfoTabs = ({
             <TabsTrigger
               key={tab.value}
               value={tab.value}
-              className="data-[state=active]:bg-transparent data-[state=active]:underline data-[state=active]:text-red-500 data-[state=active]:decoration-gray-700 data-[state=active]:shadow-none text-gray-700 hover:text-red-500 focus-visible:text-red-500 transition-all"
+              className="data-[state=active]:bg-transparent data-[state=active]:underline data-[state=active]:text-red-500 data-[state=active]:decoration-primary-red data-[state=active]:shadow-none text-gray-700 hover:text-red-500 focus-visible:text-red-500 transition-all"
             >
               {tab.value}
             </TabsTrigger>

@@ -5,7 +5,6 @@ import Link from "next/link";
 const TermsAndConditions = () => {
   return (
     <>
-      {" "}
       <Banner
         title="Terms and Conditions"
         text="Please read these terms and conditions carefully before using Our Service."
@@ -27,47 +26,47 @@ const TermsAndConditions = () => {
           For the purposes of this Privacy Policy:
         </p>
 
-        <ul className="space-y-4 list-disc">
-          <li className="ml-4">
+        <ul className="space-y-4 list-disc list-inside">
+          <li className="">
             <strong className="">Affiliate</strong> means an entity that
             controls is controlled by or is under common control with a party,
             where &quot;control&quot; means ownership of 50% or more of the
             shares, equity interest or other securities entitled to vote for
             election of directors or other managing authority.
           </li>
-          <li className="ml-4">
+          <li className="">
             <strong className="">Country</strong> refers to the Australian
             Capital Territory, Australia
           </li>
-          <li className="ml-4">
+          <li className="">
             <strong className="">Company</strong> (referred to as either
             &quot;the Company&quot;, &quot;We&quot;, &quot;Us&quot;, or
             &quot;Our&quot; in this Agreement) refers to Laptop Rental, Laptop
             Rental Oceania 19B Hinkler Road Mordialloc, Mordialloc Victoria
             3195, Australia.
           </li>
-          <li className="ml-4">
+          <li className="">
             <strong className="">Device</strong> means any device that can
             access the Service, such as a computer, a cellphone or a digital
             tablet.
           </li>
-          <li className="ml-4">
+          <li className="">
             <strong className="">Service</strong> refers to the Website.
           </li>
-          <li className="ml-4">
+          <li className="">
             <strong className="">Terms and Conditions</strong> (also referred to
             as &quot;Terms&quot;) mean these Terms and Conditions that form the
             entire agreement between You and the Company regarding the use of
             the Service.
           </li>
-          <li className="ml-4">
+          <li className="">
             <strong className="">Third-party Social Media Service</strong> means
             any services or content (including data, information, products or
             services) provided by a third party that may be displayed, included
             or made available by the Service.
           </li>
 
-          <li className="ml-4">
+          <li className="">
             <strong className="">Website</strong> refers to Laptop Rental,
             accessible from{" "}
             <Link
@@ -77,7 +76,7 @@ const TermsAndConditions = () => {
               https://laptoprental.com.au/
             </Link>
           </li>
-          <li className="ml-4">
+          <li className="">
             <strong className="">You</strong> mean the individual accessing or
             using the Service, the company, or other legal entity on behalf of
             which such individual is accessing or using the Service, as
@@ -297,8 +296,8 @@ const TermsAndConditions = () => {
           If you have any questions about this Privacy Policy, You can contact
           us:
         </p>
-        <ul className="space-y-4 list-disc">
-          <li className="ml-4">
+        <ul className="space-y-4 list-disc list-inside">
+          <li className="">
             <strong>By email: </strong>{" "}
             <Link
               className="underline hover:text-primary-red focus-within:text-primary-red transition-all ease-in"
@@ -307,7 +306,7 @@ const TermsAndConditions = () => {
               Hire@laptoprental.com
             </Link>{" "}
           </li>
-          <li className="ml-4">
+          <li className="">
             <strong>By visiting this page on our webiste:</strong>{" "}
             <Link
               className="underline hover:text-primary-red focus-within:text-primary-red transition-all ease-in"
@@ -316,7 +315,7 @@ const TermsAndConditions = () => {
               https://laptoprental.com.au/
             </Link>{" "}
           </li>
-          <li className="ml-4">
+          <li className="">
             <strong>By phone number:</strong>{" "}
             <Link
               className="underline hover:text-primary-red focus-within:text-primary-red transition-all ease-in"
@@ -325,7 +324,7 @@ const TermsAndConditions = () => {
               +61 383 730 303
             </Link>{" "}
           </li>
-          <li className="ml-4">
+          <li className="">
             <strong>By mail:</strong>{" "}
             <Link
               className="underline hover:text-primary-red focus-within:text-primary-red transition-all ease-in"

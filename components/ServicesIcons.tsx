@@ -3,7 +3,7 @@ import Image from "next/image";
 import { FaGlobeAsia } from "react-icons/fa";
 import { FaHandshakeAngle, FaPeopleCarryBox, FaDove } from "react-icons/fa6";
 
-function Hp_icons() {
+function ServicesIcons() {
   return (
     <div className="flex md:gap-14 gap-6 items-center justify-center md:pt-5 flex-wrap sm:flex-nowrap">
       <div className="">
@@ -92,4 +92,4 @@ function Hp_icons() {
   );
 }
 
-export default Hp_icons;
+export default ServicesIcons;

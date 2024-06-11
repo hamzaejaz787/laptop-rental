@@ -3,7 +3,7 @@ import Video from "./_components/Video";
 import Cta from "./_components/Cta";
 import AboutCards from "./_components/AboutCards";
 import { AboutForm } from "./_components/AboutForm";
-import Hp_icons from "@/components/hp_icons";
+import Hp_icons from "@/components/ServicesIcons";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

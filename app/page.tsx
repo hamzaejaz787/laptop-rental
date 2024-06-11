@@ -1,14 +1,15 @@
 import React from "react";
-import Hp_icons from "@/components/hp_icons";
-import Hp_events from "@/components/hp_events";
+
+import EventDateCards from "./_components/EventDateCards";
 import HomepageSlider from "./_components/HomepageSlider";
 import HomeSliderText from "./_components/HomeSliderText";
 import CtaButton from "@/components/CtaButton";
 import CurvedLayoutImages from "./_components/CurvedLayoutImages";
-import CardsCarousel from "@/components/CardsCarousel";
 import Cta from "./_components/Cta";
 import { EventCardProps } from "@/lib/definitions";
 import ServicesTimeline from "@/components/ServicesTimeline";
+import ServicesIcons from "@/components/ServicesIcons";
+import EventCardsCarousel from "./_components/EventCardsCarousel";
 
 export default function Home() {
   const eventCardsData: EventCardProps[] = [
@@ -91,7 +92,7 @@ export default function Home() {
           Our Event Services
         </h2>
 
-        <Hp_icons />
+        <ServicesIcons />
       </section>
 
       <section className="container p-8 flex gap-8 lg:gap-20 items-center flex-col lg:flex-row md:overflow-x-hidden">
@@ -112,13 +113,11 @@ export default function Home() {
           </p>
         </div>
 
-        <CardsCarousel data={eventCardsData} />
+        <EventCardsCarousel data={eventCardsData} />
       </section>
 
-      <Hp_events />
+      <EventDateCards />
       <Cta />
-      {/* <Hp_form /> */}
-
       <ServicesTimeline />
     </>
   );

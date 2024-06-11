@@ -24,7 +24,7 @@ export default function MasonryGrid() {
           width={300}
           height={300}
           key={index}
-          className="rounded-md object-cover justify-self-center"
+          className="rounded-md object-cover justify-self-center w-full"
         />
       ))}
     </div>

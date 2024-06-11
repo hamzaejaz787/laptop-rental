@@ -1,7 +1,7 @@
-import EventCard from "@/components/EventCard";
-import Hp_imgframe from "@/components/hp_imgframe";
-import { EventCardProps } from "@/lib/definitions";
 import React from "react";
+import CardsSlider from "@/components/CardsSlider";
+import EventCard from "@/components/EventCard";
+import { EventCardProps } from "@/lib/definitions";
 
 const Eventslist = () => {
   const eventCardsData: EventCardProps[] = [
@@ -79,11 +79,13 @@ const Eventslist = () => {
         solutions. Our commitment goes beyond merely providing technology; we
         aim to revolutionise how events unfold.
       </p>
-      <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:pt-5 lg:grid-cols-4 items-center">
-        {eventCardsData.slice(0, 4).map((event, index) => (
+      <CardsSlider>
+        {eventCardsData.map((event, index) => (
           <EventCard key={index} data={event} />
         ))}
-      </div>
+      </CardsSlider>
+      {/* <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:pt-5 lg:grid-cols-4 items-center">
+      </div> */}
     </div>
   );
 };

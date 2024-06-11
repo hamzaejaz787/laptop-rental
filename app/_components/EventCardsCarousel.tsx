@@ -9,10 +9,10 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import EventCard from "./EventCard";
+import EventCard from "../../components/EventCard";
 import { EventCardProps } from "@/lib/definitions";
 
-const CardsCarousel = ({ data }: { data: EventCardProps[] }) => {
+const EventCardsCarousel = ({ data }: { data: EventCardProps[] }) => {
   return (
     <Carousel
       opts={{
@@ -21,7 +21,7 @@ const CardsCarousel = ({ data }: { data: EventCardProps[] }) => {
       }}
       plugins={[
         Autoplay({
-          delay: 2000,
+          delay: 5000,
         }),
       ]}
       className="w-full max-w-3xl h-full"
@@ -41,4 +41,4 @@ const CardsCarousel = ({ data }: { data: EventCardProps[] }) => {
   );
 };
 
-export default CardsCarousel;
+export default EventCardsCarousel;

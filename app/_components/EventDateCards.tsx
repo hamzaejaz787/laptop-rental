@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { MdAdsClick } from "react-icons/md";
 
@@ -37,13 +36,13 @@ const eventsData = [
   },
 ];
 
-function Hp_events() {
+function EventDateCards() {
   return (
     <section className="container space-y-4 p-8 text-center">
       <h2 className="text-4xl max-w-3xl mx-auto text-center font-Barlow font-bold">
         G&apos;day Event Organisers and Audiences Down Under{" "}
       </h2>
-      <p className="text-gray-500 text-center max-w-2xl mx-auto">
+      <p className="text-gray-500 text-center max-w-3xl mx-auto">
         Effortless check-in & registration, seamless event Wi-Fi, cutting-edge
         event apps, worldwide fulfillment, and dedicated customer support – we
         help Australian events with unparalleled services for organizers and
@@ -92,4 +91,4 @@ function Hp_events() {
   );
 }
 
-export default Hp_events;
+export default EventDateCards;

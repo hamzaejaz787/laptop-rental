@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import { BannerProps } from "@/lib/definitions";
 import { getStrapiURL } from "@/lib/utils";
-import banner_bg from "../public/contactus_bg.png";
 
 const ImageInfo = ({
   image,

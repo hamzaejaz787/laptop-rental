@@ -1,9 +1,8 @@
 import Image from "next/image";
 import React from "react";
-import { MdOutlineScreenshot, MdOutlineStorage } from "react-icons/md";
+import { MdOutlineScreenshot } from "react-icons/md";
 import { SiTicktick } from "react-icons/si";
 import { IoHardwareChipOutline } from "react-icons/io5";
-import { FaMinus, FaPlus } from "react-icons/fa6";
 import Banner from "@/components/Banner";
 import Link from "next/link";
 import Faqs, { faqItemsProps } from "@/components/Faqs";
@@ -12,6 +11,7 @@ import { PageProps, ProductInfoTabItemProps } from "@/lib/definitions";
 import ProductCard, { ProductCardItemsProps } from "@/components/ProductCard";
 import { PiHardDrives } from "react-icons/pi";
 import { Button } from "@/components/ui/button";
+import CardsSlider from "@/components/CardsSlider";
 
 const FaqItemsData: faqItemsProps[] = [
   {
@@ -48,15 +48,19 @@ const ProductCardItems: ProductCardItemsProps[] = [
     ram: "16GB",
     storage: "512GB",
     display: "10.5",
+    category: "tablet rental",
+    slug: "/tablet",
   },
   {
-    image: "/screen.png",
+    image: "/ipad.png",
     productTitle: "iPad Wifi 10.5 Cellular",
     productDescription:
       "Upgrade your technology experience with the advanced features.",
     ram: "32GB",
     storage: "250GB",
     display: "11.5",
+    category: "tablet rental",
+    slug: "/tablet",
   },
   {
     image: "/iphone.png",
@@ -66,19 +70,23 @@ const ProductCardItems: ProductCardItemsProps[] = [
     ram: "32GB",
     storage: "250GB",
     display: "7.5",
+    category: "mobile rental",
+    slug: "/mobile",
   },
   {
-    image: "/printer.png",
+    image: "/laptop.png",
     productTitle: "iPad Wifi 10.5 Cellular",
     productDescription:
       "Upgrade your technology experience with the advanced features.",
     ram: "32GB",
     storage: "250GB",
     display: "11.5",
+    category: "laptop rental",
+    slug: "/laptop",
   },
 ];
 
-async function Dell_E5440({ params }: PageProps) {
+async function ProductPage({ params }: PageProps) {
   return (
     <>
       <Banner title="DELL ES5440 LATITUDE" text="" />
@@ -144,7 +152,7 @@ async function Dell_E5440({ params }: PageProps) {
             </div>
           </div>
           <Button
-            className="bg-primary-red text-white px-10 hover:bg-red-500"
+            className="bg-primary-red text-white hover:bg-red-500"
             asChild
           >
             <Link href={"/form"}>Request Quote</Link>
@@ -157,15 +165,16 @@ async function Dell_E5440({ params }: PageProps) {
         <h3 className="text-[40px] font-bold text-center font-Barlow mt-10 mb-5">
           Related Products
         </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 px-8">
+
+        <CardsSlider>
           {ProductCardItems.map((product, index) => (
             <ProductCard key={index} productCardItem={product} />
           ))}
-        </div>
+        </CardsSlider>
       </section>
       <Faqs faqItems={FaqItemsData} />
     </>
   );
 }
 
-export default Dell_E5440;
+export default ProductPage;
