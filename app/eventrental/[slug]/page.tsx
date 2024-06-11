@@ -35,57 +35,19 @@ const ProductCardItems: ProductCardItemsProps[] = [
     ram: "16GB",
     storage: "512GB",
     display: "10.5",
-    slug: "/laptop",
-  },
-  {
-    image: "/screen.png",
-    productTitle: "iPad Wifi 10.5 Cellular",
-    productDescription:
-      "Upgrade your technology experience with the advanced features.",
-    ram: "32GB",
-    storage: "250GB",
-    display: "11.5",
-    slug: "/laptop",
-  },
-  {
-    image: "/iphone.png",
-    productTitle: "iPhone 14",
-    productDescription:
-      "Upgrade your technology experience with the advanced features.",
-    ram: "32GB",
-    storage: "250GB",
-    display: "7.5",
-    slug: "/laptop",
-  },
-  {
-    image: "/printer.png",
-    productTitle: "iPad Wifi 10.5 Cellular",
-    productDescription:
-      "Upgrade your technology experience with the advanced features.",
-    ram: "32GB",
-    storage: "250GB",
-    display: "11.5",
-    slug: "/laptop",
+    category: "tablet rental",
+    slug: "/tablet/ipad-pro-1",
   },
   {
     image: "/ipad.png",
     productTitle: "iPad Wifi 10.5 Cellular",
     productDescription:
       "Upgrade your technology experience with the advanced features.",
-    ram: "16GB",
-    storage: "512GB",
-    display: "10.5",
-    slug: "/laptop",
-  },
-  {
-    image: "/screen.png",
-    productTitle: "iPad Wifi 10.5 Cellular",
-    productDescription:
-      "Upgrade your technology experience with the advanced features.",
     ram: "32GB",
     storage: "250GB",
     display: "11.5",
-    slug: "/laptop",
+    category: "tablet rental",
+    slug: "/tablet/ipad-pro-2",
   },
   {
     image: "/iphone.png",
@@ -95,17 +57,19 @@ const ProductCardItems: ProductCardItemsProps[] = [
     ram: "32GB",
     storage: "250GB",
     display: "7.5",
-    slug: "/laptop",
+    category: "mobile rental",
+    slug: "/mobile/iphone14",
   },
   {
-    image: "/printer.png",
+    image: "/laptop.png",
     productTitle: "iPad Wifi 10.5 Cellular",
     productDescription:
       "Upgrade your technology experience with the advanced features.",
     ram: "32GB",
     storage: "250GB",
     display: "11.5",
-    slug: "/laptop",
+    category: "laptop rental",
+    slug: "/laptop/dell-e14213",
   },
 ];
 
@@ -117,7 +81,7 @@ const Page = async ({ params }: PageProps) => {
     title: data.CtaTitle,
     text: data.CtaDescription,
     buttonText: "Get a Quote",
-    href: "/form",
+    href: "/get-a-quote",
     bgsrc: data.CtaImage,
   };
 

@@ -39,3 +39,11 @@ export interface EventCardProps {
   href: string;
   ctatext: string;
 }
+
+export interface EventItemTypes {
+  data: {
+    id: string;
+    slug: string;
+    NavMenuName: string;
+  }[];
+}

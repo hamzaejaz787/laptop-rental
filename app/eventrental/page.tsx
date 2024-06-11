@@ -37,7 +37,7 @@ const EventPage = async () => {
         title="IT Event Rental"
         text="Laptop Rental offers a comprehensive suite of cutting-edge IT Event Rentals tailored for events of all scales and types in Australia, New Zealand and Worldwide."
         btn="Request a Quote"
-        link="/form"
+        link="/get-a-quote"
       />
       <ImageInfo
         reverse={true}

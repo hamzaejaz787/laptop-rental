@@ -14,7 +14,7 @@ const ProductCardItems: ProductCardItemsProps[] = [
     storage: "512GB",
     display: "10.5",
     category: "tablet rental",
-    slug: "/tablet",
+    slug: "/tablet/ipad-pro-1",
   },
   {
     image: "/ipad.png",
@@ -25,7 +25,7 @@ const ProductCardItems: ProductCardItemsProps[] = [
     storage: "250GB",
     display: "11.5",
     category: "tablet rental",
-    slug: "/tablet",
+    slug: "/tablet/ipad-pro-2",
   },
   {
     image: "/iphone.png",
@@ -36,7 +36,7 @@ const ProductCardItems: ProductCardItemsProps[] = [
     storage: "250GB",
     display: "7.5",
     category: "mobile rental",
-    slug: "/mobile",
+    slug: "/mobile/iphone14",
   },
   {
     image: "/laptop.png",
@@ -47,7 +47,7 @@ const ProductCardItems: ProductCardItemsProps[] = [
     storage: "250GB",
     display: "11.5",
     category: "laptop rental",
-    slug: "/laptop",
+    slug: "/laptop/dell-e14213",
   },
 ];
 

@@ -1,13 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { MdOutlineLocationOn, MdAddShoppingCart } from "react-icons/md";
+import { MdAddShoppingCart } from "react-icons/md";
 import { Navbar } from "./navbar";
-import { Button } from "./ui/button";
 import { MobileMenu } from "./mobileMenu";
 import NavSearch from "./NavSearch";
-import { getEvents } from "@/data/loaders";
 import CtaButton from "./CtaButton";
+import { getEvents } from "@/data/loaders";
 
 async function Header() {
   const eventItems = await getEvents();
@@ -28,22 +27,16 @@ async function Header() {
           <Navbar eventItems={eventItems} />
         </div>
         <div className="flex items-center gap-2 z-50 relative">
-          {/* <Button
-            asChild
-            className="font-Poppins h-4 md:h-8 w-16 md:w-24 md:text-[14px] text-[9px] border border-none bg-primary-red"
-          >
-            <Link href={"/form"}>Get a quote</Link>
-          </Button> */}
           <CtaButton
-            href="/form"
+            href="/get-a-quote"
             text="Get a quote"
             className="hidden md:inline-flex p-4 md:p-4 text-sm"
           />
-          <Link href={"/form"}>
+          <Link href={"/get-a-quote"}>
             <MdAddShoppingCart size={20} />
           </Link>
           <NavSearch />
-          <MobileMenu />
+          <MobileMenu eventItems={eventItems} />
         </div>
       </div>
     </div>

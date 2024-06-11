@@ -13,14 +13,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-
-export interface EventItemTypes {
-  data: {
-    id: string;
-    slug: string;
-    NavMenuName: string;
-  }[];
-}
+import { EventItemTypes } from "@/lib/definitions";
 
 const components: {
   title: string;

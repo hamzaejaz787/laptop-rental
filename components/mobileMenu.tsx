@@ -1,11 +1,11 @@
 "use client";
+
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
   Sheet,
   SheetContent,
-  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -21,10 +21,19 @@ import {
 } from "@radix-ui/react-navigation-menu";
 import { navigationMenuTriggerStyle } from "./ui/navigation-menu";
 import { cn } from "@/lib/utils";
+import { FaChevronDown } from "react-icons/fa6";
+import { EventItemTypes } from "@/lib/definitions";
 
-export function MobileMenu() {
+const techRentalData: EventItemTypes = {
+  data: [
+    { id: "1", NavMenuName: "Laptop Rental", slug: "/laptop" },
+    { id: "2", NavMenuName: "Tablet Rental", slug: "/tablet" },
+    { id: "3", NavMenuName: "Mobile Rental", slug: "/mobile" },
+  ],
+};
+
+export function MobileMenu({ eventItems }: { eventItems: EventItemTypes }) {
   const [open, setOpen] = useState(false);
-
   const handleClose = () => setOpen(false);
 
   return (
@@ -65,90 +74,54 @@ export function MobileMenu() {
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="font-medium text-sm font-Exo pl-3 text-white focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in">
-                Event Type
+              <NavigationMenuTrigger className="flex items-center gap-4 font-medium text-sm font-Exo pl-3 text-white focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in">
+                <Link
+                  href={"/eventrental"}
+                  onClick={handleClose}
+                  className="text-white focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
+                >
+                  Event Rental
+                </Link>{" "}
+                <FaChevronDown />
               </NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid pl-5 font-medium font-Exo text-sm space-y-4 py-2">
-                  <Link
-                    href="/eventrental"
-                    className="text-white text-xs focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
-                    onClick={handleClose}
-                  >
-                    Event Rental
-                  </Link>
-                  <Link
-                    href="/singleevent"
-                    className="text-white text-xs focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
-                    onClick={handleClose}
-                  >
-                    Coporate Event
-                  </Link>
+                  {eventItems.data.map((item) => (
+                    <Link
+                      key={item.id}
+                      href={`/eventrental/${item.slug}`}
+                      className="text-white text-xs focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
+                      onClick={handleClose}
+                    >
+                      {item.NavMenuName}
+                    </Link>
+                  ))}
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="font-medium text-sm font-Exo pl-3 text-white focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in">
-                Technology Rental
+              <NavigationMenuTrigger className="flex items-center gap-4 font-medium text-sm font-Exo pl-3 text-white focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in">
+                <Link
+                  href={"/techrental"}
+                  onClick={handleClose}
+                  className="text-white focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
+                >
+                  Technology Rental
+                </Link>
+                <FaChevronDown />
               </NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid pl-5 font-medium font-Exo text-sm space-y-4 py-2">
-                  <Link
-                    href="/"
-                    className="text-white text-xs focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
-                    onClick={handleClose}
-                  >
-                    Technology Rental
-                  </Link>
-                  <Link
-                    href="/singleevent"
-                    className="text-white text-xs focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
-                    onClick={handleClose}
-                  >
-                    Laptop Rental
-                  </Link>
-                  <Link
-                    href="/singleevent"
-                    className="text-white text-xs focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
-                    onClick={handleClose}
-                  >
-                    Tablet Rental
-                  </Link>
-                  <Link
-                    href="/singleevent"
-                    className="text-white text-xs focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
-                    onClick={handleClose}
-                  >
-                    Mobile Rental
-                  </Link>
-                  <Link
-                    href="/singleevent"
-                    className="text-white text-xs focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
-                    onClick={handleClose}
-                  >
-                    AV Rental
-                  </Link>
-                  <Link
-                    href="/singleevent"
-                    className="text-white text-xs focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
-                    onClick={handleClose}
-                  >
-                    Screen Rental
-                  </Link>
-                  <Link
-                    href="/singleevent"
-                    className="text-white text-xs focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
-                    onClick={handleClose}
-                  >
-                    Event WiFi Rental
-                  </Link>
-                  <Link
-                    href="/singleevent"
-                    className="text-white text-xs focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
-                    onClick={handleClose}
-                  >
-                    Event Services
-                  </Link>
+                  {techRentalData.data.map((item) => (
+                    <Link
+                      key={item.id}
+                      href={`/techrental/${item.slug}`}
+                      className="text-white text-xs focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
+                      onClick={handleClose}
+                    >
+                      {item.NavMenuName}
+                    </Link>
+                  ))}
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>

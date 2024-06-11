@@ -19,7 +19,7 @@ const HomeSliderText = () => {
         guaranteed.{" "}
       </p>
 
-      <CtaButton href="/contactus" text="Get A Quote" />
+      <CtaButton href="/get-a-quote" text="Get A Quote" />
     </div>
   );
 };

@@ -41,7 +41,11 @@ function Footer() {
           Need any outdoor event rental services?
         </h6>
 
-        <CtaButton text="Request a quote" href="/form" className="md:mr-0" />
+        <CtaButton
+          text="Request a quote"
+          href="/get-a-quote"
+          className="md:mr-0"
+        />
       </div>
 
       <div className="bg-primary-red p-8 md:px-12">
