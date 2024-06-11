@@ -1,18 +1,22 @@
 import Image from "next/image";
 import banner_bg from "@/public/contactus_bg.png";
+import CtaButton from "@/components/CtaButton";
 const Cta = () => {
   return (
     <div
       style={{ backgroundImage: `url(${banner_bg.src})` }}
-      className="flex flex-col mt-10 md:mt-14 lg:mt-20 bg-no-repeat bg-center w-full h-96"
+      className=" bg-no-repeat bg-cover w-full min-h-96 h-full p-8 content-center"
     >
-      <div className=" w-[100%] h-full flex  justify-center gap-32 items-center">
-        <h2 className="md:text-4xl text-2xl w-[40%] text-white font-bold">
+      <div className="container h-full flex w-full justify-between gap-8 md:gap-20 items-center flex-col md:flex-row">
+        <h2 className="text-center md:text-left text-4xl md:max-w-lg text-white font-bold">
           We Offer Tech Products to Promote your event{" "}
         </h2>
-        <button className="py-2 px-4 rounded-sm bg-[#D61837] text-white">
-          Explore Products
-        </button>
+
+        <CtaButton
+          href="/techrental"
+          text="Explore Products"
+          className="py-5 md:mr-0"
+        />
       </div>
     </div>
   );

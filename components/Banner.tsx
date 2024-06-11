@@ -22,7 +22,7 @@ export interface BannerProps {
 
 const Banner = ({ btn, title, text, link, image }: BannerProps) => {
   return (
-    <div className="relative flex justify-center items-center">
+    <section className="relative flex justify-center items-center">
       <Image
         src={image?.url || banner_bg}
         alt={image?.alternativeText || ""}
@@ -41,7 +41,7 @@ const Banner = ({ btn, title, text, link, image }: BannerProps) => {
         )}
         {btn && link && <CtaButton href={link} text={btn} />}
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -25,7 +25,7 @@ const BannerWithImageUrl = ({ btn, title, text, link, image }: BannerProps) => {
   if (image) imageurl = baseurl + image?.url;
 
   return (
-    <div className="relative flex justify-center items-center">
+    <section className="relative flex justify-center items-center">
       <Image
         src={imageurl || banner_bg}
         alt={image?.alternativeText || ""}
@@ -44,7 +44,7 @@ const BannerWithImageUrl = ({ btn, title, text, link, image }: BannerProps) => {
         )}
         {btn && link && <CtaButton href={link} text={btn} />}
       </div>
-    </div>
+    </section>
   );
 };
 

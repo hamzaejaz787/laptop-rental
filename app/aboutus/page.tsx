@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 const Aboutus = () => {
   return (
-    <div className="flex flex-col md:pb-10 npb-5">
+    <>
       <Banner
         btn="Contact us"
         link="/contactus"
@@ -22,19 +22,21 @@ const Aboutus = () => {
         text="Laptop Rental is a global leader in providing cutting-edge event technology services, addressing the persistent challenges businesses face in organising successful events."
       />
       <Video />
-      <div>
-        <div className="md:font-[800] font-bold font-Barlow md:text-[34px] text-[14px] text-center md:pt-16 pt-5 md:pb-5">
+
+      <section className="container p-8">
+        <h2 className="md:font-[800] font-bold font-Barlow md:text-[34px] text-[14px] text-center">
           Our Event Services
-          <div>
-            <Hp_icons />
-          </div>
-        </div>
-      </div>
+        </h2>
+
+        <Hp_icons />
+      </section>
+
       <Cta />
+
       <AboutCards />
-      {/* <ReviewCarousel /> */}
-      <AboutForm />
-    </div>
+
+      {/* <AboutForm /> */}
+    </>
   );
 };
 

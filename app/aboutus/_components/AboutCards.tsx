@@ -5,10 +5,7 @@ import visionIcon from "@/public/vision.png";
 
 const AboutCards = () => {
   return (
-    <div
-      className="flex flex-col mt-10 md:flex-row md:-mt-16 lg:flex-row lg:-mt-24 w-[80%] mb-20 m-auto rounded-md "
-      //   style={{ marginTop: "-100px" }}
-    >
+    <div className="container p-8 flex flex-col gap-8 md:gap-0 mt-0 md:flex-row md:-mt-16 lg:flex-row lg:-mt-24 mx-auto rounded-md ">
       <AboutCard
         icon={historyIcon}
         title="Company History"
