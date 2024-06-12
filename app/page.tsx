@@ -74,11 +74,11 @@ export default function Home() {
         <HomeSliderText />
       </HomepageSlider>
 
-      <section className="container space-y-4 py-8 text-center">
-        <h2 className="text-4xl max-w-3xl mx-auto text-center font-Barlow font-bold">
+      <section className="container space-y-4 p-8 text-center">
+        <h2 className="text-3xl lg:text-4xl max-w-3xl mx-auto text-center font-Barlow font-bold">
           Tech Your Event Up! Laptops, iPads, & More - Australia & NZ-Wide{" "}
         </h2>
-        <p className="text-gray-500 text-center max-w-2xl mx-auto">
+        <p className="text-gray-500 text-center max-w-2xl mx-auto text-sm xl:text-base">
           Powering successful conferences, exhibitions, festivals & more with
           Business Laptop Rental - from the Melbourne Open to your next
           masterpiece.{" "}
@@ -97,10 +97,10 @@ export default function Home() {
 
       <section className="container p-8 flex gap-8 lg:gap-20 items-center flex-col lg:flex-row md:overflow-x-hidden">
         <div className="space-y-4">
-          <h2 className="text-4xl font-Barlow font-bold text-center lg:text-left">
+          <h2 className="text-3xl lg:text-4xl font-Barlow font-bold text-center lg:text-left">
             Enhance Your Events With Our Rental Solutions
           </h2>
-          <p className="text-gray-500 text-center lg:text-left">
+          <p className="text-gray-500 text-center lg:text-left text-sm lg:text-base">
             Laptop Rental in Australia is your trusted partner for successful
             business and corporate events. Our rental services cater to a
             diverse range of occasions, including Trade Shows, Training

@@ -1,7 +1,7 @@
 import React from "react";
 
 export interface PageProps {
-  params: { slug: string };
+  params: { slug: string; id: string };
 }
 
 export interface BannerImageProps {

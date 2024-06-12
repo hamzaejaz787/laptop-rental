@@ -2,6 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { MdAdsClick } from "react-icons/md";
+import Image from "next/image";
 
 const eventsData = [
   {
@@ -39,31 +40,37 @@ const eventsData = [
 function EventDateCards() {
   return (
     <section className="container space-y-4 p-8 text-center">
-      <h2 className="text-4xl max-w-3xl mx-auto text-center font-Barlow font-bold">
+      <h2 className="text-3xl lg:text-4xl max-w-3xl mx-auto text-center font-Barlow font-bold">
         G&apos;day Event Organisers and Audiences Down Under{" "}
       </h2>
-      <p className="text-gray-500 text-center max-w-3xl mx-auto">
+      <p className="text-gray-500 text-center max-w-3xl mx-auto text-sm lg:text-base">
         Effortless check-in & registration, seamless event Wi-Fi, cutting-edge
         event apps, worldwide fulfillment, and dedicated customer support – we
         help Australian events with unparalleled services for organizers and
         attendees alike.{" "}
       </p>
 
-      <div className="flex items-center gap-8 justify-center h-full flex-col lg:flex-row">
+      <div className="flex items-center gap-8 justify-center h-full w-full flex-col md:flex-row">
         {eventsData.map((item, index) => (
           <div
             key={index}
-            className={`relative rounded-full overflow-hidden bg-cover w-full ${
+            className={`relative rounded-full overflow-hidden w-full ${
               index === 2
-                ? "lg:h-[500px]"
+                ? "md:h-[550px] 2xl:h-[650px]"
                 : index === 1 || index === 3
-                ? "lg:h-[400px]"
-                : "lg:h-[250px]"
-            } hover:h-[500px] transition-all duration-300 ease-in group`}
-            style={{ backgroundImage: `url(${item.image})` }}
+                ? "md:h-[450px] 2xl:h-[550px]"
+                : "md:h-[350px] 2xl:h-[400px]"
+            } max-h-[175px] md:max-h-full md:hover:h-[550px] 2xl:hover:h-[650px] transition-all ease-in duration-300`}
           >
-            <div className="relative z-20 h-full w-full text-center bg-black/50 p-4 flex flex-col justify-center items-center gap-1 md:gap-4">
-              <h6 className="text-xl uppercase font-semibold text-wrap whitespace-pre-wrap text-white">
+            <Image
+              src={item.image}
+              alt=""
+              width={250}
+              height={650}
+              className="w-full h-full object-cover"
+            />
+            <div className="bg-black/50 p-2 w-full h-full absolute top-0 left-0 group flex flex-col justify-center items-center text-center gap-4">
+              <h6 className="text-xl xl:text-2xl uppercase font-semibold text-wrap whitespace-pre-wrap text-white">
                 {item.title}
               </h6>
 

@@ -12,6 +12,7 @@ import { IoHardwareChipOutline } from "react-icons/io5";
 import { PiHardDrives } from "react-icons/pi";
 import { MdOutlineScreenshot } from "react-icons/md";
 import CtaButton from "./CtaButton";
+import AddToCardButton from "./AddToCardButton";
 
 export interface ProductCardItemsProps {
   image: string;
@@ -75,8 +76,9 @@ const ProductCard = ({
         <CtaButton
           href={`/techrental${slug}`}
           text="Learn More"
-          className="w-full"
+          className="w-full rounded-r-none"
         />
+        <AddToCardButton />
       </CardFooter>
     </Card>
   );

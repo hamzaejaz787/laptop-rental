@@ -15,7 +15,7 @@ const ImageInfo = ({
   if (image) imageurl = baseurl + image?.url;
   return (
     <div
-      className={`container py-8 px-4 md:p-8 gap-4 flex justify-between items-center flex-col-reverse  ${
+      className={`container p-8 gap-4 flex justify-between items-center flex-col-reverse ${
         reverse ? "lg:flex-row-reverse" : "lg:flex-row"
       }`}
     >
@@ -26,11 +26,11 @@ const ImageInfo = ({
         height={image?.height || 650}
         className=""
       />
-      <div className="xl:max-w-2xl">
-        <h3 className="font-sans mb-2 font-bold text-3xl text-center lg:text-left">
+      <div className="xl:max-w-2xl space-y-3">
+        <h2 className="font-sans font-bold text-3xl lg:text-4xl text-center lg:text-left">
           {title}
-        </h3>
-        <p className="font-sans text-sm md:pb-5 text-center lg:text-left">
+        </h2>
+        <p className="font-sans text-sm xl:text-base text-center lg:text-left">
           {text}
         </p>
         {items &&

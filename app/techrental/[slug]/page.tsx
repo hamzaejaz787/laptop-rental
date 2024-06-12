@@ -3,10 +3,10 @@ import { Metadata } from "next";
 import ImageInfo from "@/components/ImageInfo";
 import { ImPageBreak } from "react-icons/im";
 import { FaWater } from "react-icons/fa";
-import ServicesTimeline from "@/components/ServicesTimeline";
 import SidebarWithTab from "../_components/SidebarWithTab";
 import BannerWithImageUrl from "@/components/DynamicBanner";
 import TabCards from "../_components/TabCards";
+import CTA from "@/components/CTA";
 
 export const metadata: Metadata = {
   title: "Event Technology Rental Excellence",
@@ -42,7 +42,14 @@ function TechRental() {
         <TabCards />
       </div>
 
-      <ServicesTimeline />
+      <CTA
+        ctaItems={{
+          title: "Dell Laptop Rental For Events",
+          text: "Request a Free Quote & Consultation Today for Successful Gatherings",
+          href: "/get-a-quote",
+          buttonText: "Request a Quote",
+        }}
+      />
 
       <ImageInfo
         title="IT Rental for Events"

@@ -20,7 +20,7 @@ const techlogos = [apple, dragon, hp, dell, lenovo, samsung, apple, samsung];
 export function TechCarousel() {
   return (
     <div className="container p-8 text-center space-y-6">
-      <h4 className="font-bold text-4xl sm:text-5xl">Browse By Brands</h4>
+      <h4 className="font-bold text-3xl xl:text-4xl">Browse By Brands</h4>
       <Carousel
         plugins={[Autoplay({ delay: 2000 })]}
         opts={{

@@ -71,10 +71,10 @@ const Eventslist = () => {
   ];
   return (
     <div className="p-8 space-y-3 container">
-      <h2 className="text-3xl font-bold text-center">
+      <h2 className="font-sans font-bold text-3xl lg:text-4xl max-w-3xl mx-auto text-center">
         Laptop Rental: Transforming Events with Innovative IT Solutions
       </h2>
-      <p className="text-sm text-center">
+      <p className="text-sm xl:text-base max-w-4xl mx-auto text-center">
         We take pride in transforming events through our innovative IT
         solutions. Our commitment goes beyond merely providing technology; we
         aim to revolutionise how events unfold.
@@ -84,8 +84,6 @@ const Eventslist = () => {
           <EventCard key={index} data={event} />
         ))}
       </CardsSlider>
-      {/* <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:pt-5 lg:grid-cols-4 items-center">
-      </div> */}
     </div>
   );
 };

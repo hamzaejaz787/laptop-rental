@@ -26,11 +26,11 @@ const CardsSlider: React.FC<CardsSliderProps> = ({ children }) => {
           delay: 5000,
         }),
       ]}
-      className="w-full px-8"
+      className="w-full md:px-8"
     >
       <CarouselContent className="p-1">
         {React.Children.map(children, (child) => (
-          <CarouselItem className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
+          <CarouselItem className="sm:basis-1/2 md:basis-1/3 xl:basis-1/4">
             {child}
           </CarouselItem>
         ))}

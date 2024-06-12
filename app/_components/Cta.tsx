@@ -4,7 +4,7 @@ import CtaButton from "@/components/CtaButton";
 
 function Cta() {
   return (
-    <div className="relative min-h-[550px] h-full content-center">
+    <section className="relative min-h-[550px] h-full content-center">
       <Image src="/frame_239.png" alt="" fill className="object-cover" />
 
       <div className="container relative z-20 flex flex-col lg:flex-row p-8 items-center justify-between gap-8 h-full">
@@ -13,7 +13,7 @@ function Cta() {
             Event Rentals <br className="hidden md:inline" />
             <span className="md:text-6xl">Product Services</span>
           </h2>
-          <p className="text-white text-center md:text-left md:max-w-lg">
+          <p className="text-white text-center md:text-left md:max-w-lg text-sm lg:text-base">
             Enhance your events with premium rental products. Elevate
             experiences effortlessly. Reach out to us for seamless excellence.
             Contact us now!{" "}
@@ -26,17 +26,15 @@ function Cta() {
           />
         </div>
 
-        <div className="">
-          <Image
-            src={"/cta-gif.gif"}
-            alt=""
-            unoptimized
-            width={500}
-            height={300}
-          />
-        </div>
+        <Image
+          src={"/cta-gif.gif"}
+          alt=""
+          unoptimized
+          width={500}
+          height={300}
+        />
       </div>
-    </div>
+    </section>
   );
 }
 

@@ -18,6 +18,13 @@ const config = {
       },
     },
     extend: {
+      screens: {
+        sm: "640px",
+        md: "800px",
+        lg: "1080px",
+        xl: "1280px",
+        "2xl": "1536px",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
