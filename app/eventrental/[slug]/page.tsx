@@ -9,12 +9,17 @@ import CTA from "@/components/CTA";
 import Eventslist from "../_components/eventslist";
 import CardsSlider from "@/components/CardsSlider";
 import BannerWithImageUrl from "@/components/DynamicBanner";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const slug = params.slug;
   const data = await getEventBySlug(slug);
+
+  if (data.error?.status === 404) {
+    notFound();
+  }
 
   return {
     title: data.MetaTitle,
@@ -92,7 +97,7 @@ const Page = async ({ params }: PageProps) => {
         text={data.IntroText}
         image={data.IntroBanner}
       />
-      {data.TextImage.map(
+      {data?.TextImage?.map(
         (
           item: {
             HeroTitle: string;

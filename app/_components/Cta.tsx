@@ -5,7 +5,7 @@ import CtaButton from "@/components/CtaButton";
 function Cta() {
   return (
     <section className="relative min-h-[550px] h-full content-center">
-      <Image src="/frame_239.png" alt="" fill className="object-cover" />
+      <Image src="/home-cta-bg.png" alt="" fill className="object-cover" />
 
       <div className="container relative z-20 flex flex-col lg:flex-row p-8 items-center justify-between gap-8 h-full">
         <div className="space-y-4 text-center md:text-left">
