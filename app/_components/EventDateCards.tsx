@@ -41,7 +41,7 @@ function EventDateCards() {
   return (
     <section className="container space-y-4 p-8 text-center">
       <h2 className="text-3xl lg:text-4xl max-w-3xl mx-auto text-center font-Barlow font-bold">
-        G&apos;day Event Organisers and Audiences Down Under{" "}
+        Hello to Event Organisers and Attendees in Australia
       </h2>
       <p className="text-gray-500 text-center max-w-3xl mx-auto text-sm lg:text-base">
         Effortless check-in & registration, seamless event Wi-Fi, cutting-edge
@@ -74,16 +74,16 @@ function EventDateCards() {
                 {item.title}
               </h6>
 
-              <strong
+              {/* <strong
                 className={`text-white text-3xl text-wrap whitespace-pre-wrap ${
                   index === 2 ? "opacity-100" : "lg:opacity-0"
                 } group-hover:opacity-100 transition-all duration-300 ease-in`}
               >
                 {item.eventdate}
-              </strong>
+              </strong> */}
 
               <Link
-                href={item.href}
+                href={"/eventrental"}
                 className={`cursor-pointer text-white self-center ${
                   index === 2 ? "opacity-100" : "lg:opacity-0"
                 } group-hover:opacity-100 transition-all duration-300 ease-in hover:text-primary-red focus-within:text-primary-red`}

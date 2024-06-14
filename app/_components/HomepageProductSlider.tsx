@@ -11,12 +11,18 @@ import Image from "next/image";
 import Link from "next/link";
 
 const images = [
-  "/ipad.png",
-  "/iphone.png",
-  "/laptop.png",
-  "/printer.png",
-  "/screen.png",
-  "/avrental.png",
+  {
+    imageurl: "/ipad.png",
+    href: "/ipadrental",
+  },
+  {
+    imageurl: "/iphone.png",
+    href: "/iphonerental",
+  },
+  { imageurl: "/laptop.png", href: "/laptoprental" },
+  { imageurl: "/printer.png", href: "/printerrental" },
+  { imageurl: "/screen.png", href: "/screenrental" },
+  { imageurl: "/avrental.png", href: "/avrental" },
 ];
 
 const HomepageProductSlider = () => {
@@ -34,9 +40,9 @@ const HomepageProductSlider = () => {
               key={index}
               className="sm:basis-1/2 lg:basis-1/6 pl-0 md:pl-4 flex flex-col items-center justify-center"
             >
-              <Image src={image} alt="" width={200} height={200} />
+              <Image src={image.imageurl} alt="" width={200} height={200} />
               <Link
-                href={"/techrental"}
+                href={`/techrental${image.href}`}
                 className="hover:text-white text-primary-red text-2xl transition-all"
               >
                 <MdAdsClick />

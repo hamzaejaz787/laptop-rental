@@ -31,11 +31,11 @@ const Banner = ({ btn, title, text, link, image }: BannerProps) => {
         className="w-full h-screen md:max-h-[550px] relative object-cover"
       />
       <div className="p-8 absolute left-0 w-full h-full flex flex-col justify-center items-center gap-4">
-        <h1 className="text-4xl lg:text-5xl text-center text-bold text-white font-bold uppercase">
+        <h1 className="text-4xl lg:text-5xl text-center text-bold text-white font-bold uppercase max-w-5xl mx-auto">
           {title}
         </h1>
         {text !== "" && (
-          <p className="md:text-base text-white/85 font-sans text-center md:max-w-xl md:mx-auto">
+          <p className="text-gray-200 font-sans text-center md:max-w-xl md:mx-auto">
             {text}
           </p>
         )}

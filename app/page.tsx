@@ -2,16 +2,17 @@ import React from "react";
 
 import EventDateCards from "./_components/EventDateCards";
 import HomepageSlider from "./_components/HomepageSlider";
-import HomeSliderText from "./_components/HomeSliderText";
 import CtaButton from "@/components/CtaButton";
 import CurvedLayoutImages from "./_components/CurvedLayoutImages";
 import Cta from "./_components/Cta";
 import { EventCardProps } from "@/lib/definitions";
 import ServicesTimeline from "@/components/ServicesTimeline";
-import ServicesIcons from "@/components/ServicesIcons";
 import EventCardsCarousel from "./_components/EventCardsCarousel";
+import QuoteForm from "@/components/QuoteForm";
+import Image from "next/image";
+import { IoStarSharp } from "react-icons/io5";
 
-export default function Home() {
+export default async function LaptopRental() {
   const eventCardsData: EventCardProps[] = [
     {
       imagesrc: "/hp_img.png",
@@ -68,11 +69,34 @@ export default function Home() {
       ctatext: "Explore Event",
     },
   ];
+
+  const homepagetext = [
+    {
+      title: "Event Rentals",
+      description:
+        "Worldwide, rent top-notch laptops and technology. Laptop Rental, your tech excellence partner, delivers tailored solutions, guaranteed.",
+    },
+    {
+      title: "Laptop Rentals",
+      description:
+        "Unmatched selection, unbeatable service. Get the best devices for your events anytime, anywhere!",
+    },
+    {
+      title: "Event Solutions",
+      description:
+        "Experience seamless, cutting-edge technology for unforgettable events every time!",
+    },
+  ];
+
+  const carouselData = [
+    { image: "/homepage-slider-1.png", text: homepagetext[0] },
+    { image: "/homepage-slider-2.png", text: homepagetext[1] },
+    { image: "/homepage-slider-3.png", text: homepagetext[2] },
+  ];
+
   return (
     <>
-      <HomepageSlider>
-        <HomeSliderText />
-      </HomepageSlider>
+      <HomepageSlider carouselData={carouselData} />
 
       <section className="container space-y-4 p-8 text-center">
         <h2 className="text-3xl lg:text-4xl max-w-3xl mx-auto text-center font-Barlow font-bold">
@@ -80,19 +104,12 @@ export default function Home() {
         </h2>
         <p className="text-gray-500 text-center max-w-2xl mx-auto text-sm xl:text-base">
           Powering successful conferences, exhibitions, festivals & more with
-          Business Laptop Rental - from the Melbourne Open to your next
-          masterpiece.{" "}
+          Business Laptop Rental - from the Melbourne Open to your next big
+          event.
         </p>
 
         <CtaButton href="/contactus" text="Contact us" />
         <CurvedLayoutImages />
-      </section>
-      <section className="container space-y-8 p-8 text-center">
-        <h2 className="text-4xl max-w-3xl mx-auto text-center font-Barlow font-bold">
-          Our Event Services
-        </h2>
-
-        <ServicesIcons />
       </section>
 
       <section className="container p-8 flex gap-8 lg:gap-20 items-center flex-col lg:flex-row md:overflow-x-hidden">
@@ -117,8 +134,57 @@ export default function Home() {
       </section>
 
       <EventDateCards />
-      <Cta />
+
       <ServicesTimeline />
+      <div className="container flex items-center flex-col lg:flex-row gap-8 justify-between p-8">
+        <div className="space-y-4 flex-1 min-w-min">
+          <strong className="bg-primary-red text-white text-base font-semibold uppercase rounded-sm px-2 py-1">
+            Rent Event
+          </strong>
+
+          <div className="flex items-center gap-3">
+            <IoStarSharp className="text-yellow-500 size-8" />
+            <IoStarSharp className="text-yellow-500 size-8" />
+            <IoStarSharp className="text-yellow-500 size-8" />
+            <IoStarSharp className="text-yellow-500 size-8" />
+            <IoStarSharp className="text-yellow-500 size-8" />
+          </div>
+
+          <h2 className="font-bold text-4xl capitalize">
+            Book Our Rental Services For Your Events
+          </h2>
+          <p className="text-gray-700 ">
+            Host an unforgettable event by choosing our top-notch technology
+            rental services. From cutting-edge IT equipment to seamless event
+            management tools and services, we&apos;ve got your tech needs
+            covered. Book your event with us and experience the seamless
+            integration of advanced technology to elevate your gatherings.{" "}
+            <br />
+            <br />
+            Our commitment is to provide the best in tech, ensuring your event
+            is a resounding success. Explore our offerings, including short-term
+            laptop rental for events or long-term, ensuring seamless tech
+            solutions tailored to your needs. Let&apos;s make your event a
+            tech-savvy triumph!
+          </p>
+        </div>
+        <div className="w-full max-w-xl h-full shadow-md p-5 bg-primary-red text-white text-center space-y-4">
+          <Image
+            src="/logo_red.png"
+            alt=""
+            width={150}
+            height={75}
+            className="mx-auto"
+          />
+
+          <h2 className="font-bold text-3xl capitalize relative after:content-[''] after:block after:w-1/2 after:border-2 after:my-4 after:border-white after:border-dashed after:mx-auto">
+            Rent your event
+          </h2>
+          <QuoteForm />
+        </div>
+      </div>
+
+      <Cta />
     </>
   );
 }

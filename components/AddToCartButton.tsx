@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { MdAdd } from "react-icons/md";
 
-const AddToCardButton = () => {
+const AddToCartButton = () => {
   return (
     <Button
       size="icon"
@@ -13,4 +13,4 @@ const AddToCardButton = () => {
   );
 };
 
-export default AddToCardButton;
+export default AddToCartButton;

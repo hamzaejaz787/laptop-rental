@@ -24,11 +24,14 @@ const EventCardsCarousel = ({ data }: { data: EventCardProps[] }) => {
           delay: 5000,
         }),
       ]}
-      className="w-full max-w-3xl h-full"
+      className="w-full max-w-3xl 2xl:max-w-5xl h-full"
     >
       <CarouselContent className="m-4">
         {data.map((data, index) => (
-          <CarouselItem key={index} className="sm:basis-1/2 xl:basis-1/3">
+          <CarouselItem
+            key={index}
+            className="sm:basis-1/2 xl:basis-1/3 2xl:basis-1/4"
+          >
             <EventCard data={data} />
           </CarouselItem>
         ))}

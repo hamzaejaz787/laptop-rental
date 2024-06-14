@@ -7,6 +7,7 @@ import ServicesTimeline from "@/components/ServicesTimeline";
 import SidebarWithTab from "./_components/SidebarWithTab";
 import TabCards from "./_components/TabCards";
 import { Metadata } from "next";
+import { getProduct } from "@/data/loaders";
 
 export const metadata: Metadata = {
   title: "Event Technology Rental Excellence",
@@ -22,7 +23,9 @@ export const metadata: Metadata = {
   ],
 };
 
-function TechRental() {
+async function TechRental() {
+  const product = await getProduct();
+
   return (
     <>
       <Banner
@@ -38,8 +41,8 @@ function TechRental() {
       />
 
       <div className="flex flex-col md:flex-row gap-8 justify-between container p-8">
-        <SidebarWithTab />
-        <TabCards />
+        <SidebarWithTab tabItems={product.data} />
+        <TabCards tabCardsItems={product.data} />
       </div>
 
       <ServicesTimeline />

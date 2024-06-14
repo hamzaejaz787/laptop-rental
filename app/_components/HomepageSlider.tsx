@@ -9,16 +9,21 @@ import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import React from "react";
 import HomepageProductSlider from "./HomepageProductSlider";
+import HomeSliderText from "./HomeSliderText";
 
-const HomepageSlider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
-  const carouselImage = [
-    { imagesrc: "/homepage-slider-1.png" },
-    { imagesrc: "/homepage-slider-2.png" },
-    { imagesrc: "/homepage-slider-3.png" },
-  ];
+interface CarouselData {
+  image: string;
+  text: {
+    title: string;
+    description: string;
+  };
+}
 
+interface HomepageSliderProps {
+  carouselData: CarouselData[];
+}
+
+const HomepageSlider: React.FC<HomepageSliderProps> = ({ carouselData }) => {
   return (
     <section>
       <Carousel
@@ -27,23 +32,26 @@ const HomepageSlider: React.FC<{ children: React.ReactNode }> = ({
         }}
         plugins={[
           Autoplay({
-            delay: 5000,
+            delay: 3000,
           }),
         ]}
       >
         <CarouselContent className="ml-0 min-h-dvh">
-          {carouselImage.map((image, index) => (
+          {carouselData.map((data, index) => (
             <CarouselItem
               key={index}
               className="min-h-dvh relative pl-0 h-auto"
             >
               <Image
-                src={image.imagesrc}
+                src={data.image}
                 alt=""
                 fill={true}
                 className="object-cover"
               />
-              {children}
+              <HomeSliderText
+                title={data.text.title}
+                description={data.text.description}
+              />
             </CarouselItem>
           ))}
         </CarouselContent>

@@ -6,62 +6,79 @@ import { FaWater } from "react-icons/fa";
 import SidebarWithTab from "../_components/SidebarWithTab";
 import BannerWithImageUrl from "@/components/DynamicBanner";
 import TabCards from "../_components/TabCards";
-import CTA from "@/components/CTA";
+import CTA, { CtaProps } from "@/components/CTA";
+import { getProduct, getProductCategoryBySlug } from "@/data/loaders";
+import { PageProps } from "@/lib/definitions";
+import { notFound } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Event Technology Rental Excellence",
-  description:
-    "Boost your events with our event technology rental in Australia. Smooth solutions for events like conferences, festivals, and more. Contact us",
-  keywords: [
-    "Technology rental (event technology rental)",
-    "tech rental for events",
-    "technology rental company",
-    "technology rental service",
-    "IT rental (IT rental for events)",
-    "Hire IT equipment (Hire IT equipment for events)",
-  ],
-};
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const slug = params.slug;
+  const data = await getProductCategoryBySlug(slug);
+  return {
+    title: data.MetaTitle,
+    description: data.MetaDescription,
+    keywords: data.MetaKeywords,
+  };
+}
 
-function TechRental() {
+async function TechRental({ params }: PageProps) {
+  const slug = params.slug;
+  const [product, productCategory] = await Promise.all([
+    getProduct(),
+    getProductCategoryBySlug(slug),
+  ]);
+
+  if (productCategory.error?.status === 404) {
+    notFound();
+  }
+
+  const ctaItems: CtaProps = {
+    title: productCategory.CtaTitle,
+    text: productCategory.CtaText,
+    href: "/get-a-quote",
+    buttonText: "Request a Quote",
+    bgsrc: productCategory.CtaImage,
+  };
+
   return (
     <>
       <BannerWithImageUrl
-        title="Dell Laptop Rental"
-        text="Upgrade your next event in Australia with premium Dell laptop rental services from Laptop Rental. We offer a wide range of reliable, high-performance Dell laptops to suit every event needs."
-        link="/contactus"
-        btn="Contact us"
-      />
-
-      <ImageInfo
-        title="Connect to Excellence: Unlock the Future with Event Technology Rental."
-        text="Enter Laptop Rental - your premier partner for event technology rental in Australia. We specialise in providing a wide range of top-quality tech rental for events. From business conferences and seminars to festivals and product launches, we offer tailored solutions to meet diverse event needs."
+        title={productCategory.BannerTitle}
+        text={productCategory.BannerText}
+        link={
+          productCategory.BannerCtaLink !== null &&
+          productCategory.BannerCtaLink !== ""
+            ? productCategory.BannerCtaLink
+            : "/contactus"
+        }
+        btn={
+          productCategory.BannerCta !== null && productCategory.BannerCta !== ""
+            ? productCategory.BannerCta
+            : "Contact us"
+        }
+        image={productCategory.BannerImage}
       />
 
       <div className="flex flex-col md:flex-row gap-8 justify-between container p-8">
-        <SidebarWithTab />
-        <TabCards />
+        <SidebarWithTab tabItems={product.data} />
+        <TabCards tabCardsItems={product.data} />
       </div>
 
-      <CTA
-        ctaItems={{
-          title: "Dell Laptop Rental For Events",
-          text: "Request a Free Quote & Consultation Today for Successful Gatherings",
-          href: "/get-a-quote",
-          buttonText: "Request a Quote",
-        }}
-      />
-
       <ImageInfo
-        title="IT Rental for Events"
+        title={productCategory.IntroSectionTitle}
         reverse
-        text="As a leading technology rental company, our mission is to empower businesses and individuals by providing cutting-edge and reliable technology solutions for their short-term and long-term events needs. Our comprehensive IT rental for events caters to a diverse range of needs, providing top-notch laptops, iPads, and other essential technology. With a focus on reliability and flexibility, our offerings ensure that your event runs smoothly, from hassle-free check-ins to flawless presentations. Our dedicated team is committed to providing 24/7 assistance, both on-site and remotely, ensuring that technical support is readily available whenever you need it. Hire IT equipment for events, and let us contribute to the success of your gatherings with cutting-edge technology and professional support.
-        Your Event, Our Technology Rental Company: Reasons We Stand Out"
+        text={productCategory.IntroSectionDescription}
         items={[
           { icon: ImPageBreak, desc: "Accidental Breakage" },
           { icon: FaWater, desc: "Water Damage" },
           { icon: ImPageBreak, desc: "Extended Warranty" },
         ]}
+        image={productCategory.IntroImage}
       />
+
+      <CTA ctaItems={ctaItems} />
     </>
   );
 }

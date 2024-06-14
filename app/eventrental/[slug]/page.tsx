@@ -1,13 +1,12 @@
 import ImageInfo from "@/components/ImageInfo";
 import MasonryGrid from "@/components/masonry";
-import { getEventBySlug } from "@/data/loaders";
+import { getEventBySlug, getProduct } from "@/data/loaders";
 import { BannerImageProps, PageProps } from "@/lib/definitions";
 import { Metadata } from "next";
 import Faqs from "@/components/Faqs";
-import ProductCard, { ProductCardItemsProps } from "@/components/ProductCard";
+import ProductCard from "@/components/ProductCard";
 import CTA from "@/components/CTA";
 import Eventslist from "../_components/eventslist";
-import CardsSlider from "@/components/CardsSlider";
 import BannerWithImageUrl from "@/components/DynamicBanner";
 import { notFound } from "next/navigation";
 
@@ -31,56 +30,13 @@ export async function generateMetadata({
   };
 }
 
-const ProductCardItems: ProductCardItemsProps[] = [
-  {
-    image: "/ipad.png",
-    productTitle: "iPad Wifi 10.5 Cellular",
-    productDescription:
-      "Upgrade your technology experience with the advanced features.",
-    ram: "16GB",
-    storage: "512GB",
-    display: "10.5",
-    category: "tablet rental",
-    slug: "/tablet/ipad-pro-1",
-  },
-  {
-    image: "/ipad.png",
-    productTitle: "iPad Wifi 10.5 Cellular",
-    productDescription:
-      "Upgrade your technology experience with the advanced features.",
-    ram: "32GB",
-    storage: "250GB",
-    display: "11.5",
-    category: "tablet rental",
-    slug: "/tablet/ipad-pro-2",
-  },
-  {
-    image: "/iphone.png",
-    productTitle: "iPhone 14",
-    productDescription:
-      "Upgrade your technology experience with the advanced features.",
-    ram: "32GB",
-    storage: "250GB",
-    display: "7.5",
-    category: "mobile rental",
-    slug: "/mobile/iphone14",
-  },
-  {
-    image: "/laptop.png",
-    productTitle: "iPad Wifi 10.5 Cellular",
-    productDescription:
-      "Upgrade your technology experience with the advanced features.",
-    ram: "32GB",
-    storage: "250GB",
-    display: "11.5",
-    category: "laptop rental",
-    slug: "/laptop/dell-e14213",
-  },
-];
-
 const Page = async ({ params }: PageProps) => {
   const slug = params.slug;
-  const data = await getEventBySlug(slug);
+
+  const [data, products] = await Promise.all([
+    getEventBySlug(slug),
+    getProduct(),
+  ]);
 
   const ctaitems = {
     title: data.CtaTitle,
@@ -118,13 +74,14 @@ const Page = async ({ params }: PageProps) => {
 
       <div className="container space-y-6 pb-8 px-4 md:px-8">
         <h3 className="font-bold text-3xl text-center font-Barlow">
-          Our Products
+          Related Products
         </h3>
-        <CardsSlider>
-          {ProductCardItems.map((product, index) => (
-            <ProductCard key={index} productCardItem={product} />
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8">
+          {products.data.slice(0, 4).map((item) => (
+            <ProductCard key={item.id} productCardItem={item} />
           ))}
-        </CardsSlider>
+        </div>
       </div>
       <CTA ctaItems={ctaitems} />
 

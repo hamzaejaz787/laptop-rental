@@ -6,10 +6,15 @@ import { Navbar } from "./navbar";
 import { MobileMenu } from "./mobileMenu";
 import NavSearch from "./NavSearch";
 import CtaButton from "./CtaButton";
-import { getEvents } from "@/data/loaders";
+import { getEvents, getProductCategory } from "@/data/loaders";
 
 async function Header() {
-  const eventItems = await getEvents();
+  const [eventItems, productCategoryItems] = await Promise.all([
+    getEvents(),
+    getProductCategory(),
+  ]);
+
+  // console.log(productCategoryItems);
 
   return (
     <div className="fixed left-0 right-0 top-0 z-50">
@@ -24,7 +29,10 @@ async function Header() {
           />
         </Link>
         <div className="hidden lg:flex md:pl-10 md:pr-10">
-          <Navbar eventItems={eventItems} />
+          <Navbar
+            eventItems={eventItems}
+            productCategoryItems={productCategoryItems}
+          />
         </div>
         <div className="flex items-center gap-2 z-50 relative">
           <CtaButton
@@ -36,7 +44,10 @@ async function Header() {
             <MdAddShoppingCart size={20} />
           </Link>
           <NavSearch />
-          <MobileMenu eventItems={eventItems} />
+          <MobileMenu
+            eventItems={eventItems}
+            productCategoryItems={productCategoryItems}
+          />
         </div>
       </div>
     </div>

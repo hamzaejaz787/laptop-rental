@@ -23,16 +23,15 @@ import { navigationMenuTriggerStyle } from "./ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import { FaChevronDown } from "react-icons/fa6";
 import { EventItemTypes } from "@/lib/definitions";
+import { ProductCategoryItemTypes } from "./navbar";
 
-const techRentalData: EventItemTypes = {
-  data: [
-    { id: "1", NavMenuName: "Laptop Rental", slug: "/laptop" },
-    { id: "2", NavMenuName: "Tablet Rental", slug: "/tablet" },
-    { id: "3", NavMenuName: "Mobile Rental", slug: "/mobile" },
-  ],
-};
-
-export function MobileMenu({ eventItems }: { eventItems: EventItemTypes }) {
+export function MobileMenu({
+  eventItems,
+  productCategoryItems,
+}: {
+  eventItems: EventItemTypes;
+  productCategoryItems: ProductCategoryItemTypes;
+}) {
   const [open, setOpen] = useState(false);
   const handleClose = () => setOpen(false);
 
@@ -112,14 +111,14 @@ export function MobileMenu({ eventItems }: { eventItems: EventItemTypes }) {
               </NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid pl-5 font-medium font-Exo text-sm space-y-4 py-2">
-                  {techRentalData.data.map((item) => (
+                  {productCategoryItems.data.map((item) => (
                     <Link
                       key={item.id}
                       href={`/techrental/${item.slug}`}
                       className="text-white text-xs focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
                       onClick={handleClose}
                     >
-                      {item.NavMenuName}
+                      {item.Title}
                     </Link>
                   ))}
                 </ul>

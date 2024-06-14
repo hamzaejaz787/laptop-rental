@@ -4,20 +4,24 @@ import React from "react";
 const ServicesTimeline = () => {
   const timelineData = [
     {
-      title: "Quality Assurance",
-      text: "Our AV equipment is maintained and regularly updated",
+      title: "24/7 Assitance",
+      text: "On-site and Remotely",
     },
     {
-      title: "Expert Support",
-      text: "Our AV equipment is maintained and regularly updated",
+      title: "Global Reach",
+      text: "Australia, New Zealand & Worldwide",
     },
     {
-      title: "Seamless Setup",
-      text: "Our AV equipment is maintained and regularly updated",
+      title: "Worldwide Delivery",
+      text: "Several Depots",
     },
     {
-      title: "Backup Systems",
-      text: "Our AV equipment is maintained and regularly updated",
+      title: "Flexible Rental Period",
+      text: "Day, Week, Month, Any Length",
+    },
+    {
+      title: "Diverse Produsts",
+      text: "A Wide Range of Options",
     },
   ];
   return (
@@ -25,20 +29,23 @@ const ServicesTimeline = () => {
       <div className="flex items-center justify-center md:justify-between gap-4 md:px-12 flex-col md:flex-row">
         <div className="space-y-2 text-center md:text-left">
           <strong className="inline-block text-primary-red border-b-2 border-dashed border-b-primary-red uppercase font-medium">
-            Services we provide
+            Your Event, Our Expertise
           </strong>
 
           <h2 className="text-3xl lg:text-4xl font-Barlow font-bold text-center md:text-left">
-            Event Services Solution
+            Reasons We Stand Out
           </h2>
         </div>
 
         <div className="md:border-l-4 border-l-primary-red h-full md:px-4 text-center md:text-left">
           <p className="max-w-xl text-xs lg:text-sm">
-            We at Laptop Rentals understand whether you&apos;re hosting a
-            conference, show, or business event, having access to reliable and
-            high-quality technology can make all the difference. We at Laptop
-            Rentals understand whether technology can make all the difference.
+            Laptop Rental Australia steps in as your trusted Dell laptop rental
+            partner. We empower your event with cutting-edge technology and
+            unparalleled service, ensuring every moment is an opportunity to
+            impress. Supported by dedicated teams, enjoy 24/7 technical and
+            customer support for seamless corporate events. Contact our experts
+            and rent Dell laptops for corporate events in Australia, New Zealand
+            and Worldwide.{" "}
           </p>
         </div>
       </div>

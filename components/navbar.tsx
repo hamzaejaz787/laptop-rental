@@ -50,7 +50,17 @@ const components: {
   },
 ];
 
-export function Navbar({ eventItems }: { eventItems: EventItemTypes }) {
+export interface ProductCategoryItemTypes {
+  data: { id: string; slug: string; Title: string }[];
+}
+
+export function Navbar({
+  eventItems,
+  productCategoryItems,
+}: {
+  eventItems: EventItemTypes;
+  productCategoryItems: ProductCategoryItemTypes;
+}) {
   return (
     <>
       <NavigationMenu>
@@ -79,22 +89,13 @@ export function Navbar({ eventItems }: { eventItems: EventItemTypes }) {
               <ListItem href="/techrental" title="Technology Rental" />
             </NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="grid w-[400px] gap-3 p-4 md:w-[200px] md:grid-cols-2 lg:w-[600px]">
-                {components.map((component) => (
-                  <React.Fragment key={component.title}>
-                    <li>
-                      <ListItem title={component.title} href={component.href} />
-                      {component.subcomponents &&
-                        component.subcomponents.map((subcomponent) => (
-                          <ListItem
-                            key={subcomponent.title}
-                            title={subcomponent.title}
-                            href={subcomponent.href}
-                            isSubcomponent
-                          />
-                        ))}
-                    </li>
-                  </React.Fragment>
+              <ul className="grid w-[400px] gap-4 p-4 md:w-[200px] md:grid-cols-2 lg:w-[500px]">
+                {productCategoryItems.data.map((item) => (
+                  <ListItem
+                    key={item.id}
+                    title={item.Title}
+                    href={`/techrental/${item.slug}`}
+                  />
                 ))}
               </ul>
             </NavigationMenuContent>

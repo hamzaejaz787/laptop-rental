@@ -27,6 +27,7 @@ const BannerWithImageUrl = ({ btn, title, text, link, image }: BannerProps) => {
   return (
     <section className="relative flex justify-center items-center">
       <Image
+        priority
         src={imageurl || banner_bg}
         alt={image?.alternativeText || ""}
         width={image?.width || 1000}

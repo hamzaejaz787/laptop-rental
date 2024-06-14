@@ -50,3 +50,59 @@ export async function getEventBySlug(slug: string) {
 
   return await fetchData(url.href);
 }
+
+export const getProduct = async () => {
+  const url = new URL("/api/products", baseURL);
+  url.search = qs.stringify({
+    populate: {
+      Specs: {
+        populate: true,
+      },
+      ProductImage: {
+        fields: ["name", "url", "alternativeText"],
+      },
+    },
+  });
+
+  return await fetchData(url.href);
+};
+
+export const getProductCategory = async () => {
+  const url = new URL("/api/product-categories", baseURL);
+
+  url.search = qs.stringify({
+    // populate: {
+    //   BannerImage: {
+    //     fields: ["name", "url", "alternativeText"],
+    //   },
+    //   CtaImage: {
+    //     fields: ["name", "url", "alternativeText"],
+    //   },
+    //   IntroImage: {
+    //     fields: ["name", "url", "alternativeText"],
+    //   },
+    // },
+  });
+
+  return await fetchData(url.href);
+};
+
+export const getProductCategoryBySlug = async (slug: string) => {
+  const url = new URL(`/api/product-categories/${slug}`, baseURL);
+
+  url.search = qs.stringify({
+    populate: {
+      BannerImage: {
+        fields: ["name", "url", "alternativeText"],
+      },
+      CtaImage: {
+        fields: ["name", "url", "alternativeText"],
+      },
+      IntroImage: {
+        fields: ["name", "url", "alternativeText"],
+      },
+    },
+  });
+
+  return await fetchData(url.href);
+};

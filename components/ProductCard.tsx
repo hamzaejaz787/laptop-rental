@@ -12,18 +12,40 @@ import { IoHardwareChipOutline } from "react-icons/io5";
 import { PiHardDrives } from "react-icons/pi";
 import { MdOutlineScreenshot } from "react-icons/md";
 import CtaButton from "./CtaButton";
-import AddToCardButton from "./AddToCardButton";
+import AddToCartButton from "./AddToCartButton";
+import { getStrapiURL } from "@/lib/utils";
+
+interface ProductCardImageProps {
+  alternativeText: string;
+  width: number;
+  height: number;
+  url: string;
+}
+
+interface ProductSpecsProps {
+  value: string;
+  id: number;
+}
 
 export interface ProductCardItemsProps {
-  image: string;
-  productTitle: string;
-  productDescription: string;
-  ram: string;
-  storage: string;
-  display: string;
-  category?: string;
-  slug: string;
+  ProductImage: ProductCardImageProps;
+  Title: string;
+  Description: string;
+  ProductCategory?: string;
+  ProductSubCategory?: string;
+  Specs: ProductSpecsProps[];
 }
+
+const getIconForSpec = (specValue: string) => {
+  if (specValue.toLowerCase().includes("ram")) {
+    return <IoHardwareChipOutline className="text-red-500 size-8" />;
+  } else if (specValue.toLowerCase().includes("storage")) {
+    return <PiHardDrives className="text-red-500 size-8" />;
+  } else if (specValue.toLowerCase().includes("display")) {
+    return <MdOutlineScreenshot className="text-red-500 size-8" />;
+  }
+  return null;
+};
 
 const ProductCard = ({
   productCardItem,
@@ -31,54 +53,48 @@ const ProductCard = ({
   productCardItem: ProductCardItemsProps;
 }) => {
   //Destructure data
-  const {
-    display,
-    image,
-    productDescription,
-    productTitle,
-    ram,
-    storage,
-    slug,
-  } = productCardItem;
+  const { ProductImage, Description, Title, Specs } = productCardItem;
+
+  const baseurl = getStrapiURL();
+  let imageurl = "";
+  if (ProductImage) imageurl = baseurl + ProductImage?.url;
+
   return (
-    <Card className="sm:max-w-xs justify-self-center border-2 border-dashed border-gray-400 rounded-none p-4 hover:border-red-500">
+    <Card className="sm:max-w-xs justify-self-center flex flex-col justify-between border-2 border-dashed border-gray-400 rounded-none p-4 hover:border-red-500">
       <CardHeader className="p-0 space-x-1">
         <Image
-          src={image}
-          alt=""
+          src={imageurl}
+          alt={ProductImage?.alternativeText || ""}
           width={200}
           height={200}
           className="self-center"
         />
-        <CardTitle>{productTitle}</CardTitle>
-        <CardDescription>{productDescription} </CardDescription>
+        <CardTitle>{Title}</CardTitle>
+        <CardDescription className="line-clamp-2">
+          {Description}
+        </CardDescription>
       </CardHeader>
 
       <CardContent className="p-0 flex gap-4 justify-between py-2">
-        <div className="border-2 p-1 rounded-sm border-gray-200 flex items-center justify-center flex-col text-center gap-1">
-          <IoHardwareChipOutline className="text-red-500 size-8" />
-          <span className="text-xs text-gray-700 text-center">Ram: {ram}</span>
-        </div>
-        <div className="border-2 p-1 rounded-sm border-gray-200 flex items-center justify-center flex-col text-center gap-1">
-          <PiHardDrives className="text-red-500 size-8" />
-          <span className="text-xs text-gray-700 text-center">
-            Storage: {storage}
-          </span>
-        </div>
-        <div className="border-2 p-1 rounded-sm border-gray-200 flex items-center justify-center flex-col text-center gap-1">
-          <MdOutlineScreenshot className="text-red-500 size-8" />
-          <span className="text-xs text-gray-700 text-center">
-            Display: {display}
-          </span>
-        </div>
+        {Specs.map((item) => (
+          <div
+            key={item.id}
+            className="border-2 p-1 rounded-sm border-gray-200 flex items-center justify-center flex-col text-center gap-1"
+          >
+            {getIconForSpec(item.value)}{" "}
+            <span className="text-xs text-gray-700 text-center">
+              {item.value}
+            </span>
+          </div>
+        ))}
       </CardContent>
       <CardFooter className="p-0 pt-2">
         <CtaButton
-          href={`/techrental${slug}`}
+          href={`/get-a-quote`}
           text="Learn More"
           className="w-full rounded-r-none"
         />
-        <AddToCardButton />
+        <AddToCartButton />
       </CardFooter>
     </Card>
   );

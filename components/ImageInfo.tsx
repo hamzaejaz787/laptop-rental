@@ -15,7 +15,7 @@ const ImageInfo = ({
   if (image) imageurl = baseurl + image?.url;
   return (
     <div
-      className={`container p-8 gap-4 flex justify-between items-center flex-col-reverse ${
+      className={`container p-8 gap-8 flex justify-between items-center flex-col-reverse ${
         reverse ? "lg:flex-row-reverse" : "lg:flex-row"
       }`}
     >
@@ -24,30 +24,33 @@ const ImageInfo = ({
         alt={image?.alternativeText || ""}
         width={image?.width || 650}
         height={image?.height || 650}
-        className=""
+        className="md:flex-1 md:min-w-min"
       />
-      <div className="xl:max-w-2xl space-y-3">
+      <div className="md:flex-1 md:min-w-min space-y-4">
         <h2 className="font-sans font-bold text-3xl lg:text-4xl text-center lg:text-left">
           {title}
         </h2>
         <p className="font-sans text-sm xl:text-base text-center lg:text-left">
           {text}
         </p>
-        {items &&
-          items.map((item: any, index: number) => (
-            <div className="flex items-center mt-2" key={index}>
-              {item.icon && (
-                <div className="md:p-2 border rounded-sm bg-[#D61837] flex items-center justify-center ">
-                  <item.icon color="white" size={20} />
-                </div>
-              )}
-              {item.desc && (
-                <p className="font-sans text-sm ml-2 text-center lg:text-left">
-                  {item.desc}
-                </p>
-              )}
-            </div>
-          ))}
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {items &&
+            items.map((item: any, index: number) => (
+              <div className="flex items-center" key={index}>
+                {item.icon && (
+                  <div className="p-2 rounded-sm bg-primary-red flex items-center justify-center ">
+                    <item.icon color="white" size={20} />
+                  </div>
+                )}
+                {item.desc && (
+                  <p className="font-sans text-sm ml-2 text-center lg:text-left">
+                    {item.desc}
+                  </p>
+                )}
+              </div>
+            ))}
+        </div>
       </div>
     </div>
   );
