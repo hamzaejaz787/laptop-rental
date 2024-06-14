@@ -15,10 +15,10 @@ export interface TabItemTypes {
   options: string[];
 }
 
-const transformProductData = (data) => {
+const transformProductData = (data: any) => {
   const categoryMap = new Map();
 
-  data.forEach((item) => {
+  data.forEach((item: any) => {
     const category = item.ProductCategory;
     const subCategory = item.ProductSubCategory;
 
@@ -30,7 +30,7 @@ const transformProductData = (data) => {
 
   return Array.from(categoryMap.entries()).map(([label, options]) => ({
     label,
-    options: Array.from(options),
+    options: Array.from(options) as string[],
   }));
 };
 
@@ -76,7 +76,7 @@ const SidebarWithTab = ({ tabItems }: { tabItems: TabItemTypes[] }) => {
                 {item.label}
               </AccordionTrigger>
               <AccordionContent>
-                {item.options.map((option, idx) => (
+                {item.options.map((option: string, idx: number) => (
                   <div
                     key={idx}
                     className="pl-8 py-2 cursor-pointer hover:text-primary-red"

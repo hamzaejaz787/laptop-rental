@@ -39,53 +39,6 @@ const TabItems: ProductInfoTabItemProps[] = [
   },
 ];
 
-const ProductCardItems: ProductCardItemsProps[] = [
-  {
-    image: "/ipad.png",
-    productTitle: "iPad Wifi 10.5 Cellular",
-    productDescription:
-      "Upgrade your technology experience with the advanced features.",
-    ram: "16GB",
-    storage: "512GB",
-    display: "10.5",
-    category: "tablet rental",
-    slug: "/tablet",
-  },
-  {
-    image: "/ipad.png",
-    productTitle: "iPad Wifi 10.5 Cellular",
-    productDescription:
-      "Upgrade your technology experience with the advanced features.",
-    ram: "32GB",
-    storage: "250GB",
-    display: "11.5",
-    category: "tablet rental",
-    slug: "/tablet",
-  },
-  {
-    image: "/iphone.png",
-    productTitle: "iPhone 14",
-    productDescription:
-      "Upgrade your technology experience with the advanced features.",
-    ram: "32GB",
-    storage: "250GB",
-    display: "7.5",
-    category: "mobile rental",
-    slug: "/mobile",
-  },
-  {
-    image: "/laptop.png",
-    productTitle: "iPad Wifi 10.5 Cellular",
-    productDescription:
-      "Upgrade your technology experience with the advanced features.",
-    ram: "32GB",
-    storage: "250GB",
-    display: "11.5",
-    category: "laptop rental",
-    slug: "/laptop",
-  },
-];
-
 async function ProductPage({ params }: PageProps) {
   return (
     <>
@@ -166,11 +119,11 @@ async function ProductPage({ params }: PageProps) {
           Related Products
         </h3>
 
-        <CardsSlider>
+        {/* <CardsSlider>
           {ProductCardItems.map((product, index) => (
             <ProductCard key={index} productCardItem={product} />
           ))}
-        </CardsSlider>
+        </CardsSlider> */}
       </section>
       <Faqs faqItems={FaqItemsData} />
     </>
