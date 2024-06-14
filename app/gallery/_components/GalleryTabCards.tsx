@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { Suspense } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 
@@ -25,18 +25,20 @@ const GalleryTabCards = () => {
     ? tabCardItems.filter((event) => event.category?.toLowerCase() === tab)
     : tabCardItems;
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
-      {filteredEvents.map((event, index) => (
-        <Image
-          key={index}
-          src={event.image}
-          alt=""
-          width={250}
-          height={250}
-          className="w-full"
-        />
-      ))}
-    </div>
+    <Suspense fallback={<>Loading...</>}>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
+        {filteredEvents.map((event, index) => (
+          <Image
+            key={index}
+            src={event.image}
+            alt=""
+            width={250}
+            height={250}
+            className="w-full"
+          />
+        ))}
+      </div>
+    </Suspense>
   );
 };
 

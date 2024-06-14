@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { Suspense } from "react";
 import ProductCard, { ProductCardItemsProps } from "@/components/ProductCard";
 import { useSearchParams } from "next/navigation";
 
@@ -22,11 +22,13 @@ const TabCards = ({
   });
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {filteredProducts.map((product, index) => (
-        <ProductCard key={index} productCardItem={product} />
-      ))}
-    </div>
+    <Suspense fallback={<>Loading...</>}>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {filteredProducts.map((product, index) => (
+          <ProductCard key={index} productCardItem={product} />
+        ))}
+      </div>
+    </Suspense>
   );
 };
 
