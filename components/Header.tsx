@@ -14,8 +14,6 @@ async function Header() {
     getProductCategory(),
   ]);
 
-  // console.log(productCategoryItems);
-
   return (
     <div className="fixed left-0 right-0 top-0 z-50">
       <div className="flex relative justify-between items-center md:py-2 px-8 py-1 before:content-[''] before:block before:absolute before:left-0 before:top-0 before:bg-white before:w-full before:h-full before:zigzag-border-top">

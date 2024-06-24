@@ -2,7 +2,7 @@ import React from "react";
 import Banner from "@/components/Banner";
 import ImageInfo from "@/components/ImageInfo";
 import { ImPageBreak } from "react-icons/im";
-import { FaWater } from "react-icons/fa";
+import { FaWater, FaShieldHalved } from "react-icons/fa6";
 import ServicesTimeline from "@/components/ServicesTimeline";
 import SidebarWithTab from "./_components/SidebarWithTab";
 import TabCards from "./_components/TabCards";
@@ -55,7 +55,7 @@ async function TechRental() {
         items={[
           { icon: ImPageBreak, desc: "Accidental Breakage" },
           { icon: FaWater, desc: "Water Damage" },
-          { icon: ImPageBreak, desc: "Extended Warranty" },
+          { icon: FaShieldHalved, desc: "Extended Warranty" },
         ]}
       />
     </>

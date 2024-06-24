@@ -74,7 +74,7 @@ export function Navbar({
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid gap-3 p-4 md:w-[180px]">
-                {eventItems.data.map((item) => (
+                {eventItems?.data.map((item) => (
                   <ListItem
                     key={item.id}
                     href={`/eventrental/${item.slug}`}
@@ -90,7 +90,7 @@ export function Navbar({
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-4 p-4 md:w-[200px] md:grid-cols-2 lg:w-[500px]">
-                {productCategoryItems.data.map((item) => (
+                {productCategoryItems?.data.map((item) => (
                   <ListItem
                     key={item.id}
                     title={item.Title}

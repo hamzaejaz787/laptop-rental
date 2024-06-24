@@ -2,7 +2,7 @@ import React from "react";
 import { Metadata } from "next";
 import ImageInfo from "@/components/ImageInfo";
 import { ImPageBreak } from "react-icons/im";
-import { FaWater } from "react-icons/fa";
+import { FaWater, FaShieldHalved } from "react-icons/fa6";
 import SidebarWithTab from "../_components/SidebarWithTab";
 import BannerWithImageUrl from "@/components/DynamicBanner";
 import TabCards from "../_components/TabCards";
@@ -73,7 +73,7 @@ async function TechRental({ params }: PageProps) {
         items={[
           { icon: ImPageBreak, desc: "Accidental Breakage" },
           { icon: FaWater, desc: "Water Damage" },
-          { icon: ImPageBreak, desc: "Extended Warranty" },
+          { icon: FaShieldHalved, desc: "Extended Warranty" },
         ]}
         image={productCategory.IntroImage}
       />
