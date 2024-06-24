@@ -75,8 +75,7 @@ export function ContactForm() {
         <Form {...form}>
           <form
             className="space-y-4 sm:space-y-8"
-            action={handleContactForm}
-            // onSubmit={form.handleSubmit((data) => onSubmit(data))}
+            onSubmit={form.handleSubmit((data) => onSubmit(data))}
           >
             <div className="flex items-center flex-wrap gap-4 w-full">
               <FormField
