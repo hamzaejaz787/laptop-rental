@@ -23,8 +23,15 @@ export const metadata: Metadata = {
   ],
 };
 
-async function TechRental() {
-  const product = await getProduct();
+async function TechRental({
+  searchParams,
+}: {
+  searchParams?: {
+    [key: string]: string | string[] | undefined;
+  };
+}) {
+  const query = searchParams?.search?.toString();
+  const product = await getProduct(query);
 
   return (
     <>

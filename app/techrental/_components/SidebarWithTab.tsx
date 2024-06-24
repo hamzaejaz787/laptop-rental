@@ -2,13 +2,14 @@
 
 import React from "react";
 import { Input } from "@/components/ui/input";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useDebouncedCallback } from "use-debounce";
 
 export interface TabItemTypes {
   label: string;
@@ -36,27 +37,56 @@ const transformProductData = (data: any) => {
 
 const SidebarWithTab = ({ tabItems }: { tabItems: TabItemTypes[] }) => {
   const router = useRouter();
-
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
   const data = transformProductData(tabItems);
 
   const handleTabChange = (value: string) => {
     const url = new URL(window.location.href);
-    url.searchParams.set("category", value.toLocaleLowerCase());
+    const currentCategory = url.searchParams.get("category");
+
+    if (currentCategory === value.toLocaleLowerCase()) {
+      // If the current category is the same as the clicked one, remove the category param
+      url.searchParams.delete("category");
+    } else {
+      // Otherwise, set the category param to the clicked value
+      url.searchParams.set("category", value.toLocaleLowerCase());
+    }
     url.searchParams.delete("subcategory");
     router.push(url.toString(), { scroll: false });
   };
 
   const handleOptionClick = (option: string) => {
     const url = new URL(window.location.href);
-    url.searchParams.set("subcategory", option.toLowerCase());
+    const currentSubcategory = url.searchParams.get("subcategory");
+
+    if (currentSubcategory === option.toLowerCase()) {
+      // If the current subcategory is the same as the clicked one, remove the subcategory param
+      url.searchParams.delete("subcategory");
+    } else {
+      // Otherwise, set the subcategory param to the clicked value
+      url.searchParams.set("subcategory", option.toLowerCase());
+    }
     router.push(url.toString(), { scroll: false });
   };
+
+  const handleSearch = useDebouncedCallback((term: string) => {
+    const params = new URLSearchParams(searchParams);
+    if (term) {
+      params.set("search", term.toLocaleLowerCase());
+    } else {
+      params.delete("search");
+    }
+    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+  }, 300);
 
   return (
     <div className="md:max-w-xs h-fit w-full bg-gray-100 border-2 border-gray-300 rounded-sm p-4 space-y-4">
       <Input
         placeholder="Search Products..."
         className="focus-visible:ring-primary-red transition-all ease-in rounded-sm"
+        onChange={(e) => handleSearch(e.target.value)}
+        defaultValue={searchParams.get("search")?.toString()}
       />
 
       <div className="space-y-4">
@@ -72,7 +102,6 @@ const SidebarWithTab = ({ tabItems }: { tabItems: TabItemTypes[] }) => {
                 className="p-4 flex items-center gap-2 h-auto md:h-auto focus-visible:underline font-semibold text-base hover:text-primary-red focus-within:text-primary-red transition-all duration-200 ease-in data-[state=open]:bg-transparent data-[state=open]:text-primary-red data-[state=open]:shadow-none"
                 onClick={() => handleTabChange(item.label)}
               >
-                {/* <FaChevronRight className="text-primary-red" /> */}
                 {item.label}
               </AccordionTrigger>
               <AccordionContent>

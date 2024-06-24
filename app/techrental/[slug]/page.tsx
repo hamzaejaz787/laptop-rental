@@ -23,10 +23,25 @@ export async function generateMetadata({
   };
 }
 
-async function TechRental({ params }: PageProps) {
+export interface SearchParamsProps {
+  searchParams?: {
+    query?: string;
+  };
+}
+
+async function TechRental({
+  params,
+  searchParams,
+}: {
+  params: PageProps["params"];
+  searchParams?: { [key: string]: string | string[] | undefined };
+}) {
   const slug = params.slug;
+
+  //Search query for the filter
+  const query = searchParams?.search?.toString();
   const [product, productCategory] = await Promise.all([
-    getProduct(),
+    getProduct(query),
     getProductCategoryBySlug(slug),
   ]);
 

@@ -15,16 +15,38 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Textarea } from "./ui/textarea";
+import { useToast } from "./ui/use-toast";
 
 const initialState = { message: "", errors: {} };
 
 const QuoteForm = () => {
   const formRef = React.useRef<HTMLFormElement>(null);
+  const { toast } = useToast();
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (formRef.current) {
       const formData = new FormData(formRef.current);
+      const formItems = {
+        name: formData.get("name"),
+        email: formData.get("email"),
+        message: formData.get("message"),
+        startdate: formData.get("startdate"),
+        enddate: formData.get("enddate"),
+        company: formData.get("company"),
+        location: formData.get("location"),
+        phone: formData.get("phone"),
+      };
+      toast({
+        title: "You submitted the following values:",
+        description: (
+          <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+            <code className="text-white">
+              {JSON.stringify(formItems, null, 2)}
+            </code>
+          </pre>
+        ),
+      });
     }
   };
   return (
@@ -130,12 +152,13 @@ const QuoteForm = () => {
 
       <FormItem className="relative">
         <Label
-          htmlFor="location"
+          htmlFor="message"
           className="absolute -top-2 left-[5%] bg-primary-red px-4"
         >
           Message
         </Label>
         <Textarea
+          name="message"
           placeholder="Type your message here."
           className="bg-transparent border-2 border-white placeholder:text-white focus-visible:ring-offset-0 px-4 min-h-28"
         />

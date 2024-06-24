@@ -1,14 +1,13 @@
 "use client";
+import { useActionState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -17,26 +16,72 @@ import { Button } from "./ui/button";
 import Link from "next/link";
 import { FaPhone, FaLocationDot } from "react-icons/fa6";
 import { IoMail } from "react-icons/io5";
+import { handleContactForm } from "@/lib/actions";
+import { useFormStatus } from "react-dom";
+import { useToast } from "./ui/use-toast";
 
 const formSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
+  name: z.string().min(2),
+  email: z.string().email().min(2),
+  contact: z.coerce
+    .number({
+      invalid_type_error: "Invalid Number!",
+    })
+    .positive()
+    .gte(11),
+  company: z.string().optional(),
+  location: z.string().optional(),
+  message: z
+    .string()
+    .max(350, { message: "Message cannot be longer than 350 characters" }),
 });
+
+export type ContactFormFields = z.infer<typeof formSchema>;
+
 export function ContactForm() {
-  const form = useForm();
-  const onSubmit = () => {
-    console.log("Form Submitted.");
+  const { toast } = useToast();
+  const { pending } = useFormStatus();
+  const form = useForm<ContactFormFields>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      company: "",
+      location: "",
+      message: "",
+    },
+  });
+
+  const onSubmit = async (values: ContactFormFields) => {
+    const response = await handleContactForm(values);
+
+    if (!response?.success) {
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Something went wrong.",
+        description: response.message,
+      });
+    } else {
+      toast({
+        variant: "success",
+        title: response.message,
+      });
+      form.reset();
+    }
   };
   return (
     <div className="flex flex-col py-10 gap-4 lg:w-4/5 mx-auto justify-between lg:flex-row ">
       <div className="w-full">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <form
+            className="space-y-4 sm:space-y-8"
+            action={handleContactForm}
+            // onSubmit={form.handleSubmit((data) => onSubmit(data))}
+          >
             <div className="flex items-center flex-wrap gap-4 w-full">
               <FormField
                 control={form.control}
-                name="username"
+                name="name"
                 render={({ field }) => (
                   <FormItem className="flex-1 min-w-fit">
                     <FormControl>
@@ -108,7 +153,11 @@ export function ContactForm() {
                 render={({ field }) => (
                   <FormItem className="w-full">
                     <FormControl>
-                      <Textarea placeholder="Message" {...field} />
+                      <Textarea
+                        placeholder="Message"
+                        {...field}
+                        maxLength={350}
+                      />
                     </FormControl>
 
                     <FormMessage />
@@ -116,7 +165,10 @@ export function ContactForm() {
                 )}
               />
             </div>
-            <Button className="bg-primary-red text-white hover:bg-red-500 md:px-14">
+            <Button
+              className="bg-primary-red text-white hover:bg-red-500 px-8 md:px-14 w-full sm:w-auto"
+              disabled={pending}
+            >
               Submit
             </Button>
           </form>

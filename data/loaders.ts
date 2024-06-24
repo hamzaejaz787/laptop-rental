@@ -51,7 +51,7 @@ export async function getEventBySlug(slug: string) {
   return await fetchData(url.href);
 }
 
-export const getProduct = async () => {
+export const getProduct = async (queryString?: string) => {
   const url = new URL("/api/products", baseURL);
   url.search = qs.stringify({
     populate: {
@@ -61,6 +61,12 @@ export const getProduct = async () => {
       ProductImage: {
         fields: ["name", "url", "alternativeText"],
       },
+    },
+
+    //Sort and filter the product for search
+    sort: ["createdAt:desc"],
+    filters: {
+      $or: [{ Title: { $containsi: queryString } }],
     },
   });
 

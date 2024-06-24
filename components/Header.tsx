@@ -41,11 +41,11 @@ async function Header() {
           <Link href={"/get-a-quote"}>
             <MdAddShoppingCart size={20} />
           </Link>
-          <NavSearch />
+          {/* <NavSearch />
           <MobileMenu
             eventItems={eventItems}
             productCategoryItems={productCategoryItems}
-          />
+          /> */}
         </div>
       </div>
     </div>
