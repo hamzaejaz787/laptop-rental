@@ -11,44 +11,8 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { EventItemTypes } from "@/lib/definitions";
-
-const components: {
-  title: string;
-  href: string;
-  subcomponents?: { title: string; href: string }[];
-}[] = [
-  {
-    title: "Laptop Rental",
-    href: "/techrental/singletechrental",
-  },
-  {
-    title: "Tablet Rental",
-    href: "/techrental/singletechrental",
-  },
-  {
-    title: "Mobile Rental",
-    href: "/techrental/singletechrental",
-  },
-  {
-    title: "AV Rental",
-    href: "/techrental/singletechrental",
-  },
-  {
-    title: "Screen Rental",
-    href: "/techrental/singletechrental",
-  },
-  {
-    title: "Event WiFi Rental",
-    href: "/techrental/singletechrental",
-  },
-  {
-    title: "Event Services",
-    href: "/techrental/singletechrental",
-  },
-];
 
 export interface ProductCategoryItemTypes {
   data: { id: string; slug: string; Title: string }[];
@@ -69,7 +33,7 @@ export function Navbar({
             <ListItem href="/" title="Home" />
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger className="text-[13px]">
+            <NavigationMenuTrigger>
               <ListItem href="/eventrental" title="Event Type" />
             </NavigationMenuTrigger>
             <NavigationMenuContent>
@@ -85,7 +49,7 @@ export function Navbar({
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger className="text-[13px]">
+            <NavigationMenuTrigger>
               <ListItem href="/techrental" title="Technology Rental" />
             </NavigationMenuTrigger>
             <NavigationMenuContent>
@@ -101,7 +65,7 @@ export function Navbar({
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <ListItem href="/news" title="News Events" />
+            <ListItem href="/news" title="News" />
           </NavigationMenuItem>
           <NavigationMenuItem>
             <ListItem href="/gallery" title="Gallery" />
@@ -127,7 +91,7 @@ const ListItem = React.forwardRef<
     <Link legacyBehavior passHref href={href}>
       <NavigationMenuLink
         className={cn(
-          "block select-none rounded-md text-primary hover:text-primary-red text-sm font-semibold",
+          "block font-Exo rounded-md text-primary hover:text-primary-red text-sm font-medium",
           isSubcomponent && "pl-6" // Add left padding for subcomponents
         )}
       >

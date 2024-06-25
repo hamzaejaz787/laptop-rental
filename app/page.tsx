@@ -72,16 +72,19 @@ export default async function LaptopRental() {
 
   const homepagetext = [
     {
+      header: "World's Biggest",
       title: "Event Rentals",
       description:
         "Worldwide, rent top-notch laptops and technology. Laptop Rental, your tech excellence partner, delivers tailored solutions, guaranteed.",
     },
     {
+      header: "World's Biggest",
       title: "Laptop Rentals",
       description:
         "Unmatched selection, unbeatable service. Get the best devices for your events anytime, anywhere!",
     },
     {
+      header: "World's Best",
       title: "Event Solutions",
       description:
         "Experience seamless, cutting-edge technology for unforgettable events every time!",

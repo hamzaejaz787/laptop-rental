@@ -6,7 +6,7 @@ const baseURL = getStrapiURL();
 async function fetchData(url: string) {
   try {
     const response = await fetch(url, {
-      next: { revalidate: 600 },
+      next: { revalidate: 120 },
     });
     const data = await response.json();
     return flattenAttributes(data);

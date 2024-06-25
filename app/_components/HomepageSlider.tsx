@@ -16,6 +16,7 @@ interface CarouselData {
   text: {
     title: string;
     description: string;
+    header: string;
   };
 }
 
@@ -32,7 +33,7 @@ const HomepageSlider: React.FC<HomepageSliderProps> = ({ carouselData }) => {
         }}
         plugins={[
           Autoplay({
-            delay: 3000,
+            delay: 5000,
           }),
         ]}
       >
@@ -49,6 +50,7 @@ const HomepageSlider: React.FC<HomepageSliderProps> = ({ carouselData }) => {
                 className="object-cover"
               />
               <HomeSliderText
+                header={data.text.header}
                 title={data.text.title}
                 description={data.text.description}
               />

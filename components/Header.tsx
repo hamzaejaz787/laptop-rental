@@ -3,8 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { MdAddShoppingCart } from "react-icons/md";
 import { Navbar } from "./navbar";
-import { MobileMenu } from "./mobileMenu";
-import NavSearch from "./NavSearch";
 import CtaButton from "./CtaButton";
 import { getEvents, getProductCategory } from "@/data/loaders";
 

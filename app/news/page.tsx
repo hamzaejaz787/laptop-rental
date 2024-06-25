@@ -41,7 +41,7 @@ const Blogs = () => {
   return (
     <>
       <Banner
-        title="News & Blogs"
+        title="News"
         text="We at Laptop Rentals understand whether you're hosting whether you're hosting We at Laptop Rentals understand at Laptop Rentals understand"
       />
 

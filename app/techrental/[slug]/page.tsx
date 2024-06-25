@@ -1,15 +1,15 @@
 import React from "react";
 import { Metadata } from "next";
-import ImageInfo from "@/components/ImageInfo";
-import { ImPageBreak } from "react-icons/im";
-import { FaWater, FaShieldHalved } from "react-icons/fa6";
+
 import SidebarWithTab from "../_components/SidebarWithTab";
 import BannerWithImageUrl from "@/components/DynamicBanner";
 import TabCards from "../_components/TabCards";
-import CTA, { CtaProps } from "@/components/CTA";
+import { CtaProps } from "@/components/CTA";
 import { getProduct, getProductCategoryBySlug } from "@/data/loaders";
 import { PageProps } from "@/lib/definitions";
 import { notFound } from "next/navigation";
+import ServicesTimeline from "@/components/ServicesTimeline";
+import CtaWithModal from "../_components/CtaWithModal";
 
 export async function generateMetadata({
   params,
@@ -37,7 +37,6 @@ async function TechRental({
   searchParams?: { [key: string]: string | string[] | undefined };
 }) {
   const slug = params.slug;
-
   //Search query for the filter
   const query = searchParams?.search?.toString();
   const [product, productCategory] = await Promise.all([
@@ -81,19 +80,8 @@ async function TechRental({
         <TabCards tabCardsItems={product.data} />
       </div>
 
-      <ImageInfo
-        title={productCategory.IntroSectionTitle}
-        reverse
-        text={productCategory.IntroSectionDescription}
-        items={[
-          { icon: ImPageBreak, desc: "Accidental Breakage" },
-          { icon: FaWater, desc: "Water Damage" },
-          { icon: FaShieldHalved, desc: "Extended Warranty" },
-        ]}
-        image={productCategory.IntroImage}
-      />
-
-      <CTA ctaItems={ctaItems} />
+      <ServicesTimeline description={productCategory?.TimelineText} />
+      <CtaWithModal ctaItems={ctaItems} />
     </>
   );
 }
