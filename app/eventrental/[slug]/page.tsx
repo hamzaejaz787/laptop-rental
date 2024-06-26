@@ -97,7 +97,10 @@ const Page = async ({ params }: PageProps) => {
       </div> */}
 
       <Eventslist />
-      <Faqs faqItems={data.Faq} />
+      <Faqs
+        faqItems={data.Faq}
+        description="Find answers to frequently asked questions about our event rental services. Our team is here to provide quick assistance and expert guidance. Contact us today for reliable and speedy support."
+      />
     </div>
   );
 };

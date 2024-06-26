@@ -22,9 +22,9 @@ const ImageInfo = ({
       <Image
         src={imageurl || "/imageframe.png"}
         alt={image?.alternativeText || ""}
-        width={image?.width || 650}
-        height={image?.height || 650}
-        className="md:flex-1 md:min-w-min"
+        width={500}
+        height={500}
+        className=""
       />
       <div className="md:flex-1 md:min-w-min space-y-4">
         <h2 className="font-sans font-bold text-3xl lg:text-4xl text-center lg:text-left">

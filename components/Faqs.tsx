@@ -12,15 +12,22 @@ export interface faqItemsProps {
   Answer: string;
 }
 
-const Faqs = ({ faqItems }: { faqItems: faqItemsProps[] }) => {
+const Faqs = ({
+  faqItems,
+  description,
+}: {
+  faqItems: faqItemsProps[];
+  description?: string;
+}) => {
   return (
     <section className="py-8 px-4 md:p-8 pt-14 w-full lg:max-w-3xl lg:mx-auto space-y-4">
       <h2 className="text-4xl uppercase text-center font-semibold">
         Frequently Asked Questions
       </h2>
-      <p className="text-gray-600 lg:mx-auto lg:max-w-xl text-center">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod
-        tempor incididunt ut labore et dolore.
+      <p className="text-gray-600 lg:mx-auto lg:max-w-2xl text-center">
+        {description
+          ? "Find answers to frequently asked questions about our event rental services. Our team is here to provide quick assistance and expert guidance. Contact us today for reliable and speedy support."
+          : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore."}
       </p>
 
       <Accordion

@@ -37,7 +37,7 @@ const SidebarTab = ({ tabItems }: { tabItems: string[] }) => {
         <TabsTrigger
           value={item}
           key={index}
-          className="p-0 md:p-0 flex items-center gap-2 h-auto md:h-auto focus-visible:underline font-semibold text-base hover:text-primary-red focus-within:text-primary-red transition-all duration-200 ease-in data-[state=active]:bg-transparent data-[state=active]:text-primary-red data-[state=active]:shadow-none"
+          className="p-0 font-Barlow md:p-0 flex items-center gap-2 h-auto md:h-auto focus-visible:underline font-semibold text-base hover:text-primary-red focus-within:text-primary-red transition-all duration-200 ease-in data-[state=active]:bg-transparent data-[state=active]:text-primary-red data-[state=active]:shadow-none"
         >
           <FaChevronRight className="text-primary-red" />
           {item}

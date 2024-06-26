@@ -9,34 +9,29 @@ const tabItems = [
   "Gaming Event",
   "Business Event",
   "Training & Seminar",
-  "Exam Event",
-  "Festival Event",
 ];
 
 const Gallery = () => {
   return (
     <>
       <Banner
-        title="Gallery"
-        text="We at Laptop Rentals understand whether you're hosting whether"
+        title="Discover Our Event Transformations"
+        text="Explore our Gallery to see how Laptop Rental transforms events with top-tier tech solutions. Serving Australia, New Zealand, and worldwide, we provide unmatched quality and service."
       />
 
-      <section className="container p-8 space-y-4">
-        <h3 className="font-bold font-Barlow text-3xl text-center">
-          Our Gallery
-        </h3>
-        <p className="text-center text-gray-600">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Exercitationem dolores adipisci consequatur aliquam. Ipsa, a!
-        </p>
-        <MasonryGrid />
-
+      <section className="container px-8 py-4 space-y-4">
         <h3 className="font-bold font-Barlow text-3xl text-center pt-8">
-          Past Events We Rented
+          Event Transformations Gallery{" "}
         </h3>
         <p className="text-center text-gray-600">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Exercitationem dolores adipisci consequatur aliquam. Ipsa, a!
+          Explore our Gallery to see how Laptop Rental transforms events with
+          top-tier tech solutions. Serving Australia, New Zealand, and
+          worldwide, we provide unmatched quality and service. Our curated
+          images showcase the range and versatility of our rental equipment,
+          ensuring seamless and impactful corporate events. From conferences to
+          product launches, see how our technology enhances every occasion.
+          Trust Laptop Rental for reliable, cutting-edge solutions that make
+          your events stand out.
         </p>
 
         <div className="flex flex-col md:flex-row gap-8 justify-between my-8">
