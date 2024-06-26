@@ -85,7 +85,7 @@ const Page = async ({ params }: PageProps) => {
       </div>
       <CTA ctaItems={ctaitems} />
 
-      <div className="container space-y-6 py-8 px-4 md:px-8">
+      {/* <div className="container space-y-6 py-8 px-4 md:px-8">
         <h3 className="font-bold text-3xl text-center font-Barlow">
           We don&lsquo;t need to take into account
         </h3>
@@ -94,7 +94,7 @@ const Page = async ({ params }: PageProps) => {
           Exercitationem dolores adipisci consequatur aliquam. Ipsa, a!
         </p>
         <MasonryGrid />
-      </div>
+      </div> */}
 
       <Eventslist />
       <Faqs faqItems={data.Faq} />

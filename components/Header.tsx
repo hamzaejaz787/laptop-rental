@@ -5,6 +5,7 @@ import { MdAddShoppingCart } from "react-icons/md";
 import { Navbar } from "./navbar";
 import CtaButton from "./CtaButton";
 import { getEvents, getProductCategory } from "@/data/loaders";
+import { MobileMenu } from "./mobileMenu";
 
 async function Header() {
   const [eventItems, productCategoryItems] = await Promise.all([
@@ -39,11 +40,11 @@ async function Header() {
           <Link href={"/get-a-quote"}>
             <MdAddShoppingCart size={20} />
           </Link>
-          {/* <NavSearch />
+          {/* <NavSearch /> */}
           <MobileMenu
             eventItems={eventItems}
             productCategoryItems={productCategoryItems}
-          /> */}
+          />
         </div>
       </div>
     </div>

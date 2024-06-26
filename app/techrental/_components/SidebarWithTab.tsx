@@ -10,6 +10,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useDebouncedCallback } from "use-debounce";
+import { PageProps } from "@/lib/definitions";
 
 export interface TabItemTypes {
   label: string;
@@ -45,12 +46,12 @@ const SidebarWithTab = ({ tabItems }: { tabItems: TabItemTypes[] }) => {
     const url = new URL(window.location.href);
     const currentCategory = url.searchParams.get("category");
 
-    if (currentCategory === value.toLocaleLowerCase()) {
+    if (currentCategory === value.toLowerCase()) {
       // If the current category is the same as the clicked one, remove the category param
       url.searchParams.delete("category");
     } else {
       // Otherwise, set the category param to the clicked value
-      url.searchParams.set("category", value.toLocaleLowerCase());
+      url.searchParams.set("category", value.toLowerCase());
     }
     url.searchParams.delete("subcategory");
     router.push(url.toString(), { scroll: false });
@@ -73,7 +74,7 @@ const SidebarWithTab = ({ tabItems }: { tabItems: TabItemTypes[] }) => {
   const handleSearch = useDebouncedCallback((term: string) => {
     const params = new URLSearchParams(searchParams);
     if (term) {
-      params.set("search", term.toLocaleLowerCase());
+      params.set("search", term.toLowerCase());
     } else {
       params.delete("search");
     }

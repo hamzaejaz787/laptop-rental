@@ -138,7 +138,7 @@ export default async function LaptopRental() {
 
       <EventDateCards />
 
-      <ServicesTimeline />
+      <ServicesTimeline description="Transform Your Event with Top Tech Gear: Laptops, iPads, & More - Available in Australia, New Zealand & Worldwide" />
       <div className="container flex items-center flex-col lg:flex-row gap-8 justify-between p-8">
         <div className="space-y-4 flex-1 min-w-min">
           <strong className="bg-primary-red text-white text-base font-semibold uppercase rounded-sm px-2 py-1">

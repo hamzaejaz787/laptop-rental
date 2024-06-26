@@ -5,11 +5,16 @@ import SidebarWithTab from "../_components/SidebarWithTab";
 import BannerWithImageUrl from "@/components/DynamicBanner";
 import TabCards from "../_components/TabCards";
 import { CtaProps } from "@/components/CTA";
-import { getProduct, getProductCategoryBySlug } from "@/data/loaders";
+import {
+  getAllProducts,
+  getProduct,
+  getProductCategoryBySlug,
+} from "@/data/loaders";
 import { PageProps } from "@/lib/definitions";
 import { notFound } from "next/navigation";
 import ServicesTimeline from "@/components/ServicesTimeline";
 import CtaWithModal from "../_components/CtaWithModal";
+import PaginationComponent from "@/components/PaginationComponent";
 
 export async function generateMetadata({
   params,
@@ -37,10 +42,9 @@ async function TechRental({
   searchParams?: { [key: string]: string | string[] | undefined };
 }) {
   const slug = params.slug;
-  //Search query for the filter
-  const query = searchParams?.search?.toString();
+
   const [product, productCategory] = await Promise.all([
-    getProduct(query),
+    getAllProducts(searchParams?.search?.toString()),
     getProductCategoryBySlug(slug),
   ]);
 
@@ -79,9 +83,10 @@ async function TechRental({
         <SidebarWithTab tabItems={product.data} />
         <TabCards tabCardsItems={product.data} />
       </div>
+      <PaginationComponent pageCount={product.meta.pagination.pageCount} />
 
-      <ServicesTimeline description={productCategory?.TimelineText} />
       <CtaWithModal ctaItems={ctaItems} />
+      <ServicesTimeline description={productCategory?.TimelineText} />
     </>
   );
 }

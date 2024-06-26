@@ -14,7 +14,7 @@ const CtaWithModal = ({ ctaItems }: { ctaItems: CtaProps }) => {
       style={{
         backgroundImage: `url(${imageurl || ctabg.src})`,
       }}
-      className="content-center bg-no-repeat bg-center bg-cover w-full h-dvh max-h-[550px]"
+      className="content-center  bg-no-repeat bg-center bg-cover w-full h-dvh max-h-[350px]"
     >
       <div className="flex flex-col justify-center items-center gap-4 p-4">
         <h2 className="text-3xl xl:text-4xl text-white font-bold text-center uppercase">

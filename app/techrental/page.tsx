@@ -7,7 +7,8 @@ import ServicesTimeline from "@/components/ServicesTimeline";
 import SidebarWithTab from "./_components/SidebarWithTab";
 import TabCards from "./_components/TabCards";
 import { Metadata } from "next";
-import { getProduct } from "@/data/loaders";
+import { getAllProducts } from "@/data/loaders";
+import PaginationComponent from "@/components/PaginationComponent";
 
 export const metadata: Metadata = {
   title: "Event Technology Rental Excellence",
@@ -31,7 +32,7 @@ async function TechRental({
   };
 }) {
   const query = searchParams?.search?.toString();
-  const product = await getProduct(query);
+  const product = await getAllProducts(query);
 
   return (
     <>
@@ -51,6 +52,7 @@ async function TechRental({
         <SidebarWithTab tabItems={product.data} />
         <TabCards tabCardsItems={product.data} />
       </div>
+      <PaginationComponent pageCount={product.meta.pagination.pageCount} />
 
       <ServicesTimeline />
 

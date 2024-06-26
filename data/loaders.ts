@@ -50,8 +50,11 @@ export async function getEventBySlug(slug: string) {
 
   return await fetchData(url.href);
 }
-
-export const getProduct = async (queryString?: string) => {
+export const getProduct = async (
+  queryString?: string,
+  currentPage = 1,
+  pageSize?: number
+) => {
   const url = new URL("/api/products", baseURL);
   url.search = qs.stringify({
     populate: {
@@ -62,32 +65,52 @@ export const getProduct = async (queryString?: string) => {
         fields: ["name", "url", "alternativeText"],
       },
     },
-
-    //Sort and filter the product for search
     sort: ["createdAt:desc"],
     filters: {
       $or: [{ Title: { $containsi: queryString } }],
+    },
+    pagination: {
+      pageSize: pageSize || 25, // Default pageSize if not provided
+      page: currentPage,
     },
   });
 
   return await fetchData(url.href);
 };
 
+export const getAllProducts = async (queryString?: string) => {
+  let allProducts = [];
+  let currentPage = 1;
+  let pageSize = 25;
+  let pageCount = 1;
+
+  // Fetch the first page to get the pageSize and pageCount
+  const firstPageData = await getProduct(queryString, currentPage);
+  if (firstPageData.meta) {
+    pageSize = firstPageData.meta.pagination.pageSize;
+    pageCount = firstPageData.meta.pagination.pageCount;
+  }
+  allProducts = [...firstPageData.data];
+
+  // Fetch remaining pages
+  while (currentPage < pageCount) {
+    currentPage += 1;
+    const nextPageData = await getProduct(queryString, currentPage, pageSize);
+    allProducts = [...allProducts, ...nextPageData.data];
+  }
+
+  return { data: allProducts, meta: firstPageData.meta };
+};
+
 export const getProductCategory = async () => {
   const url = new URL("/api/product-categories", baseURL);
 
   url.search = qs.stringify({
-    // populate: {
-    //   BannerImage: {
-    //     fields: ["name", "url", "alternativeText"],
-    //   },
-    //   CtaImage: {
-    //     fields: ["name", "url", "alternativeText"],
-    //   },
-    //   IntroImage: {
-    //     fields: ["name", "url", "alternativeText"],
-    //   },
-    // },
+    populate: {
+      products: {
+        fields: ["ProductCategory", "ProductSubCategory"],
+      },
+    },
   });
 
   return await fetchData(url.href);
@@ -106,6 +129,9 @@ export const getProductCategoryBySlug = async (slug: string) => {
       },
       IntroImage: {
         fields: ["name", "url", "alternativeText"],
+      },
+      products: {
+        fields: ["ProductCategory", "ProductSubCategory"],
       },
     },
   });

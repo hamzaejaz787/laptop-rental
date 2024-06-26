@@ -35,6 +35,14 @@ export function MobileMenu({
   const [open, setOpen] = useState(false);
   const handleClose = () => setOpen(false);
 
+  //filter items for laptop and other product categories
+  const laptopItems = productCategoryItems?.data.filter((item) =>
+    item.products.data.some((product) => product.ProductCategory === "Laptop")
+  );
+  const otherItems = productCategoryItems?.data.filter((item) =>
+    item.products.data.every((product) => product.ProductCategory !== "Laptop")
+  );
+
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
@@ -73,13 +81,26 @@ export function MobileMenu({
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
+              <NavigationMenuLink
+                className={navigationMenuTriggerStyle()}
+                onClick={handleClose}
+              >
+                <Link
+                  href={"/aboutus"}
+                  className="text-white focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
+                >
+                  About Us
+                </Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
               <NavigationMenuTrigger className="flex items-center gap-4 font-medium text-sm font-Exo pl-3 text-white focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in">
                 <Link
                   href={"/eventrental"}
                   onClick={handleClose}
                   className="text-white focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
                 >
-                  Event Rental
+                  Events
                 </Link>{" "}
                 <FaChevronDown />
               </NavigationMenuTrigger>
@@ -105,13 +126,13 @@ export function MobileMenu({
                   onClick={handleClose}
                   className="text-white focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
                 >
-                  Technology Rental
+                  Laptop Rental
                 </Link>
                 <FaChevronDown />
               </NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid pl-5 font-medium font-Exo text-sm space-y-4 py-2">
-                  {productCategoryItems.data.map((item) => (
+                  {laptopItems?.map((item) => (
                     <Link
                       key={item.id}
                       href={`/techrental/${item.slug}`}
@@ -125,18 +146,32 @@ export function MobileMenu({
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink
-                className={navigationMenuTriggerStyle()}
-                onClick={handleClose}
-              >
+              <NavigationMenuTrigger className="flex items-center gap-4 font-medium text-sm font-Exo pl-3 text-white focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in">
                 <Link
-                  href={"/news"}
+                  href={"/techrental"}
+                  onClick={handleClose}
                   className="text-white focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
                 >
-                  News Events
+                  Technology Rental
                 </Link>
-              </NavigationMenuLink>
+                <FaChevronDown />
+              </NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid pl-5 font-medium font-Exo text-sm space-y-4 py-2">
+                  {otherItems?.map((item) => (
+                    <Link
+                      key={item.id}
+                      href={`/techrental/${item.slug}`}
+                      className="text-white text-xs focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
+                      onClick={handleClose}
+                    >
+                      {item.Title}
+                    </Link>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
             </NavigationMenuItem>
+
             <NavigationMenuItem>
               <NavigationMenuLink
                 className={navigationMenuTriggerStyle()}
@@ -150,19 +185,7 @@ export function MobileMenu({
                 </Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink
-                className={navigationMenuTriggerStyle()}
-                onClick={handleClose}
-              >
-                <Link
-                  href={"/aboutus"}
-                  className="text-white focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
-                >
-                  About Us
-                </Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
+
             <NavigationMenuItem>
               <NavigationMenuLink
                 className={navigationMenuTriggerStyle()}
