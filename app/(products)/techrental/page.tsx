@@ -52,7 +52,7 @@ async function TechRental({
         <SidebarWithTab tabItems={product.data} />
         <TabCards tabCardsItems={product.data} />
       </div>
-      <PaginationComponent pageCount={product.meta.pagination.pageCount} />
+      {/* <PaginationComponent pageCount={product.meta.pagination.pageCount} /> */}
 
       <ServicesTimeline />
 
