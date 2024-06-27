@@ -122,7 +122,7 @@ export function MobileMenu({
             <NavigationMenuItem>
               <NavigationMenuTrigger className="flex items-center gap-4 font-medium text-sm font-Exo pl-3 text-white focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in">
                 <Link
-                  href={"/techrental"}
+                  href={"/laptoprental"}
                   onClick={handleClose}
                   className="text-white focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
                 >

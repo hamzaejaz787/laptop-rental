@@ -35,7 +35,7 @@ const Banner = ({ btn, title, text, link, image }: BannerProps) => {
           {title}
         </h1>
         {text !== "" && (
-          <p className="text-gray-200 font-sans text-center md:max-w-xl md:mx-auto">
+          <p className="text-gray-200 text-center md:max-w-xl md:mx-auto">
             {text}
           </p>
         )}

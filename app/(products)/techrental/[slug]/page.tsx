@@ -42,15 +42,10 @@ async function TechRental({
   searchParams?: { [key: string]: string | string[] | undefined };
 }) {
   const slug = params.slug;
-
   const [product, productCategory] = await Promise.all([
     getAllProducts(searchParams?.search?.toString()),
     getProductCategoryBySlug(slug),
   ]);
-
-  if (productCategory.error?.status === 404) {
-    notFound();
-  }
 
   const ctaItems: CtaProps = {
     title: productCategory.CtaTitle,
@@ -60,6 +55,12 @@ async function TechRental({
     bgsrc: productCategory.CtaImage,
   };
 
+  const getProductCategories = productCategory.products?.data[0];
+  const { ProductCategory, ProductSubCategory } = getProductCategories;
+
+  if (productCategory.error?.status === 404) {
+    notFound();
+  }
   return (
     <>
       <BannerWithImageUrl
@@ -80,10 +81,14 @@ async function TechRental({
       />
 
       <div className="flex flex-col md:flex-row gap-8 justify-between container p-8">
-        <SidebarWithTab tabItems={product.data} />
+        <SidebarWithTab
+          tabItems={product.data}
+          ProductCategory={ProductCategory}
+          ProductSubCategory={ProductSubCategory}
+        />
         <TabCards tabCardsItems={product.data} />
       </div>
-      <PaginationComponent pageCount={product.meta.pagination.pageCount} />
+      {/* <PaginationComponent pageCount={product.meta.pagination.pageCount} /> */}
 
       <CtaWithModal ctaItems={ctaItems} />
       <ServicesTimeline description={productCategory?.TimelineText} />

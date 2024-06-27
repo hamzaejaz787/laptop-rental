@@ -36,11 +36,36 @@ const transformProductData = (data: any) => {
   }));
 };
 
-const SidebarWithTab = ({ tabItems }: { tabItems: TabItemTypes[] }) => {
+const SidebarWithTab = ({
+  tabItems,
+  ProductCategory,
+  ProductSubCategory,
+}: {
+  tabItems: TabItemTypes[];
+  ProductCategory?: string;
+  ProductSubCategory?: string;
+}) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const data = transformProductData(tabItems);
+
+  // if (ProductCategory && ProductSubCategory && typeof window !== undefined) {
+  //   const url = new URL(window.location.href);
+
+  //   url.searchParams.set("category", ProductCategory.toLowerCase());
+  //   url.searchParams.set("subcategory", ProductSubCategory.toLowerCase());
+  //   router.push(url, { scroll: false });
+  // }
+
+  React.useEffect(() => {
+    if (ProductCategory && ProductSubCategory) {
+      const url = new URL(window.location.href);
+      url.searchParams.set("category", ProductCategory.toLowerCase());
+      url.searchParams.set("subcategory", ProductSubCategory.toLowerCase());
+      router.replace(url.toString(), { scroll: false });
+    }
+  }, [ProductCategory, ProductSubCategory, router]);
 
   const handleTabChange = (value: string) => {
     const url = new URL(window.location.href);

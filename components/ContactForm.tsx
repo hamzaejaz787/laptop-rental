@@ -1,5 +1,4 @@
 "use client";
-import { useActionState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -17,18 +16,19 @@ import Link from "next/link";
 import { FaPhone, FaLocationDot } from "react-icons/fa6";
 import { IoMail } from "react-icons/io5";
 import { handleContactForm } from "@/lib/actions";
-import { useFormStatus } from "react-dom";
+import { useFormState, useFormStatus } from "react-dom";
 import { useToast } from "./ui/use-toast";
+import { useRef } from "react";
 
 const formSchema = z.object({
-  name: z.string().min(2),
-  email: z.string().email().min(2),
+  name: z.string().min(1, { message: "Cannot be empty" }),
+  email: z.string().email().min(1, { message: "Cannot be empty" }),
   contact: z.coerce
     .number({
       invalid_type_error: "Invalid Number!",
     })
     .positive()
-    .gte(11),
+    .gte(11, { message: "Number required" }),
   company: z.string().optional(),
   location: z.string().optional(),
   message: z
@@ -38,8 +38,12 @@ const formSchema = z.object({
 
 export type ContactFormFields = z.infer<typeof formSchema>;
 
+const initialState = { success: false, message: "" };
+
 export function ContactForm() {
+  const [state, formAction] = useFormState(handleContactForm, initialState);
   const { toast } = useToast();
+  const formRef = useRef<HTMLFormElement>(null);
   const { pending } = useFormStatus();
   const form = useForm<ContactFormFields>({
     resolver: zodResolver(formSchema),
@@ -52,30 +56,30 @@ export function ContactForm() {
     },
   });
 
-  const onSubmit = async (values: ContactFormFields) => {
-    const response = await handleContactForm(values);
-
-    if (!response?.success) {
-      toast({
-        variant: "destructive",
-        title: "Uh oh! Something went wrong.",
-        description: response.message,
-      });
-    } else {
-      toast({
-        variant: "success",
-        title: response.message,
-      });
-      form.reset();
-    }
-  };
   return (
     <div className="flex flex-col py-10 gap-4 lg:w-4/5 mx-auto justify-between lg:flex-row ">
       <div className="w-full">
         <Form {...form}>
           <form
             className="space-y-4 sm:space-y-8"
-            onSubmit={form.handleSubmit((data) => onSubmit(data))}
+            action={async (formData: FormData) => {
+              formAction(formData);
+              if (state.success === true) {
+                toast({
+                  title: "Success",
+                  variant: "success",
+                  description: state.message,
+                });
+              } else if (state.success === false) {
+                toast({
+                  title: "Error",
+                  variant: "destructive",
+                  description: state.message,
+                });
+              }
+
+              formRef.current?.reset();
+            }}
           >
             <div className="flex items-center flex-wrap gap-4 w-full">
               <FormField
@@ -84,7 +88,7 @@ export function ContactForm() {
                 render={({ field }) => (
                   <FormItem className="flex-1 min-w-fit">
                     <FormControl>
-                      <Input placeholder="Your Name" {...field} />
+                      <Input placeholder="Your Name *" required {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -96,7 +100,12 @@ export function ContactForm() {
                 render={({ field }) => (
                   <FormItem className="flex-1 min-w-fit">
                     <FormControl>
-                      <Input placeholder="Your Email" {...field} />
+                      <Input
+                        placeholder="Your Email *"
+                        type="email"
+                        required
+                        {...field}
+                      />
                     </FormControl>
 
                     <FormMessage />
@@ -111,7 +120,11 @@ export function ContactForm() {
                 render={({ field }) => (
                   <FormItem className="flex-1 min-w-fit">
                     <FormControl>
-                      <Input placeholder="Contact Number" {...field} />
+                      <Input
+                        placeholder="Contact Number"
+                        type="tel"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -165,10 +178,14 @@ export function ContactForm() {
               />
             </div>
             <Button
-              className="bg-primary-red text-white hover:bg-red-500 px-8 md:px-14 w-full sm:w-auto"
+              type="submit"
               disabled={pending}
+              aria-disabled={pending}
+              className={`bg-primary-red text-white hover:bg-red-500 px-8 md:px-14 w-full sm:w-auto ${
+                pending ? "cursor-not-allowed opacity-50" : ""
+              }`}
             >
-              Submit
+              {pending ? "Sending..." : "Submit"}
             </Button>
           </form>
         </Form>
@@ -187,20 +204,20 @@ const ContactsOptions = () => {
         <FaPhone size={22} />
         <p className="text-center text-sm">Lets Have a Call</p>
         <Link
-          href="tel:+923331231234"
+          href="tel:+61(0)383730303"
           className="text-center font-semibold transition-all duration-200 hover:text-red-300"
         >
-          +92 333 123 1234
+          +61-383-730303
         </Link>
       </div>
       <div className="flex flex-col justify-center items-center">
         <IoMail size={22} />
         <p className="text-center text-sm">Send us an Email</p>
         <Link
-          href="mailto:laptoprental@gmail.com"
+          href="mailto:laptop@gmail.com"
           className="text-center font-semibold transition-all duration-200 hover:text-red-300"
         >
-          laptoprental@gmail.com
+          laptop@gmail.com
         </Link>
       </div>
       <div className="flex flex-col justify-center items-center">

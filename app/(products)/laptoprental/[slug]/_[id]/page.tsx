@@ -7,10 +7,8 @@ import Link from "next/link";
 import Faqs, { faqItemsProps } from "@/components/Faqs";
 import ProductInfoTabs from "./_components/ProductInfoTabs";
 import { PageProps, ProductInfoTabItemProps } from "@/lib/definitions";
-import ProductCard, { ProductCardItemsProps } from "@/components/ProductCard";
 import { PiHardDrives } from "react-icons/pi";
 import { Button } from "@/components/ui/button";
-import CardsSlider from "@/components/CardsSlider";
 import BannerWithImageUrl from "@/components/DynamicBanner";
 
 const FaqItemsData: faqItemsProps[] = [

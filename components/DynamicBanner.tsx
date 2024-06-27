@@ -39,7 +39,7 @@ const BannerWithImageUrl = ({ btn, title, text, link, image }: BannerProps) => {
           {title}
         </h1>
         {text !== "" && (
-          <p className="md:text-base text-white/85 font-sans text-center md:max-w-xl md:mx-auto">
+          <p className="md:text-base text-white/85 text-center md:max-w-xl md:mx-auto">
             {text}
           </p>
         )}

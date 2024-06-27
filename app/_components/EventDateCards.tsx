@@ -45,8 +45,8 @@ function EventDateCards() {
       </h2>
       <p className="text-gray-500 text-center max-w-3xl mx-auto text-sm lg:text-base">
         Effortless check-in & registration, seamless event Wi-Fi, cutting-edge
-        event apps, worldwide fulfillment, and dedicated customer support – we
-        help Australian events with unparalleled services for organizers and
+        event apps, worldwide fulfillment, and dedicated customer support - we
+        help Australian events with unparalleled services for organisers and
         attendees alike.{" "}
       </p>
 

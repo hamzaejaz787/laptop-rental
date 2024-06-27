@@ -9,8 +9,10 @@ import {
 } from "@/components/ui/card";
 import Image from "next/image";
 import { IoHardwareChipOutline } from "react-icons/io5";
+import { AiOutlineAndroid, AiOutlineApple } from "react-icons/ai";
 import { PiHardDrives } from "react-icons/pi";
 import { MdOutlineScreenshot } from "react-icons/md";
+import { SlSizeFullscreen } from "react-icons/sl";
 import CtaButton from "./CtaButton";
 import AddToCartButton from "./AddToCartButton";
 import { getStrapiURL } from "@/lib/utils";
@@ -43,6 +45,18 @@ const getIconForSpec = (specValue: string) => {
     return <PiHardDrives className="text-red-500 size-8" />;
   } else if (specValue.toLowerCase().includes("display")) {
     return <MdOutlineScreenshot className="text-red-500 size-8" />;
+  } else if (specValue.toLowerCase().includes("android")) {
+    return <AiOutlineAndroid className="text-red-500 size-8" />;
+  } else if (
+    specValue.toLowerCase().includes("ios") ||
+    specValue.toLowerCase().includes("ipados")
+  ) {
+    return <AiOutlineApple className="text-red-500 size-8" />;
+  } else if (
+    specValue.toLowerCase().includes("res") ||
+    specValue.toLowerCase().includes("size")
+  ) {
+    return <SlSizeFullscreen className="text-red-500 size-6" />;
   }
   return null;
 };
@@ -70,7 +84,7 @@ const ProductCard = ({
           className="self-center"
         />
         <CardTitle>{Title}</CardTitle>
-        <CardDescription className="line-clamp-2">
+        <CardDescription className="line-clamp-3">
           {Description}
         </CardDescription>
       </CardHeader>

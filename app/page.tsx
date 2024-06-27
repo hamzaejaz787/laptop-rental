@@ -20,7 +20,7 @@ export default async function LaptopRental() {
       title: "Business Conferences & Seminars",
       href: "/corporate-event",
       description:
-        "Maximize your business success with hassle-free laptop hire for events like conferences and seminars. Enhance productivity seamlessly.",
+        "Maximise your business success with hassle-free laptop hire for events like conferences and seminars. Enhance productivity seamlessly.",
       ctatext: "Explore Event",
     },
     {
@@ -29,7 +29,7 @@ export default async function LaptopRental() {
       title: "Exhibitions and Workshops",
       href: "/corporate-event",
       description:
-        "Optimize your corporate events with our rental services. Ideal for business exhibitions and workshops. Hire laptops for corporate events.",
+        "Optimise your corporate events with our rental services. Ideal for business exhibitions and workshops. Hire laptops for corporate events.",
       ctatext: "Explore Event",
     },
     {
@@ -47,7 +47,7 @@ export default async function LaptopRental() {
       title: "Trade Shows",
       href: "/corporate-event",
       description:
-        "Maximize your trade show impact with our business laptop rental solutions. Elevate your events with our reliable and cost-effective services.",
+        "Maximise your trade show impact with our business laptop rental solutions. Elevate your events with our reliable and cost-effective services.",
       ctatext: "Explore Event",
     },
     {
@@ -56,7 +56,7 @@ export default async function LaptopRental() {
       title: "Festivals",
       href: "/corporate-event",
       description:
-        "Optimize your festival experience with our short-term laptop rental for events. Seamlessly enhance connectivity and productivity Down Under!",
+        "Optimise your festival experience with our short-term laptop rental for events. Seamlessly enhance connectivity and productivity Down Under!",
       ctatext: "Explore Event",
     },
     {
@@ -65,7 +65,7 @@ export default async function LaptopRental() {
       title: "Gaming Events",
       href: "/corporate-event",
       description:
-        "Optimize your gaming events with hassle-free laptop rental for events. Seamless tech solutions for epic gaming experiences.",
+        "Optimise your gaming events with hassle-free laptop rental for events. Seamless tech solutions for epic gaming experiences.",
       ctatext: "Explore Event",
     },
   ];
@@ -128,7 +128,7 @@ export default async function LaptopRental() {
             sessions, Festivals, Conferences and Seminars, Short-Term Projects,
             Surveys and Market Research, Exhibitions and workshops, Annual
             Meetings, Product Launches, and Gaming Events. With a focus on
-            providing top-notch technology and event services, we specialize in
+            providing top-notch technology and event services, we specialise in
             Check-in and registration systems, Event and festival Wi-Fi, Event
             Apps and software, and Global Fulfilment solutions.
           </p>

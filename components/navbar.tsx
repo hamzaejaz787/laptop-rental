@@ -56,7 +56,7 @@ export function Navbar({
 
           <NavigationMenuItem>
             <NavigationMenuTrigger>
-              <ListItem href="/techrental" title="Laptop Rental" />
+              <ListItem href="/laptoprental" title="Laptop Rental" />
             </NavigationMenuTrigger>
 
             <NavigationMenuContent>
@@ -65,7 +65,7 @@ export function Navbar({
                   <ListItem
                     key={item.id}
                     title={item.Title}
-                    href={`/techrental/${item.slug}`}
+                    href={`/laptoprental/${item.slug}`}
                   />
                 ))}
               </ul>

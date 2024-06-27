@@ -16,7 +16,7 @@ const Video = () => {
       </p>
       <div className="w-full flex justify-center mt-10">
         <video
-          className="w-full h-full rounded-3xl object-cover"
+          className="w-full h-full max-h-[550px] rounded-3xl object-cover"
           controls
           autoPlay
           muted
