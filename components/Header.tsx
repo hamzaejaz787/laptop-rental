@@ -37,9 +37,9 @@ async function Header() {
             text="Get a quote"
             className="hidden md:inline-flex p-4 md:p-4 text-sm"
           />
-          <Link href={"/get-a-quote"}>
+          {/* <Link href={"/get-a-quote"}>
             <MdAddShoppingCart size={20} />
-          </Link>
+          </Link> */}
           {/* <NavSearch /> */}
           <MobileMenu
             eventItems={eventItems}
