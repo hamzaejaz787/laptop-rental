@@ -105,10 +105,10 @@ const ProductCard = ({
       <CardFooter className="p-0 pt-2">
         <CtaButton
           href={`/get-a-quote`}
-          text="Learn More"
+          text="Get A Quote"
           className="w-full rounded-r-none"
         />
-        <AddToCartButton />
+        {/* <AddToCartButton /> */}
       </CardFooter>
     </Card>
   );

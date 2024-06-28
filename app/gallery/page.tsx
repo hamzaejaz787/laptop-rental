@@ -2,6 +2,9 @@ import MasonryGrid from "@/components/masonry";
 import Banner from "@/components/Banner";
 import TabSidebar from "./_components/TabSidebar";
 import GalleryTabCards from "./_components/GalleryTabCards";
+import { getGalleryItemsById } from "@/data/loaders";
+import { getStrapiURL } from "@/lib/utils";
+import Image from "next/image";
 
 const tabItems = [
   "Corporate Event",
@@ -11,7 +14,18 @@ const tabItems = [
   "Training & Seminar",
 ];
 
-const Gallery = () => {
+interface GalleryItemProps {
+  id: number;
+  url: string;
+  alternativeText: string;
+}
+
+const Gallery = async () => {
+  const galleryItems = await getGalleryItemsById(1);
+  const baseurl = getStrapiURL();
+
+  const images: GalleryItemProps[] = galleryItems.galleryimage.data;
+
   return (
     <>
       <Banner
@@ -34,9 +48,22 @@ const Gallery = () => {
           your events stand out.
         </p>
 
-        <div className="flex flex-col md:flex-row gap-8 justify-between my-8">
+        {/* <div className="flex flex-col md:flex-row gap-8 justify-between my-8">
           <TabSidebar tabItems={tabItems} />
           <GalleryTabCards />
+        </div> */}
+
+        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
+          {images.map((item) => (
+            <Image
+              key={item.id}
+              src={`${baseurl}${item.url}`}
+              alt={item.alternativeText}
+              width={500}
+              height={500}
+              className="h-full object-cover rounded-sm"
+            />
+          ))}
         </div>
       </section>
     </>

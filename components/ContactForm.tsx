@@ -214,10 +214,10 @@ const ContactsOptions = () => {
         <IoMail size={22} />
         <p className="text-center text-sm">Send us an Email</p>
         <Link
-          href="mailto:laptop@gmail.com"
+          href="mailto:hire@laptoprental.com"
           className="text-center font-semibold transition-all duration-200 hover:text-red-300"
         >
-          laptop@gmail.com
+          Hire@laptoprental.com
         </Link>
       </div>
       <div className="flex flex-col justify-center items-center">
@@ -225,10 +225,10 @@ const ContactsOptions = () => {
         <p className="text-center text-sm">Visit Our Office</p>
         <Link
           target="_blank"
-          href="https://maps.app.goo.gl/cFzM7gbaxUWUrE9D7"
+          href="https://maps.app.goo.gl/TyGxcsfetCLd6SNRA"
           className="text-center font-semibold transition-all duration-200 hover:text-red-300"
         >
-          2508 Sydney, TX 78746 Australia
+          19B Hinkler Road Mordialloc, Mordialloc Victoria 3195, Australia{" "}
         </Link>
       </div>
     </div>

@@ -138,3 +138,15 @@ export const getProductCategoryBySlug = async (slug: string) => {
 
   return await fetchData(url.href);
 };
+
+export const getGalleryItemsById = async (id: string | number) => {
+  const url = new URL(`/api/galleries/${id}`, baseURL);
+
+  url.search = qs.stringify({
+    populate: {
+      galleryimage: true,
+    },
+  });
+
+  return await fetchData(url.href);
+};

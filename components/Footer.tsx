@@ -40,8 +40,8 @@ async function Footer() {
   return (
     <footer>
       <div className="bg-primary-red p-8 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 xl:grid-cols-5 gap-8">
-          <div className="space-y-4 xl:justify-self-center xl:col-span-2">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="space-y-4 xl:justify-self-center">
             <Link href={"/"}>
               <Image
                 src="/logo_red.png"
@@ -115,22 +115,23 @@ async function Footer() {
                 </Link>
               </li>
               <li className="flex items-center gap-4 text-white">
-                <MdMailOutline size={20} />
+                <MdMailOutline size={30} />
                 <Link
-                  href="mailto:laptop@gmail.com"
+                  href="mailto:hire@laptoprental.com"
                   className="text-white hover:text-red-400 transition-all duration-200 ease-in"
                 >
-                  laptop@gmail.com
+                  hire@laptoprental.com
                 </Link>
               </li>
-              <li className="flex items-center gap-4 text-white">
-                <FaLocationDot size={20} />
+              <li className="flex items-start gap-4 text-white">
+                <FaLocationDot size={30} />
                 <Link
-                  href="https://maps.app.goo.gl/"
+                  href="https://maps.app.goo.gl/TyGxcsfetCLd6SNRA"
                   target="_blank"
                   className="text-white hover:text-red-400 transition-all duration-200 ease-in"
                 >
-                  2508 TX 78746 UK
+                  19B Hinkler Road Mordialloc, Mordialloc Victoria 3195,
+                  Australia{" "}
                 </Link>
               </li>
             </ul>

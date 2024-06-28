@@ -29,7 +29,7 @@ const Page = () => {
         <ContactForm />
 
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d13289.563302470455!2d73.0287206!3d33.62110704999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1715081522410!5m2!1sen!2s"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3144.504732448042!2d145.0987403!3d-37.988686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad66cfe0879085b%3A0x4c8bdf26d8c329e3!2s19B%20Hinkler%20Rd%2C%20Mordialloc%20VIC%203195%2C%20Australia!5e0!3m2!1sen!2s!4v1719571522894!5m2!1sen!2s"
           height="500"
           style={{ border: 0, width: "100%" }}
           loading="lazy"

@@ -15,7 +15,7 @@ const ImageInfo = ({
   if (image && image.url.includes("uploads")) imageurl = baseurl + image?.url;
   return (
     <div
-      className={`container p-8 gap-8 flex justify-between items-center flex-col-reverse ${
+      className={`container p-8 lg:px-16 gap-20 flex justify-center items-center flex-col-reverse ${
         reverse ? "lg:flex-row-reverse" : "lg:flex-row"
       }`}
     >
@@ -26,17 +26,17 @@ const ImageInfo = ({
         height={500}
         className=""
       />
-      <div className="md:flex-1 md:min-w-min space-y-4">
-        <h2 className="font-sans font-bold text-3xl lg:text-4xl text-center lg:text-left">
+      <div className="space-y-4">
+        <h2 className="font-sans font-bold text-3xl lg:text-4xl text-center lg:text-left max-w-2xl">
           {title}
         </h2>
-        <p className="font-sans text-sm xl:text-base text-center lg:text-left">
+        <p className="font-sans text-sm xl:text-base text-center lg:text-left max-w-2xl">
           {text}
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {items &&
-            items.map((item: any, index: number) => (
+        {items && (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {items?.map((item: any, index: number) => (
               <div className="flex items-center" key={index}>
                 {item.icon && (
                   <div className="p-2 rounded-sm bg-primary-red flex items-center justify-center ">
@@ -50,7 +50,8 @@ const ImageInfo = ({
                 )}
               </div>
             ))}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );
