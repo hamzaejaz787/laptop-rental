@@ -107,7 +107,7 @@ const SidebarWithTab = ({
   }, 300);
 
   return (
-    <div className="md:max-w-xs h-fit w-full bg-gray-100 border-2 border-gray-300 rounded-sm p-4 space-y-4">
+    <div className="lg:max-w-xs h-fit w-full bg-gray-100 border-2 border-gray-300 rounded-sm p-4 space-y-4">
       <Input
         placeholder="Search Products..."
         className="focus-visible:ring-primary-red transition-all ease-in rounded-sm"

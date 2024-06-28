@@ -58,7 +58,7 @@ async function TechRental({
         text="Enter Laptop Rental - your premier partner for event technology rental in Australia. We specialise in providing a wide range of top-quality tech rental for events. From business conferences and seminars to festivals and product launches, we offer tailored solutions to meet diverse event needs."
       />
 
-      <div className="flex flex-col md:flex-row gap-8 justify-between container p-8">
+      <div className="flex flex-col lg:flex-row gap-8 justify-between container p-8">
         <SidebarWithTab tabItems={product.data} />
         <TabCards tabCardsItems={product.data} />
       </div>

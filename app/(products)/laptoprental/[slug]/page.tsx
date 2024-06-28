@@ -80,7 +80,7 @@ async function TechRental({
         image={productCategory.BannerImage}
       />
 
-      <div className="flex flex-col md:flex-row gap-8 justify-between container p-8">
+      <div className="flex flex-col lg:flex-row gap-8 justify-between container p-8">
         <SidebarWithTab
           tabItems={product.data}
           ProductCategory={ProductCategory}
