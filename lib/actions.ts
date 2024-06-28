@@ -2,10 +2,7 @@
 
 import Mail from "nodemailer/lib/mailer";
 import { createTransport } from "nodemailer";
-import { createSafeActionClient } from "next-safe-action";
 import { ContactFormFields } from "@/components/ContactForm";
-
-export const actionClient = createSafeActionClient();
 
 export const handleContactForm = async (prevState: any, formData: FormData) => {
   const data: ContactFormFields = {
