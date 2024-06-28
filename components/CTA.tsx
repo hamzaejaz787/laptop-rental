@@ -29,7 +29,7 @@ const CTA = ({ ctaItems }: { ctaItems: CtaProps }) => {
       className="content-center bg-no-repeat bg-center bg-cover w-full h-dvh max-h-[550px]"
     >
       <div className="flex flex-col justify-center items-center gap-4 p-4">
-        <h2 className="text-3xl xl:text-4xl text-white font-bold text-center uppercase">
+        <h2 className="text-3xl xl:text-4xl text-white font-bold text-center uppercase md:max-w-4xl mx-auto">
           {ctaItems.title}
         </h2>
         <p className="text-white text-center text-sm xl:text-base font-sans md:max-w-3xl mx-auto">
