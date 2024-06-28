@@ -1,10 +1,8 @@
-import Image from "next/image";
-import banner_bg from "@/public/contactus_bg.png";
 import CtaButton from "@/components/CtaButton";
 const Cta = () => {
   return (
     <div
-      style={{ backgroundImage: `url(${banner_bg.src})` }}
+      style={{ backgroundImage: `url(/about-cta.jpg)` }}
       className=" bg-no-repeat bg-cover w-full min-h-96 h-full p-8 content-center"
     >
       <div className="container h-full flex w-full justify-between gap-8 md:gap-20 items-center flex-col md:flex-row">

@@ -12,7 +12,7 @@ const ImageInfo = ({
 }: BannerProps) => {
   const baseurl = getStrapiURL();
   let imageurl = "";
-  if (image) imageurl = baseurl + image?.url;
+  if (image && image.url.includes("uploads")) imageurl = baseurl + image?.url;
   return (
     <div
       className={`container p-8 gap-8 flex justify-between items-center flex-col-reverse ${
@@ -20,7 +20,7 @@ const ImageInfo = ({
       }`}
     >
       <Image
-        src={imageurl || "/imageframe.png"}
+        src={imageurl || image?.url || "/imageframe.png"}
         alt={image?.alternativeText || ""}
         width={500}
         height={500}

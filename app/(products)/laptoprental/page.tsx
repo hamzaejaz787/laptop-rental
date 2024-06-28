@@ -38,6 +38,11 @@ const LaptopRental = async ({
         text="Partnering for Success: Comprehensive Laptop Rental For Events & Dedicated Support for Businesses in Australia and New Zealand. Book Now!"
         link="/get-a-quote"
         btn="Get A Quote"
+        image={{
+          url: "/laptoprental-banner.jpg",
+          alternativeText:
+            "Partnering for Success: Comprehensive Laptop Rental For Events & Dedicated Support for Businesses in Australia and New Zealand. Book Now!",
+        }}
       />
 
       <div className="flex flex-col md:flex-row gap-8 justify-between container p-8">

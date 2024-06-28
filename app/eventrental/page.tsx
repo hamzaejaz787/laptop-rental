@@ -38,9 +38,19 @@ const EventPage = async () => {
         text="Laptop Rental offers a comprehensive suite of cutting-edge IT Event Rentals tailored for events of all scales and types in Australia, New Zealand and Worldwide."
         btn="Request a Quote"
         link="/get-a-quote"
+        image={{
+          url: "/event-rental-banner.jpg",
+          alternativeText:
+            "Laptop Rental offers a comprehensive suite of cutting-edge IT Event Rentals tailored for events of all scales and types in Australia, New Zealand and Worldwide.",
+        }}
       />
       <ImageInfo
         reverse={true}
+        image={{
+          url: "/Empower Your Business with IT Rental Solutions for Events.jpg",
+          alternativeText:
+            "Laptop Rental specialises in IT event rentals beyond just laptops. We offer a comprehensive range of high-end IT rentalsolutions for events, including servers, projectors, audiovisual systems, networking devices, and more. Our services are designed to empower events with the latest technology, enhancing productivity and leaving a lasting impression.",
+        }}
         title="Empower Your Business with IT Rental Solutions for Events"
         text="Laptop Rental specialises in IT event rentals beyond just laptops. We offer a comprehensive range of high-end IT rentalsolutions for events, including servers, projectors, audiovisual systems, networking devices, and more. Our services are designed to empower events with the latest technology, enhancing productivity and leaving a lasting impression."
       />

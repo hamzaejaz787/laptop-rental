@@ -14,6 +14,11 @@ const Aboutus = () => {
   return (
     <>
       <Banner
+        image={{
+          url: "/about-us-banner.jpg",
+          alternativeText:
+            "Laptop Rental is a global leader in providing cutting-edge event technology services, addressing the persistent challenges businesses face in organising successful events.",
+        }}
         btn="Contact us"
         link="/contactus"
         title="About Us"

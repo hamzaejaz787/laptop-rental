@@ -38,7 +38,7 @@ const ServicesTimeline = ({ description }: { description?: string }) => {
         </div>
 
         <div className="md:border-l-4 border-l-primary-red h-full md:px-4 text-center md:text-left">
-          <p className="max-w-xl text-xs lg:text-sm">
+          <p className="max-w-xl text-xs lg:text-base">
             {description && description !== ""
               ? description
               : "Laptop Rental Australia steps in as your trusted Dell laptop rental partner. We empower your event with cutting-edge technology and unparalleled service, ensuring every moment is an opportunity to impress. Supported by dedicated teams, enjoy 24/7 technical and customer support for seamless corporate events. Contact our experts and rent Dell laptops for corporate events in Australia, New Zealand and Worldwide."}
@@ -53,8 +53,20 @@ const ServicesTimeline = ({ description }: { description?: string }) => {
             key={index}
           >
             <Image
-              src={"/leader.png"}
-              alt=""
+              src={
+                item.title.includes("24/7 Assistance")
+                  ? "/24_7-assistance.png"
+                  : item.title.includes("Global Reach")
+                  ? "/global-reach.png"
+                  : item.title.includes("Worldwide Delivery")
+                  ? "/worldwide-delivery.png"
+                  : item.title.includes("Flexible Rental Period")
+                  ? "/flexible-rental-period.png"
+                  : item.title.includes("Diverse Products")
+                  ? "/diverse-products.png"
+                  : ""
+              }
+              alt={item.title}
               width={75}
               height={75}
               className="mt-2"

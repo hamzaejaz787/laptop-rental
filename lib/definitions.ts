@@ -6,14 +6,15 @@ export interface PageProps {
 
 export interface BannerImageProps {
   alternativeText: string;
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
   url: string;
 }
 
 export interface BannerItem {
   icon: React.ElementType;
   desc: string;
+  title?: string;
 }
 
 export interface BannerProps {

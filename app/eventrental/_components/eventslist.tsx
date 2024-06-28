@@ -6,8 +6,8 @@ import { EventCardProps } from "@/lib/definitions";
 const Eventslist = () => {
   const eventCardsData: EventCardProps[] = [
     {
-      imagesrc: "/hp_img.png",
-      alternativeText: "",
+      imagesrc: "/Conference Equipment Rental.jpg",
+      alternativeText: "Conference Equipment Rental",
       title: "Conference Equipment Rental",
       href: "/corporate-event",
       description:
@@ -15,8 +15,8 @@ const Eventslist = () => {
       ctatext: "Explore Event",
     },
     {
-      imagesrc: "/hp_img.png",
-      alternativeText: "",
+      imagesrc: "/Short-Term Projects.jpg",
+      alternativeText: "Short-Term Projects",
       title: "Short-Term Projects",
       href: "/corporate-event",
       description:
@@ -24,8 +24,8 @@ const Eventslist = () => {
       ctatext: "Explore Event",
     },
     {
-      imagesrc: "/hp_img.png",
-      alternativeText: "",
+      imagesrc: "/Surveys & Market Research.jpg",
+      alternativeText: "Surveys & Market Research",
       title: "Surveys & Market Research",
       href: "/corporate-event",
       description:
@@ -33,8 +33,8 @@ const Eventslist = () => {
       ctatext: "Explore Event",
     },
     {
-      imagesrc: "/hp_img.png",
-      alternativeText: "",
+      imagesrc: "/Exhibitions.jpg",
+      alternativeText: "Exhibitions",
       title: "Exhibitions",
       href: "/corporate-event",
       description:
@@ -42,8 +42,8 @@ const Eventslist = () => {
       ctatext: "Explore Event",
     },
     {
-      imagesrc: "/hp_img.png",
-      alternativeText: "",
+      imagesrc: "/Workshops.jpg",
+      alternativeText: "Workshops",
       title: "Workshops",
       href: "/corporate-event",
       description:
@@ -51,8 +51,8 @@ const Eventslist = () => {
       ctatext: "Explore Event",
     },
     {
-      imagesrc: "/hp_img.png",
-      alternativeText: "",
+      imagesrc: "/Annual Meetings.jpg",
+      alternativeText: "Annual Meetings",
       title: "Annual Meetings",
       href: "/corporate-event",
       description:
@@ -60,7 +60,7 @@ const Eventslist = () => {
       ctatext: "Explore Event",
     },
     {
-      imagesrc: "/hp_img.png",
+      imagesrc: "/Product Launches.jpg",
       alternativeText: "",
       title: "Product Launches",
       href: "/corporate-event",

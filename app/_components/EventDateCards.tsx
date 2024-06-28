@@ -9,31 +9,31 @@ const eventsData = [
     title: "Check-in & Registration",
     eventdate: "15th Dec",
     href: "/eventrental/corporate-event",
-    image: "/hp_img1.png",
+    image: "/event-card-1.png",
   },
   {
     title: "Event & Festival Wi-Fi",
     eventdate: "15th Dec",
     href: "/eventrental/corporate-event",
-    image: "/hp_img2.png",
+    image: "/event-card-2.png",
   },
   {
     title: "Event Apps & Software",
     eventdate: "15th Dec",
     href: "/eventrental/corporate-event",
-    image: "/hp_img3.png",
+    image: "/event-card-3.png",
   },
   {
     title: "Global Fulfilment",
     eventdate: "15th Dec",
     href: "/eventrental/corporate-event",
-    image: "/hp_img4.png",
+    image: "/event-card-4.png",
   },
   {
     title: "Customer Support",
     eventdate: "15th Dec",
     href: "/eventrental/corporate-event",
-    image: "/hp_img5.png",
+    image: "/event-card-5.png",
   },
 ];
 
@@ -54,23 +54,29 @@ function EventDateCards() {
         {eventsData.map((item, index) => (
           <div
             key={index}
-            className={`relative rounded-full overflow-hidden w-full ${
+            className={`relative rounded-full w-full md:max-w-[200px] overflow-hidden ${
               index === 2
                 ? "md:h-[550px] 2xl:h-[650px]"
                 : index === 1 || index === 3
                 ? "md:h-[450px] 2xl:h-[550px]"
                 : "md:h-[350px] 2xl:h-[400px]"
-            } max-h-[175px] md:max-h-full md:hover:h-[550px] 2xl:hover:h-[650px] transition-all ease-in duration-300`}
+            } max-h-[175px] md:max-h-full md:hover:h-[550px]  2xl:hover:h-[650px] transition-all ease-in duration-300`}
           >
             <Image
               src={item.image}
               alt=""
-              width={250}
+              width={200}
               height={650}
-              className="w-full h-full object-cover"
+              className="h-full w-full object-cover"
             />
-            <div className="bg-black/50 p-2 w-full h-full absolute top-0 left-0 group flex flex-col justify-center items-center text-center gap-4">
-              <h6 className="text-xl xl:text-2xl uppercase font-semibold text-wrap whitespace-pre-wrap text-white">
+            <div className="p-4 w-full h-full absolute top-0 left-0 group flex flex-col justify-center items-center text-center gap-4">
+              <h6
+                className={`text-xl xl:text-2xl font-Exo ${
+                  index === 2
+                    ? ""
+                    : "md:-rotate-90 md:group-hover:rotate-0 transition-transform duration-300 ease-in"
+                } uppercase font-semibold text-white`}
+              >
                 {item.title}
               </h6>
 
@@ -82,14 +88,14 @@ function EventDateCards() {
                 {item.eventdate}
               </strong> */}
 
-              <Link
+              {/* <Link
                 href={"/eventrental"}
                 className={`cursor-pointer text-white self-center ${
                   index === 2 ? "opacity-100" : "lg:opacity-0"
                 } group-hover:opacity-100 transition-all duration-300 ease-in hover:text-primary-red focus-within:text-primary-red`}
               >
                 <MdAdsClick size={30} />
-              </Link>
+              </Link> */}
             </div>
           </div>
         ))}

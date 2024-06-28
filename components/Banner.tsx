@@ -7,8 +7,8 @@ import CtaButton from "./CtaButton";
 
 export interface BannerImageProps {
   alternativeText: string;
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
   url: string;
 }
 

@@ -15,8 +15,8 @@ import { IoStarSharp } from "react-icons/io5";
 export default async function LaptopRental() {
   const eventCardsData: EventCardProps[] = [
     {
-      imagesrc: "/hp_img.png",
-      alternativeText: "",
+      imagesrc: "/Business Conferences & Seminars.png",
+      alternativeText: "Business Conferences & Seminars",
       title: "Business Conferences & Seminars",
       href: "/corporate-event",
       description:
@@ -24,8 +24,8 @@ export default async function LaptopRental() {
       ctatext: "Explore Event",
     },
     {
-      imagesrc: "/hp_img.png",
-      alternativeText: "",
+      imagesrc: "/Exhibitions and Workshops.png",
+      alternativeText: "Exhibitions and Workshops",
       title: "Exhibitions and Workshops",
       href: "/corporate-event",
       description:
@@ -33,8 +33,8 @@ export default async function LaptopRental() {
       ctatext: "Explore Event",
     },
     {
-      imagesrc: "/hp_img.png",
-      alternativeText: "",
+      imagesrc: "/Product Launches.png",
+      alternativeText: "Product Launches",
       title: "Product Launches",
       href: "/corporate-event",
       description:
@@ -42,8 +42,8 @@ export default async function LaptopRental() {
       ctatext: "Explore Event",
     },
     {
-      imagesrc: "/hp_img.png",
-      alternativeText: "",
+      imagesrc: "/Trade Shows.png",
+      alternativeText: "Trade Shows",
       title: "Trade Shows",
       href: "/corporate-event",
       description:
@@ -51,8 +51,8 @@ export default async function LaptopRental() {
       ctatext: "Explore Event",
     },
     {
-      imagesrc: "/hp_img.png",
-      alternativeText: "",
+      imagesrc: "/Festivals.png",
+      alternativeText: "Festivals",
       title: "Festivals",
       href: "/corporate-event",
       description:
@@ -60,8 +60,8 @@ export default async function LaptopRental() {
       ctatext: "Explore Event",
     },
     {
-      imagesrc: "/hp_img.png",
-      alternativeText: "",
+      imagesrc: "/Gaming Events.png",
+      alternativeText: "Gaming Events",
       title: "Gaming Events",
       href: "/corporate-event",
       description:
@@ -73,15 +73,15 @@ export default async function LaptopRental() {
   const homepagetext = [
     {
       header: "World's Biggest",
-      title: "Event Rentals",
-      description:
-        "Worldwide, rent top-notch laptops and technology. Laptop Rental, your tech excellence partner, delivers tailored solutions, guaranteed.",
-    },
-    {
-      header: "World's Biggest",
       title: "Laptop Rentals",
       description:
         "Unmatched selection, unbeatable service. Get the best devices for your events anytime, anywhere!",
+    },
+    {
+      header: "World's Biggest",
+      title: "Event Rentals",
+      description:
+        "Worldwide, rent top-notch laptops and technology. Laptop Rental, your tech excellence partner, delivers tailored solutions, guaranteed.",
     },
     {
       header: "World's Best",
@@ -139,6 +139,7 @@ export default async function LaptopRental() {
 
       <EventDateCards />
 
+      <Cta />
       <ServicesTimeline description="Laptop Rental Australia steps in as your trusted laptop rental partner. We empower your event with cutting-edge technology and unparalleled service, ensuring every moment is an opportunity to impress. Supported by dedicated teams, enjoy 24/7 technical and customer support for seamless corporate events. Contact our experts and rent Dell laptops for corporate events in Australia, New Zealand and Worldwide." />
       <div className="container flex items-center flex-col lg:flex-row gap-8 justify-between p-8">
         <div className="space-y-4 flex-1 min-w-min">
@@ -187,8 +188,6 @@ export default async function LaptopRental() {
           <QuoteForm />
         </div>
       </div>
-
-      <Cta />
     </>
   );
 }

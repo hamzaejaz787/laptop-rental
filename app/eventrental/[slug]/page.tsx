@@ -1,14 +1,14 @@
-import ImageInfo from "@/components/ImageInfo";
-import MasonryGrid from "@/components/masonry";
-import { getEventBySlug, getProduct } from "@/data/loaders";
-import { BannerImageProps, PageProps } from "@/lib/definitions";
 import { Metadata } from "next";
 import Faqs from "@/components/Faqs";
-import ProductCard from "@/components/ProductCard";
 import CTA from "@/components/CTA";
-import Eventslist from "../_components/eventslist";
-import BannerWithImageUrl from "@/components/DynamicBanner";
 import { notFound } from "next/navigation";
+import ImageInfo from "@/components/ImageInfo";
+import Eventslist from "../_components/eventslist";
+import ProductCard from "@/components/ProductCard";
+import { getEventBySlug, getProduct } from "@/data/loaders";
+import BannerWithImageUrl from "@/components/DynamicBanner";
+import { BannerImageProps, PageProps } from "@/lib/definitions";
+import CardsSlider from "@/components/CardsSlider";
 
 export async function generateMetadata({
   params,
@@ -72,29 +72,20 @@ const Page = async ({ params }: PageProps) => {
         )
       )}
 
-      <div className="container space-y-6 pb-8 px-4 md:px-8">
-        <h3 className="font-bold text-3xl text-center font-Barlow">
-          Related Products
-        </h3>
+      {data.relatedproducts.data.length > 0 && (
+        <div className="container space-y-6 pb-8 px-4 md:px-8">
+          <h3 className="font-bold text-3xl text-center font-Barlow">
+            Related Products
+          </h3>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8">
-          {products.data.slice(0, 4).map((item: any) => (
-            <ProductCard key={item.id} productCardItem={item} />
-          ))}
+          <CardsSlider>
+            {data.relatedproducts.data.map((item: any) => (
+              <ProductCard key={item.id} productCardItem={item} />
+            ))}
+          </CardsSlider>
         </div>
-      </div>
+      )}
       <CTA ctaItems={ctaitems} />
-
-      {/* <div className="container space-y-6 py-8 px-4 md:px-8">
-        <h3 className="font-bold text-3xl text-center font-Barlow">
-          We don&lsquo;t need to take into account
-        </h3>
-        <p className="text-gray-400 font-Poppins text-center">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Exercitationem dolores adipisci consequatur aliquam. Ipsa, a!
-        </p>
-        <MasonryGrid />
-      </div> */}
 
       <Eventslist />
       <Faqs
