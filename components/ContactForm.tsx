@@ -16,36 +16,15 @@ import Link from "next/link";
 import { FaPhone, FaLocationDot } from "react-icons/fa6";
 import { IoMail } from "react-icons/io5";
 import { handleContactForm } from "@/lib/actions";
-import { useFormState, useFormStatus } from "react-dom";
 import { useToast } from "./ui/use-toast";
 import { useRef } from "react";
-
-const formSchema = z.object({
-  name: z.string().min(1, { message: "Cannot be empty" }),
-  email: z.string().email().min(1, { message: "Cannot be empty" }),
-  contact: z.coerce
-    .number({
-      invalid_type_error: "Invalid Number!",
-    })
-    .positive()
-    .gte(11, { message: "Number required" }),
-  company: z.string().optional(),
-  location: z.string().optional(),
-  message: z
-    .string()
-    .max(350, { message: "Message cannot be longer than 350 characters" }),
-});
-
-export type ContactFormFields = z.infer<typeof formSchema>;
-
-const initialState = { success: false, message: "" };
+import { formSchema } from "@/lib/definitions";
+import { useAction } from "next-safe-action/hooks";
 
 export function ContactForm() {
-  const [state, formAction] = useFormState(handleContactForm, initialState);
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
-  const { pending } = useFormStatus();
-  const form = useForm<ContactFormFields>({
+  const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
@@ -56,30 +35,48 @@ export function ContactForm() {
     },
   });
 
+  const { status, execute, result } = useAction(handleContactForm, {
+    onSuccess(data) {
+      if (data.data?.success) {
+        toast({
+          title: "Success",
+          description: data.data.message,
+          variant: "success",
+        });
+        form.reset();
+      }
+
+      if (data.data?.error) {
+        toast({
+          title: "Error",
+          description: data.data.error,
+          variant: "destructive",
+        });
+      }
+    },
+    onError(error) {
+      if (error.error.serverError) {
+        toast({
+          title: "An error occured on server",
+          description: error.error.serverError,
+          variant: "destructive",
+        });
+      }
+    },
+  });
+
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    execute(values);
+  };
+
   return (
     <div className="flex flex-col py-10 gap-4 lg:w-4/5 mx-auto justify-between lg:flex-row ">
       <div className="w-full">
         <Form {...form}>
           <form
             className="space-y-4 sm:space-y-8"
-            action={async (formData: FormData) => {
-              formAction(formData);
-              if (state.success === true) {
-                toast({
-                  title: "Success",
-                  variant: "success",
-                  description: state.message,
-                });
-              } else if (state.success === false) {
-                toast({
-                  title: "Error",
-                  variant: "destructive",
-                  description: state.message,
-                });
-              }
-
-              formRef.current?.reset();
-            }}
+            onSubmit={form.handleSubmit(onSubmit)}
+            ref={formRef}
           >
             <div className="flex items-center flex-wrap gap-4 w-full">
               <FormField
@@ -179,13 +176,10 @@ export function ContactForm() {
             </div>
             <Button
               type="submit"
-              disabled={pending}
-              aria-disabled={pending}
-              className={`bg-primary-red text-white hover:bg-red-500 px-8 md:px-14 w-full sm:w-auto ${
-                pending ? "cursor-not-allowed opacity-50" : ""
-              }`}
+              disabled={status === "executing"}
+              className={`bg-primary-red text-white hover:bg-red-500 px-8 md:px-14 w-full sm:w-auto`}
             >
-              {pending ? "Sending..." : "Submit"}
+              {status === "executing" ? "Sending..." : "Submit"}
             </Button>
           </form>
         </Form>

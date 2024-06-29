@@ -15,7 +15,7 @@ const ImageInfo = ({
   if (image && image.url.includes("uploads")) imageurl = baseurl + image?.url;
   return (
     <div
-      className={`container p-8 lg:px-16 gap-20 flex justify-center items-center flex-col-reverse ${
+      className={`container p-8 lg:px-16 gap-8 lg:gap-20 flex justify-center items-center flex-col-reverse ${
         reverse ? "lg:flex-row-reverse" : "lg:flex-row"
       }`}
     >

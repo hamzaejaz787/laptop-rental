@@ -1,10 +1,17 @@
 "use client";
 
 import React from "react";
-import { FormItem, FormLabel } from "@/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { format } from "date-fns";
+import { format, startOfToday } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -16,169 +23,219 @@ import {
 } from "@/components/ui/popover";
 import { Textarea } from "./ui/textarea";
 import { useToast } from "./ui/use-toast";
+import { z } from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { sendQuoteFormData } from "@/lib/actions";
+import { useAction } from "next-safe-action/hooks";
+import { quoteFormSchema } from "@/lib/definitions";
 
 const initialState = { message: "", errors: {} };
+const today = startOfToday();
+
+type FormInputName = "name" | "email" | "phone" | "company" | "location";
+
+interface FormInputItemTypes {
+  name: FormInputName;
+  label: string;
+  placeholder: string;
+  required: boolean;
+  type?: string;
+}
+
+const formInputItems: FormInputItemTypes[] = [
+  {
+    name: "name",
+    label: "Full Name *",
+    placeholder: "Enter Your Name",
+    required: true,
+  },
+  {
+    name: "email",
+    label: "Email *",
+    placeholder: "Enter Your Email",
+    required: true,
+    type: "email",
+  },
+  {
+    name: "phone",
+    label: "Phone Number *",
+    placeholder: "Enter Your Phone Number",
+    required: true,
+    type: "tel",
+  },
+  {
+    name: "company",
+    label: "Company Name *",
+    placeholder: "Enter Your Company Name",
+    required: true,
+  },
+  {
+    name: "location",
+    label: "Location *",
+    placeholder: "Enter Your Location",
+    required: true,
+  },
+];
 
 const QuoteForm = () => {
   const formRef = React.useRef<HTMLFormElement>(null);
   const { toast } = useToast();
 
-  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (formRef.current) {
-      const formData = new FormData(formRef.current);
-      const formItems = {
-        name: formData.get("name"),
-        email: formData.get("email"),
-        message: formData.get("message"),
-        startdate: formData.get("startdate"),
-        enddate: formData.get("enddate"),
-        company: formData.get("company"),
-        location: formData.get("location"),
-        phone: formData.get("phone"),
-      };
-      toast({
-        title: "You submitted the following values:",
-        description: (
-          <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-            <code className="text-white">
-              {JSON.stringify(formItems, null, 2)}
-            </code>
-          </pre>
-        ),
-      });
-    }
+  const form = useForm<z.infer<typeof quoteFormSchema>>({
+    resolver: zodResolver(quoteFormSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      message: "",
+      company: "",
+      location: "",
+    },
+  });
+
+  const { status, execute } = useAction(sendQuoteFormData, {
+    onSuccess(data) {
+      if (data.data?.success) {
+        toast({
+          title: "Success",
+          description: data.data.message,
+          variant: "success",
+        });
+        form.reset();
+      }
+    },
+    onError(error) {
+      if (error.error) {
+        toast({
+          title: "An error occured",
+          description: error.error.serverError,
+          variant: "destructive",
+        });
+      }
+    },
+  });
+
+  const onSubmit = async (values: z.infer<typeof quoteFormSchema>) => {
+    execute(values);
   };
   return (
-    <form ref={formRef} className="space-y-6" onSubmit={onSubmit}>
-      <div className="flex items-center justify-between gap-4 w-full flex-col sm:flex-row flex-wrap">
-        <FormItem className="relative flex-1 min-w-min w-full">
-          <Label
-            htmlFor="startdate"
-            className="absolute top-0 left-[5%] bg-primary-red px-4"
-          >
-            Start Date *
-          </Label>
-          <DatePicker name="startdate" />
-        </FormItem>
-
-        <FormItem className="relative flex-1 min-w-min w-full">
-          <Label
-            htmlFor="enddate"
-            className="absolute top-0 left-[5%] bg-primary-red px-4"
-          >
-            End Date *
-          </Label>
-          <DatePicker name="enddate" />
-        </FormItem>
-      </div>
-
-      <FormItem className="relative">
-        <Label
-          htmlFor="name"
-          className="absolute -top-2 left-[5%] bg-primary-red px-4"
-        >
-          Full Name *
-        </Label>
-        <Input
-          placeholder="Enter Your Name"
-          name="name"
-          required
-          className="bg-transparent border-2 border-white placeholder:text-white focus-visible:ring-offset-0 px-4 h-14"
-        />
-      </FormItem>
-
-      <FormItem className="relative">
-        <Label
-          htmlFor="email"
-          className="absolute -top-2 left-[5%] bg-primary-red px-4"
-        >
-          Email *
-        </Label>
-        <Input
-          placeholder="Enter Your Email"
-          name="email"
-          type="email"
-          required
-          className="bg-transparent border-2 border-white placeholder:text-white focus-visible:ring-offset-0 px-4 h-14"
-        />
-      </FormItem>
-
-      <FormItem className="relative">
-        <Label
-          htmlFor="phone"
-          className="absolute -top-2 left-[5%] bg-primary-red px-4"
-        >
-          Phone Number *
-        </Label>
-        <Input
-          placeholder="Enter Your Phone Number"
-          name="phone"
-          type="tel"
-          required
-          className="bg-transparent border-2 border-white placeholder:text-white focus-visible:ring-offset-0 px-4 h-14"
-        />
-      </FormItem>
-
-      <FormItem className="relative">
-        <Label
-          htmlFor="company"
-          className="absolute -top-2 left-[5%] bg-primary-red px-4"
-        >
-          Company *
-        </Label>
-        <Input
-          placeholder="Enter Your Company Name"
-          name="company"
-          required
-          className="bg-transparent border-2 border-white placeholder:text-white focus-visible:ring-offset-0 px-4 h-14"
-        />
-      </FormItem>
-
-      <FormItem className="relative">
-        <Label
-          htmlFor="location"
-          className="absolute -top-2 left-[5%] bg-primary-red px-4"
-        >
-          Location *
-        </Label>
-        <Input
-          placeholder="Enter Your Location"
-          name="location"
-          required
-          className="bg-transparent border-2 border-white placeholder:text-white focus-visible:ring-offset-0 px-4 h-14"
-        />
-      </FormItem>
-
-      <FormItem className="relative">
-        <Label
-          htmlFor="message"
-          className="absolute -top-2 left-[5%] bg-primary-red px-4"
-        >
-          Message
-        </Label>
-        <Textarea
-          name="message"
-          placeholder="Type your message here."
-          className="bg-transparent border-2 border-white placeholder:text-white focus-visible:ring-offset-0 px-4 min-h-28"
-        />
-      </FormItem>
-
-      <Button
-        type="submit"
-        className="bg-white text-primary-red w-full rounded hover:bg-red-400 hover:text-white text-base"
+    <Form {...form}>
+      <form
+        className="space-y-6"
+        onSubmit={form.handleSubmit(onSubmit)}
+        ref={formRef}
       >
-        Submit
-      </Button>
-    </form>
+        <div className="flex items-center justify-between gap-4 w-full flex-col sm:flex-row flex-wrap">
+          <FormField
+            control={form.control}
+            name="startdate"
+            render={({ field }) => (
+              <FormItem className="relative flex-1 min-w-min w-full">
+                <FormLabel className="absolute top-0 left-[5%] bg-primary-red px-4">
+                  Start Date *
+                </FormLabel>
+                <FormControl>
+                  <DatePicker
+                    {...field}
+                    selectedDate={field.value}
+                    onChange={field.onChange}
+                  />
+                </FormControl>
+                <FormMessage className="text-white" />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="enddate"
+            render={({ field }) => (
+              <FormItem className="relative flex-1 min-w-min w-full">
+                <FormLabel className="absolute top-0 left-[5%] bg-primary-red px-4">
+                  End Date *
+                </FormLabel>
+                <FormControl>
+                  <DatePicker
+                    {...field}
+                    selectedDate={field.value}
+                    onChange={field.onChange}
+                  />
+                </FormControl>
+                <FormMessage className="text-white" />
+              </FormItem>
+            )}
+          />
+        </div>
+
+        {formInputItems.map((item, index) => (
+          <FormField
+            key={index}
+            control={form.control}
+            name={item.name}
+            render={({ field }) => (
+              <FormItem className="relative flex-1 min-w-min w-full">
+                <FormLabel className="absolute -top-1 left-[5%] bg-primary-red px-4">
+                  {item.label}
+                </FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder={item.placeholder}
+                    required={item.required}
+                    type={item?.type || "text"}
+                    {...field}
+                    className="bg-transparent border-2 border-white placeholder:text-white focus-visible:ring-offset-0 px-4 h-14"
+                  />
+                </FormControl>
+                <FormMessage className="text-white" />
+              </FormItem>
+            )}
+          />
+        ))}
+
+        <FormField
+          control={form.control}
+          name="message"
+          render={({ field }) => (
+            <FormItem className="relative flex-1 min-w-min w-full">
+              <FormLabel className="absolute -top-1 left-[5%] bg-primary-red px-4">
+                Message
+              </FormLabel>
+              <FormControl>
+                <Textarea
+                  placeholder="Type your message here"
+                  className="bg-transparent border-2 border-white placeholder:text-white focus-visible:ring-offset-0 px-4 min-h-28"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <Button
+          type="submit"
+          disabled={status === "executing"}
+          className="bg-white text-primary-red w-full rounded hover:bg-red-400 hover:text-white text-base"
+        >
+          {status === "executing" ? "Sending..." : "Submit"}
+        </Button>
+      </form>
+    </Form>
   );
 };
 
 export default QuoteForm;
 
-const DatePicker = ({ name }: { name: string }) => {
-  const [date, setDate] = React.useState<Date>();
+interface DatePickerProps {
+  name: string;
+  onChange: (date: Date | undefined) => void;
+  selectedDate: Date | undefined;
+}
 
+const DatePicker: React.FC<DatePickerProps> = ({
+  name,
+  onChange,
+  selectedDate,
+}) => {
   return (
     <Popover>
       <PopoverTrigger asChild>
@@ -186,19 +243,24 @@ const DatePicker = ({ name }: { name: string }) => {
           variant={"outline"}
           className={cn(
             "text-left w-full bg-transparent rounded border-2 border-white hover:text-primary-red",
-            !date && "text-muted"
+            !selectedDate && "text-muted"
           )}
         >
           <CalendarIcon className="mr-2 h-4 w-4" />
-          {date ? format(date, "PPP") : <span>Pick a date</span>}
+          {selectedDate ? (
+            format(selectedDate, "PPP")
+          ) : (
+            <span>Pick a date</span>
+          )}
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-auto p-0">
         <Calendar
           mode="single"
-          selected={date}
-          onSelect={setDate}
+          selected={selectedDate}
+          onSelect={onChange}
           initialFocus
+          fromDate={today}
           classNames={{
             nav_button: "bg-primary-red text-white",
             day_selected:
@@ -206,13 +268,11 @@ const DatePicker = ({ name }: { name: string }) => {
           }}
         />
       </PopoverContent>
-      {name && (
-        <input
-          type="hidden"
-          name={name}
-          value={date ? format(date, "yyyy-MM-dd") : ""}
-        />
-      )}
+      <input
+        type="hidden"
+        name={name}
+        value={selectedDate ? format(selectedDate, "yyyy-MM-dd") : ""}
+      />
     </Popover>
   );
 };

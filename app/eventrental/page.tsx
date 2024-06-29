@@ -54,7 +54,9 @@ const EventPage = async () => {
         title="Empower Your Business with IT Rental Solutions for Events"
         text="Laptop Rental specialises in IT event rentals beyond just laptops. We offer a comprehensive range of high-end IT rentalsolutions for events, including servers, projectors, audiovisual systems, networking devices, and more. Our services are designed to empower events with the latest technology, enhancing productivity and leaving a lasting impression."
       />
-      <Eventslist />
+      <div className="pt-8">
+        <Eventslist />
+      </div>
 
       <CTA ctaItems={ctaItems} />
       <TechCarousel />

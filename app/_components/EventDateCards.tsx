@@ -9,31 +9,31 @@ const eventsData = [
     title: "Check-in & Registration",
     eventdate: "15th Dec",
     href: "/eventrental/corporate-event",
-    image: "/event-card-1.png",
+    image: "/card-1.png",
   },
   {
     title: "Event & Festival Wi-Fi",
     eventdate: "15th Dec",
     href: "/eventrental/corporate-event",
-    image: "/event-card-2.png",
+    image: "/card-2.png",
   },
   {
     title: "Event Apps & Software",
     eventdate: "15th Dec",
     href: "/eventrental/corporate-event",
-    image: "/event-card-3.png",
+    image: "/card-3.png",
   },
   {
     title: "Global Fulfilment",
     eventdate: "15th Dec",
     href: "/eventrental/corporate-event",
-    image: "/event-card-4.png",
+    image: "/card-4.png",
   },
   {
     title: "Customer Support",
     eventdate: "15th Dec",
     href: "/eventrental/corporate-event",
-    image: "/event-card-5.png",
+    image: "/card-5.png",
   },
 ];
 
@@ -71,7 +71,7 @@ function EventDateCards() {
             />
             <div className="p-4 w-full h-full absolute top-0 left-0 group flex flex-col justify-center items-center text-center gap-4">
               <h6
-                className={`text-xl xl:text-2xl font-Exo ${
+                className={`text-lg lg:text-xl xl:text-2xl font-Exo ${
                   index === 2
                     ? ""
                     : "md:-rotate-90 md:group-hover:rotate-0 transition-transform duration-300 ease-in"

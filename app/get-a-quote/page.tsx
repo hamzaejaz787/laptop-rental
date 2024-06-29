@@ -6,7 +6,14 @@ import { IoStarSharp } from "react-icons/io5";
 export default function GetAQuote() {
   return (
     <>
-      <Banner title="Get A Quote" text="" />
+      <Banner
+        title="Get A Quote"
+        text=""
+        image={{
+          url: "/get-a-quote-banner.jpg",
+          alternativeText: "",
+        }}
+      />
 
       <div className="container flex items-center flex-col lg:flex-row gap-8 justify-between p-8">
         <div className="space-y-4 flex-1 min-w-min">
@@ -26,14 +33,18 @@ export default function GetAQuote() {
             Book an Event with us to Rent a tech
           </h2>
           <p className="text-gray-700 ">
-            We at Laptop Rentals understand whether you&apos;re hosting a
-            conference, trade show, or business event, having access to reliable
-            and high-quality technology can make all.We at Laptop Rentals
-            understand whether you&apos;.reliable and high-quality technology
-            can make all.We at Laptop Rentals understand whether
-            you&apos;.understand whether you&apos;.reliable and high-quality
-            technology can make all.We at Laptop Rentals understand whether
-            you&apos;.
+            Host an unforgettable event by choosing our top-notch technology
+            rental services. From cutting-edge IT equipment to seamless event
+            management tools and services, we&apos;ve got your tech needs
+            covered. Book your event with us and experience the seamless
+            integration of advanced technology to elevate your gatherings.
+            <br />
+            <br />
+            Our commitment is to provide the best in tech, ensuring your event
+            is a resounding success. Explore our offerings, including short-term
+            laptop rental for events or long-term, ensuring seamless tech
+            solutions tailored to your needs. Let&apos;s make your event a
+            tech-savvy triumph!
           </p>
         </div>
         <div className="w-full max-w-xl h-full shadow-md p-5 bg-primary-red text-white text-center space-y-4">

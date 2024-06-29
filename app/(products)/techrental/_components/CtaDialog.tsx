@@ -3,8 +3,6 @@ import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
@@ -19,6 +17,7 @@ const CtaDialog = () => {
         </Button>
       </DialogTrigger>
       <DialogContent className="text-white my-4 bg-primary-red w-4/5 md:w-full mx-auto">
+        <DialogTitle>Request A Quote</DialogTitle>
         <QuoteForm />
       </DialogContent>
     </Dialog>

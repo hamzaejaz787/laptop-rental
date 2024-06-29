@@ -86,8 +86,9 @@ const Page = async ({ params }: PageProps) => {
         </div>
       )}
       <CTA ctaItems={ctaitems} />
-
-      <Eventslist />
+      <div className="pt-8">
+        <Eventslist />
+      </div>
       <Faqs
         faqItems={data.Faq}
         description="Find answers to frequently asked questions about our event rental services. Our team is here to provide quick assistance and expert guidance. Contact us today for reliable and speedy support."

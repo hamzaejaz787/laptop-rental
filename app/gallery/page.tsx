@@ -5,14 +5,7 @@ import GalleryTabCards from "./_components/GalleryTabCards";
 import { getGalleryItemsById } from "@/data/loaders";
 import { getStrapiURL } from "@/lib/utils";
 import Image from "next/image";
-
-const tabItems = [
-  "Corporate Event",
-  "Rental Event",
-  "Gaming Event",
-  "Business Event",
-  "Training & Seminar",
-];
+import { Metadata } from "next";
 
 interface GalleryItemProps {
   id: number;
@@ -20,15 +13,23 @@ interface GalleryItemProps {
   alternativeText: string;
 }
 
+export const metadata: Metadata = {
+  title: "Laptop Rental For Events | Gallery",
+};
+
 const Gallery = async () => {
   const galleryItems = await getGalleryItemsById(1);
   const baseurl = getStrapiURL();
-
   const images: GalleryItemProps[] = galleryItems.galleryimage.data;
 
   return (
     <>
       <Banner
+        image={{
+          url: "/gallery-banner.jpg",
+          alternativeText:
+            "Explore our Gallery to see how Laptop Rental transforms events with top-tier tech solutions. Serving Australia, New Zealand, and worldwide, we provide unmatched quality and service.",
+        }}
         title="Discover Our Event Transformations"
         text="Explore our Gallery to see how Laptop Rental transforms events with top-tier tech solutions. Serving Australia, New Zealand, and worldwide, we provide unmatched quality and service."
       />

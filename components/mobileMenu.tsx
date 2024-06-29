@@ -86,7 +86,7 @@ export function MobileMenu({
                 onClick={handleClose}
               >
                 <Link
-                  href={"/aboutus"}
+                  href={"/about-us"}
                   className="text-white focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
                 >
                   About Us

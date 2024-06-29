@@ -51,7 +51,7 @@ export function Navbar({
             <ListItem href="/" title="Home" />
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <ListItem href="/aboutus" title="About Us" />
+            <ListItem href="/about-us" title="About Us" />
           </NavigationMenuItem>
 
           <NavigationMenuItem>

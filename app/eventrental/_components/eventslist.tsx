@@ -70,7 +70,7 @@ const Eventslist = () => {
     },
   ];
   return (
-    <div className="p-8 space-y-3 container">
+    <div className="p-8 pt-0 space-y-3 container">
       <h2 className="font-sans font-bold text-3xl lg:text-4xl max-w-3xl mx-auto text-center">
         Laptop Rental: Transforming Events with Innovative IT Solutions
       </h2>
