@@ -50,6 +50,7 @@ const HomepageSlider: React.FC<HomepageSliderProps> = ({ carouselData }) => {
                 className="object-cover"
               />
               <HomeSliderText
+                index={index}
                 header={data.text.header}
                 title={data.text.title}
                 description={data.text.description}

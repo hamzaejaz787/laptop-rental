@@ -46,11 +46,7 @@ export function flattenAttributes(data: any): any {
 }
 
 export function getStrapiURL() {
-  return (
-    process.env.STRAPI_URL ||
-    // "http://localhost:1337" ||
-    "http://20.70.178.42:1337"
-  );
+  return process.env.STRAPI_URL || "https://admin.laptop-rental.com.au";
 }
 
 export function getStrapiMedia(url: string | null) {

@@ -8,10 +8,15 @@ const nextConfig = {
         port: "1337",
         pathname: "/uploads/**/*",
       },
+      // {
+      //   protocol: "http",
+      //   hostname: "20.70.178.42",
+      //   port: "1337",
+      //   pathname: "/uploads/**/*",
+      // },
       {
-        protocol: "http",
-        hostname: "20.70.178.42",
-        port: "1337",
+        protocol: "https",
+        hostname: "admin.laptop-rental.com.au",
         pathname: "/uploads/**/*",
       },
     ],
