@@ -2,10 +2,10 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { MdAddShoppingCart } from "react-icons/md";
-import { Navbar } from "./navbar";
+import { Navbar } from "./Navbar";
 import CtaButton from "./CtaButton";
 import { getEvents, getProductCategory } from "@/data/loaders";
-import { MobileMenu } from "./mobileMenu";
+import { MobileMenu } from "./MobileMenu";
 
 async function Header() {
   const [eventItems, productCategoryItems] = await Promise.all([

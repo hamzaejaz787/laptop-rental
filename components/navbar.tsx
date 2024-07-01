@@ -56,7 +56,7 @@ export function Navbar({
 
           <NavigationMenuItem>
             <NavigationMenuTrigger>
-              <ListItem href="/laptoprental" title="Laptop Rental" />
+              <ListItem href="/laptop-rental" title="Laptop Rental" />
             </NavigationMenuTrigger>
 
             <NavigationMenuContent>
@@ -65,7 +65,7 @@ export function Navbar({
                   <ListItem
                     key={item.id}
                     title={item.Title}
-                    href={`/laptoprental/${item.slug}`}
+                    href={`/laptop-rental/${item.slug}`}
                   />
                 ))}
               </ul>
@@ -73,7 +73,7 @@ export function Navbar({
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuTrigger>
-              <ListItem href="/techrental" title="Technology Rental" />
+              <ListItem href="/technology-rental" title="Technology Rental" />
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-4 p-4 md:w-[200px] md:grid-cols-2 lg:w-[500px]">
@@ -81,7 +81,7 @@ export function Navbar({
                   <ListItem
                     key={item.id}
                     title={item.Title}
-                    href={`/techrental/${item.slug}`}
+                    href={`/technology-rental/${item.slug}`}
                   />
                 ))}
               </ul>

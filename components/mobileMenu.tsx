@@ -23,7 +23,7 @@ import { navigationMenuTriggerStyle } from "./ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import { FaChevronDown } from "react-icons/fa6";
 import { EventItemTypes } from "@/lib/definitions";
-import { ProductCategoryItemTypes } from "./navbar";
+import { ProductCategoryItemTypes } from "./Navbar";
 
 export function MobileMenu({
   eventItems,
@@ -50,7 +50,7 @@ export function MobileMenu({
       </SheetTrigger>
       <SheetContent
         side={"left"}
-        className="pt-10 bg-primary-red border-none flex-col justify-center"
+        className="h-full overflow-y-auto pt-10 bg-primary-red border-none flex-col justify-center"
       >
         <SheetHeader>
           <SheetTitle className="pb-4 flex justify-center">
@@ -94,7 +94,7 @@ export function MobileMenu({
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="flex items-center gap-4 font-medium text-sm font-Exo pl-3 text-white focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in">
+              <NavigationMenuTrigger className="flex items-center gap-4 font-medium text-sm font-Exo text-white focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in">
                 <Link
                   href={"/eventrental"}
                   onClick={handleClose}
@@ -105,7 +105,7 @@ export function MobileMenu({
                 <FaChevronDown />
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid pl-5 font-medium font-Exo text-sm space-y-4 py-2">
+                <ul className="grid pl-5 font-medium font-Exo space-y-4 py-2">
                   {eventItems.data.map((item) => (
                     <Link
                       key={item.id}
@@ -120,9 +120,9 @@ export function MobileMenu({
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="flex items-center gap-4 font-medium text-sm font-Exo pl-3 text-white focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in">
+              <NavigationMenuTrigger className="flex items-center gap-4 font-medium text-sm font-Exo text-white focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in">
                 <Link
-                  href={"/laptoprental"}
+                  href={"/laptop-rental"}
                   onClick={handleClose}
                   className="text-white focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
                 >
@@ -131,11 +131,11 @@ export function MobileMenu({
                 <FaChevronDown />
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid pl-5 font-medium font-Exo text-sm space-y-4 py-2">
+                <ul className="grid pl-5 font-medium font-Exo space-y-4 py-2">
                   {laptopItems?.map((item) => (
                     <Link
                       key={item.id}
-                      href={`/techrental/${item.slug}`}
+                      href={`/laptop-rental/${item.slug}`}
                       className="text-white text-xs focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
                       onClick={handleClose}
                     >
@@ -146,9 +146,9 @@ export function MobileMenu({
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="flex items-center gap-4 font-medium text-sm font-Exo pl-3 text-white focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in">
+              <NavigationMenuTrigger className="flex items-center gap-4 font-medium text-sm font-Exo text-white focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in">
                 <Link
-                  href={"/techrental"}
+                  href={"/technology-rental"}
                   onClick={handleClose}
                   className="text-white focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
                 >
@@ -157,11 +157,11 @@ export function MobileMenu({
                 <FaChevronDown />
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid pl-5 font-medium font-Exo text-sm space-y-4 py-2">
+                <ul className="grid pl-5 font-medium font-Exo space-y-4 py-2">
                   {otherItems?.map((item) => (
                     <Link
                       key={item.id}
-                      href={`/techrental/${item.slug}`}
+                      href={`/technology-rental/${item.slug}`}
                       className="text-white text-xs focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
                       onClick={handleClose}
                     >

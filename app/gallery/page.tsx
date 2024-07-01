@@ -27,8 +27,7 @@ const Gallery = async () => {
       <Banner
         image={{
           url: "/gallery-banner.jpg",
-          alternativeText:
-            "Explore our Gallery to see how Laptop Rental transforms events with top-tier tech solutions. Serving Australia, New Zealand, and worldwide, we provide unmatched quality and service.",
+          alternativeText: "Discover Our Event Transformations",
         }}
         title="Discover Our Event Transformations"
         text="Explore our Gallery to see how Laptop Rental transforms events with top-tier tech solutions. Serving Australia, New Zealand, and worldwide, we provide unmatched quality and service."

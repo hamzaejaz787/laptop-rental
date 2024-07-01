@@ -102,14 +102,15 @@ export default async function LaptopRental() {
       <HomepageSlider carouselData={carouselData} />
 
       <section className="container space-y-4 p-8 text-center">
-        <h2 className="text-3xl lg:text-4xl max-w-3xl mx-auto text-center font-Barlow font-bold">
-          Transform Your Event with Top Tech Gear: Laptops, iPads, & More -
-          Available in Australia, New Zealand & Worldwide{" "}
+        <h2 className="text-3xl lg:text-4xl max-w-4xl mx-auto text-center font-Barlow font-bold">
+          Transform Your Event with MacBook, HP, Dell, & More - Available in
+          Australia, New Zealand & Worldwide{" "}
         </h2>
-        <p className="text-gray-500 text-center max-w-2xl mx-auto text-sm xl:text-base">
-          Powering successful conferences, exhibitions, festivals & more with
+        <p className="text-gray-500 text-center max-w-3xl mx-auto text-sm xl:text-base">
+          Powering successful conferences, exhibitions, festivals, and more with
           Business Laptop Rental - from the Melbourne Open to your next big
-          event.
+          event. Choose Laptop Rental for seamless and efficient technology
+          solutions.
         </p>
 
         <CtaButton href="/contactus" text="Contact us" />

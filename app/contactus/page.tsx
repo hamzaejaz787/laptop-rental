@@ -16,8 +16,7 @@ const Page = () => {
       <Banner
         image={{
           url: "/contact-us-banner.jpg",
-          alternativeText:
-            "Feel free to contact Laptop Rental in Australia. Whether you have inquiries about our rental offerings, need assistance choosing the right IT equipment for your event, or require technical support during your rental period, our dedicated team is ready to assist you!",
+          alternativeText: "Contact us",
         }}
         title="Contact us"
         text="Feel free to contact Laptop Rental in Australia. Whether you have inquiries about our rental offerings, need assistance choosing the right IT equipment for your event, or require technical support during your rental period, our dedicated team is ready to assist you!"

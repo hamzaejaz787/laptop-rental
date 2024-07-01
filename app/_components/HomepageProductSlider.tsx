@@ -14,33 +14,33 @@ import Autoplay from "embla-carousel-autoplay";
 const images = [
   {
     imageurl: "/header-product-dell.png",
-    href: "/laptoprental/dell-laptop-rental",
+    href: "/laptop-rental/dell-laptop-rental",
     title: "Dell Laptops",
   },
   {
     imageurl: "/header-product-HP.png",
-    href: "/laptoprental/hp-laptop-rental",
+    href: "/laptop-rental/hp-laptop-rental",
     title: "HP Laptops",
   },
   {
-    imageurl: "/header-product-ipad.png",
-    href: "/techrental/ipad-rental",
-    title: "Ipads",
+    imageurl: "/header-product-gaming-laptop.png",
+    href: "/laptop-rental/gaming-laptop-rental",
+    title: "Gaming Laptops",
   },
   {
-    imageurl: "/header-product-iphone.png",
-    href: "/techrental/iphone-rental",
-    title: "Iphones",
+    imageurl: "/header-product-lenovo-laptop.png",
+    href: "/laptop-rental/lenovo-laptop-rental",
+    title: "Lenovo Laptops",
   },
   {
     imageurl: "/header-product-macbook.png",
-    href: "/laptoprental/macbook-pro-rental",
+    href: "/laptop-rental/macbook-pro-rental",
     title: "Macbooks",
   },
   {
-    imageurl: "/header-product-phone.png",
-    href: "/techrental/mobile-phone-rental",
-    title: "Mobile Phones",
+    imageurl: "/header-product-microsoft-surface-pro.png",
+    href: "/laptoprental/microsoft-surface-pro-rental",
+    title: "Microsoft Laptops",
   },
 ];
 
@@ -64,8 +64,15 @@ const HomepageProductSlider = () => {
               key={index}
               className="basis-1/2 sm:basis-1/3 lg:basis-1/6 pl-0 md:pl-4 flex flex-col items-center gap-2 justify-center"
             >
-              <Image src={image.imageurl} alt="" width={150} height={150} />
-              <h6 className="md:text-white font-bold">{image.title}</h6>
+              <Image
+                src={image.imageurl}
+                alt={image.title}
+                width={150}
+                height={150}
+              />
+              <h6 className="md:text-white font-bold text-center">
+                {image.title}
+              </h6>
               <Link
                 href={`${image.href}`}
                 className="hover:text-white text-primary-red text-2xl transition-all"

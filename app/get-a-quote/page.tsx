@@ -11,7 +11,7 @@ export default function GetAQuote() {
         text=""
         image={{
           url: "/get-a-quote-banner.jpg",
-          alternativeText: "",
+          alternativeText: "Get A Quote",
         }}
       />
 

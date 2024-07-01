@@ -50,6 +50,7 @@ export async function getEventBySlug(slug: string) {
 
   return await fetchData(url.href);
 }
+
 export const getProduct = async (
   queryString?: string,
   currentPage = 1,
@@ -78,14 +79,14 @@ export const getProduct = async (
   return await fetchData(url.href);
 };
 
-export const getAllProducts = async (queryString?: string) => {
+export const getAllProducts = async () => {
   let allProducts = [];
   let currentPage = 1;
   let pageSize = 25;
   let pageCount = 1;
 
   // Fetch the first page to get the pageSize and pageCount
-  const firstPageData = await getProduct(queryString, currentPage);
+  const firstPageData = await getProduct(undefined, currentPage, pageSize);
   if (firstPageData.meta) {
     pageSize = firstPageData.meta.pagination.pageSize;
     pageCount = firstPageData.meta.pagination.pageCount;
@@ -95,7 +96,7 @@ export const getAllProducts = async (queryString?: string) => {
   // Fetch remaining pages
   while (currentPage < pageCount) {
     currentPage += 1;
-    const nextPageData = await getProduct(queryString, currentPage, pageSize);
+    const nextPageData = await getProduct(undefined, currentPage, pageSize);
     allProducts = [...allProducts, ...nextPageData.data];
   }
 

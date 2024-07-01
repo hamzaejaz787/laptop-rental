@@ -2,11 +2,11 @@ import React from "react";
 import Banner from "@/components/Banner";
 import ServicesTimeline from "@/components/ServicesTimeline";
 import { Metadata } from "next";
-import { getAllProducts } from "@/data/loaders";
+import { getAllProducts, getProduct } from "@/data/loaders";
 import PaginationComponent from "@/components/PaginationComponent";
-import SidebarWithTab from "../techrental/_components/SidebarWithTab";
-import TabCards from "../techrental/_components/TabCards";
-import CtaWithModal from "../techrental/_components/CtaWithModal";
+import SidebarWithTab from "../technology-rental/_components/SidebarWithTab";
+import TabCards from "../technology-rental/_components/TabCards";
+import CtaWithModal from "../technology-rental/_components/CtaWithModal";
 
 export const metadata: Metadata = {
   title: "Laptop Rental For Events in Australia",
@@ -29,7 +29,15 @@ const LaptopRental = async ({
   };
 }) => {
   const query = searchParams?.search?.toString();
-  const product = await getAllProducts(query);
+  const currentPage = searchParams?.page
+    ? parseInt(searchParams.page as string)
+    : 1;
+  const pageSize = 24;
+
+  const [product, allProducts] = await Promise.all([
+    getProduct(query, currentPage, pageSize),
+    getAllProducts(),
+  ]);
 
   return (
     <>
@@ -40,16 +48,15 @@ const LaptopRental = async ({
         btn="Get A Quote"
         image={{
           url: "/laptoprental-banner.jpg",
-          alternativeText:
-            "Partnering for Success: Comprehensive Laptop Rental For Events & Dedicated Support for Businesses in Australia and New Zealand. Book Now!",
+          alternativeText: "Laptop Rental",
         }}
       />
 
       <div className="flex flex-col lg:flex-row gap-8 justify-between container p-8">
-        <SidebarWithTab tabItems={product.data} />
-        <TabCards tabCardsItems={product.data} />
+        <SidebarWithTab tabItems={allProducts.data} />
+        <TabCards tabCardsItems={product.data} allProducts={allProducts.data} />
       </div>
-      {/* <PaginationComponent pageCount={product.meta.pagination.pageCount} /> */}
+      <PaginationComponent pageCount={product.meta.pagination.pageCount} />
 
       <CtaWithModal
         ctaItems={{

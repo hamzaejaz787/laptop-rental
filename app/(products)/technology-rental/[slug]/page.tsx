@@ -1,5 +1,9 @@
 import React from "react";
 import { Metadata } from "next";
+
+import SidebarWithTab from "../_components/SidebarWithTab";
+import BannerWithImageUrl from "@/components/DynamicBanner";
+import TabCards from "../_components/TabCards";
 import { CtaProps } from "@/components/CTA";
 import {
   getAllProducts,
@@ -9,10 +13,8 @@ import {
 import { PageProps } from "@/lib/definitions";
 import { notFound } from "next/navigation";
 import ServicesTimeline from "@/components/ServicesTimeline";
-import BannerWithImageUrl from "@/components/DynamicBanner";
-import SidebarWithTab from "../../techrental/_components/SidebarWithTab";
-import TabCards from "../../techrental/_components/TabCards";
-import CtaWithModal from "../../techrental/_components/CtaWithModal";
+import CtaWithModal from "../_components/CtaWithModal";
+import PaginationComponent from "@/components/PaginationComponent";
 
 export async function generateMetadata({
   params,
@@ -40,9 +42,15 @@ async function TechRental({
   searchParams?: { [key: string]: string | string[] | undefined };
 }) {
   const slug = params.slug;
+  const query = searchParams?.search?.toString();
+  const currentPage = searchParams?.page
+    ? parseInt(searchParams.page as string)
+    : 1;
+  const pageSize = 24;
 
-  const [product, productCategory] = await Promise.all([
-    getAllProducts(searchParams?.search?.toString()),
+  const [product, allProducts, productCategory] = await Promise.all([
+    getProduct(query, currentPage, pageSize),
+    getAllProducts(),
     getProductCategoryBySlug(slug),
   ]);
 
@@ -61,6 +69,9 @@ async function TechRental({
   const getProductCategories = productCategory.products?.data[0];
   const { ProductCategory, ProductSubCategory } = getProductCategories;
 
+  if (productCategory.error?.status === 404) {
+    notFound();
+  }
   return (
     <>
       <BannerWithImageUrl
@@ -82,13 +93,13 @@ async function TechRental({
 
       <div className="flex flex-col lg:flex-row gap-8 justify-between container p-8">
         <SidebarWithTab
-          tabItems={product.data}
+          tabItems={allProducts.data}
           ProductCategory={ProductCategory}
           ProductSubCategory={ProductSubCategory}
         />
-        <TabCards tabCardsItems={product.data} />
+        <TabCards tabCardsItems={product.data} allProducts={allProducts.data} />
       </div>
-      {/* <PaginationComponent pageCount={product.meta.pagination.pageCount} /> */}
+      <PaginationComponent pageCount={product.meta.pagination.pageCount} />
 
       <CtaWithModal ctaItems={ctaItems} />
       <ServicesTimeline description={productCategory?.TimelineText} />

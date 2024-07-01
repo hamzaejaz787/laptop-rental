@@ -27,7 +27,7 @@ const PaginationArrow: React.FC<PaginationArrowProps> = ({
   return (
     <Button
       onClick={() => router.push(href, { scroll: false })}
-      className={`bg-primary-red hover:bg-red-500 focus:bg-red-500 cursor-pointer duration-300 transition-all text-white text-lg ${disabledClassName}`}
+      className={`bg-primary-red hover:bg-red-500 focus:bg-red-500 cursor-pointer duration-300 transition-all text-white text-lg p-4 h-10 ${disabledClassName}`}
       aria-disabled={isDisabled}
       disabled={isDisabled}
     >
@@ -41,10 +41,13 @@ const PaginationComponent = ({ pageCount }: Readonly<PaginationProps>) => {
   const searchParams = useSearchParams();
   const currentPage = Number(searchParams.get("page")) || 1;
 
-  const createPageUrl = (pagenNumber: number | string) => {
+  const createPageUrl = (pageNumber: number | string) => {
     const params = new URLSearchParams(searchParams);
-    params.set("page", pagenNumber.toString());
-
+    if (pageNumber === 1) {
+      params.delete("page");
+    } else {
+      params.set("page", pageNumber.toString());
+    }
     return `${pathname}?${params.toString()}`;
   };
 

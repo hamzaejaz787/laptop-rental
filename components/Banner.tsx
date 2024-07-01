@@ -25,7 +25,7 @@ const Banner = ({ btn, title, text, link, image }: BannerProps) => {
     <section className="relative flex justify-center items-center">
       <Image
         src={image?.url || banner_bg}
-        alt={image?.alternativeText || ""}
+        alt={image?.alternativeText || title}
         width={image?.width || 1000}
         height={image?.height || 550}
         className="w-full h-screen md:max-h-[550px] relative object-cover"

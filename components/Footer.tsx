@@ -5,7 +5,7 @@ import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 import { FaLocationDot, FaPhone } from "react-icons/fa6";
 import { getProductCategory } from "@/data/loaders";
-import { ProductCategoryItemTypes } from "./navbar";
+import { ProductCategoryItemTypes } from "./Navbar";
 import CtaButton from "./CtaButton";
 
 export interface FooterLinkProps {
@@ -91,7 +91,9 @@ async function Footer() {
                   key={item.id}
                   className="text-white hover:text-red-400 transition-all duration-200 ease-in cursor-pointer"
                 >
-                  <Link href={`/techrental/${item.slug}`}>{item.Title}</Link>
+                  <Link href={`/technology-rental/${item.slug}`}>
+                    {item.Title}
+                  </Link>
                 </li>
               ))}
             </ul>
