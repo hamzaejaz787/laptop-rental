@@ -11,7 +11,7 @@ const Cta = () => {
         </h2>
 
         <CtaButton
-          href="/techrental"
+          href="/technology-rental"
           text="Explore Products"
           className="py-5 md:mr-0"
         />
