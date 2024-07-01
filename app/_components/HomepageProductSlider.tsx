@@ -18,7 +18,7 @@ const images = [
     title: "Dell Laptops",
   },
   {
-    imageurl: "/header-product-HP.png",
+    imageurl: "/header-product-hp.png",
     href: "/laptop-rental/hp-laptop-rental",
     title: "HP Laptops",
   },
@@ -39,7 +39,7 @@ const images = [
   },
   {
     imageurl: "/header-product-microsoft-surface-pro.png",
-    href: "/laptoprental/microsoft-surface-pro-rental",
+    href: "/laptop-rental/microsoft-surface-pro-rental",
     title: "Microsoft Laptops",
   },
 ];

@@ -45,7 +45,7 @@ const HomepageSlider: React.FC<HomepageSliderProps> = ({ carouselData }) => {
             >
               <Image
                 src={data.image}
-                alt=""
+                alt={data.text.title}
                 fill={true}
                 className="object-cover"
               />
