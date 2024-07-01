@@ -1,7 +1,4 @@
-import MasonryGrid from "@/components/masonry";
 import Banner from "@/components/Banner";
-import TabSidebar from "./_components/TabSidebar";
-import GalleryTabCards from "./_components/GalleryTabCards";
 import { getGalleryItemsById } from "@/data/loaders";
 import { getStrapiURL } from "@/lib/utils";
 import Image from "next/image";
