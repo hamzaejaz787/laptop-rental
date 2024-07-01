@@ -26,7 +26,7 @@ const PaginationArrow: React.FC<PaginationArrowProps> = ({
 
   return (
     <Button
-      onClick={() => router.push(href, { scroll: false })}
+      onClick={() => router.push(href)}
       className={`bg-primary-red hover:bg-red-500 focus:bg-red-500 cursor-pointer duration-300 transition-all text-white text-lg p-4 h-10 ${disabledClassName}`}
       aria-disabled={isDisabled}
       disabled={isDisabled}
@@ -48,6 +48,7 @@ const PaginationComponent = ({ pageCount }: Readonly<PaginationProps>) => {
     } else {
       params.set("page", pageNumber.toString());
     }
+
     return `${pathname}?${params.toString()}`;
   };
 
