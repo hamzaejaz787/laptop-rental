@@ -19,8 +19,14 @@ export const metadata: Metadata = {
     "business laptop rental",
     "hire laptop for Corporates events",
   ],
+  alternates: {
+    canonical: "https://laptop-rental.com.au/",
+  },
   icons: {
     icon: "/favicon.png",
+  },
+  verification: {
+    google: "vNWmPR5hwgZ-TRlxaOGCWxkZMtHZdO20cnEpZhNVgZM",
   },
 };
 

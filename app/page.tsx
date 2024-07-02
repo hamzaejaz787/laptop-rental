@@ -113,7 +113,7 @@ export default async function LaptopRental() {
           solutions.
         </p>
 
-        <CtaButton href="/contactus" text="Contact us" />
+        <CtaButton href="/contact-us" text="Contact us" />
         <CurvedLayoutImages />
       </section>
 

@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   title: "Contact US page of Laptop Rental AU",
   description:
     "Transform your events with cutting-edge technology. Laptop Rental offers top-tier solutions for seamless engagement. Contact us today!",
+  keywords: "",
+  alternates: {
+    canonical: "https://laptop-rental.com.au/contact-us",
+  },
 };
 
 const Page = () => {

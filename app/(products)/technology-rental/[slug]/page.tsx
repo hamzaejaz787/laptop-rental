@@ -25,6 +25,7 @@ export async function generateMetadata({
     title: data.MetaTitle,
     description: data.MetaDescription,
     keywords: data.MetaKeywords,
+    alternates: { canonical: data?.MetaCanonical },
   };
 }
 

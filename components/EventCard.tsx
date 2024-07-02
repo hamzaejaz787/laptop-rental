@@ -30,7 +30,7 @@ const EventCard = ({ data }: { data: EventCardProps }) => {
         </CardDescription>
 
         <CtaButton
-          href={`/eventrental${data.href}`}
+          href={`/event-rental${data.href}`}
           text={data.ctatext}
           className="rounded-sm w-full"
         />

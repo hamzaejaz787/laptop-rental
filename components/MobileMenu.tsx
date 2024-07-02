@@ -96,7 +96,7 @@ export function MobileMenu({
             <NavigationMenuItem>
               <NavigationMenuTrigger className="flex items-center gap-4 font-medium text-sm font-Exo text-white focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in">
                 <Link
-                  href={"/eventrental"}
+                  href={"/event-rental"}
                   onClick={handleClose}
                   className="text-white focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
                 >
@@ -109,7 +109,7 @@ export function MobileMenu({
                   {eventItems.data.map((item) => (
                     <Link
                       key={item.id}
-                      href={`/eventrental/${item.slug}`}
+                      href={`/event-rental/${item.slug}`}
                       className="text-white text-xs focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
                       onClick={handleClose}
                     >
@@ -192,7 +192,7 @@ export function MobileMenu({
                 onClick={handleClose}
               >
                 <Link
-                  href={"/contactus"}
+                  href={"/contact-us"}
                   className="text-white focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
                 >
                   Contact Us

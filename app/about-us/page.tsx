@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   title: "About Us page of Laptop Rental AU",
   description:
     "The business events industry uplifts and unites people. We're fortunate to be part of it. For all your IT and event technology needs, contact us.",
+  keywords: "",
+  alternates: {
+    canonical: "https://laptop-rental.com.au/about-us",
+  },
 };
 
 const Aboutus = () => {
@@ -19,7 +23,7 @@ const Aboutus = () => {
           alternativeText: "About Us",
         }}
         btn="Contact us"
-        link="/contactus"
+        link="/contact-us"
         title="About Us"
         text="Laptop Rental is a global leader in providing cutting-edge event technology services, addressing the persistent challenges businesses face in organising successful events."
       />

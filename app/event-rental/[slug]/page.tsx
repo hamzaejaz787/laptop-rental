@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import ImageInfo from "@/components/ImageInfo";
 import Eventslist from "../_components/eventslist";
 import ProductCard from "@/components/ProductCard";
-import { getEventBySlug, getProduct } from "@/data/loaders";
+import { getEventBySlug } from "@/data/loaders";
 import BannerWithImageUrl from "@/components/DynamicBanner";
 import { BannerImageProps, PageProps } from "@/lib/definitions";
 import CardsSlider from "@/components/CardsSlider";
@@ -32,12 +32,7 @@ export async function generateMetadata({
 
 const Page = async ({ params }: PageProps) => {
   const slug = params.slug;
-
-  const [data, products] = await Promise.all([
-    getEventBySlug(slug),
-    getProduct(),
-  ]);
-
+  const data = await getEventBySlug(slug);
   const ctaitems = {
     title: data.CtaTitle,
     text: data.CtaDescription,

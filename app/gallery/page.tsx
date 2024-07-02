@@ -12,6 +12,10 @@ interface GalleryItemProps {
 
 export const metadata: Metadata = {
   title: "Laptop Rental For Events | Gallery",
+  keywords: "",
+  alternates: {
+    canonical: "https://laptop-rental.com.au/gallery",
+  },
 };
 
 const Gallery = async () => {

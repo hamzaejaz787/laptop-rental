@@ -89,14 +89,14 @@ export function Navbar({
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuTrigger>
-              <ListItem href="/eventrental" title="Events" />
+              <ListItem href="/event-rental" title="Events" />
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-4 p-4 md:w-[200px] md:grid-cols-2 lg:w-[500px]">
                 {eventItems?.data.map((item) => (
                   <ListItem
                     key={item.id}
-                    href={`/eventrental/${item.slug}`}
+                    href={`/event-rental/${item.slug}`}
                     title={item.NavMenuName}
                   />
                 ))}
@@ -109,7 +109,7 @@ export function Navbar({
 
           <NavigationMenuItem>
             {" "}
-            <ListItem href="/contactus" title="Contact Us" />
+            <ListItem href="/contact-us" title="Contact Us" />
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>

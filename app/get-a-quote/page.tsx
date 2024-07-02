@@ -1,7 +1,17 @@
 import Banner from "@/components/Banner";
 import QuoteForm from "@/components/QuoteForm";
+import { Metadata } from "next";
 import Image from "next/image";
 import { IoStarSharp } from "react-icons/io5";
+
+export const metadata: Metadata = {
+  title: "Laptop Rental For Events | Get A Quote",
+  description: "",
+  keywords: "",
+  alternates: {
+    canonical: "https://laptop-rental.com.au/get-a-quote",
+  },
+};
 
 export default function GetAQuote() {
   return (

@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     "Event IT Support Services",
     "IT Rental Solutions for Conventions",
   ],
+  alternates: {
+    canonical: "https://laptop-rental.com.au/event-rental",
+  },
 };
 
 const EventPage = async () => {

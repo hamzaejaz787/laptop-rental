@@ -19,6 +19,9 @@ export const metadata: Metadata = {
     "Rent laptops (Rent laptops for corporate events)",
     "Laptop Hire for business",
   ],
+  alternates: {
+    canonical: "https://laptop-rental.com.au/laptop-rental",
+  },
 };
 
 const LaptopRental = async ({
