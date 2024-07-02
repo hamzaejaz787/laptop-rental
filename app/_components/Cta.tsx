@@ -21,7 +21,7 @@ function Cta() {
 
           <CtaButton
             text="Call"
-            href="tel:+2199005700"
+            href="tel:+61-383730303"
             className="bg-white text-primary-red hover:text-white focus-within:text-white"
           />
         </div>
