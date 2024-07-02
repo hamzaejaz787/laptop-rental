@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import React from "react";
 
@@ -19,13 +20,16 @@ const CurvedLayoutImages = () => {
           alt=""
           width={150}
           height={500}
-          className={` ${
-            index === 1 || index === 4
-              ? "lg:mt-14"
-              : index === 2 || index === 3
-              ? "lg:mt-32"
-              : ""
-          }`}
+          className={cn(
+            `${
+              index === 1 || index === 4
+                ? "lg:mt-14"
+                : index === 2 || index === 3
+                ? "lg:mt-32"
+                : ""
+            }`,
+            `${index > 0 ? "hidden sm:block" : ""}`
+          )}
         />
       ))}
     </div>
