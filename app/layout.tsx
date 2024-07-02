@@ -19,6 +19,9 @@ export const metadata: Metadata = {
     "business laptop rental",
     "hire laptop for Corporates events",
   ],
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
@@ -28,9 +31,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-      </head>
       <body
         className={cn(
           "font-Poppins",
