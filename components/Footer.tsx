@@ -22,13 +22,6 @@ async function Footer() {
     { title: "Privacy Policy", href: "/privacy" },
   ];
 
-  const resourceListItems: FooterLinkProps[] = [
-    { title: "Free eBooks", href: "/" },
-    { title: "Development Tutorial", href: "/" },
-    { title: "How to - Blog", href: "/" },
-    { title: "Youtube Playlist", href: "/" },
-  ];
-
   const productCategoryItems: ProductCategoryItemTypes =
     await getProductCategory();
   const rentalItems = productCategoryItems?.data.filter((item) =>
@@ -82,7 +75,7 @@ async function Footer() {
             </ul>
           </div>
 
-          <div className="space-y-8">
+          {/* <div className="space-y-8">
             <h2 className="text-white font-bold text-lg">Our Rentals</h2>
 
             <ul className="space-y-4">
@@ -97,10 +90,10 @@ async function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
-          {/* <div className="space-y-8">
-            <h2 className="text-white font-bold text-lg">Laptops</h2>
+          <div className="space-y-8">
+            <h2 className="text-white font-bold text-lg">Our Laptops</h2>
 
             <ul className="space-y-4">
               {laptopItems?.map((item) => (
@@ -112,7 +105,7 @@ async function Footer() {
                 </li>
               ))}
             </ul>
-          </div> */}
+          </div>
 
           <div className="space-y-8">
             <h2 className="text-white font-bold text-lg">Contact Us</h2>
