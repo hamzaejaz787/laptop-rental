@@ -14,15 +14,22 @@ const TabCards = ({
   const tabParams = useSearchParams();
   const category = tabParams.get("category");
   const subcategory = tabParams.get("subcategory");
+  const search = tabParams.get("search");
 
+  //Search and filter
   const filteredProducts = allProducts.filter((productItem) => {
-    if (category || (category && subcategory))
-      return (
-        (!category ||
-          productItem.ProductCategory?.toLowerCase() === category) &&
-        (!subcategory ||
-          productItem.ProductSubCategory?.toLowerCase() === subcategory)
-      );
+    const categoryMatch =
+      !category || productItem.ProductCategory?.toLowerCase() === category;
+    const subcategoryMatch =
+      !subcategory ||
+      productItem.ProductSubCategory?.toLowerCase() === subcategory;
+
+    const searchMatch =
+      !search ||
+      productItem.Title?.toLowerCase().includes(search.toLowerCase()) ||
+      productItem.Description?.toLowerCase().includes(search.toLowerCase());
+
+    return categoryMatch && subcategoryMatch && searchMatch;
   });
 
   const productsToRender =

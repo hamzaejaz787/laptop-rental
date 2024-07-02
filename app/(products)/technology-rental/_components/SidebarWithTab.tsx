@@ -50,14 +50,6 @@ const SidebarWithTab = ({
   const pathname = usePathname();
   const data = transformProductData(tabItems);
 
-  // if (ProductCategory && ProductSubCategory && typeof window !== undefined) {
-  //   const url = new URL(window.location.href);
-
-  //   url.searchParams.set("category", ProductCategory.toLowerCase());
-  //   url.searchParams.set("subcategory", ProductSubCategory.toLowerCase());
-  //   router.push(url, { scroll: false });
-  // }
-
   React.useEffect(() => {
     if (ProductCategory && ProductSubCategory) {
       const url = new URL(window.location.href);

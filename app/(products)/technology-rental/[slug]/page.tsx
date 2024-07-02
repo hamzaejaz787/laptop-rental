@@ -48,7 +48,6 @@ async function TechRental({
     ? parseInt(searchParams.page as string)
     : 1;
   const pageSize = 24;
-
   const [product, allProducts, productCategory] = await Promise.all([
     getProduct(query, currentPage, pageSize),
     getAllProducts(),
