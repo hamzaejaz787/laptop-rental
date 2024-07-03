@@ -42,7 +42,7 @@ export const sendQuoteFormData = action
 
       const mailoptions: Mail.Options = {
         from: process.env.NODEMAILER_USERNAME,
-        to: process.env.NODEMAILER_USERNAME,
+        to: process.env.NODEMAILER_EMAILTO,
         subject: `New Quote from ${name}`,
         text: `${name} sent the following data:
         Name: ${name},
@@ -98,7 +98,7 @@ export const handleContactForm = action
 
       const mailoptions: Mail.Options = {
         from: process.env.NODEMAILER_USERNAME,
-        to: process.env.NODEMAILER_USERNAME,
+        to: process.env.NODEMAILER_EMAILTO,
         subject: `Message from ${name} ${email}`,
         text: `${name} submitted the following data on Laptop Rental contact form:
     Name: ${name}

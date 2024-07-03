@@ -18,8 +18,8 @@ async function Footer() {
     { title: "About", href: "/about-us" },
     { title: "Events", href: "/event-rental" },
     { title: "Get A Quote", href: "/get-a-quote" },
-    { title: "Terms & Conditions", href: "/terms" },
-    { title: "Privacy Policy", href: "/privacy" },
+    { title: "Terms & Conditions", href: "/terms-and-conditions" },
+    { title: "Privacy Policy", href: "/privacy-and-policy" },
   ];
 
   const productCategoryItems: ProductCategoryItemTypes =
@@ -114,22 +114,22 @@ async function Footer() {
               <li className="flex items-center gap-4 text-white">
                 <FaPhone size={20} />
                 <Link
-                  href="tel:+61(0)383730303"
+                  href="tel:+61390711839"
                   className="text-white hover:text-red-400 transition-all duration-200 ease-in"
                 >
-                  +61-383-730303
+                  +61-390-711-839
                 </Link>
               </li>
               <li className="flex items-center gap-4 text-white">
                 <MdMailOutline size={30} />
                 <Link
-                  href="mailto:hire@laptoprental.com"
+                  href="mailto:hire@laptop-rental.com.au"
                   className="text-white hover:text-red-400 transition-all duration-200 ease-in"
                 >
-                  hire@laptoprental.com
+                  Hire@laptop-rental.com.au
                 </Link>
               </li>
-              <li className="flex items-start gap-4 text-white">
+              {/* <li className="flex items-start gap-4 text-white">
                 <FaLocationDot size={30} />
                 <Link
                   href="https://maps.app.goo.gl/TyGxcsfetCLd6SNRA"
@@ -139,7 +139,7 @@ async function Footer() {
                   19B Hinkler Road Mordialloc, Mordialloc Victoria 3195,
                   Australia{" "}
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
@@ -150,21 +150,6 @@ async function Footer() {
         <p className="text-white text-center">
           Copyright © 2024 Laptop Rental. All Rights Reserved.
         </p>
-
-        {/* <div className="space-x-4 flex items-center justify-between md:justify-start w-full md:w-auto">
-            <ul className="flex items-start md:items-center flex-col md:flex-row gap-4 md:gap-0 md:divide-x-2 divide-white">
-              <li className="text-white md:px-4 hover:text-red-400 transition-all duration-200 ease-in cursor-pointer">
-                <Link href={"/terms"}>Terms & Conditions</Link>
-              </li>
-              <li className="text-white md:px-4 hover:text-red-400 transition-all duration-200 ease-in cursor-pointer">
-                <Link href={"/privacy"}>Privacy Policy</Link>
-              </li>
-              <li className="text-white md:px-4 hover:text-red-400 transition-all duration-200 ease-in cursor-pointer">
-                <Link href={"/disclaimer"}>Disclaimer</Link>
-              </li>
-            </ul>
-          </div> */}
-        {/* </div> */}
       </div>
     </footer>
   );

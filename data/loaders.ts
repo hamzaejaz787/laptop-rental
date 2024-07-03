@@ -8,6 +8,7 @@ async function fetchData(url: string) {
     const response = await fetch(url, {
       next: { revalidate: 120 },
     });
+    if (!response.ok) throw new Error(`Http error! status ${response.status}`);
     const data = await response.json();
     return flattenAttributes(data);
   } catch (error) {
@@ -54,53 +55,78 @@ export async function getEventBySlug(slug: string) {
 export const getProduct = async (
   queryString?: string,
   currentPage = 1,
-  pageSize?: number
+  pageSize?: number,
+  category?: string,
+  subcategory?: string
 ) => {
-  const url = new URL("/api/products", baseURL);
-  url.search = qs.stringify({
-    populate: {
-      Specs: {
-        populate: true,
-      },
-      ProductImage: {
-        fields: ["name", "url", "alternativeText"],
-      },
-    },
-    sort: ["createdAt:desc"],
-    filters: {
-      $or: [{ Title: { $containsi: queryString } }],
-    },
-    pagination: {
-      pageSize: pageSize || 25, // Default pageSize if not provided
-      page: currentPage,
-    },
-  });
+  const baseUrl = new URL("/api/products", baseURL);
 
-  return await fetchData(url.href);
+  const createSearchParams = (includeCategories: boolean) => {
+    const filters: any = {};
+
+    if (includeCategories) {
+      if (category) filters.ProductCategory = { $containsi: category };
+      if (subcategory) filters.ProductSubCategory = { $containsi: subcategory };
+    }
+
+    if (queryString) {
+      filters.$or = [
+        { Title: { $containsi: queryString } },
+        { Description: { $containsi: queryString } },
+        { ProductCategory: { $containsi: queryString } },
+        { ProductSubCategory: { $containsi: queryString } },
+      ];
+    }
+
+    return qs.stringify({
+      populate: {
+        Specs: { populate: true },
+        ProductImage: { fields: ["name", "url", "alternativeText"] },
+      },
+      sort: ["id:ASC"],
+      filters: filters,
+      pagination: { pageSize: pageSize, page: currentPage },
+    });
+  };
+
+  const fetchProducts = async (includeCategories: boolean) => {
+    const url = new URL(baseUrl);
+    url.search = createSearchParams(includeCategories);
+    return await fetchData(url.href);
+  };
+
+  // First attempt: search with category and subcategory filters
+  let result = await fetchProducts(true);
+
+  // If no results and search query exists, try searching without category/subcategory filters
+  if (result.data.length === 0 && queryString) {
+    result = await fetchProducts(false);
+  }
+
+  return result;
 };
 
-export const getAllProducts = async () => {
-  let allProducts = [];
+export const getAllProducts = async (): Promise<{
+  data: any;
+  meta: { pagination: { total: number } };
+}> => {
+  const pageSize = 100;
+  let allProducts: any = [];
   let currentPage = 1;
-  let pageSize = 25;
-  let pageCount = 1;
+  let hasMorePages = true;
 
-  // Fetch the first page to get the pageSize and pageCount
-  const firstPageData = await getProduct(undefined, currentPage, pageSize);
-  if (firstPageData.meta) {
-    pageSize = firstPageData.meta.pagination.pageSize;
-    pageCount = firstPageData.meta.pagination.pageCount;
-  }
-  allProducts = [...firstPageData.data];
+  while (hasMorePages) {
+    const pageData = await getProduct(undefined, currentPage, pageSize);
+    allProducts = [...allProducts, ...pageData.data];
 
-  // Fetch remaining pages
-  while (currentPage < pageCount) {
-    currentPage += 1;
-    const nextPageData = await getProduct(undefined, currentPage, pageSize);
-    allProducts = [...allProducts, ...nextPageData.data];
+    hasMorePages = currentPage < pageData.meta.pagination.pageCount;
+    currentPage++;
   }
 
-  return { data: allProducts, meta: firstPageData.meta };
+  return {
+    data: allProducts,
+    meta: { pagination: { total: allProducts.length } },
+  };
 };
 
 export const getProductCategory = async () => {

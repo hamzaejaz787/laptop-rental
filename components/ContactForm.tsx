@@ -198,23 +198,23 @@ const ContactsOptions = () => {
         <FaPhone size={22} />
         <p className="text-center text-sm">Lets Have a Call</p>
         <Link
-          href="tel:+61(0)383730303"
+          href="tel:+61390711839"
           className="text-center font-semibold transition-all duration-200 hover:text-red-300"
         >
-          +61-383-730303
+          +61-390-711-839
         </Link>
       </div>
       <div className="flex flex-col justify-center items-center">
         <IoMail size={22} />
         <p className="text-center text-sm">Send us an Email</p>
         <Link
-          href="mailto:hire@laptoprental.com"
+          href="mailto:hire@laptop-rental.com.au"
           className="text-center font-semibold transition-all duration-200 hover:text-red-300"
         >
-          Hire@laptoprental.com
+          Hire@laptop-rental.com.au
         </Link>
       </div>
-      <div className="flex flex-col justify-center items-center">
+      {/* <div className="flex flex-col justify-center items-center">
         <FaLocationDot size={22} />
         <p className="text-center text-sm">Visit Our Office</p>
         <Link
@@ -224,7 +224,7 @@ const ContactsOptions = () => {
         >
           19B Hinkler Road Mordialloc, Mordialloc Victoria 3195, Australia{" "}
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 };

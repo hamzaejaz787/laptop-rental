@@ -50,8 +50,11 @@ async function TechRental({
     : 1;
   const pageSize = 24;
 
+  const category = searchParams?.category?.toString();
+  const subcategory = searchParams?.subcategory?.toString();
+
   const [product, allProducts, productCategory] = await Promise.all([
-    getProduct(query, currentPage, pageSize),
+    getProduct(query, currentPage, pageSize, category, subcategory),
     getAllProducts(),
     getProductCategoryBySlug(slug),
   ]);
@@ -96,7 +99,7 @@ async function TechRental({
           ProductCategory={ProductCategory}
           ProductSubCategory={ProductSubCategory}
         />
-        <TabCards tabCardsItems={product.data} allProducts={allProducts.data} />
+        <TabCards tabCardsItems={product.data} />
       </div>
       <PaginationComponent pageCount={product.meta.pagination.pageCount} />
 

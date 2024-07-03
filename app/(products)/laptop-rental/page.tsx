@@ -36,9 +36,10 @@ const LaptopRental = async ({
     ? parseInt(searchParams.page as string)
     : 1;
   const pageSize = 24;
-
+  const category = searchParams?.category?.toString();
+  const subcategory = searchParams?.subcategory?.toString();
   const [product, allProducts] = await Promise.all([
-    getProduct(query, currentPage, pageSize),
+    getProduct(query, currentPage, pageSize, category, subcategory),
     getAllProducts(),
   ]);
 
@@ -57,7 +58,7 @@ const LaptopRental = async ({
 
       <div className="flex flex-col lg:flex-row gap-8 justify-between container p-8">
         <SidebarWithTab tabItems={allProducts.data} />
-        <TabCards tabCardsItems={product.data} allProducts={allProducts.data} />
+        <TabCards tabCardsItems={product.data} />
       </div>
       <PaginationComponent pageCount={product.meta.pagination.pageCount} />
 
