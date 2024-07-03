@@ -90,9 +90,9 @@ const PrivacyPolicy = () => {
             accessible from{" "}
             <Link
               className="underline hover:text-primary-red focus-within:text-primary-red transition-all ease-in"
-              href="https://laptoprental.com.au/"
+              href="https://laptop-rental.com.au/"
             >
-              https://laptoprental.com.au/
+              https://laptop-rental.com.au/
             </Link>
           </li>
           <li className="">
@@ -511,30 +511,30 @@ const PrivacyPolicy = () => {
             <strong>By email: </strong>{" "}
             <Link
               className="underline hover:text-primary-red focus-within:text-primary-red transition-all ease-in"
-              href="mailto:hire@laptoprental.com"
+              href="mailto:hire@laptop-rental.com.au"
             >
-              Hire@laptoprental.com
+              Hire@laptop-rental.com.au{" "}
             </Link>{" "}
           </li>
           <li className="">
             <strong>By visiting this page on our webiste:</strong>{" "}
             <Link
               className="underline hover:text-primary-red focus-within:text-primary-red transition-all ease-in"
-              href="https://laptoprental.com.au/"
+              href="https://laptop-rental.com.au/"
             >
-              https://laptoprental.com.au/
+              https://laptop-rental.com.au/
             </Link>{" "}
           </li>
           <li className="">
             <strong>By phone number:</strong>{" "}
             <Link
               className="underline hover:text-primary-red focus-within:text-primary-red transition-all ease-in"
-              href="tel:+61383730303"
+              href="tel:+61390711839"
             >
-              +61 383 730 303
+              +61-390-711-839
             </Link>{" "}
           </li>
-          <li className="">
+          {/* <li className="">
             <strong>By mail:</strong>{" "}
             <Link
               className="underline hover:text-primary-red focus-within:text-primary-red transition-all ease-in"
@@ -543,7 +543,7 @@ const PrivacyPolicy = () => {
             >
               19B Hinkler Road Mordialloc, Mordialloc Victoria 3195, Australia
             </Link>{" "}
-          </li>
+          </li> */}
         </ul>
       </section>
     </>
