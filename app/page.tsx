@@ -51,6 +51,15 @@ export default async function LaptopRental() {
       ctatext: "Explore Event",
     },
     {
+      imagesrc: "/Business Conferences & Seminars.png",
+      alternativeText: "Corporate Event",
+      title: "Corporate Event",
+      href: "/corporate-event",
+      description:
+        "Transform your corporate events with premium technology from Laptop Rental. Serving Australia, New Zealand, and worldwide, we provide top-tier IT rental solutions for seamless, impactful experiences.",
+      ctatext: "Explore Event",
+    },
+    {
       imagesrc: "/Festivals.png",
       alternativeText: "Festivals",
       title: "Festivals",
@@ -59,6 +68,7 @@ export default async function LaptopRental() {
         "Optimise your festival experience with our short-term laptop rental for events. Seamlessly enhance connectivity and productivity Down Under!",
       ctatext: "Explore Event",
     },
+
     {
       imagesrc: "/Gaming Events.png",
       alternativeText: "Gaming Events",

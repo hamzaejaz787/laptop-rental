@@ -110,7 +110,7 @@ const ProductCard = ({
           className="w-full"
           // className="w-full rounded-r-none"
         />
-        <AddToCartButton Title={Title} id={id} imageUrl={imageurl} />
+        {/* <AddToCartButton Title={Title} id={id} imageUrl={imageurl} /> */}
       </CardFooter>
     </Card>
   );
