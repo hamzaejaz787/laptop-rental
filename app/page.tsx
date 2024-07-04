@@ -159,7 +159,7 @@ export default async function LaptopRental() {
           <h2 className="font-bold text-4xl capitalize">
             Book Our Rental Services For Your Events
           </h2>
-          <p className="text-gray-700 ">
+          <p className="text-gray-700">
             Host an unforgettable event by choosing our top-notch technology
             rental services. From cutting-edge IT equipment to seamless event
             management tools and services, we&apos;ve got your tech needs
@@ -174,7 +174,7 @@ export default async function LaptopRental() {
             tech-savvy triumph!
           </p>
         </div>
-        <div className="w-full max-w-xl h-full shadow-md p-5 bg-primary-red text-white text-center space-y-4">
+        <div className="w-full max-w-xl h-full shadow-md p-5 bg-primary-red text-white text-center space-y-4 rounded-md">
           <Image
             src="/logo_red.png"
             alt=""
@@ -183,7 +183,7 @@ export default async function LaptopRental() {
             className="mx-auto"
           />
 
-          <h2 className="font-bold text-3xl capitalize relative after:content-[''] after:block after:w-1/2 after:border-2 after:my-4 after:border-white after:border-dashed after:mx-auto">
+          <h2 className="font-bold text-3xl capitalize relative after:content-[''] after:block after:w-1/2 after:border-x-2 after:border after:my-4 after:border-white after:border-dashed after:mx-auto">
             Rent your event
           </h2>
           <QuoteForm />

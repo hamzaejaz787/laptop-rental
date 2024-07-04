@@ -10,7 +10,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { format, startOfToday } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -29,8 +28,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { sendQuoteFormData } from "@/lib/actions";
 import { useAction } from "next-safe-action/hooks";
 import { quoteFormSchema } from "@/lib/definitions";
+import { useCart } from "@/providers/CartContext";
 
-const initialState = { message: "", errors: {} };
 const today = startOfToday();
 
 type FormInputName = "name" | "email" | "phone" | "company" | "location";
@@ -79,15 +78,22 @@ const formInputItems: FormInputItemTypes[] = [
 ];
 
 const QuoteForm = () => {
+  const { cartItems } = useCart();
   const formRef = React.useRef<HTMLFormElement>(null);
   const { toast } = useToast();
+  const cartItemsString =
+    cartItems.length > 0
+      ? cartItems
+          .map((item) => `${item.Title} (Quantity: ${item.quantity})`)
+          .join("\n")
+      : "";
 
   const form = useForm<z.infer<typeof quoteFormSchema>>({
     resolver: zodResolver(quoteFormSchema),
     defaultValues: {
       name: "",
       email: "",
-      message: "",
+      message: cartItemsString,
       company: "",
       location: "",
     },

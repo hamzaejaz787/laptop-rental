@@ -35,6 +35,7 @@ export interface ProductCardItemsProps {
   Description: string;
   ProductCategory?: string;
   ProductSubCategory?: string;
+  id: number;
   Specs: ProductSpecsProps[];
 }
 
@@ -67,7 +68,7 @@ const ProductCard = ({
   productCardItem: ProductCardItemsProps;
 }) => {
   //Destructure data
-  const { ProductImage, Description, Title, Specs } = productCardItem;
+  const { ProductImage, Description, Title, Specs, id } = productCardItem;
 
   const baseurl = getStrapiURL();
   let imageurl = "";
@@ -107,8 +108,9 @@ const ProductCard = ({
           href={`/get-a-quote`}
           text="Get A Quote"
           className="w-full"
+          // className="w-full rounded-r-none"
         />
-        {/* <AddToCartButton /> */}
+        <AddToCartButton Title={Title} id={id} imageUrl={imageurl} />
       </CardFooter>
     </Card>
   );

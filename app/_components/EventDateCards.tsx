@@ -69,12 +69,12 @@ function EventDateCards() {
               height={650}
               className="h-full w-full object-cover"
             />
-            <div className="p-4 w-full h-full absolute top-0 left-0 group flex flex-col justify-center items-center text-center gap-4">
+            <div className="p-4 w-full h-full absolute top-0 left-0 group flex  justify-center items-center text-center gap-4">
               <h6
                 className={`text-lg lg:text-xl xl:text-2xl font-Exo ${
-                  index === 2
-                    ? ""
-                    : "md:-rotate-90 md:group-hover:rotate-0 transition-transform duration-300 ease-in"
+                  index !== 2
+                    ? "md:text-nowrap md:group-hover:text-wrap md:-rotate-90 md:group-hover:rotate-0 transition-all duration-300 ease-in"
+                    : ""
                 } uppercase font-semibold text-white`}
               >
                 {item.title}

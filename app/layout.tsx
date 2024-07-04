@@ -6,6 +6,7 @@ import { barlow, fontExo, poppins } from "./fonts";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ScrollToTopButton } from "@/components/ScrollToTop";
+import { CartProvider } from "@/providers/CartContext";
 
 export const metadata: Metadata = {
   title: "Laptop Rental For Events | Your Event Tech Partner",
@@ -46,11 +47,13 @@ export default function RootLayout({
           fontExo.variable
         )}
       >
-        <Header />
-        {children}
-        <Footer />
-        <Toaster />
-        <ScrollToTopButton />
+        <CartProvider>
+          <Header />
+          {children}
+          <Footer />
+          <Toaster />
+          <ScrollToTopButton />
+        </CartProvider>
       </body>
     </html>
   );

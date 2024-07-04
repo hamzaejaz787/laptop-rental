@@ -30,7 +30,7 @@ const EventPage = async () => {
     title:
       "Transform Your Events With The Power Of Interactive Technology Rentals!",
     text: "Contact Laptop Rental today to explore our Interactive Technology Rentals tailored for conferences, seminars, exhibitions, workshops, and more. Elevate your event experience with cutting-edge equipment and seamless support.",
-    href: "/contactus",
+    href: "/contact-us",
     buttonText: "Contact us now",
   };
 

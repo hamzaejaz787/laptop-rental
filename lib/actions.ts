@@ -55,6 +55,7 @@ export const sendQuoteFormData = action
         Message: ${message}
         `,
       };
+
       const sendMailPromise = () => {
         return new Promise<void>((resolve, reject) => {
           transporter.sendMail(mailoptions, function (err) {

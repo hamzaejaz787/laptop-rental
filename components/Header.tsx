@@ -1,7 +1,7 @@
 import React from "react";
-import Image from "next/image";
+import Cart from "./Cart";
 import Link from "next/link";
-import { MdAddShoppingCart } from "react-icons/md";
+import Image from "next/image";
 import { Navbar } from "./Navbar";
 import CtaButton from "./CtaButton";
 import { getEvents, getProductCategory } from "@/data/loaders";
@@ -37,9 +37,8 @@ async function Header() {
             text="Get a quote"
             className="hidden md:inline-flex p-4 md:p-4 text-sm"
           />
-          {/* <Link href={"/get-a-quote"}>
-            <MdAddShoppingCart size={20} />
-          </Link> */}
+
+          {/* <Cart /> */}
           {/* <NavSearch /> */}
           <MobileMenu
             eventItems={eventItems}

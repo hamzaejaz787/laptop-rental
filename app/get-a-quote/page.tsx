@@ -1,5 +1,6 @@
 import Banner from "@/components/Banner";
 import QuoteForm from "@/components/QuoteForm";
+import { useCart } from "@/providers/CartContext";
 import { Metadata } from "next";
 import Image from "next/image";
 import { IoStarSharp } from "react-icons/io5";
