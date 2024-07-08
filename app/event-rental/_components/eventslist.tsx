@@ -6,66 +6,67 @@ import { EventCardProps } from "@/lib/definitions";
 const Eventslist = () => {
   const eventCardsData: EventCardProps[] = [
     {
-      imagesrc: "/Conference Equipment Rental.jpg",
-      alternativeText: "Conference Equipment Rental",
-      title: "Conference Equipment Rental",
+      imagesrc: "/Business Conferences & Seminars.png",
+      alternativeText: "Business Conferences & Seminars",
+      title: "Business Conferences & Seminars",
       href: "/corporate-event",
       description:
-        "Laptop Rental provides conference equipment rental. From powerful servers to immersive audiovisual setups, we ensure your events are technologically advanced, fostering engagement and knowledge sharing.",
+        "Maximise your business success with hassle-free laptop hire for events like conferences and seminars. Enhance productivity seamlessly.",
       ctatext: "Explore Event",
     },
     {
-      imagesrc: "/Short-Term Projects.jpg",
-      alternativeText: "Short-Term Projects",
-      title: "Short-Term Projects",
+      imagesrc: "/Exhibitions and Workshops.png",
+      alternativeText: "Exhibitions and Workshops",
+      title: "Exhibitions and Workshops",
       href: "/corporate-event",
       description:
-        "For short-term projects demanding flexibility and efficiency, Laptop Rental provides a diverse range of IT equipment. Tailored solutions for the duration of your project ensure seamless operations, empowering your team to achieve optimal results.",
+        "Optimise your corporate events with our rental services. Ideal for business exhibitions and workshops. Hire laptops for corporate events.",
       ctatext: "Explore Event",
     },
     {
-      imagesrc: "/Surveys & Market Research.jpg",
-      alternativeText: "Surveys & Market Research",
-      title: "Surveys & Market Research",
-      href: "/corporate-event",
-      description:
-        "Drive precision in surveys and market research with Laptop Rental's technology arsenal. Our devices and networking solutions facilitate real-time data collection, ensuring accuracy and efficiency in gathering valuable insights.",
-      ctatext: "Explore Event",
-    },
-    {
-      imagesrc: "/Exhibitions.jpg",
-      alternativeText: "Exhibitions",
-      title: "Exhibitions",
-      href: "/corporate-event",
-      description:
-        "Make a lasting impression at exhibitions with Laptop Rental's state-of-the-art equipment. Enhance your booth with high-quality displays, projectors, and interactive technology, captivating your audience and setting your exhibition apart.",
-      ctatext: "Explore Event",
-    },
-    {
-      imagesrc: "/Workshops.jpg",
-      alternativeText: "Workshops",
-      title: "Workshops",
-      href: "/corporate-event",
-      description:
-        "Empower your workshops with the latest technology from Laptop Rental. From collaborative tools to audiovisual aids, we provide the essential event IT support Services for interactive and impactful workshop experiences.",
-      ctatext: "Explore Event",
-    },
-    {
-      imagesrc: "/Annual Meetings.jpg",
-      alternativeText: "Annual Meetings",
-      title: "Annual Meetings",
-      href: "/corporate-event",
-      description:
-        "Ensure the success of your annual meetings with Laptop Rental's comprehensive IT solutions. Seamless communication tools, reliable servers, and cutting-edge presentations contribute to the efficiency and success of your yearly gatherings.",
-      ctatext: "Explore Event",
-    },
-    {
-      imagesrc: "/Product Launches.jpg",
-      alternativeText: "",
+      imagesrc: "/Product Launches.png",
+      alternativeText: "Product Launches",
       title: "Product Launches",
       href: "/corporate-event",
       description:
-        "Unveil your products in style with Laptop Rental's innovative IT Event Rentals. Our technology adds flair to product launches, offering interactive displays, audiovisual effects, and networking solutions to make your launch unforgettable.",
+        "Enhance your product launches effortlessly with our top-notch rental services. Rent laptops for business success, delivering seamless presentations and connectivity.",
+      ctatext: "Explore Event",
+    },
+    {
+      imagesrc: "/Trade Shows.png",
+      alternativeText: "Trade Shows",
+      title: "Trade Shows",
+      href: "/corporate-event",
+      description:
+        "Maximise your trade show impact with our business laptop rental solutions. Elevate your events with our reliable and cost-effective services.",
+      ctatext: "Explore Event",
+    },
+    {
+      imagesrc: "/Business Conferences & Seminars.png",
+      alternativeText: "Corporate Event",
+      title: "Corporate Event",
+      href: "/corporate-event",
+      description:
+        "Transform your corporate events with premium technology from Laptop Rental. Serving Australia, New Zealand, and worldwide, we provide top-tier IT rental solutions for seamless, impactful experiences.",
+      ctatext: "Explore Event",
+    },
+    {
+      imagesrc: "/Festivals.png",
+      alternativeText: "Festivals",
+      title: "Festivals",
+      href: "/corporate-event",
+      description:
+        "Optimise your festival experience with our short-term laptop rental for events. Seamlessly enhance connectivity and productivity Down Under!",
+      ctatext: "Explore Event",
+    },
+
+    {
+      imagesrc: "/Gaming Events.png",
+      alternativeText: "Gaming Events",
+      title: "Gaming Events",
+      href: "/corporate-event",
+      description:
+        "Optimise your gaming events with hassle-free laptop rental for events. Seamless tech solutions for epic gaming experiences.",
       ctatext: "Explore Event",
     },
   ];

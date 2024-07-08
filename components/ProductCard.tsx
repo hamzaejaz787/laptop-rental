@@ -104,13 +104,12 @@ const ProductCard = ({
         ))}
       </CardContent>
       <CardFooter className="p-0 pt-2">
-        <CtaButton
+        {/* <CtaButton
           href={`/get-a-quote`}
           text="Get A Quote"
-          className="w-full"
-          // className="w-full rounded-r-none"
-        />
-        {/* <AddToCartButton Title={Title} id={id} imageUrl={imageurl} /> */}
+          className="w-full rounded-r-none"
+        /> */}
+        <AddToCartButton Title={Title} id={id} imageUrl={imageurl} />
       </CardFooter>
     </Card>
   );

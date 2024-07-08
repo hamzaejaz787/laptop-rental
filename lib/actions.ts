@@ -4,6 +4,7 @@ import Mail from "nodemailer/lib/mailer";
 import { createTransport } from "nodemailer";
 import { formSchema, quoteFormSchema } from "@/lib/definitions";
 import { action } from "@/lib/safe-action";
+import { cookies } from "next/headers";
 
 export const sendQuoteFormData = action
   .schema(quoteFormSchema)
@@ -134,3 +135,18 @@ export const handleContactForm = action
       }
     }
   );
+
+export async function syncCartWithServer(cartItems: string) {
+  const expiryTimeInSeconds = new Date(Date.now() + 2 * 60 * 60 * 1000);
+  cookies().set("cart", cartItems, {
+    httpOnly: true,
+    secure: true,
+    expires: expiryTimeInSeconds,
+    maxAge: 2 * 60 * 60, //2 hours in seconds, for older browsers
+  });
+}
+
+export async function getCartFromServer() {
+  const cartCookie = cookies().get("cart");
+  return cartCookie ? cartCookie.value : "[]";
+}

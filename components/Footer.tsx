@@ -19,7 +19,7 @@ async function Footer() {
     { title: "Events", href: "/event-rental" },
     { title: "Get A Quote", href: "/get-a-quote" },
     { title: "Terms & Conditions", href: "/terms-and-conditions" },
-    { title: "Privacy Policy", href: "/privacy-and-policy" },
+    { title: "Privacy Policy", href: "/privacy-policy" },
   ];
 
   const productCategoryItems: ProductCategoryItemTypes =

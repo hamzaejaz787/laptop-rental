@@ -38,12 +38,12 @@ async function Header() {
             className="hidden md:inline-flex p-4 md:p-4 text-sm"
           />
 
-          {/* <Cart /> */}
           {/* <NavSearch /> */}
           <MobileMenu
             eventItems={eventItems}
             productCategoryItems={productCategoryItems}
           />
+          <Cart />
         </div>
       </div>
     </div>

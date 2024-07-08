@@ -18,10 +18,10 @@ const AddToCartButton = ({ id, Title, imageUrl }: AddToCartProps) => {
   return (
     <Button
       size="icon"
-      className="bg-slate-700 text-white text-2xl h-8 md:h-10 rounded-r-sm"
+      className="w-full text-center font-Poppins bg-primary-red text-white mx-auto text-lg hover:bg-red-500 focus-within:bg-red-500 px-10 md:px-10 rounded-sm capitalize"
       onClick={handleAddToCart}
     >
-      <MdAdd />
+      Add To Cart
     </Button>
   );
 };

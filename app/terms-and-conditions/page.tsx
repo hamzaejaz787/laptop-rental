@@ -8,6 +8,10 @@ const TermsAndConditions = () => {
       <Banner
         title="Terms and Conditions"
         text="Please read these terms and conditions carefully before using Our Service."
+        image={{
+          url: "/Term-And-Conditions.jpg",
+          alternativeText: "Terms and conditions banner",
+        }}
       />
       <section className="container p-8 space-y-4">
         <h2 className="font-bold text-3xl text-center capitalize">

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import {
   Form,
   FormControl,
@@ -78,7 +78,8 @@ const formInputItems: FormInputItemTypes[] = [
 ];
 
 const QuoteForm = () => {
-  const { cartItems } = useCart();
+  const [startDate, setStartDate] = useState<Date | undefined>(undefined);
+  const { cartItems, clearCart } = useCart();
   const formRef = React.useRef<HTMLFormElement>(null);
   const { toast } = useToast();
   const cartItemsString =
@@ -107,6 +108,7 @@ const QuoteForm = () => {
           description: data.data.message,
           variant: "success",
         });
+        clearCart();
         form.reset();
       }
     },
@@ -144,7 +146,10 @@ const QuoteForm = () => {
                   <DatePicker
                     {...field}
                     selectedDate={field.value}
-                    onChange={field.onChange}
+                    onChange={(date) => {
+                      field.onChange(date);
+                      setStartDate(date);
+                    }}
                   />
                 </FormControl>
                 <FormMessage className="text-white" />
@@ -164,6 +169,7 @@ const QuoteForm = () => {
                     {...field}
                     selectedDate={field.value}
                     onChange={field.onChange}
+                    minDate={startDate}
                   />
                 </FormControl>
                 <FormMessage className="text-white" />
@@ -235,12 +241,14 @@ interface DatePickerProps {
   name: string;
   onChange: (date: Date | undefined) => void;
   selectedDate: Date | undefined;
+  minDate?: Date;
 }
 
 const DatePicker: React.FC<DatePickerProps> = ({
   name,
   onChange,
   selectedDate,
+  minDate,
 }) => {
   return (
     <Popover>
@@ -266,7 +274,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
           selected={selectedDate}
           onSelect={onChange}
           initialFocus
-          fromDate={today}
+          fromDate={minDate || today}
           classNames={{
             nav_button: "bg-primary-red text-white",
             day_selected:
