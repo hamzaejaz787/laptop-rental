@@ -63,18 +63,59 @@ export const quoteFormSchema = z.object({
   enddate: z.date().min(today, { message: "Date cannot be older" }),
   company: z.string(),
   location: z.string(),
-  phone: z.coerce.number().positive().min(11, { message: "Invalid number" }),
+  phone: z
+    .string()
+    .regex(
+      /^(\+?61|0)?[-\s]?([0-9]{1,4})[-\s]?([0-9]{3,4})[-\s]?([0-9]{3,4})$/,
+      {
+        message: "Invalid Australian phone number",
+      }
+    )
+    .refine(
+      (val) => {
+        const digits = val.replace(/\D/g, "");
+        return (
+          (digits.startsWith("0") && digits.length === 10) ||
+          (digits.startsWith("61") && digits.length === 11) ||
+          (!digits.startsWith("0") &&
+            !digits.startsWith("61") &&
+            digits.length === 9)
+        );
+      },
+      {
+        message: "Invalid Australian phone number",
+      }
+    )
+    .transform((val) => val.replace(/\D/g, "")),
 });
 
 export const formSchema = z.object({
   name: z.string().min(1, { message: "Cannot be empty" }),
   email: z.string().email().min(1, { message: "Cannot be empty" }),
-  contact: z.coerce
-    .number({
-      invalid_type_error: "Invalid Number!",
-    })
-    .positive()
-    .gte(11, { message: "Number required" }),
+  contact: z
+    .string()
+    .regex(
+      /^(\+?61|0)?[-\s]?([0-9]{1,4})[-\s]?([0-9]{3,4})[-\s]?([0-9]{3,4})$/,
+      {
+        message: "Invalid Australian phone number",
+      }
+    )
+    .refine(
+      (val) => {
+        const digits = val.replace(/\D/g, "");
+        return (
+          (digits.startsWith("0") && digits.length === 10) ||
+          (digits.startsWith("61") && digits.length === 11) ||
+          (!digits.startsWith("0") &&
+            !digits.startsWith("61") &&
+            digits.length === 9)
+        );
+      },
+      {
+        message: "Invalid Australian phone number",
+      }
+    )
+    .transform((val) => val.replace(/\D/g, "")),
   company: z.string(),
   location: z.string(),
   message: z

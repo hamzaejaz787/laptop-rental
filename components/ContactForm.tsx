@@ -32,6 +32,7 @@ export function ContactForm() {
       company: "",
       location: "",
       message: "",
+      contact: "",
     },
   });
 

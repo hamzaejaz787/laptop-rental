@@ -1,10 +1,21 @@
 "use server";
 
 import Mail from "nodemailer/lib/mailer";
-import { createTransport } from "nodemailer";
+import { createTransport, Transporter } from "nodemailer";
 import { formSchema, quoteFormSchema } from "@/lib/definitions";
 import { action } from "@/lib/safe-action";
 import { cookies } from "next/headers";
+
+//Function for nodemailer transporter
+function getNodemailerTransporter(): Transporter {
+  return createTransport({
+    service: process.env.NODEMAILER_HOST as string,
+    auth: {
+      user: process.env.NODEMAILER_USERNAME,
+      pass: process.env.NODEMAILER_PASSWORD,
+    },
+  });
+}
 
 export const sendQuoteFormData = action
   .schema(quoteFormSchema)
@@ -33,13 +44,7 @@ export const sendQuoteFormData = action
         return { error: "Something went wrong" };
 
       //Nodemailer config
-      const transporter = createTransport({
-        service: process.env.NODEMAILER_HOST as string,
-        auth: {
-          user: process.env.NODEMAILER_USERNAME,
-          pass: process.env.NODEMAILER_PASSWORD,
-        },
-      });
+      const transporter = getNodemailerTransporter();
 
       const mailoptions: Mail.Options = {
         from: process.env.NODEMAILER_USERNAME,
@@ -90,13 +95,7 @@ export const handleContactForm = action
       if (!name || !email || !contact) return { error: "Something went wrong" };
 
       //Nodemailer config
-      const transporter = createTransport({
-        service: process.env.NODEMAILER_HOST as string,
-        auth: {
-          user: process.env.NODEMAILER_USERNAME,
-          pass: process.env.NODEMAILER_PASSWORD,
-        },
-      });
+      const transporter = getNodemailerTransporter();
 
       const mailoptions: Mail.Options = {
         from: process.env.NODEMAILER_USERNAME,

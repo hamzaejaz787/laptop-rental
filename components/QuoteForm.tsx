@@ -97,6 +97,7 @@ const QuoteForm = () => {
       message: cartItemsString,
       company: "",
       location: "",
+      phone: "",
     },
   });
 
@@ -274,6 +275,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
           selected={selectedDate}
           onSelect={onChange}
           initialFocus
+          required
           fromDate={minDate || today}
           classNames={{
             nav_button: "bg-primary-red text-white",
