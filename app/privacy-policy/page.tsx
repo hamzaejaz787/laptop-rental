@@ -1,6 +1,12 @@
 import Banner from "@/components/Banner";
 import Link from "next/link";
 import React from "react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Laptop Rental For Events | Privacy Policy",
+  description: "",
+};
 
 const PrivacyPolicy = () => {
   return (

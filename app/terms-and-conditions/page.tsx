@@ -1,6 +1,12 @@
 import React from "react";
 import Banner from "@/components/Banner";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Laptop Rental For Events | Terms and Conditions",
+  description: "",
+};
 
 const TermsAndConditions = () => {
   return (
