@@ -251,8 +251,10 @@ const DatePicker: React.FC<DatePickerProps> = ({
   selectedDate,
   minDate,
 }) => {
+  const [calendarOpen, setCalendarOpen] = useState(false);
+
   return (
-    <Popover>
+    <Popover open={calendarOpen} onOpenChange={setCalendarOpen}>
       <PopoverTrigger asChild>
         <Button
           variant={"outline"}
@@ -273,7 +275,10 @@ const DatePicker: React.FC<DatePickerProps> = ({
         <Calendar
           mode="single"
           selected={selectedDate}
-          onSelect={onChange}
+          onSelect={(date) => {
+            onChange(date);
+            setCalendarOpen(false);
+          }}
           initialFocus
           required
           fromDate={minDate || today}

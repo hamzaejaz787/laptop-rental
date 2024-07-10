@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import {
   Popover,
   PopoverContent,
@@ -17,9 +17,10 @@ import { ScrollArea } from "./ui/scroll-area";
 const Cart = () => {
   const { cartItems, removeFromCart, increaseItemQuantity, removeEntireItem } =
     useCart();
+  const [popoverOpen, setPopoverOpen] = useState(false);
 
   return (
-    <Popover>
+    <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
       <PopoverTrigger className="relative">
         <MdAddShoppingCart size={20} />
         {cartItems?.length > 0 && (
@@ -94,6 +95,7 @@ const Cart = () => {
 
             <Button
               asChild
+              onClick={() => setPopoverOpen(false)}
               className="w-full rounded-sm bg-primary-red text-white hover:bg-red-500 focus-within:bg-red-500 mt-4"
             >
               <Link href="/get-a-quote">Request Quote</Link>
