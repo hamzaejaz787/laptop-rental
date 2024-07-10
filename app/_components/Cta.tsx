@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import CtaButton from "@/components/CtaButton";
+import AnimatedLaptop from "./AnimatedLaptop";
 
 function Cta() {
   return (
@@ -16,7 +17,7 @@ function Cta() {
           <p className="text-white text-center md:text-left md:max-w-lg text-sm lg:text-base">
             Enhance your events with premium rental products. Elevate
             experiences effortlessly. Reach out to us for seamless excellence.
-            Contact us now!{" "}
+            Contact us now!
           </p>
 
           <CtaButton
@@ -26,13 +27,7 @@ function Cta() {
           />
         </div>
 
-        <Image
-          src={"/cta-gif.gif"}
-          alt=""
-          unoptimized
-          width={500}
-          height={300}
-        />
+        <AnimatedLaptop />
       </div>
     </section>
   );

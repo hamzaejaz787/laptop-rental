@@ -14,24 +14,28 @@ const HomeSliderText = ({
 }) => {
   return (
     <div className="z-10 relative text-center md:text-left space-y-3 md:space-y-4 content-center h-full px-8 md:pl-20">
-      <strong className="block text-lg text-white text-center md:text-left uppercase font-normal font-Barlow tracking-[0.5em]">
+      <strong className="block text-lg text-white text-center md:text-left uppercase font-normal font-Barlow tracking-[0.5em] 2xl:text-3xl">
         {header}
       </strong>
       {index === 0 ? (
-        <h1 className="text-white lg:max-w-lg text-center md:text-left text-5xl md:text-7xl uppercase font-Barlow font-bold relative before:bg-white md:before:block md:before:absolute before:top-0 before:bottom-0 before:w-1 before:left-0 md:pl-8">
+        <h1 className="text-white lg:max-w-lg text-center md:text-left text-5xl md:text-7xl 2xl:text-[10rem] uppercase font-Barlow font-bold relative before:bg-white md:before:block md:before:absolute before:top-0 before:bottom-0 before:w-1 before:left-0 md:pl-8">
           {title}{" "}
         </h1>
       ) : (
-        <h2 className="text-white lg:max-w-lg text-center md:text-left text-5xl md:text-7xl uppercase font-Barlow font-bold relative before:bg-white md:before:block md:before:absolute before:top-0 before:bottom-0 before:w-1 before:left-0 md:pl-8">
+        <h2 className="text-white lg:max-w-lg text-center md:text-left text-5xl md:text-7xl 2xl:text-[10rem] uppercase font-Barlow font-bold relative before:bg-white md:before:block md:before:absolute before:top-0 before:bottom-0 before:w-1 before:left-0 md:pl-8">
           {title}{" "}
         </h2>
       )}
 
-      <p className="text-white text-center md:text-left md:max-w-lg">
+      <p className="text-white text-center md:text-left md:max-w-lg 2xl:max-w-2xl 2xl:text-2xl">
         {description}{" "}
       </p>
 
-      <CtaButton href="/get-a-quote" text="Get A Quote" />
+      <CtaButton
+        href="/get-a-quote"
+        text="Get A Quote"
+        className="2xl:text-3xl 2xl:py-8"
+      />
     </div>
   );
 };

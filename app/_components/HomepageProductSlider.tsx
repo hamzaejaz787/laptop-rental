@@ -46,7 +46,7 @@ const images = [
 
 const HomepageProductSlider = () => {
   return (
-    <div className="md:backdrop-blur-3xl md:bg-black/20 w-full p-4 md:-mt-20">
+    <div className="w-full p-4 relative z-30">
       <Carousel
         opts={{
           loop: true,
@@ -56,7 +56,7 @@ const HomepageProductSlider = () => {
             delay: 5000,
           }),
         ]}
-        className="md:w-4/5 mx-auto"
+        className="md:w-11/12 mx-auto"
       >
         <CarouselContent className="ml-0">
           {images.map((image, index) => (
@@ -70,12 +70,12 @@ const HomepageProductSlider = () => {
                 width={150}
                 height={150}
               />
-              <h6 className="md:text-white font-bold text-center">
+              <h6 className="text-primary-red font-bold text-center">
                 {image.title}
               </h6>
               <Link
                 href={`${image.href}`}
-                className="hover:text-white text-primary-red text-2xl transition-all"
+                className="hover:text-primary-red text-2xl transition-all"
               >
                 <MdAdsClick />
               </Link>

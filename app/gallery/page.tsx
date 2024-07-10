@@ -3,15 +3,19 @@ import { getGalleryItemsById } from "@/data/loaders";
 import { getStrapiURL } from "@/lib/utils";
 import Image from "next/image";
 import { Metadata } from "next";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
 interface GalleryItemProps {
   id: number;
   url: string;
   alternativeText: string;
+  width?: number;
+  height?: number;
 }
 
 export const metadata: Metadata = {
   title: "Laptop Rental For Events | Gallery",
+  description: "",
   keywords: "",
   alternates: {
     canonical: "https://laptop-rental.com.au/gallery",
@@ -56,14 +60,26 @@ const Gallery = async () => {
 
         <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
           {images.map((item) => (
-            <Image
-              key={item.id}
-              src={`${baseurl}${item.url}`}
-              alt={item.alternativeText}
-              width={500}
-              height={500}
-              className="h-full object-cover rounded-sm"
-            />
+            <Dialog key={item.id}>
+              <DialogTrigger>
+                <Image
+                  src={`${baseurl}${item.url}`}
+                  alt={item.alternativeText}
+                  width={500}
+                  height={500}
+                  className="h-full object-cover rounded-sm hover:scale-105 transition-transform hover:shadow-lg"
+                />
+              </DialogTrigger>
+              <DialogContent>
+                <Image
+                  src={`${baseurl}${item.url}`}
+                  alt={item.alternativeText}
+                  width={500}
+                  height={500}
+                  className="h-full w-full object-cover"
+                />
+              </DialogContent>
+            </Dialog>
           ))}
         </div>
       </section>
