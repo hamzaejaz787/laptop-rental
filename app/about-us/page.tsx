@@ -3,6 +3,7 @@ import Video from "./_components/Video";
 import Cta from "./_components/Cta";
 import AboutCards from "./_components/AboutCards";
 import { Metadata } from "next";
+import ReviewCarousel from "./_components/ReviewCarousel";
 
 export const metadata: Metadata = {
   title: "About Us page of Laptop Rental AU",
@@ -30,7 +31,7 @@ const Aboutus = () => {
       <Video />
       <Cta />
       <AboutCards />
-
+      <ReviewCarousel />
       {/* <AboutForm /> */}
     </>
   );

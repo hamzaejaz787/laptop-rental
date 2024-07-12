@@ -1,71 +1,98 @@
 "use client";
-import * as React from "react";
-import Autoplay from "embla-carousel-autoplay";
 
-import { Card, CardContent } from "@/components/ui/card";
+import React, { useEffect, useState, useRef } from "react";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
-import Image from "next/image";
-import review from "@/public/review.png";
-var reviews = [
-  {
-    name: "Ali",
-    index: 1,
-    comment:
-      "Nullam orci dui, dictum et magna sollicitudin, tempor blandit erat. Maecenas suscipit tellus sit amet augue placerat fringilla a id lacus. Morbi viverra volutpat ex, id pellentesque felis volutpat eu. Etiam mattis laoreet leo sed accumsan. Fusce tincidunt in leo lacinia condimentum.",
-  },
-  {
-    index: 2,
-    name: "Khan",
-    comment:
-      "Nullam orci dui, dictum et magna sollicitudin, tempor blandit erat. Maecenas suscipit tellus sit amet augue placerat fringilla a id lacus. Morbi viverra volutpat ex, id pellentesque felis volutpat eu. Etiam mattis laoreet leo sed accumsan. Fusce tincidunt in leo lacinia condimentum.",
-  },
-  {
-    index: 3,
-    name: "Mashkoor",
-    comment:
-      "Nullam orci dui, dictum et magna sollicitudin, tempor blandit erat. Maecenas suscipit tellus sit amet augue placerat fringilla a id lacus. Morbi viverra volutpat ex, id pellentesque felis volutpat eu. Etiam mattis laoreet leo sed accumsan. Fusce tincidunt in leo lacinia condimentum.",
-  },
+import Autoplay from "embla-carousel-autoplay";
+import { IoMdQuote } from "react-icons/io";
+import { EmblaCarouselType } from "embla-carousel";
+
+const reviewData = [
+  "Rented laptops for a conference, and the experience was great. Devices were in excellent condition, and support was responsive. Highly recommend.",
+  "Used Laptop Rental for a product launch. Top-notch laptops, prompt delivery, and excellent setup. Will use again.",
+  "Needed laptops for a project; the process was smooth. High-quality, reliable devices and excellent customer service. Great overall.",
+  "Rented multiple laptops for a festival. All performed flawlessly. Professional team and flexible rental periods. Highly recommend.",
 ];
 
-export function ReviewCarousel() {
-  const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true })
-  );
+const ReviewCarousel = () => {
+  const [api, setApi] = useState<EmblaCarouselType | null>(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (carouselRef.current) {
+      const embla = (carouselRef.current as any).embla;
+      if (embla) {
+        setApi(embla);
+      }
+    }
+  }, []);
 
   return (
-    <div className="w-[80%] m-auto justify-center mt-10 md:mt-14 lg:mt-20 items-center flex flex-col">
-      <h2 className="text-4xl mb-3 font-bold text-center">
-        Top Client Reviews
-      </h2>
-      <Image src={review} alt="" className="w-10 h-12 mb-4 object-contain" />
+    <section className="container p-8 md:py-10 md:px-20 space-y-4 text-center">
+      <h2 className="text-4xl font-bold">Top Client Reviews</h2>
+      <IoMdQuote size={30} className="text-primary-red mx-auto" />
+
       <Carousel
-        plugins={[plugin.current]}
-        className="w-full"
-        onMouseEnter={plugin.current.stop}
-        onMouseLeave={plugin.current.reset}
+        ref={carouselRef}
+        opts={{
+          align: "start",
+          loop: true,
+        }}
+        plugins={[
+          Autoplay({
+            delay: 5000,
+          }),
+        ]}
+        className="w-full max-w-lg mx-auto"
       >
         <CarouselContent>
-          {reviews.map((review) => (
-            <CarouselItem key={review.index}>
-              <div className="p-1">
-                <Card>
-                  <CardContent className="flex h-40 items-center justify-center p-6">
-                    <p className="font-bold italic">{review.comment}</p>
-                  </CardContent>
-                </Card>
-              </div>
+          {reviewData.map((review, index) => (
+            <CarouselItem key={index} className="">
+              <p className="italic text-center">{review}</p>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
       </Carousel>
+      <CarouselPagination api={api} />
+    </section>
+  );
+};
+
+interface CarouselPaginationProps {
+  api: EmblaCarouselType | null;
+}
+
+const CarouselPagination: React.FC<CarouselPaginationProps> = ({ api }) => {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  useEffect(() => {
+    if (!api) return;
+
+    setSelectedIndex(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setSelectedIndex(api.selectedScrollSnap());
+    });
+  }, [api]);
+
+  if (!api) return null;
+
+  return (
+    <div className="flex justify-center gap-2 mt-4">
+      {reviewData.map((_, index) => (
+        <button
+          key={index}
+          className={`w-2 h-2 rounded-full ${
+            index === selectedIndex ? "bg-primary-red" : "bg-gray-300"
+          }`}
+          onClick={() => api.scrollTo(index)}
+        />
+      ))}
     </div>
   );
-}
+};
+
+export default ReviewCarousel;
