@@ -26,7 +26,7 @@ const EventCardsCarousel = ({ data }: { data: EventCardProps[] }) => {
       ]}
       className="w-full max-w-3xl 2xl:max-w-5xl h-full"
     >
-      <CarouselContent className="m-4">
+      <CarouselContent className="m-4 lg:mx-0">
         {data.map((data, index) => (
           <CarouselItem
             key={index}

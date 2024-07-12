@@ -1,7 +1,5 @@
 "use client";
 import React from "react";
-import Link from "next/link";
-import { MdAdsClick } from "react-icons/md";
 import Image from "next/image";
 
 const eventsData = [
@@ -9,31 +7,36 @@ const eventsData = [
     title: "Check-in & Registration",
     eventdate: "15th Dec",
     href: "/eventrental/corporate-event",
-    image: "/card-1.png",
+    image: "/CHECK-IN_&_REGISTRATION_V.png",
+    mobileImage: "/CHECK-IN_&_REGISTRATION_H.png",
   },
   {
     title: "Event & Festival Wi-Fi",
     eventdate: "15th Dec",
     href: "/eventrental/corporate-event",
-    image: "/card-2.png",
+    image: "/EVENT&FESTIVALWI-FI_V.png",
+    mobileImage: "/EVENT&FESTIVALWI-FI_H.png",
   },
   {
     title: "Event Apps & Software",
     eventdate: "15th Dec",
     href: "/eventrental/corporate-event",
-    image: "/card-3.png",
+    image: "/EVENTAPPS&SOFTWARE_V.png",
+    mobileImage: "/EVENTAPPS&SOFTWARE_H.png",
   },
   {
     title: "Global Fulfilment",
     eventdate: "15th Dec",
     href: "/eventrental/corporate-event",
-    image: "/card-4.png",
+    image: "/GLOBALFULFILMENT_V.png",
+    mobileImage: "/GLOBALFULFILMENT_H.png",
   },
   {
     title: "Customer Support",
     eventdate: "15th Dec",
     href: "/eventrental/corporate-event",
-    image: "/card-5.png",
+    image: "/CUSTOMER_SUPPORT-V.png",
+    mobileImage: "/CUSTOMER_SUPPORT_H.png",
   },
 ];
 
@@ -56,19 +59,24 @@ function EventDateCards() {
             key={index}
             className={`relative rounded-full w-full md:max-w-[200px] overflow-hidden ${
               index === 2
-                ? "md:h-[550px] 2xl:h-[650px]"
+                ? "h-[175px] md:h-[550px] 2xl:h-[650px]"
                 : index === 1 || index === 3
-                ? "md:h-[450px] 2xl:h-[550px]"
-                : "md:h-[350px] 2xl:h-[400px]"
-            } max-h-[175px] md:max-h-full md:hover:h-[550px]  2xl:hover:h-[650px] transition-all ease-in duration-300`}
+                ? "h-[175px] md:h-[450px] 2xl:h-[550px]"
+                : "h-[175px] md:h-[350px] 2xl:h-[400px]"
+            } md:hover:h-[550px] 2xl:hover:h-[650px] transition-all ease-in duration-300`}
           >
-            <Image
-              src={item.image}
-              alt=""
-              width={200}
-              height={650}
-              className="h-full w-full object-cover"
-            />
+            <picture>
+              <source media="(max-width: 768px)" srcSet={item.mobileImage} />
+              <source media="(min-width: 769px)" srcSet={item.image} />
+              <Image
+                src={item.image}
+                alt={item.title}
+                width={200}
+                height={650}
+                className="h-full w-full object-cover"
+                sizes="(max-width: 768px) 100vw, 300px"
+              />
+            </picture>
             <div className="p-4 w-full h-full absolute top-0 left-0 group flex  justify-center items-center text-center gap-4">
               <h6
                 className={`text-lg lg:text-xl xl:text-2xl font-Exo ${
@@ -79,23 +87,6 @@ function EventDateCards() {
               >
                 {item.title}
               </h6>
-
-              {/* <strong
-                className={`text-white text-3xl text-wrap whitespace-pre-wrap ${
-                  index === 2 ? "opacity-100" : "lg:opacity-0"
-                } group-hover:opacity-100 transition-all duration-300 ease-in`}
-              >
-                {item.eventdate}
-              </strong> */}
-
-              {/* <Link
-                href={"/eventrental"}
-                className={`cursor-pointer text-white self-center ${
-                  index === 2 ? "opacity-100" : "lg:opacity-0"
-                } group-hover:opacity-100 transition-all duration-300 ease-in hover:text-primary-red focus-within:text-primary-red`}
-              >
-                <MdAdsClick size={30} />
-              </Link> */}
             </div>
           </div>
         ))}

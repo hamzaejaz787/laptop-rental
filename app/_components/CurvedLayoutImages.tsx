@@ -33,16 +33,16 @@ const AnimatedImage: React.FC<AnimatedImageTypes> = ({
 
 const CurvedLayoutImages = () => {
   const layoutImages: string[] = [
-    "/hp_img1.png",
-    "/hp_img2.png",
-    "/hp_img3.png",
-    "/hp_img4.png",
-    "/hp_img5.png",
-    "/hp_img6.png",
+    "/Intro-1.png",
+    "/Intro-2.png",
+    "/Intro-3.png",
+    "/Intro-4.png",
+    "/Intro-5.png",
+    "/Intro-6.png",
   ];
 
   return (
-    <div className="flex items-center gap-4 justify-center px-4 md:px-10 flex-wrap lg:flex-nowrap">
+    <div className="flex items-center md:items-start gap-4 justify-center px-4 md:px-10 flex-wrap lg:flex-nowrap">
       {layoutImages.map((image, index) => (
         <AnimatedImage
           key={index}

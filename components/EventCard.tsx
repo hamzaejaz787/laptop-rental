@@ -9,10 +9,21 @@ import {
 import Image from "next/image";
 import CtaButton from "./CtaButton";
 import { EventCardProps } from "@/lib/definitions";
+import { cn } from "@/lib/utils";
 
-const EventCard = ({ data }: { data: EventCardProps }) => {
+type EventCardComponentProps = {
+  data: EventCardProps;
+  className?: string;
+};
+
+const EventCard: React.FC<EventCardComponentProps> = ({ data, className }) => {
   return (
-    <Card className="border-none p-4 rounded-sm flex flex-col shadow-3xl h-full">
+    <Card
+      className={cn(
+        "border-none p-4 rounded-sm flex flex-col shadow-3xl h-full",
+        className
+      )}
+    >
       {" "}
       <CardHeader className="p-0 relative after:content-[''] after:w-full after:border after:my-2 after:border-dashed after:border-primary-red">
         <Image

@@ -58,8 +58,7 @@ export const sendQuoteFormData = action
         Location: ${location},
         Start Date: ${startdate},
         End Date: ${enddate},
-        Message: ${message}
-        `,
+        Message: ${message}`,
       };
 
       const sendMailPromise = () => {

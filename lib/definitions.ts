@@ -41,6 +41,7 @@ export interface EventCardProps {
   description: string;
   href: string;
   ctatext: string;
+  
 }
 
 export interface EventItemTypes {

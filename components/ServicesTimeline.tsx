@@ -12,7 +12,7 @@ const ServicesTimeline = ({ description }: { description?: string }) => {
       text: "Australia, New Zealand & Worldwide",
     },
     {
-      title: "Worldwide Delivery",
+      title: "Nationwide Delivery",
       text: "Several Depots",
     },
     {
@@ -58,7 +58,7 @@ const ServicesTimeline = ({ description }: { description?: string }) => {
                   ? "/24_7-assistance.png"
                   : item.title.includes("Global Reach")
                   ? "/global-reach.png"
-                  : item.title.includes("Worldwide Delivery")
+                  : item.title.includes("Nationwide Delivery")
                   ? "/worldwide-delivery.png"
                   : item.title.includes("Flexible Rental Period")
                   ? "/flexible-rental-period.png"

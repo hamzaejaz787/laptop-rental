@@ -14,15 +14,15 @@ import { IoStarSharp } from "react-icons/io5";
 
 export default async function LaptopRental() {
   const eventCardsData: EventCardProps[] = [
-    {
-      imagesrc: "/Business Conferences & Seminars.png",
-      alternativeText: "Business Conferences & Seminars",
-      title: "Business Conferences & Seminars",
-      href: "/corporate-event",
-      description:
-        "Maximise your business success with hassle-free laptop hire for events like conferences and seminars. Enhance productivity seamlessly.",
-      ctatext: "Explore Event",
-    },
+    // {
+    //   imagesrc: "/Business Conferences & Seminars.png",
+    //   alternativeText: "Business Conferences & Seminars",
+    //   title: "Business Conferences & Seminars",
+    //   href: "/corporate-event",
+    //   description:
+    //     "Maximise your business success with hassle-free laptop hire for events like conferences and seminars. Enhance productivity seamlessly.",
+    //   ctatext: "Explore Event",
+    // },
     {
       imagesrc: "/Exhibitions and Workshops.png",
       alternativeText: "Exhibitions and Workshops",
@@ -102,9 +102,9 @@ export default async function LaptopRental() {
   ];
 
   const carouselData = [
-    { image: "/homepage-slider-1.png", text: homepagetext[0] },
-    { image: "/homepage-slider-2.png", text: homepagetext[1] },
-    { image: "/homepage-slider-3.png", text: homepagetext[2] },
+    { image: "/Header-1.jpg", text: homepagetext[0] },
+    { image: "/Header-2.jpg", text: homepagetext[1] },
+    { image: "/Header-3.jpg", text: homepagetext[2] },
   ];
 
   return (
@@ -149,7 +149,6 @@ export default async function LaptopRental() {
       </section>
 
       <EventDateCards />
-
       <Cta />
       <ServicesTimeline description="Laptop Rental Australia steps in as your trusted laptop rental partner. We empower your event with cutting-edge technology and unparalleled service, ensuring every moment is an opportunity to impress. Supported by dedicated teams, enjoy 24/7 technical and customer support for seamless corporate events. Contact our experts and rent Dell laptops for corporate events in Australia, New Zealand and Worldwide." />
       <div className="container flex items-center flex-col lg:flex-row gap-8 justify-between p-8">
