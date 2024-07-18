@@ -22,7 +22,7 @@ export interface BannerProps {
 
 const Banner = ({ btn, title, text, link, image }: BannerProps) => {
   return (
-    <section className="relative flex justify-center items-center">
+    <section className="relative flex justify-center items-center pt-12 lg:pt-[75px]">
       <Image
         src={image?.url || banner_bg}
         alt={image?.alternativeText || title}

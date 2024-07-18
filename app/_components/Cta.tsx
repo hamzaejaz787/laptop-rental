@@ -12,9 +12,9 @@ function Cta() {
         <div className="space-y-4 text-center md:text-left">
           <h2 className="text-white text-center md:text-left text-4xl md:text-7xl uppercase font-Barlow font-bold relative before:bg-white md:before:block md:before:absolute before:top-0 before:bottom-0 before:w-1 before:left-0 md:pl-8">
             Event Rentals <br className="hidden md:inline" />
-            <span className="md:text-6xl">Product Services</span>
+            <span>Product Services</span>
           </h2>
-          <p className="text-white text-center md:text-left md:max-w-lg text-sm lg:text-base">
+          <p className="text-white text-center md:text-left md:max-w-lg text-sm lg:text-base ">
             Enhance your events with premium rental products. Elevate
             experiences effortlessly. Reach out to us for seamless excellence.
             Contact us now!

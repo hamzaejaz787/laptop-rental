@@ -26,7 +26,7 @@ interface HomepageSliderProps {
 
 const HomepageSlider: React.FC<HomepageSliderProps> = ({ carouselData }) => {
   return (
-    <section>
+    <section className="pt-12 lg:pt-[75px]">
       <Carousel
         opts={{
           loop: true,
@@ -37,11 +37,11 @@ const HomepageSlider: React.FC<HomepageSliderProps> = ({ carouselData }) => {
           }),
         ]}
       >
-        <CarouselContent className="ml-0 min-h-dvh">
+        <CarouselContent className="ml-0 min-h-screen">
           {carouselData.map((data, index) => (
             <CarouselItem
               key={index}
-              className="min-h-dvh relative pl-0 h-auto"
+              className="min-h-full relative pl-0 h-auto"
             >
               <Image
                 src={data.image}
