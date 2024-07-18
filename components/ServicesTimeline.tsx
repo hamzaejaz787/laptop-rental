@@ -8,11 +8,11 @@ const ServicesTimeline = ({ description }: { description?: string }) => {
       text: "On-site and Remotely",
     },
     {
-      title: "Global Reach",
-      text: "Australia, New Zealand & Worldwide",
+      title: "Nationwide Reach",
+      text: "Australia & New Zealand",
     },
     {
-      title: "Nationwide Delivery",
+      title: "Quick Delivery",
       text: "Several Depots",
     },
     {
@@ -56,9 +56,9 @@ const ServicesTimeline = ({ description }: { description?: string }) => {
               src={
                 item.title.includes("24/7 Assistance")
                   ? "/24_7-assistance.png"
-                  : item.title.includes("Global Reach")
+                  : item.title.includes("Nationwide Reach")
                   ? "/global-reach.png"
-                  : item.title.includes("Nationwide Delivery")
+                  : item.title.includes("Quick Delivery")
                   ? "/worldwide-delivery.png"
                   : item.title.includes("Flexible Rental Period")
                   ? "/flexible-rental-period.png"

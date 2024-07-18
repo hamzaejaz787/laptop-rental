@@ -25,14 +25,14 @@ const eventsData = [
     mobileImage: "/EVENTAPPS&SOFTWARE_H.png",
   },
   {
-    title: "Global Fulfilment",
+    title: "Gaming Tournaments",
     eventdate: "15th Dec",
     href: "/eventrental/corporate-event",
     image: "/GLOBALFULFILMENT_V.png",
     mobileImage: "/GLOBALFULFILMENT_H.png",
   },
   {
-    title: "Customer Support",
+    title: "Educational Sector",
     eventdate: "15th Dec",
     href: "/eventrental/corporate-event",
     image: "/CUSTOMER_SUPPORT-V.png",
@@ -48,7 +48,7 @@ function EventDateCards() {
       </h2>
       <p className="text-gray-500 text-center max-w-3xl mx-auto text-sm lg:text-base">
         Effortless check-in & registration, seamless event Wi-Fi, cutting-edge
-        event apps, worldwide fulfillment, and dedicated customer support - we
+        event apps, nationwide fulfillment, and dedicated customer support - we
         help Australian events with unparalleled services for organisers and
         attendees alike.{" "}
       </p>

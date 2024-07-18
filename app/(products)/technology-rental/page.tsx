@@ -53,7 +53,7 @@ async function TechRental({
         link="/contactus"
         btn="Contact us"
         image={{
-          url: "/techrental-banner.jpg",
+          url: "/Technology-Rental-Header.jpg",
           alternativeText:
             "Laptop Rental is your premier destination for event technology rental solutions in Australia",
         }}
@@ -61,7 +61,7 @@ async function TechRental({
 
       <ImageInfo
         image={{
-          url: "/techrental-intro.jpg",
+          url: "/Technology-Intro.jpg",
           alternativeText:
             "Connect to Excellence: Unlock the Future with Event Technology Rental",
         }}
@@ -79,7 +79,7 @@ async function TechRental({
 
       <ImageInfo
         image={{
-          url: "/IT Rental for Events.jpg",
+          url: "/IT-Rental.jpg",
           alternativeText: "IT Rental for Events",
         }}
         title="IT Rental for Events"

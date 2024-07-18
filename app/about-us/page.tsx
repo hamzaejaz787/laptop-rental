@@ -20,7 +20,7 @@ const Aboutus = () => {
     <>
       <Banner
         image={{
-          url: "/about-us-banner.jpg",
+          url: "/About-Header.jpg",
           alternativeText: "About Us",
         }}
         btn="Contact us"

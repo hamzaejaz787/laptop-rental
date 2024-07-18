@@ -51,7 +51,7 @@ export default async function LaptopRental() {
       ctatext: "Explore Event",
     },
     {
-      imagesrc: "/Business Conferences & Seminars.png",
+      imagesrc: "/Corporate Event.png",
       alternativeText: "Corporate Event",
       title: "Corporate Event",
       href: "/corporate-event",

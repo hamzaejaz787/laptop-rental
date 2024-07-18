@@ -66,7 +66,7 @@ const EventPage = async () => {
       ctatext: "Explore Event",
     },
     {
-      imagesrc: "/Business Conferences & Seminars.png",
+      imagesrc: "/Corporate Event.png",
       alternativeText: "Corporate Event",
       title: "Corporate Event",
       href: "/corporate-event",
@@ -109,14 +109,14 @@ const EventPage = async () => {
         btn="Request a Quote"
         link="/get-a-quote"
         image={{
-          url: "/event-rental-banner.jpg",
+          url: "/eventrental-banner.jpg",
           alternativeText: "IT Event Rental",
         }}
       />
       <ImageInfo
         reverse={true}
         image={{
-          url: "/Empower Your Business with IT Rental Solutions for Events.jpg",
+          url: "/Event-Intro.jpg",
           alternativeText:
             "Empower Your Business with IT Rental Solutions for Events",
         }}
