@@ -20,18 +20,18 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { Textarea } from "./ui/textarea";
-import { useToast } from "./ui/use-toast";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/components/ui/use-toast";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { sendQuoteFormData } from "@/lib/actions";
+import { sendQuoteFormData, verifyRecaptcha } from "@/lib/actions";
 import { useAction } from "next-safe-action/hooks";
 import { quoteFormSchema } from "@/lib/definitions";
 import { useCart } from "@/providers/CartContext";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 const today = startOfToday();
-
 type FormInputName = "name" | "email" | "phone" | "company" | "location";
 
 interface FormInputItemTypes {
@@ -79,8 +79,10 @@ const formInputItems: FormInputItemTypes[] = [
 
 const QuoteForm = () => {
   const [startDate, setStartDate] = useState<Date | undefined>(undefined);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const { cartItems, clearCart } = useCart();
   const formRef = React.useRef<HTMLFormElement>(null);
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const { toast } = useToast();
   const cartItemsString =
     cartItems.length > 0
@@ -112,6 +114,7 @@ const QuoteForm = () => {
         clearCart();
         form.reset();
       }
+      setIsSubmitting(false);
     },
     onError(error) {
       if (error.error) {
@@ -121,11 +124,36 @@ const QuoteForm = () => {
           variant: "destructive",
         });
       }
+      setIsSubmitting(false);
     },
   });
 
   const onSubmit = async (values: z.infer<typeof quoteFormSchema>) => {
-    execute(values);
+    if (!executeRecaptcha) {
+      console.error("Execute recaptcha not yet available");
+      return;
+    }
+    try {
+      setIsSubmitting(true);
+      const recaptchaToken = await executeRecaptcha("quote_form");
+      const recaptchaResult = await verifyRecaptcha({ recaptchaToken });
+      if (!recaptchaToken || !recaptchaResult?.data?.success) {
+        toast({
+          title: "Error",
+          description: "reCAPTCHA verification failed",
+          variant: "destructive",
+        });
+        return;
+      }
+      execute(values);
+    } catch (error) {
+      console.error("reCAPTCHA execution failed:", error);
+      toast({
+        title: "Error",
+        description: "Failed to verify reCAPTCHA. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
   return (
     <Form {...form}>
@@ -134,6 +162,7 @@ const QuoteForm = () => {
         onSubmit={form.handleSubmit(onSubmit)}
         ref={formRef}
       >
+        {" "}
         <div className="flex items-center justify-between gap-4 w-full flex-col sm:flex-row flex-wrap">
           <FormField
             control={form.control}
@@ -178,7 +207,6 @@ const QuoteForm = () => {
             )}
           />
         </div>
-
         {formInputItems.map((item, index) => (
           <FormField
             key={index}
@@ -203,7 +231,6 @@ const QuoteForm = () => {
             )}
           />
         ))}
-
         <FormField
           control={form.control}
           name="message"
@@ -223,13 +250,12 @@ const QuoteForm = () => {
             </FormItem>
           )}
         />
-
         <Button
           type="submit"
-          disabled={status === "executing"}
+          disabled={status === "executing" || isSubmitting}
           className="bg-white text-primary-red w-full rounded hover:bg-red-400 hover:text-white text-base"
         >
-          {status === "executing" ? "Sending..." : "Submit"}
+          {status === "executing" || isSubmitting ? "Sending..." : "Submit"}
         </Button>
       </form>
     </Form>

@@ -15,13 +15,16 @@ import { Button } from "./ui/button";
 import Link from "next/link";
 import { FaPhone, FaLocationDot } from "react-icons/fa6";
 import { IoMail } from "react-icons/io5";
-import { handleContactForm } from "@/lib/actions";
+import { handleContactForm, verifyRecaptcha } from "@/lib/actions";
 import { useToast } from "./ui/use-toast";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { formSchema } from "@/lib/definitions";
 import { useAction } from "next-safe-action/hooks";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 export function ContactForm() {
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
   const form = useForm<z.infer<typeof formSchema>>({
@@ -45,6 +48,7 @@ export function ContactForm() {
           variant: "success",
         });
         form.reset();
+        setIsSubmitting(false);
       }
 
       if (data.data?.error) {
@@ -53,6 +57,7 @@ export function ContactForm() {
           description: data.data.error,
           variant: "destructive",
         });
+        setIsSubmitting(false);
       }
     },
     onError(error) {
@@ -67,7 +72,31 @@ export function ContactForm() {
   });
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    execute(values);
+    if (!executeRecaptcha) {
+      console.error("Execute recaptcha not yet available");
+      return;
+    }
+    try {
+      setIsSubmitting(true);
+      const recaptchaToken = await executeRecaptcha("quote_form");
+      const recaptchaResult = await verifyRecaptcha({ recaptchaToken });
+      if (!recaptchaToken || !recaptchaResult?.data?.success) {
+        toast({
+          title: "Error",
+          description: "reCAPTCHA verification failed",
+          variant: "destructive",
+        });
+        return;
+      }
+      execute(values);
+    } catch (error) {
+      console.error("reCAPTCHA execution failed:", error);
+      toast({
+        title: "Error",
+        description: "Failed to verify reCAPTCHA. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -175,12 +204,13 @@ export function ContactForm() {
                 )}
               />
             </div>
+
             <Button
               type="submit"
-              disabled={status === "executing"}
-              className={`bg-primary-red text-white hover:bg-red-500 px-8 md:px-14 w-full sm:w-auto`}
+              disabled={status === "executing" || isSubmitting}
+              className="bg-primary-red text-white hover:bg-red-500 px-8 md:px-14 w-full sm:w-auto"
             >
-              {status === "executing" ? "Sending..." : "Submit"}
+              {status === "executing" || isSubmitting ? "Sending..." : "Submit"}
             </Button>
           </form>
         </Form>

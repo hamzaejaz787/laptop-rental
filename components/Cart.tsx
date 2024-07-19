@@ -45,7 +45,7 @@ const Cart = () => {
                 {cartItems?.map((item) => (
                   <div
                     key={item.id}
-                    className="border-b border-primary-red flex flex-col sm:flex-row items-center gap-4 justify-between"
+                    className="border-b border-primary-red flex items-center gap-4 justify-between"
                   >
                     <Image
                       src={item.imageUrl}
@@ -55,7 +55,7 @@ const Cart = () => {
                     />
 
                     <div className="max-w-[200px] mx-auto text-center">
-                      <h4 className="">{item.Title}</h4>
+                      <h4 className="text-sm sm:text-base">{item.Title}</h4>
 
                       <div className="flex gap-2 justify-center items-center pb-4 sm:pb-0">
                         <Button
@@ -66,7 +66,7 @@ const Cart = () => {
                         >
                           -
                         </Button>
-                        <strong className="text-sm font-normal font-Barlow text-gray-600">
+                        <strong className="text-xs sm:text-sm font-normal font-Barlow text-gray-600">
                           Quantity: {item.quantity}
                         </strong>
                         <Button
@@ -84,7 +84,7 @@ const Cart = () => {
                       onClick={() => removeEntireItem(item.id)}
                       variant="outline"
                       size="icon"
-                      className="hidden sm:inline-flex text-gray-500 hover:text-gray-600 focus:text-gray-600 cursor-pointer bg-transparent"
+                      className="inline-flex text-gray-500 hover:text-gray-600 focus:text-gray-600 cursor-pointer bg-transparent"
                     >
                       <FaTrashCan />
                     </Button>

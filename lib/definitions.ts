@@ -41,7 +41,6 @@ export interface EventCardProps {
   description: string;
   href: string;
   ctatext: string;
-  
 }
 
 export interface EventItemTypes {
@@ -89,6 +88,7 @@ export const quoteFormSchema = z
         }
       )
       .transform((val) => val.replace(/\D/g, "")),
+    // recaptchaToken: z.string(),
   })
   .superRefine((values, ctx) => {
     if (values.enddate < values.startdate) {

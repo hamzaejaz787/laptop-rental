@@ -7,6 +7,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ScrollToTopButton } from "@/components/ScrollToTop";
 import { CartProvider } from "@/providers/CartContext";
+import ReCaptchaProvider from "@/components/RecaptchaProvider";
 
 export const metadata: Metadata = {
   title: "Laptop Rental For Events | Your Event Tech Partner",
@@ -47,13 +48,15 @@ export default function RootLayout({
           fontExo.variable
         )}
       >
-        <CartProvider>
-          <Header />
-          {children}
-          <Footer />
-          <Toaster />
-          <ScrollToTopButton />
-        </CartProvider>
+        <ReCaptchaProvider>
+          <CartProvider>
+            <Header />
+            {children}
+            <Footer />
+            <Toaster />
+            <ScrollToTopButton />
+          </CartProvider>
+        </ReCaptchaProvider>
       </body>
     </html>
   );

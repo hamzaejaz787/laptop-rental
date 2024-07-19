@@ -5,6 +5,7 @@ import { createTransport, Transporter } from "nodemailer";
 import { formSchema, quoteFormSchema } from "@/lib/definitions";
 import { action } from "@/lib/safe-action";
 import { cookies } from "next/headers";
+import { z } from "zod";
 
 //Function for nodemailer transporter
 function getNodemailerTransporter(): Transporter {
@@ -16,6 +17,24 @@ function getNodemailerTransporter(): Transporter {
     },
   });
 }
+
+//Verify recaptcha token
+export const verifyRecaptcha = action
+  .schema(z.object({ recaptchaToken: z.string() }))
+  .action(async ({ parsedInput: { recaptchaToken } }) => {
+    const response = await fetch(
+      `https://www.google.com/recaptcha/api/siteverify`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`,
+      }
+    );
+    const captcha = await response.json();
+    return { success: captcha.success };
+  });
 
 export const sendQuoteFormData = action
   .schema(quoteFormSchema)
@@ -40,8 +59,18 @@ export const sendQuoteFormData = action
         !name ||
         !phone ||
         !startdate
-      )
+      ) {
+        console.error("Missing required fields:", {
+          company,
+          email,
+          enddate,
+          location,
+          name,
+          phone,
+          startdate,
+        });
         return { error: "Something went wrong" };
+      }
 
       //Nodemailer config
       const transporter = getNodemailerTransporter();

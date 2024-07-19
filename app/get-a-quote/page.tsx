@@ -70,6 +70,7 @@ export default function GetAQuote() {
           <h2 className="font-bold text-3xl capitalize relative after:content-[''] after:block after:w-1/2 after:border-2 after:my-4 after:border-white after:border-dashed after:mx-auto">
             Rent your event
           </h2>
+
           <QuoteForm />
         </div>
       </div>
