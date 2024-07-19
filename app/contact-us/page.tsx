@@ -1,5 +1,4 @@
 import React from "react";
-import contact_bg from "@/public/contactus_bg.png";
 import ContactForm from "@/components/ContactForm";
 import Banner from "@/components/Banner";
 import { Metadata } from "next";
@@ -19,7 +18,7 @@ const Page = () => {
     <div>
       <Banner
         image={{
-          url: "/contact-us-banner.jpg",
+          url: "/contact-us-banner.png",
           alternativeText: "Contact us",
         }}
         title="Contact us"

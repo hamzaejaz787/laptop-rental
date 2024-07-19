@@ -51,7 +51,7 @@ const LaptopRental = async ({
         link="/get-a-quote"
         btn="Get A Quote"
         image={{
-          url: "/laptoprental-header.jpg",
+          url: "/laptoprental-header.png",
           alternativeText: "Laptop Rental",
         }}
       />

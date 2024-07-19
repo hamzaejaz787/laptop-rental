@@ -100,7 +100,7 @@ h5,
 h6 {
   font-family: var(--font-Barlow);
 }
-/* 
+
 .grecaptcha-badge {
   width: 70px !important;
   overflow: hidden !important;
@@ -109,8 +109,8 @@ h6 {
 }
 .grecaptcha-badge:hover {
   width: 256px !important;
-} */
-
+}
+/* 
 .grecaptcha-badge {
   z-index: 45;
-}
+} */

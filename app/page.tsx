@@ -24,7 +24,7 @@ export default async function LaptopRental() {
     //   ctatext: "Explore Event",
     // },
     {
-      imagesrc: "/Exhibitions and Workshops.png",
+      imagesrc: "/Exhibition&Workshop.png",
       alternativeText: "Exhibitions and Workshops",
       title: "Exhibitions and Workshops",
       href: "/corporate-event",
@@ -102,9 +102,9 @@ export default async function LaptopRental() {
   ];
 
   const carouselData = [
-    { image: "/Header-1.jpg", text: homepagetext[0] },
-    { image: "/Header-2.jpg", text: homepagetext[1] },
-    { image: "/Header-3.jpg", text: homepagetext[2] },
+    { image: "/Header-1.png", text: homepagetext[0] },
+    { image: "/Header-2.png", text: homepagetext[1] },
+    { image: "/Header-3.png", text: homepagetext[2] },
   ];
 
   return (

@@ -15,7 +15,7 @@ const TermsAndConditions = () => {
         title="Terms and Conditions"
         text="Please read these terms and conditions carefully before using Our Service."
         image={{
-          url: "/Term-And-Conditions.jpg",
+          url: "/Term-And-Conditions.png",
           alternativeText: "Terms and conditions banner",
         }}
       />

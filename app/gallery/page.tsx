@@ -31,7 +31,7 @@ const Gallery = async () => {
     <>
       <Banner
         image={{
-          url: "/header-gallery.jpg",
+          url: "/gallery-header.png",
           alternativeText: "Discover Our Event Transformations",
         }}
         title="Discover Our Event Transformations"

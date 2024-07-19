@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import banner_bg from "@/public/contactus_bg.png";
+
 import { getStrapiURL } from "@/lib/utils";
 import CtaButton from "@/components/CtaButton";
 
@@ -28,7 +28,7 @@ const BannerWithImageUrl = ({ btn, title, text, link, image }: BannerProps) => {
     <section className="relative flex justify-center items-center pt-12 lg:pt-[75px]">
       <Image
         priority
-        src={imageurl || banner_bg}
+        src={imageurl || ""}
         alt={image?.alternativeText || ""}
         width={image?.width || 1000}
         height={image?.height || 550}

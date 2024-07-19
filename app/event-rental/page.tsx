@@ -39,7 +39,7 @@ const EventPage = async () => {
     //   ctatext: "Explore Event",
     // },
     {
-      imagesrc: "/Exhibitions and Workshops.png",
+      imagesrc: "/Exhibition&Workshop.png",
       alternativeText: "Exhibitions and Workshops",
       title: "Exhibitions and Workshops",
       href: "/corporate-event",
@@ -109,7 +109,7 @@ const EventPage = async () => {
         btn="Request a Quote"
         link="/get-a-quote"
         image={{
-          url: "/eventrental-banner.jpg",
+          url: "/eventrental-header.png",
           alternativeText: "IT Event Rental",
         }}
       />
