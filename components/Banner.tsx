@@ -19,13 +19,13 @@ export interface BannerProps {
 
 const Banner = ({ btn, title, text, link, image }: BannerProps) => {
   return (
-    <section className="relative flex justify-center items-center pt-12 lg:pt-[75px]">
+    <section className="relative flex justify-center items-center pt-12 lg:pt-[70px]">
       <Image
         src={image?.url || ""}
         alt={image?.alternativeText || title}
         width={image?.width || 1920}
         height={image?.height || 550}
-        className="min-w-full h-screen md:max-h-[550px] relative object-cover"
+        className="h-dvh relative object-cover md:object-fill"
       />
       <div className="py-8 px-4 sm:p-8 absolute left-0 w-full h-full flex flex-col justify-center items-center gap-4">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl text-center text-bold text-white font-bold uppercase md:max-w-5xl mx-auto">

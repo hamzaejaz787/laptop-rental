@@ -25,14 +25,14 @@ const BannerWithImageUrl = ({ btn, title, text, link, image }: BannerProps) => {
   if (image) imageurl = baseurl + image?.url;
 
   return (
-    <section className="relative flex justify-center items-center pt-12 lg:pt-[75px]">
+    <section className="relative flex justify-center items-center pt-12 lg:pt-[70px]">
       <Image
         priority
         src={imageurl || ""}
         alt={image?.alternativeText || ""}
-        width={image?.width || 1000}
+        width={image?.width || 1920}
         height={image?.height || 550}
-        className="w-full h-screen md:max-h-[550px] relative object-cover"
+        className="h-screen md:max-h-[550px] relative object-cover md:object-fill"
       />
       <div className="p-8 absolute left-0 w-full h-full flex flex-col justify-center items-center gap-4">
         <h1 className="md:text-4xl text-center text-3xl text-bold text-white font-bold uppercase">
