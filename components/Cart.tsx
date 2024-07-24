@@ -13,6 +13,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaTrashCan } from "react-icons/fa6";
 import { ScrollArea } from "./ui/scroll-area";
+import CtaDialog from "@/app/(products)/technology-rental/_components/CtaDialog";
 
 const Cart = () => {
   const { cartItems, removeFromCart, increaseItemQuantity, removeEntireItem } =
@@ -92,14 +93,7 @@ const Cart = () => {
                 ))}
               </div>
             </ScrollArea>
-
-            <Button
-              asChild
-              onClick={() => setPopoverOpen(false)}
-              className="w-full rounded-sm bg-primary-red text-white hover:bg-red-500 focus-within:bg-red-500 mt-4"
-            >
-              <Link href="/get-a-quote">Request Quote</Link>
-            </Button>
+            <CtaDialog className="w-full" />
           </>
         ) : (
           <div className="flex place-content-center">

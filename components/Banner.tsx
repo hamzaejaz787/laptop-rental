@@ -25,7 +25,7 @@ const Banner = ({ btn, title, text, link, image }: BannerProps) => {
         alt={image?.alternativeText || title}
         width={image?.width || 1920}
         height={image?.height || 550}
-        className="h-dvh relative object-cover md:object-fill"
+        className="h-screen md:max-h-[550px] relative object-cover md:object-fill"
       />
       <div className="py-8 px-4 sm:p-8 absolute left-0 w-full h-full flex flex-col justify-center items-center gap-4">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl text-center text-bold text-white font-bold uppercase md:max-w-5xl mx-auto">

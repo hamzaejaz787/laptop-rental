@@ -81,7 +81,7 @@ export const getProduct = async (
     return qs.stringify({
       populate: {
         Specs: { populate: true },
-        ProductImage: { fields: ["name", "url", "alternativeText"] },
+        ProductCardImage: { fields: ["name", "url", "alternativeText"] },
       },
       sort: ["id:ASC"],
       filters: filters,
@@ -160,6 +160,21 @@ export const getProductCategoryBySlug = async (slug: string) => {
       products: {
         fields: ["ProductCategory", "ProductSubCategory"],
       },
+    },
+  });
+
+  return await fetchData(url.href);
+};
+
+export const getProductBySlug = async (slug: string) => {
+  const url = new URL(`/api/products/${slug}`, baseURL);
+
+  url.search = qs.stringify({
+    populate: {
+      Specs: { populate: true },
+      ProductCardImage: { fields: ["name", "url", "alternativeText"] },
+      ProductImages: { fields: ["name", "url", "alternativeText"] },
+      ProductFeatures: { populate: true },
     },
   });
 

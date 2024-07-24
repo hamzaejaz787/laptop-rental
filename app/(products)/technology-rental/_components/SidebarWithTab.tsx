@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/accordion";
 import { useDebouncedCallback } from "use-debounce";
 import { PageProps } from "@/lib/definitions";
+import { cn } from "@/lib/utils";
 
 export interface TabItemTypes {
   label: string;
@@ -49,26 +50,29 @@ const SidebarWithTab = ({
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const data = transformProductData(tabItems);
+  const [openCategory, setOpenCategory] = React.useState<string | null>(null);
 
   React.useEffect(() => {
-    if (ProductCategory && ProductSubCategory) {
+    if (ProductCategory) {
       const url = new URL(window.location.href);
       url.searchParams.set("category", ProductCategory.toLowerCase());
-      url.searchParams.set("subcategory", ProductSubCategory.toLowerCase());
+      if (ProductSubCategory) {
+        url.searchParams.set("subcategory", ProductSubCategory.toLowerCase());
+      }
       router.replace(url.toString(), { scroll: false });
+      setOpenCategory(ProductCategory.toLowerCase());
     }
   }, [ProductCategory, ProductSubCategory, router]);
-
   const handleTabChange = (value: string) => {
     const url = new URL(window.location.href);
     const currentCategory = url.searchParams.get("category");
 
     if (currentCategory === value.toLowerCase()) {
-      // If the current category is the same as the clicked one, remove the category param
       url.searchParams.delete("category");
+      setOpenCategory(null);
     } else {
-      // Otherwise, set the category param to the clicked value
       url.searchParams.set("category", value.toLowerCase());
+      setOpenCategory(value.toLowerCase());
     }
     url.searchParams.delete("subcategory");
     router.push(url.toString(), { scroll: false });
@@ -117,7 +121,9 @@ const SidebarWithTab = ({
           {data.map((item, index) => (
             <AccordionItem key={index} value={item.label}>
               <AccordionTrigger
-                className="p-4 flex items-center gap-2 h-auto md:h-auto focus-visible:underline font-semibold text-base hover:text-primary-red focus-within:text-primary-red transition-all duration-200 ease-in data-[state=open]:bg-transparent data-[state=open]:text-primary-red data-[state=open]:shadow-none"
+                className={
+                  "p-4 flex items-center gap-2 h-auto md:h-auto focus-visible:underline font-semibold text-base hover:text-primary-red focus-within:text-primary-red transition-all duration-200 ease-in data-[state=open]:bg-transparent data-[state=open]:text-primary-red data-[state=open]:shadow-none"
+                }
                 onClick={() => handleTabChange(item.label)}
               >
                 {item.label}
@@ -126,7 +132,14 @@ const SidebarWithTab = ({
                 {item.options.map((option: string, idx: number) => (
                   <div
                     key={idx}
-                    className="pl-8 py-2 cursor-pointer hover:text-primary-red"
+                    className={cn(
+                      "pl-8 py-2 cursor-pointer hover:text-primary-red",
+                      {
+                        "text-primary-red":
+                          searchParams.get("subcategory") ===
+                          option.toLowerCase(),
+                      }
+                    )}
                     onClick={() => handleOptionClick(option)}
                   >
                     {option}

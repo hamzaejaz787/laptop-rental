@@ -122,16 +122,15 @@ const ListItem = React.forwardRef<
   { title: string; href: string; isSubcomponent?: boolean }
 >(({ title, href, isSubcomponent }, ref) => {
   return (
-    <Link legacyBehavior passHref href={href}>
-      <NavigationMenuLink
-        className={cn(
-          "block font-Exo rounded-md text-primary hover:text-primary-red text-sm font-medium",
-          isSubcomponent && "pl-6" // Add left padding for subcomponents
-        )}
-      >
-        {title}
-      </NavigationMenuLink>
-    </Link>
+    <NavigationMenuLink
+      asChild
+      className={cn(
+        "block font-Exo rounded-md text-primary hover:text-primary-red text-sm font-medium",
+        isSubcomponent && "pl-6" // Add left padding for subcomponents
+      )}
+    >
+      <Link href={href}>{title}</Link>
+    </NavigationMenuLink>
   );
 });
 ListItem.displayName = "ListItem";

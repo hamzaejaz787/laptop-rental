@@ -6,15 +6,6 @@ import { EventCardProps } from "@/lib/definitions";
 const Eventslist = () => {
   const eventCardsData: EventCardProps[] = [
     {
-      imagesrc: "/Business Conferences & Seminars.png",
-      alternativeText: "Business Conferences & Seminars",
-      title: "Business Conferences & Seminars",
-      href: "/corporate-event",
-      description:
-        "Maximise your business success with hassle-free laptop hire for events like conferences and seminars. Enhance productivity seamlessly.",
-      ctatext: "Explore Event",
-    },
-    {
       imagesrc: "/Exhibitions and Workshops.png",
       alternativeText: "Exhibitions and Workshops",
       title: "Exhibitions and Workshops",
@@ -59,7 +50,6 @@ const Eventslist = () => {
         "Optimise your festival experience with our short-term laptop rental for events. Seamlessly enhance connectivity and productivity Down Under!",
       ctatext: "Explore Event",
     },
-
     {
       imagesrc: "/Gaming Events.png",
       alternativeText: "Gaming Events",

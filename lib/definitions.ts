@@ -29,11 +29,6 @@ export interface BannerProps {
   items?: BannerItem[];
 }
 
-export interface ProductInfoTabItemProps {
-  value: string;
-  content: string;
-}
-
 export interface EventCardProps {
   imagesrc: string;
   alternativeText: string;
@@ -133,3 +128,60 @@ export const formSchema = z.object({
     .string()
     .max(350, { message: "Message cannot be longer than 350 characters" }),
 });
+
+//Single Product
+export interface ProductImageCarouselProps {
+  data: Array<{
+    id: number;
+    url: string;
+    alternativeText: string | null;
+    width: number;
+    height: number;
+  }>;
+}
+
+export interface ProductSpecsProps {
+  id: number;
+  value: string;
+  Spec: string;
+}
+
+export interface ProductInfoTabItemProps {
+  id: number;
+  Type: "Description" | "Product Guide" | string;
+  value: string;
+}
+
+export interface ProductTabInfoProps {
+  TabItems: ProductInfoTabItemProps[];
+}
+
+export interface SingleProductProps {
+  id: number;
+  Title: string;
+  MetaDescription: string | null;
+  MetaKeywords: string | null;
+  MetaCanonical: string | null;
+  MetaTitle: string | null;
+  ProductCategory: string;
+  ProductSubCategory: string;
+  slug: string;
+  Specs: ProductSpecsProps[];
+  ProductCardImage: {
+    url: string;
+    alternativeText: string | null;
+    width: number;
+    height: number;
+  };
+  ProductImages: ProductImageCarouselProps;
+  ProductFeatures: Array<{
+    id: number;
+    Feature: string;
+  }>;
+  Faqs: Array<{
+    id: number;
+    Question: string;
+    Answer: string;
+  }>;
+  info: ProductInfoTabItemProps[];
+}
