@@ -33,6 +33,9 @@ export interface ProductCardItemsProps {
   slug: string;
   id: number;
   Specs: ProductSpecsProps[];
+  productcategory: {
+    slug: string;
+  };
 }
 
 //Render icons for specs base on the value
@@ -78,6 +81,7 @@ const ProductCard = ({
     slug,
     ProductCategory,
     ProductSubCategory,
+    productcategory,
   } = productCardItem;
 
   const baseurl = getStrapiURL();
@@ -116,15 +120,15 @@ const ProductCard = ({
         ))}
       </CardContent>
       <CardFooter className="p-0 pt-2">
-        {/* <CtaButton
+        <CtaButton
           href={`/${
             ProductCategory?.toLowerCase() === "laptop"
               ? "laptop-rental"
               : "technology-rental"
-          }/${ProductSubCategory}/${slug}`}
+          }/${productcategory.slug}/${slug}`}
           text="Learn More"
           className="rounded-r-none w-full"
-        /> */}
+        />
         <AddToCartButton Title={Title} id={id} imageUrl={imageurl} />
       </CardFooter>
     </Card>

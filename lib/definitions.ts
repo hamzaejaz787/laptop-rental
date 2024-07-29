@@ -1,3 +1,4 @@
+import { BlocksContent } from "@strapi/blocks-react-renderer";
 import { startOfToday } from "date-fns";
 import React from "react";
 import { z } from "zod";
@@ -149,7 +150,8 @@ export interface ProductSpecsProps {
 export interface ProductInfoTabItemProps {
   id: number;
   Type: "Description" | "Product Guide" | string;
-  value: string;
+  url?: string;
+  content: BlocksContent;
 }
 
 export interface ProductTabInfoProps {
@@ -184,4 +186,7 @@ export interface SingleProductProps {
     Answer: string;
   }>;
   info: ProductInfoTabItemProps[];
+  productcategory: {
+    slug: string;
+  };
 }

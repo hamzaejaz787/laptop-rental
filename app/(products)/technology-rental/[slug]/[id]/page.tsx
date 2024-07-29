@@ -92,8 +92,8 @@ async function ProductPage({ params }: PageProps) {
           subcategory={{
             href: `${
               data.ProductCategory.toLowerCase() === "laptop"
-                ? `/laptop-rental/${slug}`
-                : `/technology-rental/${slug}`
+                ? `/laptop-rental/${data.productcategory.slug}`
+                : `/technology-rental/${data.productcategory.slug}`
             }`,
             title: `${data.ProductSubCategory}`,
           }}

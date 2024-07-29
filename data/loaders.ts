@@ -82,6 +82,7 @@ export const getProduct = async (
       populate: {
         Specs: { populate: true },
         ProductCardImage: { fields: ["name", "url", "alternativeText"] },
+        productcategory: { fields: ["slug"] },
       },
       sort: ["id:ASC"],
       filters: filters,
@@ -175,6 +176,9 @@ export const getProductBySlug = async (slug: string) => {
       ProductCardImage: { fields: ["name", "url", "alternativeText"] },
       ProductImages: { fields: ["name", "url", "alternativeText"] },
       ProductFeatures: { populate: true },
+      Faqs: { populate: true },
+      info: { populate: true },
+      productcategory: { fields: ["slug"] },
     },
   });
 

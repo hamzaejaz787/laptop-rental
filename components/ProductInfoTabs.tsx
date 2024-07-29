@@ -4,10 +4,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ProductTabInfoProps } from "@/lib/definitions";
+import ParseRichText from "./RichTextParser";
 
 const ProductInfoTabs: React.FC<ProductTabInfoProps> = ({ TabItems }) => {
   return (
-    <section className="p-8 pt-0 container">
+    <section className="p-8  pt-0 container">
       <Tabs defaultValue={TabItems[0].Type}>
         <TabsList className="grid w-full grid-cols-2 bg-transparent gap-4 max-w-sm mx-auto">
           {TabItems.map((tab) => (
@@ -36,16 +37,20 @@ const ProductInfoTabs: React.FC<ProductTabInfoProps> = ({ TabItems }) => {
                 duration: 0.9,
                 type: "spring",
               }}
+              className="px-8"
             >
               {tab.Type === "Product Guide" ? (
                 <iframe
                   title="vimeo-player"
-                  src={tab.value}
+                  src={
+                    tab?.url ||
+                    "https://player.vimeo.com/video/802640138?h=50a353c215"
+                  }
                   className="min-h-[350px] w-full"
                   allowFullScreen
                 ></iframe>
               ) : (
-                <p className="text-gray-600">{tab.value}</p>
+                <ParseRichText content={tab.content} />
               )}
             </motion.div>
           </TabsContent>
