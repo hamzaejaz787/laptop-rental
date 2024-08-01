@@ -32,7 +32,7 @@ const CookieConsentPopup = () => {
   }, [cookieConsent]);
 
   if (loading) {
-    return null; // Render nothing while loading
+    return null;
   }
 
   if (cookieConsent !== null) {
@@ -56,7 +56,7 @@ const CookieConsentPopup = () => {
         </p>
       </div>
 
-      <div className="flex gap-2 flex-col-reverse sm:flex-row w-full">
+      <div className="flex gap-2 flex-col-reverse sm:flex-row w-full sm:justify-center">
         <Button
           variant="outline"
           className="px-5 py-2 rounded-sm text-primary-red border-white hover:bg-transparent hover:text-white"
@@ -65,7 +65,7 @@ const CookieConsentPopup = () => {
           Decline
         </Button>
         <Button
-          className="py-2 text-white rounded-sm bg-primary-red border border-transparent hover:border-white hover:bg-transparent"
+          className="py-2 px-4 text-white rounded-sm bg-primary-red border border-transparent hover:border-white hover:bg-transparent"
           onClick={() => setCookieConsent(true)}
         >
           Allow Cookies

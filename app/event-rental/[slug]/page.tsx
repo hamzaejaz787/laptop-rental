@@ -40,8 +40,7 @@ const Page = async ({ params }: PageProps) => {
     href: "/get-a-quote",
     bgsrc: data.CtaImage,
   };
-  if (data.error) {
-  }
+
   return (
     <div>
       <BannerWithImageUrl
@@ -68,20 +67,19 @@ const Page = async ({ params }: PageProps) => {
         )
       )}
 
-      {data.relatedproducts.data.length > 0 &&
-        data.relatedproducts.data?.productcategory && (
-          <div className="container space-y-6 pb-8 px-4 md:px-8">
-            <h3 className="font-bold text-3xl text-center font-Barlow">
-              Related Products
-            </h3>
+      {data.relatedproducts.data.length > 0 && (
+        <div className="container space-y-6 pb-8 px-4 md:px-8">
+          <h3 className="font-bold text-3xl text-center font-Barlow">
+            Related Products
+          </h3>
 
-            <CardsSlider>
-              {data.relatedproducts?.data.map((item: any) => (
-                <ProductCard key={item.id} productCardItem={item} />
-              ))}
-            </CardsSlider>
-          </div>
-        )}
+          <CardsSlider>
+            {data.relatedproducts?.data.map((item: any) => (
+              <ProductCard key={item.id} productCardItem={item} />
+            ))}
+          </CardsSlider>
+        </div>
+      )}
       <CTA ctaItems={ctaitems} />
       <div className="pt-8">
         <Eventslist />
