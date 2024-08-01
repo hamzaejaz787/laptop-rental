@@ -29,15 +29,6 @@ export const metadata: Metadata = {
 
 const EventPage = async () => {
   const eventCardsData: EventCardProps[] = [
-    // {
-    //   imagesrc: "/Business Conferences & Seminars.png",
-    //   alternativeText: "Business Conferences & Seminars",
-    //   title: "Business Conferences & Seminars",
-    //   href: "/corporate-event",
-    //   description:
-    //     "Maximise your business success with hassle-free laptop hire for events like conferences and seminars. Enhance productivity seamlessly.",
-    //   ctatext: "Explore Event",
-    // },
     {
       imagesrc: "/Exhibition&Workshop.png",
       alternativeText: "Exhibitions and Workshops",

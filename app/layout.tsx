@@ -8,6 +8,8 @@ import { cn } from "@/lib/utils";
 import { ScrollToTopButton } from "@/components/ScrollToTop";
 import { CartProvider } from "@/providers/CartContext";
 import ReCaptchaProvider from "@/components/RecaptchaProvider";
+import CookieConsentPopup from "@/components/CookieConsentPopup";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title: "Laptop Rental For Events | Your Event Tech Partner",
@@ -53,10 +55,12 @@ export default function RootLayout({
           <CartProvider>
             <Header />
             {children}
+            <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS_ID!} />
             <Footer />
             <Toaster />
             <ScrollToTopButton />
           </CartProvider>
+          <CookieConsentPopup />
         </ReCaptchaProvider>
       </body>
     </html>

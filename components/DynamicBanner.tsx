@@ -32,9 +32,10 @@ const BannerWithImageUrl = ({ btn, title, text, link, image }: BannerProps) => {
         alt={image?.alternativeText || ""}
         width={image?.width || 1920}
         height={image?.height || 550}
-        className="h-screen md:max-h-[550px] relative object-cover md:object-fill"
+        className="h-screen md:max-h-[550px] relative object-cover"
       />
-      <div className="p-8 absolute left-0 w-full h-full flex flex-col justify-center items-center gap-4">
+      <div className="py-8 px-4 sm:p-8 absolute left-0 top-0 w-full h-full flex flex-col justify-center items-center gap-4 bg-black/30">
+        {" "}
         <h1 className="md:text-4xl text-center text-3xl text-bold text-white font-bold uppercase">
           {title}
         </h1>
