@@ -10,9 +10,13 @@ const TabCards = ({
 }) => {
   return (
     <Suspense fallback={<>Loading...</>}>
-      <div className="grid grid-cols-1 sm:grid-cols-2 min-[850px]:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {tabCardsItems.map((product, index) => (
-          <ProductCard key={index} productCardItem={product} />
+          <ProductCard
+            key={index}
+            productCardItem={product}
+            className="w-full"
+          />
         ))}
       </div>
     </Suspense>

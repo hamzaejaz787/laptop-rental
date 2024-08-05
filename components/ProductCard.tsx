@@ -13,7 +13,7 @@ import { PiHardDrives } from "react-icons/pi";
 import { MdOutlineScreenshot } from "react-icons/md";
 import CtaButton from "./CtaButton";
 import AddToCartButton from "./AddToCartButton";
-import { getStrapiURL } from "@/lib/utils";
+import { cn, getStrapiURL } from "@/lib/utils";
 import { LucideMonitor } from "lucide-react";
 import { ProductSpecsProps } from "@/lib/definitions";
 
@@ -68,8 +68,10 @@ const getIconForSpec = (spec: ProductSpecsProps) => {
 
 const ProductCard = ({
   productCardItem,
+  className,
 }: {
   productCardItem: ProductCardItemsProps;
+  className?: string;
 }) => {
   //Destructure data
   const {
@@ -88,10 +90,13 @@ const ProductCard = ({
   let imageurl = "";
   if (ProductCardImage) imageurl = baseurl + ProductCardImage?.url;
 
-  console.log(productCardItem);
-
   return (
-    <Card className="h-full sm:max-w-xs justify-self-center flex flex-col justify-between border-2 border-dashed border-gray-400 rounded-none p-4 hover:border-red-500">
+    <Card
+      className={cn(
+        "h-full sm:max-w-xs justify-self-center flex flex-col justify-between border-2 border-dashed border-gray-400 rounded-none p-4 hover:border-red-500",
+        className
+      )}
+    >
       <CardHeader className="p-0 lg:space-x-1">
         <Image
           src={imageurl}
@@ -99,8 +104,6 @@ const ProductCard = ({
           width={200}
           height={200}
           className="self-center"
-          placeholder="blur"
-          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg=="
         />
         <CardTitle>{Title}</CardTitle>
         {/* <CardDescription className="line-clamp-3">
