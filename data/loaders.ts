@@ -72,7 +72,7 @@ export const getProduct = async (
     if (queryString) {
       filters.$or = [
         { Title: { $containsi: queryString } },
-        { Description: { $containsi: queryString } },
+        // { Description: { $containsi: queryString } },
         { ProductCategory: { $containsi: queryString } },
         { ProductSubCategory: { $containsi: queryString } },
       ];

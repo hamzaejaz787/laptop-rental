@@ -10,7 +10,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useDebouncedCallback } from "use-debounce";
-import { PageProps } from "@/lib/definitions";
 import { cn } from "@/lib/utils";
 
 export interface TabItemTypes {

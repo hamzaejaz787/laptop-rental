@@ -6,7 +6,7 @@ import { EventCardProps } from "@/lib/definitions";
 const Eventslist = () => {
   const eventCardsData: EventCardProps[] = [
     {
-      imagesrc: "/Exhibitions and Workshops.png",
+      imagesrc: "/Exhibition&Workshop.png",
       alternativeText: "Exhibitions and Workshops",
       title: "Exhibitions and Workshops",
       href: "/corporate-event",

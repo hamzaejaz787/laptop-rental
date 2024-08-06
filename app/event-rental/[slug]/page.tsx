@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import ImageInfo from "@/components/ImageInfo";
 import Eventslist from "../_components/eventslist";
 import ProductCard from "@/components/ProductCard";
-import { getEventBySlug } from "@/data/loaders";
+import { getEventBySlug, getEvents } from "@/data/loaders";
 import BannerWithImageUrl from "@/components/DynamicBanner";
 import { BannerImageProps, PageProps } from "@/lib/definitions";
 import CardsSlider from "@/components/CardsSlider";
@@ -41,6 +41,8 @@ const Page = async ({ params }: PageProps) => {
     bgsrc: data.CtaImage,
   };
 
+  const events = await getEvents();
+
   return (
     <div>
       <BannerWithImageUrl
@@ -62,7 +64,7 @@ const Page = async ({ params }: PageProps) => {
             title={item.HeroTitle}
             image={item.HeroImage}
             text={item.HeroDescription}
-            reverse={data.TextImage.length === 2 && index === 1} // Set reverse to true for the second occurrence when there are two items
+            reverse={index % 2 !== 0} // Set reverse to true for the second occurrence when there are two items
           />
         )
       )}

@@ -38,9 +38,8 @@ export async function generateMetadata({
 
 async function ProductPage({ params }: PageProps) {
   const data: SingleProductProps = await getProductBySlug(params.id);
-  const slug = params.slug;
-
   const baseurl = getStrapiURL();
+
   let imageurl = "";
   if (data.ProductCardImage) imageurl = baseurl + data.ProductCardImage?.url;
 
@@ -75,7 +74,7 @@ async function ProductPage({ params }: PageProps) {
   return (
     <>
       {/* <BannerWithImageUrl title="Dell ES5440 LATITUDE" text="" /> */}
-      <section className="container px-8 pt-28">
+      <section className="container px-8 md:px-20 pt-28">
         <Breadcrumbs
           category={{
             href: `${
@@ -101,7 +100,7 @@ async function ProductPage({ params }: PageProps) {
         />
       </section>
 
-      <section className="container p-8 flex items-center justify-between flex-col lg:flex-row gap-8 lg:gap-16">
+      <section className="container p-8 flex items-center justify-center flex-col lg:flex-row gap-8 lg:gap-20">
         {data.ProductImages.data.length > 1 ? (
           <ProductCarousel data={data.ProductImages.data} />
         ) : (
@@ -110,16 +109,16 @@ async function ProductPage({ params }: PageProps) {
             alt={data.ProductImages.data[0].alternativeText || ""}
             width={500}
             height={500}
-            className="flex-1"
+            className=""
           />
         )}
 
-        <div className="flex flex-col items-center lg:items-start justify-between gap-4 flex-1">
+        <div className="flex flex-col items-center lg:items-start justify-center gap-4 w-full md:max-w-md">
           <h3 className="font-sans font-bold text-3xl text-center lg:text-left">
             {data.Title}
           </h3>
 
-          <ul className="space-y-3 max-w-xl">
+          <ul className="space-y-3">
             {data.ProductFeatures.map((feature) => (
               <li
                 key={feature.id}
@@ -160,6 +159,7 @@ async function ProductPage({ params }: PageProps) {
               Title={data.Title}
               id={data.id}
               imageUrl={imageurl}
+              ProductCategory={data.ProductCategory}
             />
           </div>
         </div>

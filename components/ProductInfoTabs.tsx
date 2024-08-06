@@ -8,14 +8,14 @@ import ParseRichText from "./RichTextParser";
 
 const ProductInfoTabs: React.FC<ProductTabInfoProps> = ({ TabItems }) => {
   return (
-    <section className="p-8  pt-0 container">
-      <Tabs defaultValue={TabItems[0].Type}>
+    <section className="p-8 md:px-16 pt-0 container">
+      <Tabs defaultValue={TabItems[0].Type} className="space-y-8">
         <TabsList className="grid w-full grid-cols-2 bg-transparent gap-4 max-w-sm mx-auto">
           {TabItems.map((tab) => (
             <TabsTrigger
               key={tab.id}
               value={tab.Type}
-              className="data-[state=active]:bg-transparent data-[state=active]:underline data-[state=active]:text-red-500 data-[state=active]:decoration-primary-red data-[state=active]:shadow-none text-gray-700 hover:text-red-500 focus-visible:text-red-500 transition-all"
+              className="text-lg data-[state=active]:bg-transparent underline data-[state=active]:text-red-500 data-[state=active]:decoration-primary-red data-[state=active]:shadow-3xl text-gray-700 hover:text-red-500 focus-visible:text-red-500 transition-all"
             >
               {tab.Type}
             </TabsTrigger>
@@ -37,7 +37,7 @@ const ProductInfoTabs: React.FC<ProductTabInfoProps> = ({ TabItems }) => {
                 duration: 0.9,
                 type: "spring",
               }}
-              className="px-8"
+              className="md:px-8"
             >
               {tab.Type === "Product Guide" ? (
                 <iframe

@@ -125,16 +125,23 @@ const ProductCard = ({
         ))}
       </CardContent>
       <CardFooter className="p-0 pt-2">
-        <CtaButton
-          href={`/${
-            ProductCategory?.toLowerCase() === "laptop"
-              ? "laptop-rental"
-              : "technology-rental"
-          }/${productcategory.slug}/${slug}`}
-          text="Learn More"
-          className="rounded-r-none w-full"
+        {ProductCategory?.toLowerCase() === "laptop" && (
+          <CtaButton
+            href={`/${
+              ProductCategory?.toLowerCase() === "laptop"
+                ? "laptop-rental"
+                : "technology-rental"
+            }/${productcategory.slug}/${slug}`}
+            text="Learn More"
+            className="rounded-r-none w-full"
+          />
+        )}
+        <AddToCartButton
+          Title={Title}
+          id={id}
+          imageUrl={imageurl}
+          ProductCategory={ProductCategory}
         />
-        <AddToCartButton Title={Title} id={id} imageUrl={imageurl} />
       </CardFooter>
     </Card>
   );
