@@ -74,7 +74,7 @@ const Eventslist: React.FC<EventListTypes> = ({
         {relatedEventsTitle ||
           "Laptop Rental: Transforming Events with Innovative IT Solutions"}
       </h2>
-      <p className="text-sm xl:text-base max-w-4xl mx-auto text-center">
+      <p className="text-sm xl:text-base md:px-10 mx-auto text-center text-gray-700">
         {relatedEventsText ||
           "We take pride in transforming events through our innovative IT solutions. Our commitment goes beyond merely providing technology; we aim to revolutionise how events unfold."}
       </p>

@@ -29,7 +29,7 @@ const ImageInfo = ({
         height={500}
         className=""
       />
-      {__component === "hero-section.text-image-section" ? (
+      {__component !== "hero-section.rich-hero-text" ? (
         <div className="space-y-4">
           <h2 className="font-sans font-bold text-3xl lg:text-4xl text-center lg:text-left max-w-2xl">
             {title}
