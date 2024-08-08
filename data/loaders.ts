@@ -8,7 +8,9 @@ async function fetchData(url: string) {
     const response = await fetch(url, {
       next: { revalidate: 120 },
     });
+
     if (!response.ok) throw new Error(`Http error! status ${response.status}`);
+
     const data = await response.json();
     return flattenAttributes(data);
   } catch (error) {
@@ -34,17 +36,34 @@ export async function getEventBySlug(slug: string) {
   const url = new URL(`/api/events/${slug}`, baseURL);
   url.search = qs.stringify({
     populate: {
-      TextImage: {
-        populate: "*",
-      },
       IntroBanner: {
-        fields: ["name", "url", "alternativeText"],
+        populate: ["name", "url", "alternativeText"],
       },
       CtaImage: {
-        fields: ["name", "url", "alternavtiveText"],
+        populate: ["name", "url", "alternativeText"],
+      },
+      TextImage: {
+        populate: {
+          HeroImage: {
+            popoulate: ["name", "url", "alternativeText"],
+          },
+        },
+      },
+      FeaturedImage: {
+        fields: ["name", "url", "alternativeText"],
       },
       Faq: {
-        populate: "*",
+        Faqs: {},
+      },
+      relatedproducts: {
+        populate: {
+          Specs: { populate: true },
+          ProductCardImage: { fields: ["name", "url", "alternativeText"] },
+          productcategory: { populate: true },
+          FeaturedImage: {
+            fields: ["name", "url", "alternativeText"],
+          },
+        },
       },
     },
   });

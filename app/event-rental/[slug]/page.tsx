@@ -9,6 +9,7 @@ import { getEventBySlug, getEvents } from "@/data/loaders";
 import BannerWithImageUrl from "@/components/DynamicBanner";
 import { BannerImageProps, PageProps } from "@/lib/definitions";
 import CardsSlider from "@/components/CardsSlider";
+import { BlocksContent } from "@strapi/blocks-react-renderer";
 
 export async function generateMetadata({
   params,
@@ -41,8 +42,6 @@ const Page = async ({ params }: PageProps) => {
     bgsrc: data.CtaImage,
   };
 
-  const events = await getEvents();
-
   return (
     <div>
       <BannerWithImageUrl
@@ -53,9 +52,11 @@ const Page = async ({ params }: PageProps) => {
       {data?.TextImage?.map(
         (
           item: {
+            __component: string;
             HeroTitle: string;
             HeroDescription: string;
             HeroImage: BannerImageProps;
+            Content: BlocksContent;
           },
           index: number
         ) => (
@@ -65,6 +66,8 @@ const Page = async ({ params }: PageProps) => {
             image={item.HeroImage}
             text={item.HeroDescription}
             reverse={index % 2 !== 0} // Set reverse to true for the second occurrence when there are two items
+            __component={item.__component}
+            content={item.Content}
           />
         )
       )}
@@ -72,8 +75,13 @@ const Page = async ({ params }: PageProps) => {
       {data.relatedproducts.data.length > 0 && (
         <div className="container space-y-6 pb-8 px-4 md:px-8">
           <h3 className="font-bold text-3xl text-center font-Barlow">
-            Related Products
+            {data.RelatedProductsTitle || "Related Products"}
           </h3>
+          {data.RelatedProductsText !== null && (
+            <p className="text-sm xl:text-base max-w-4xl mx-auto text-center">
+              {data.RelatedProductsText}
+            </p>
+          )}
 
           <CardsSlider>
             {data.relatedproducts?.data.map((item: any) => (
@@ -84,11 +92,17 @@ const Page = async ({ params }: PageProps) => {
       )}
       <CTA ctaItems={ctaitems} />
       <div className="pt-8">
-        <Eventslist />
+        <Eventslist
+          relatedEventsTitle={data.EventsTitle}
+          relatedEventsText={data.EventsText}
+        />
       </div>
       <Faqs
         faqItems={data.Faq}
-        description="Find answers to frequently asked questions about our event rental services. Our team is here to provide quick assistance and expert guidance. Contact us today for reliable and speedy support."
+        description={
+          data.FaqText ||
+          "Find answers to frequently asked questions about our event rental services. Our team is here to provide quick assistance and expert guidance. Contact us today for reliable and speedy support."
+        }
       />
     </div>
   );

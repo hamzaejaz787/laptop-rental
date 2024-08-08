@@ -28,6 +28,8 @@ export interface BannerProps {
   reverse?: boolean;
   image?: BannerImageProps;
   items?: BannerItem[];
+  __component?: string;
+  content?: BlocksContent;
 }
 
 export interface EventCardProps {

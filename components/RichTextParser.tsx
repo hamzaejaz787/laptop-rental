@@ -29,7 +29,11 @@ const ParseRichText = ({ content }: { readonly content: BlocksContent }) => {
               <ol className="list-decimal pl-8 space-y-4">{props.children}</ol>
             );
           }
-          return <ul className="list-disc pl-8 space-y-4">{props.children}</ul>;
+          return (
+            <ul className="list-disc pl-8 space-y-4 marker:text-primary-red">
+              {props.children}
+            </ul>
+          );
         },
 
         heading: ({ children, level }) => {
@@ -39,13 +43,13 @@ const ParseRichText = ({ content }: { readonly content: BlocksContent }) => {
             case 2:
               return <h2 className="font-bold text-3xl">{children}</h2>;
             case 3:
-              return <h3 className="font-bold text-xl">{children}</h3>;
+              return <h3 className="font-bold text-2xl">{children}</h3>;
             case 4:
-              return <h4 className="font-bold text-lg">{children}</h4>;
+              return <h4 className="font-bold text-xl">{children}</h4>;
             case 5:
-              return <h5 className="font-bold text-base">{children}</h5>;
+              return <h5 className="font-bold text-lg">{children}</h5>;
             case 6:
-              return <h6 className="font-bold text-sm">{children}</h6>;
+              return <h6 className="font-bold text-base">{children}</h6>;
             default:
               return <h1>{children}</h1>;
           }

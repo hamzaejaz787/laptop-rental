@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { BannerProps } from "@/lib/definitions";
 import { getStrapiURL } from "@/lib/utils";
+import ParseRichText from "./RichTextParser";
 
 const ImageInfo = ({
   image,
@@ -9,6 +10,8 @@ const ImageInfo = ({
   text,
   reverse = false,
   items,
+  __component,
+  content,
 }: BannerProps) => {
   const baseurl = getStrapiURL();
   let imageurl = "";
@@ -26,33 +29,39 @@ const ImageInfo = ({
         height={500}
         className=""
       />
-      <div className="space-y-4">
-        <h2 className="font-sans font-bold text-3xl lg:text-4xl text-center lg:text-left max-w-2xl">
-          {title}
-        </h2>
-        <p className="font-sans text-sm xl:text-base text-center lg:text-left max-w-2xl">
-          {text}
-        </p>
+      {__component === "hero-section.text-image-section" ? (
+        <div className="space-y-4">
+          <h2 className="font-sans font-bold text-3xl lg:text-4xl text-center lg:text-left max-w-2xl">
+            {title}
+          </h2>
+          <p className="font-sans text-sm xl:text-base text-center lg:text-left max-w-2xl">
+            {text}
+          </p>
 
-        {items && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {items?.map((item: any, index: number) => (
-              <div className="flex items-center" key={index}>
-                {item.icon && (
-                  <div className="p-2 rounded-sm bg-primary-red flex items-center justify-center ">
-                    <item.icon color="white" size={20} />
-                  </div>
-                )}
-                {item.desc && (
-                  <p className="font-sans text-sm ml-2 text-center lg:text-left">
-                    {item.desc}
-                  </p>
-                )}
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
+          {items && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {items?.map((item: any, index: number) => (
+                <div className="flex items-center" key={index}>
+                  {item.icon && (
+                    <div className="p-2 rounded-sm bg-primary-red flex items-center justify-center ">
+                      <item.icon color="white" size={20} />
+                    </div>
+                  )}
+                  {item.desc && (
+                    <p className="font-sans text-sm ml-2 text-center lg:text-left">
+                      {item.desc}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      ) : (
+        <div className="space-y-4">
+          <ParseRichText content={content!} />
+        </div>
+      )}
     </div>
   );
 };
