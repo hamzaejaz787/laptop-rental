@@ -20,7 +20,7 @@ const Faqs = ({
   description?: string;
 }) => {
   return (
-    <section className="py-8 px-4 md:p-8 md:pt-14 w-full lg:max-w-3xl lg:mx-auto space-y-4">
+    <section className="py-8 px-4 md:p-8 md:pt-14 w-full lg:max-w-4xl lg:mx-auto space-y-4">
       <h2 className="text-4xl uppercase text-center font-semibold">
         Frequently Asked Questions
       </h2>

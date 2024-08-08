@@ -34,13 +34,13 @@ const BannerWithImageUrl = ({ btn, title, text, link, image }: BannerProps) => {
         height={image?.height || 550}
         className="h-screen md:max-h-[550px] relative object-cover w-full"
       />
-      <div className="py-8 px-4 sm:p-8 absolute left-0 top-0 w-full h-full flex flex-col justify-center items-center gap-4 bg-black/30">
+      <div className="py-8 px-4 sm:p-8 absolute left-0 top-0 w-full h-full flex flex-col justify-center items-center gap-4 bg-black/50">
         {" "}
-        <h1 className="md:text-4xl text-center text-3xl text-bold text-white font-bold uppercase">
+        <h1 className="md:text-4xl text-center text-3xl max-w-3xl text-bold text-white font-bold uppercase">
           {title}
         </h1>
         {text !== "" && (
-          <p className="md:text-base text-white/85 text-center md:max-w-xl md:mx-auto">
+          <p className="md:text-base text-white/85 text-center md:max-w-3xl md:mx-auto">
             {text}
           </p>
         )}

@@ -73,7 +73,7 @@ const Page = async ({ params }: PageProps) => {
       )}
 
       {data.relatedproducts.data.length > 0 && (
-        <div className="container space-y-6 pb-8 px-4 md:px-8">
+        <div className="container space-y-4 pb-8 px-4 md:px-8">
           <h3 className="font-bold text-3xl text-center font-Barlow">
             {data.RelatedProductsTitle || "Related Products"}
           </h3>
