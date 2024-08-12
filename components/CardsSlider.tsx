@@ -23,7 +23,7 @@ const CardsSlider: React.FC<CardsSliderProps> = ({ children }) => {
       }}
       plugins={[
         Autoplay({
-          delay: 5000,
+          delay: 2500,
         }),
       ]}
       className="w-full md:px-8"

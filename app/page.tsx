@@ -5,81 +5,14 @@ import HomepageSlider from "./_components/HomepageSlider";
 import CtaButton from "@/components/CtaButton";
 import CurvedLayoutImages from "./_components/CurvedLayoutImages";
 import Cta from "./_components/Cta";
-import { EventCardProps } from "@/lib/definitions";
 import ServicesTimeline from "@/components/ServicesTimeline";
 import EventCardsCarousel from "./_components/EventCardsCarousel";
 import QuoteForm from "@/components/QuoteForm";
 import Image from "next/image";
 import { IoStarSharp } from "react-icons/io5";
+import { getEvents } from "@/data/loaders";
 
 export default async function LaptopRental() {
-  const eventCardsData: EventCardProps[] = [
-    // {
-    //   imagesrc: "/Business Conferences & Seminars.png",
-    //   alternativeText: "Business Conferences & Seminars",
-    //   title: "Business Conferences & Seminars",
-    //   href: "/corporate-event",
-    //   description:
-    //     "Maximise your business success with hassle-free laptop hire for events like conferences and seminars. Enhance productivity seamlessly.",
-    //   ctatext: "Explore Event",
-    // },
-    {
-      imagesrc: "/Exhibition&Workshop.png",
-      alternativeText: "Exhibitions and Workshops",
-      title: "Exhibitions and Workshops",
-      href: "/corporate-event",
-      description:
-        "Optimise your corporate events with our rental services. Ideal for business exhibitions and workshops. Hire laptops for corporate events.",
-      ctatext: "Explore Event",
-    },
-    {
-      imagesrc: "/Product Launches.png",
-      alternativeText: "Product Launches",
-      title: "Product Launches",
-      href: "/corporate-event",
-      description:
-        "Enhance your product launches effortlessly with our top-notch rental services. Rent laptops for business success, delivering seamless presentations and connectivity.",
-      ctatext: "Explore Event",
-    },
-    {
-      imagesrc: "/Trade Shows.png",
-      alternativeText: "Trade Shows",
-      title: "Trade Shows",
-      href: "/corporate-event",
-      description:
-        "Maximise your trade show impact with our business laptop rental solutions. Elevate your events with our reliable and cost-effective services.",
-      ctatext: "Explore Event",
-    },
-    {
-      imagesrc: "/Corporate Event.png",
-      alternativeText: "Corporate Event",
-      title: "Corporate Event",
-      href: "/corporate-event",
-      description:
-        "Transform your corporate events with premium technology from Laptop Rental. Serving Australia, New Zealand, and worldwide, we provide top-tier IT rental solutions for seamless, impactful experiences.",
-      ctatext: "Explore Event",
-    },
-    {
-      imagesrc: "/Festivals.png",
-      alternativeText: "Festivals",
-      title: "Festivals",
-      href: "/corporate-event",
-      description:
-        "Optimise your festival experience with our short-term laptop rental for events. Seamlessly enhance connectivity and productivity Down Under!",
-      ctatext: "Explore Event",
-    },
-
-    {
-      imagesrc: "/Gaming Events.png",
-      alternativeText: "Gaming Events",
-      title: "Gaming Events",
-      href: "/corporate-event",
-      description:
-        "Optimise your gaming events with hassle-free laptop rental for events. Seamless tech solutions for epic gaming experiences.",
-      ctatext: "Explore Event",
-    },
-  ];
-
   const homepagetext = [
     {
       header: "Australia's Biggest",
@@ -106,6 +39,8 @@ export default async function LaptopRental() {
     { image: "/Header-2.png", text: homepagetext[1] },
     { image: "/Header-3.png", text: homepagetext[2] },
   ];
+
+  const eventCardData = await getEvents();
 
   return (
     <>
@@ -145,7 +80,7 @@ export default async function LaptopRental() {
           </p>
         </div>
 
-        <EventCardsCarousel data={eventCardsData} />
+        <EventCardsCarousel data={eventCardData.data} />
       </section>
 
       <EventDateCards />

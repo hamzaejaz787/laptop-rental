@@ -32,13 +32,24 @@ export interface BannerProps {
   content?: BlocksContent;
 }
 
+// export interface EventCardProps {
+//   imagesrc: string;
+//   alternativeText: string;
+//   title: string;
+//   description: string;
+//   href: string;
+//   ctatext: string;
+// }
+
 export interface EventCardProps {
-  imagesrc: string;
-  alternativeText: string;
-  title: string;
-  description: string;
-  href: string;
-  ctatext: string;
+  id?: number;
+  FeaturedText?: string;
+  slug: string;
+  FeaturedImage: {
+    url: string;
+    alternativeText: string;
+  };
+  NavMenuName: string;
 }
 
 export interface EventItemTypes {

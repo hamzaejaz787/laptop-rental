@@ -24,9 +24,13 @@ export async function getEvents() {
   url.search = qs.stringify({
     populate: {
       IntroBanner: {
-        fields: ["name", "url", "alternativeText"],
+        fields: ["url", "alternativeText"],
+      },
+      FeaturedImage: {
+        fields: ["url", "alternativeText"],
       },
     },
+    pagination: { pageSize: 30 },
   });
 
   return await fetchData(url.href);

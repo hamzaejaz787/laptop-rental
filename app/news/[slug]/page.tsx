@@ -5,7 +5,7 @@ import ResourceDetails from "./components/ResourceDetails";
 import { EventCardProps } from "@/lib/definitions";
 import EventCard from "@/components/EventCard";
 
-const eventCardsData: EventCardProps[] = [
+const eventCardsData = [
   {
     imagesrc: "/news3.png",
     alternativeText: "",
@@ -70,9 +70,9 @@ function SingleBlogPage() {
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {eventCardsData.slice(0, 3).map((item, index) => (
+          {/* {eventCardsData.slice(0, 3).map((item, index) => (
             <EventCard key={index} data={item} />
-          ))}
+          ))} */}
         </div>
       </div>
     </div>

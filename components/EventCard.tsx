@@ -9,7 +9,7 @@ import {
 import Image from "next/image";
 import CtaButton from "./CtaButton";
 import { EventCardProps } from "@/lib/definitions";
-import { cn } from "@/lib/utils";
+import { cn, getStrapiURL } from "@/lib/utils";
 
 type EventCardComponentProps = {
   data: EventCardProps;
@@ -17,6 +17,7 @@ type EventCardComponentProps = {
 };
 
 const EventCard: React.FC<EventCardComponentProps> = ({ data, className }) => {
+  const strapiUrl = getStrapiURL();
   return (
     <Card
       className={cn(
@@ -27,22 +28,22 @@ const EventCard: React.FC<EventCardComponentProps> = ({ data, className }) => {
       {" "}
       <CardHeader className="p-0 relative after:content-[''] after:w-full after:border after:my-2 after:border-dashed after:border-primary-red">
         <Image
-          src={data.imagesrc}
-          alt={data.alternativeText}
+          src={strapiUrl + data.FeaturedImage.url}
+          alt={data.FeaturedImage.alternativeText}
           width={200}
           height={200}
-          className="w-full"
+          className="w-full max-h-[200px] h-full object-cover"
         />
       </CardHeader>
       <CardContent className="p-0 h-full flex flex-col justify-between">
-        <CardTitle>{data.title}</CardTitle>
-        <CardDescription className="text-wrap mt-2 mb-4">
-          {data.description}
+        <CardTitle>{data.NavMenuName}</CardTitle>
+        <CardDescription className="text-wrap mt-2 mb-4 line-clamp-[7]">
+          {data?.FeaturedText || data.NavMenuName}
         </CardDescription>
 
         <CtaButton
-          href={`/event-rental${data.href}`}
-          text={data.ctatext}
+          href={`/event-rental/${data.slug}`}
+          text="Explore More"
           className="rounded-sm w-full"
         />
       </CardContent>

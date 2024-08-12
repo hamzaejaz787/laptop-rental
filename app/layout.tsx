@@ -29,10 +29,9 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.png",
   },
-
   robots: {
-    follow: false,
-    index: false,
+    follow: true,
+    index: true,
   },
 };
 
