@@ -49,7 +49,7 @@ export default async function LaptopRental() {
       <section className="container space-y-4 p-8 text-center">
         <h2 className="text-3xl lg:text-4xl max-w-4xl mx-auto text-center font-Barlow font-bold">
           Transform Your Event with MacBook, HP, Dell, & More - Available in
-          Australia, New Zealand & Worldwide{" "}
+          Australia & New Zealand{" "}
         </h2>
         <p className="text-gray-500 text-center max-w-3xl mx-auto text-sm xl:text-base">
           Powering successful conferences, exhibitions, festivals, and more with
@@ -85,7 +85,7 @@ export default async function LaptopRental() {
 
       <EventDateCards />
       <Cta />
-      <ServicesTimeline description="Laptop Rental Australia steps in as your trusted laptop rental partner. We empower your event with cutting-edge technology and unparalleled service, ensuring every moment is an opportunity to impress. Supported by dedicated teams, enjoy 24/7 technical and customer support for seamless corporate events. Contact our experts and rent Dell laptops for corporate events in Australia, New Zealand and Worldwide." />
+      <ServicesTimeline description="Laptop Rental Australia steps in as your trusted laptop rental partner. We empower your event with cutting-edge technology and unparalleled service, ensuring every moment is an opportunity to impress. Supported by dedicated teams, enjoy 24/7 technical and customer support for seamless corporate events. Contact our experts and rent laptops for corporate events in Australia & New Zealand" />
       <div className="container flex items-center flex-col lg:flex-row gap-8 justify-between p-8">
         <div className="space-y-4 flex-1 min-w-min">
           <strong className="bg-primary-red text-white text-base font-semibold uppercase rounded-sm px-2 py-1">
