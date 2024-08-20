@@ -20,6 +20,7 @@ import { getStrapiURL } from "@/lib/utils";
 import { AiOutlineAndroid, AiOutlineApple } from "react-icons/ai";
 import ProductCarousel from "@/components/ProductCarousel";
 import { LucideMonitor } from "lucide-react";
+import JsonLdSchema from "@/components/JsonLdSchema";
 
 export async function generateMetadata({
   params,
@@ -178,6 +179,11 @@ async function ProductPage({ params }: PageProps) {
         </CardsSlider>
       </section> */}
       <Faqs faqItems={data.Faqs} />
+
+      {data.jsonSchema &&
+        data.jsonSchema.map((schema) => (
+          <JsonLdSchema key={schema.id} schema={schema.schema} />
+        ))}
     </>
   );
 }

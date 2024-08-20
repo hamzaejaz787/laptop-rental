@@ -202,8 +202,16 @@ export const getProductBySlug = async (slug: string) => {
       Faqs: { populate: true },
       info: { populate: true },
       productcategory: { fields: ["slug"] },
+      jsonSchema: { fields: ["schema"] },
     },
   });
+
+  return await fetchData(url.href);
+};
+
+export const getBreadCrumbJsonSchema = async () => {
+  const url = new URL("/api/bread-crumb-json-schema", baseURL);
+  url.search = qs.stringify({});
 
   return await fetchData(url.href);
 };

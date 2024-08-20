@@ -32,15 +32,6 @@ export interface BannerProps {
   content?: BlocksContent;
 }
 
-// export interface EventCardProps {
-//   imagesrc: string;
-//   alternativeText: string;
-//   title: string;
-//   description: string;
-//   href: string;
-//   ctatext: string;
-// }
-
 export interface EventCardProps {
   id?: number;
   FeaturedText?: string;
@@ -171,6 +162,11 @@ export interface ProductTabInfoProps {
   TabItems: ProductInfoTabItemProps[];
 }
 
+export interface JsonLdSchemaItem {
+  id: number;
+  schema: string;
+}
+
 export interface SingleProductProps {
   id: number;
   Title: string;
@@ -202,4 +198,5 @@ export interface SingleProductProps {
   productcategory: {
     slug: string;
   };
+  jsonSchema: JsonLdSchemaItem[];
 }

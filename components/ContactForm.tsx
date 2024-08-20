@@ -245,17 +245,17 @@ const ContactsOptions = () => {
           Hire@laptop-rental.com.au
         </Link>
       </div>
-      {/* <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center">
         <FaLocationDot size={22} />
         <p className="text-center text-sm">Visit Our Office</p>
         <Link
           target="_blank"
-          href="https://maps.app.goo.gl/TyGxcsfetCLd6SNRA"
+          href="https://maps.app.goo.gl/u9jbDtGNHLvpRMSq5"
           className="text-center font-semibold transition-all duration-200 hover:text-red-300"
         >
           19B Hinkler Road Mordialloc, Mordialloc Victoria 3195, Australia{" "}
         </Link>
-      </div> */}
+      </div>
     </div>
   );
 };

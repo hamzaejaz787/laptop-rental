@@ -1,16 +1,16 @@
 import React from "react";
 
+import Image from "next/image";
+import Cta from "./_components/Cta";
+import { getEvents } from "@/data/loaders";
+import { IoStarSharp } from "react-icons/io5";
+import QuoteForm from "@/components/QuoteForm";
+import CtaButton from "@/components/CtaButton";
 import EventDateCards from "./_components/EventDateCards";
 import HomepageSlider from "./_components/HomepageSlider";
-import CtaButton from "@/components/CtaButton";
-import CurvedLayoutImages from "./_components/CurvedLayoutImages";
-import Cta from "./_components/Cta";
 import ServicesTimeline from "@/components/ServicesTimeline";
 import EventCardsCarousel from "./_components/EventCardsCarousel";
-import QuoteForm from "@/components/QuoteForm";
-import Image from "next/image";
-import { IoStarSharp } from "react-icons/io5";
-import { getEvents } from "@/data/loaders";
+import CurvedLayoutImages from "./_components/CurvedLayoutImages";
 
 export default async function LaptopRental() {
   const homepagetext = [

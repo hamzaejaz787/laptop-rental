@@ -313,7 +313,7 @@ const TermsAndConditions = () => {
               className="underline hover:text-primary-red focus-within:text-primary-red transition-all ease-in"
               href="mailto:hire@laptop-rental.com.au"
             >
-              Hire@laptop-rental.com.au{" "}
+              hire@laptop-rental.com.au{" "}
             </Link>{" "}
           </li>
           <li className="">
@@ -334,16 +334,16 @@ const TermsAndConditions = () => {
               +61-390-711-839
             </Link>{" "}
           </li>
-          {/* <li className="">
+          <li className="">
             <strong>By mail:</strong>{" "}
             <Link
               className="underline hover:text-primary-red focus-within:text-primary-red transition-all ease-in"
-              href="https://maps.app.goo.gl/TyGxcsfetCLd6SNRA"
+              href="https://maps.app.goo.gl/u9jbDtGNHLvpRMSq5"
               target="_blank"
             >
               19B Hinkler Road Mordialloc, Mordialloc Victoria 3195, Australia
             </Link>{" "}
-          </li> */}
+          </li>
         </ul>
       </section>
     </>

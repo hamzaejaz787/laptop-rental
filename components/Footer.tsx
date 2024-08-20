@@ -126,20 +126,20 @@ async function Footer() {
                   href="mailto:hire@laptop-rental.com.au"
                   className="text-white hover:text-red-400 transition-all duration-200 ease-in"
                 >
-                  Hire@laptop-rental.com.au
+                  hire@laptop-rental.com.au
                 </Link>
               </li>
-              {/* <li className="flex items-start gap-4 text-white">
+              <li className="flex items-start gap-4 text-white">
                 <FaLocationDot size={30} />
                 <Link
-                  href="https://maps.app.goo.gl/TyGxcsfetCLd6SNRA"
+                  href="https://maps.app.goo.gl/u9jbDtGNHLvpRMSq5"
                   target="_blank"
                   className="text-white hover:text-red-400 transition-all duration-200 ease-in"
                 >
                   19B Hinkler Road Mordialloc, Mordialloc Victoria 3195,
-                  Australia{" "}
+                  Australia
                 </Link>
-              </li> */}
+              </li>
             </ul>
           </div>
         </div>
