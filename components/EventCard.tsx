@@ -31,8 +31,8 @@ const EventCard: React.FC<EventCardComponentProps> = ({ data, className }) => {
           src={strapiUrl + data.FeaturedImage.url}
           alt={data.FeaturedImage.alternativeText}
           width={200}
-          height={200}
-          className="w-full max-h-[200px] h-full object-cover"
+          height={208}
+          className="w-full h-52 object-cover"
         />
       </CardHeader>
       <CardContent className="p-0 h-full flex flex-col justify-between">
