@@ -21,6 +21,7 @@ import { AiOutlineAndroid, AiOutlineApple } from "react-icons/ai";
 import ProductCarousel from "@/components/ProductCarousel";
 import { LucideMonitor } from "lucide-react";
 import JsonLdSchema from "@/components/JsonLdSchema";
+import CardsSlider from "@/components/CardsSlider";
 
 export async function generateMetadata({
   params,
@@ -75,7 +76,7 @@ async function ProductPage({ params }: PageProps) {
   return (
     <>
       {/* <BannerWithImageUrl title="Dell ES5440 LATITUDE" text="" /> */}
-      <section className="container px-8 md:px-20 pt-28">
+      <section className="container px-8 md:px-20 pt-20 lg:pt-32">
         <Breadcrumbs
           category={{
             href: `${
@@ -167,17 +168,17 @@ async function ProductPage({ params }: PageProps) {
       </section>
 
       <ProductInfoTabs TabItems={data.info} />
-      {/* <section className="container">
+      <section className="container">
         <h3 className="text-4xl font-bold text-center mt-10 mb-5">
           Related Products
         </h3>
 
-        <CardsSlider>
+        {/* <CardsSlider>
           {ProductCardItems.map((product, index) => (
             <ProductCard key={index} productCardItem={product} />
           ))}
-        </CardsSlider>
-      </section> */}
+        </CardsSlider> */}
+      </section>
       <Faqs faqItems={data.Faqs} />
 
       {data.jsonSchema &&

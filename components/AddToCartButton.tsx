@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { MdAdd, MdAddShoppingCart } from "react-icons/md";
+import { MdAddShoppingCart } from "react-icons/md";
 import { useCart } from "@/providers/CartContext";
 
 type AddToCartProps = {

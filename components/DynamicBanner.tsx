@@ -25,7 +25,7 @@ const BannerWithImageUrl = ({ btn, title, text, link, image }: BannerProps) => {
   if (image) imageurl = baseurl + image?.url;
 
   return (
-    <section className="relative flex justify-center items-center pt-12 lg:pt-[70px]">
+    <section className="relative flex justify-center items-center pt-12 lg:pt-[100px]">
       <Image
         priority
         src={imageurl || "/Technology-Rental-Header.png"}
