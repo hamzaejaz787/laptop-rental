@@ -10,12 +10,12 @@ const ProductInfoTabs: React.FC<ProductTabInfoProps> = ({ TabItems }) => {
   return (
     <section className="p-8 md:px-16 pt-0 container">
       <Tabs defaultValue={TabItems[0].Type} className="space-y-8">
-        <TabsList className="grid w-full grid-cols-2 bg-transparent gap-4 max-w-sm mx-auto">
+        <TabsList className="grid w-full grid-cols-1 sm:grid-cols-2 bg-transparent gap-4 max-w-lg mx-auto h-full">
           {TabItems.map((tab) => (
             <TabsTrigger
               key={tab.id}
               value={tab.Type}
-              className="text-lg data-[state=active]:bg-transparent underline data-[state=active]:text-red-500 data-[state=active]:decoration-primary-red data-[state=active]:shadow-3xl text-gray-700 hover:text-red-500 focus-visible:text-red-500 transition-all"
+              className="block text-center text-lg data-[state=active]:bg-transparent underline data-[state=active]:text-red-500 data-[state=active]:decoration-primary-red data-[state=active]:shadow-3xl text-gray-700 hover:text-red-500 focus-visible:text-red-500 transition-all"
             >
               {tab.Type}
             </TabsTrigger>

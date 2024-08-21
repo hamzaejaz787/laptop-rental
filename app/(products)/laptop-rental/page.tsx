@@ -46,8 +46,8 @@ const LaptopRental = async ({
   return (
     <>
       <Banner
-        title="Laptop Rental"
-        text="Partnering for Success: Comprehensive Laptop Rental For Events & Dedicated Support for Businesses in Australia and New Zealand. Book Now!"
+        title="Laptop Hire"
+        text="Partnering for Success: Comprehensive Laptop Hire For Events & Dedicated Support for Businesses in Australia and New Zealand. Book Now!"
         link="/get-a-quote"
         btn="Get A Quote"
         image={{
@@ -70,7 +70,7 @@ const LaptopRental = async ({
           href: "/get-a-quote",
         }}
       />
-      <ServicesTimeline description="Whether it's Melbourne's dynamic energy or Sydney's harborside charm, we deliver event-ready solutions across Australia, backed by dedicated regional teams for unparalleled service. Enjoy 24/7 technical and customer support, covering consultation, installation, on-site assistance, and equipment recovery, guaranteeing a smooth and hassle-free event experience. Contact our team and rent laptops for corporate events in Australia, New Zealand and Worldwide." />
+      <ServicesTimeline description="Whether it's Melbourne's dynamic energy or Sydney's harborside charm, we deliver event-ready solutions across Australia, backed by dedicated regional teams for unparalleled service. Enjoy 24/7 technical and customer support, covering consultation, installation, on-site assistance, and equipment recovery, guaranteeing a smooth and hassle-free event experience. Contact our team and hire laptops for corporate events in Australia and New Zealand." />
     </>
   );
 };
