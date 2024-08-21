@@ -39,7 +39,7 @@ const ProductInfoTabs: React.FC<ProductTabInfoProps> = ({ TabItems }) => {
               }}
               className="md:px-8"
             >
-              {tab.Type === "Product Guide" ? (
+              {/* {tab.Type === "Product Guide" ? (
                 <iframe
                   title="vimeo-player"
                   src={
@@ -49,9 +49,9 @@ const ProductInfoTabs: React.FC<ProductTabInfoProps> = ({ TabItems }) => {
                   className="min-h-[350px] w-full"
                   allowFullScreen
                 ></iframe>
-              ) : (
-                <ParseRichText content={tab.content} />
-              )}
+              ) : ( */}
+              <ParseRichText content={tab.content} />
+              {/* )} */}
             </motion.div>
           </TabsContent>
         ))}
