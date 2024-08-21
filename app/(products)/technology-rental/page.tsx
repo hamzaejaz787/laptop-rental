@@ -50,7 +50,7 @@ async function TechRental({
       <Banner
         title="Event Technology Rental Excellence"
         text="Laptop Rental is your premier destination for event technology rental solutions in Australia"
-        link="/contactus"
+        link="/contact-us"
         btn="Contact us"
         image={{
           url: "/Technology-Rental-Header.png",

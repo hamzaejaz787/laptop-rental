@@ -6,6 +6,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Laptop Rental For Events | Terms and Conditions",
   description: "",
+  alternates: {
+    canonical: "https://laptop-rental.com.au/terms-and-conditions",
+  },
 };
 
 const TermsAndConditions = () => {

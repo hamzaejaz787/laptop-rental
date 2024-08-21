@@ -66,27 +66,9 @@ export const quoteFormSchema = z
     location: z.string(),
     phone: z
       .string()
-      .regex(
-        /^(\+?61|0)?[-\s]?([0-9]{1,4})[-\s]?([0-9]{3,4})[-\s]?([0-9]{3,4})$/,
-        {
-          message: "Invalid Australian phone number",
-        }
-      )
-      .refine(
-        (val) => {
-          const digits = val.replace(/\D/g, "");
-          return (
-            (digits.startsWith("0") && digits.length === 10) ||
-            (digits.startsWith("61") && digits.length === 11) ||
-            (!digits.startsWith("0") &&
-              !digits.startsWith("61") &&
-              digits.length === 9)
-          );
-        },
-        {
-          message: "Invalid Australian phone number",
-        }
-      )
+      .regex(/^\+?\d{9,}$/, {
+        message: "Phone number is not valid!!",
+      })
       .transform((val) => val.replace(/\D/g, "")),
     // recaptchaToken: z.string(),
   })
@@ -105,27 +87,9 @@ export const formSchema = z.object({
   email: z.string().email().min(1, { message: "Cannot be empty" }),
   contact: z
     .string()
-    .regex(
-      /^(\+?61|0)?[-\s]?([0-9]{1,4})[-\s]?([0-9]{3,4})[-\s]?([0-9]{3,4})$/,
-      {
-        message: "Invalid Australian phone number",
-      }
-    )
-    .refine(
-      (val) => {
-        const digits = val.replace(/\D/g, "");
-        return (
-          (digits.startsWith("0") && digits.length === 10) ||
-          (digits.startsWith("61") && digits.length === 11) ||
-          (!digits.startsWith("0") &&
-            !digits.startsWith("61") &&
-            digits.length === 9)
-        );
-      },
-      {
-        message: "Invalid Australian phone number",
-      }
-    )
+    .regex(/^\+?\d{9,}$/, {
+      message: "Phone number is not valid!!",
+    })
     .transform((val) => val.replace(/\D/g, "")),
   company: z.string(),
   location: z.string(),
@@ -167,6 +131,24 @@ export interface JsonLdSchemaItem {
   schema: string;
 }
 
+export interface RelatedProductsTypes {
+  id: number;
+  Title: string;
+  slug: string;
+  ProductCategory: string;
+  ProductSubCategory: string;
+  ProductCardImage: {
+    url: string;
+    alternativeText: string;
+    width: number;
+    height: number;
+  };
+  Specs: ProductSpecsProps[];
+  productcategory: {
+    slug: string;
+  };
+}
+
 export interface SingleProductProps {
   id: number;
   Title: string;
@@ -199,4 +181,5 @@ export interface SingleProductProps {
     slug: string;
   };
   jsonSchema: JsonLdSchemaItem[];
+  relatedproducts: { data: RelatedProductsTypes[] };
 }

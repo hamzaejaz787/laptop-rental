@@ -26,7 +26,7 @@ interface HomepageSliderProps {
 
 const HomepageSlider: React.FC<HomepageSliderProps> = ({ carouselData }) => {
   return (
-    <section className="pt-12 lg:pt-[100px]">
+    <section className="-mt-4">
       <Carousel
         opts={{
           loop: true,

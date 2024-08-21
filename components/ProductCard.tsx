@@ -27,7 +27,7 @@ interface ProductCardImageProps {
 export interface ProductCardItemsProps {
   ProductCardImage: ProductCardImageProps;
   Title: string;
-  Description: string;
+  Description?: string;
   ProductCategory?: string;
   ProductSubCategory?: string;
   slug: string;

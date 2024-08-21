@@ -22,12 +22,14 @@ import ProductCarousel from "@/components/ProductCarousel";
 import { LucideMonitor } from "lucide-react";
 import JsonLdSchema from "@/components/JsonLdSchema";
 import CardsSlider from "@/components/CardsSlider";
+import ProductCard from "@/components/ProductCard";
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const slug = params.id;
   const data: SingleProductProps = await getProductBySlug(slug);
+
   return {
     title: data.MetaTitle,
     description: data.MetaDescription,
@@ -76,7 +78,7 @@ async function ProductPage({ params }: PageProps) {
   return (
     <>
       {/* <BannerWithImageUrl title="Dell ES5440 LATITUDE" text="" /> */}
-      <section className="container px-8 md:px-20 pt-20 lg:pt-32">
+      <section className="container px-8 md:px-20 pt-8">
         <Breadcrumbs
           category={{
             href: `${
@@ -168,17 +170,19 @@ async function ProductPage({ params }: PageProps) {
       </section>
 
       <ProductInfoTabs TabItems={data.info} />
-      <section className="container">
-        <h3 className="text-4xl font-bold text-center mt-10 mb-5">
-          Related Products
-        </h3>
+      {data.relatedproducts?.data.length > 0 && (
+        <section className="container">
+          <h3 className="text-4xl font-bold text-center mt-10 mb-5">
+            Related Products
+          </h3>
 
-        {/* <CardsSlider>
-          {ProductCardItems.map((product, index) => (
-            <ProductCard key={index} productCardItem={product} />
-          ))}
-        </CardsSlider> */}
-      </section>
+          <CardsSlider>
+            {data.relatedproducts.data.map((product, index) => (
+              <ProductCard key={index} productCardItem={product} />
+            ))}
+          </CardsSlider>
+        </section>
+      )}
       <Faqs faqItems={data.Faqs} />
 
       {data.jsonSchema &&
