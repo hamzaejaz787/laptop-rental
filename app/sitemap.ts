@@ -119,7 +119,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   products.data.forEach((product) => {
     const url = `${baseUrl}/${
       product.ProductCategory.toLowerCase() === "laptop"
-        ? "laptop-rental"
+        ? "laptop-hire"
         : "technology-rental"
     }/${product.productcategory.slug}/${product.slug}`;
 

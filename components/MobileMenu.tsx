@@ -122,7 +122,7 @@ export function MobileMenu({
             <NavigationMenuItem>
               <NavigationMenuTrigger className="flex items-center gap-4 font-medium text-sm font-Exo text-white focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in">
                 <Link
-                  href={"/laptop-rental"}
+                  href={"/laptop-hire"}
                   onClick={handleClose}
                   className="text-white focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
                 >
@@ -135,7 +135,7 @@ export function MobileMenu({
                   {laptopItems?.map((item) => (
                     <Link
                       key={item.id}
-                      href={`/laptop-rental/${item.slug}`}
+                      href={`/laptop-hire/${item.slug}`}
                       className="text-white text-xs focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
                       onClick={handleClose}
                     >

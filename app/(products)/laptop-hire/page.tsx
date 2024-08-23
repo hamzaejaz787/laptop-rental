@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     "Laptop Hire for business",
   ],
   alternates: {
-    canonical: "https://laptop-rental.com.au/laptop-rental",
+    canonical: "https://laptop-rental.com.au/laptop-hire",
   },
 };
 

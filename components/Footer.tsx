@@ -101,7 +101,7 @@ async function Footer() {
                   key={item.id}
                   className="text-white hover:text-red-400 transition-all duration-200 ease-in cursor-pointer"
                 >
-                  <Link href={`/laptop-rental/${item.slug}`}>{item.Title}</Link>
+                  <Link href={`/laptop-hire/${item.slug}`}>{item.Title}</Link>
                 </li>
               ))}
             </ul>

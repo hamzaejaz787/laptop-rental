@@ -56,7 +56,7 @@ export function Navbar({
 
           <NavigationMenuItem>
             <NavigationMenuTrigger>
-              <ListItem href="/laptop-rental" title="Laptop Rental" />
+              <ListItem href="/laptop-hire" title="Laptop Hire" />
             </NavigationMenuTrigger>
 
             <NavigationMenuContent>
@@ -65,7 +65,7 @@ export function Navbar({
                   <ListItem
                     key={item.id}
                     title={item.Title}
-                    href={`/laptop-rental/${item.slug}`}
+                    href={`/laptop-hire/${item.slug}`}
                   />
                 ))}
               </ul>
@@ -126,7 +126,7 @@ const ListItem = React.forwardRef<
       asChild
       className={cn(
         "block font-Exo rounded-md text-primary hover:text-primary-red text-sm font-medium",
-        isSubcomponent && "pl-6" // Add left padding for subcomponents
+        isSubcomponent && "pl-6"
       )}
     >
       <Link href={href}>{title}</Link>

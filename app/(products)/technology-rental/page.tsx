@@ -59,7 +59,7 @@ async function TechRental({
         }}
       />
 
-      <ImageInfo
+      {/* <ImageInfo
         image={{
           url: "/Technology-Intro.png",
           alternativeText:
@@ -67,17 +67,16 @@ async function TechRental({
         }}
         title="Connect to Excellence: Unlock the Future with Event Technology Rental"
         text="Enter Laptop Rental - your premier partner for event technology rental in Australia. We specialise in providing a wide range of top-quality tech rental for events. From business conferences and seminars to festivals and product launches, we offer tailored solutions to meet diverse event needs"
-      />
+      /> */}
 
       <div className="flex flex-col lg:flex-row gap-8 justify-between container p-8">
         <SidebarWithTab tabItems={allProducts.data} />
         <TabCards tabCardsItems={product.data} />
       </div>
       <PaginationComponent pageCount={product.meta.pagination.pageCount} />
-
       <ServicesTimeline />
 
-      <ImageInfo
+      {/* <ImageInfo
         image={{
           url: "/IT-Rental.png",
           alternativeText: "IT Rental for Events",
@@ -85,7 +84,7 @@ async function TechRental({
         title="IT Rental for Events"
         reverse
         text="As a leading technology rental company, our mission is to empower businesses and individuals by providing cutting-edge and reliable technology solutions for their short-term and long-term events needs. Our comprehensive IT rental for events caters to a diverse range of needs, providing top-notch laptops, iPads, and other essential technology. With a focus on reliability and flexibility, our offerings ensure that your event runs smoothly, from hassle-free check-ins to flawless presentations. Our dedicated team is committed to providing 24/7 assistance, both on-site and remotely, ensuring that technical support is readily available whenever you need it. Hire IT equipment for events, and let us contribute to the success of your gatherings with cutting-edge technology and professional support"
-      />
+      /> */}
     </>
   );
 }

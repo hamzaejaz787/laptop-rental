@@ -7,15 +7,18 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 import Image from "next/image";
+import CtaButton from "./CtaButton";
+import { LucideMonitor } from "lucide-react";
+import { PiHardDrives, PiDevices } from "react-icons/pi";
+import { cn, getStrapiURL } from "@/lib/utils";
+import AddToCartButton from "./AddToCartButton";
+import { GiRadarSweep } from "react-icons/gi";
+import { MdOutlineScreenshot, MdOutlineNetworkCheck } from "react-icons/md";
+import { ProductSpecsProps } from "@/lib/definitions";
 import { IoHardwareChipOutline } from "react-icons/io5";
 import { AiOutlineAndroid, AiOutlineApple } from "react-icons/ai";
-import { PiHardDrives } from "react-icons/pi";
-import { MdOutlineScreenshot } from "react-icons/md";
-import CtaButton from "./CtaButton";
-import AddToCartButton from "./AddToCartButton";
-import { cn, getStrapiURL } from "@/lib/utils";
-import { LucideMonitor } from "lucide-react";
-import { ProductSpecsProps } from "@/lib/definitions";
+import { TbSignalLte } from "react-icons/tb";
+import { VscRadioTower } from "react-icons/vsc";
 
 interface ProductCardImageProps {
   alternativeText: string;
@@ -48,8 +51,18 @@ const getIconForSpec = (spec: ProductSpecsProps) => {
       return <MdOutlineScreenshot {...IconProps} aria-label="Screen size" />;
     case "ram":
       return <IoHardwareChipOutline {...IconProps} aria-label="RAM" />;
+    case "range":
+      return <GiRadarSweep {...IconProps} aria-label="Range" />;
     case "storage":
       return <PiHardDrives {...IconProps} aria-label="Storage" />;
+    case "number of devices":
+      return <PiDevices {...IconProps} aria-label="Devices" />;
+    case "bandwidth":
+      return <MdOutlineNetworkCheck {...IconProps} aria-label="Bandwidth" />;
+    case "carrier":
+      return <TbSignalLte {...IconProps} aria-label="Carrier" />;
+    case "frequency":
+      return <VscRadioTower {...IconProps} aria-label="Frequency" />;
     case "os":
       if (spec.value.toLowerCase().includes("android")) {
         return <AiOutlineAndroid {...IconProps} aria-label="Android OS" />;
@@ -129,7 +142,7 @@ const ProductCard = ({
           <CtaButton
             href={`/${
               ProductCategory?.toLowerCase() === "laptop"
-                ? "laptop-rental"
+                ? "laptop-hire"
                 : "technology-rental"
             }/${productcategory.slug}/${slug}`}
             text="Learn More"

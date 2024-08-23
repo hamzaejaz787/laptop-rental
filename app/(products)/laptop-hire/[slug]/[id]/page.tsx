@@ -83,19 +83,19 @@ async function ProductPage({ params }: PageProps) {
           category={{
             href: `${
               data.ProductCategory.toLowerCase() === "laptop"
-                ? "/laptop-rental"
+                ? "/laptop-hire"
                 : "/technology-rental"
             }`,
             title: `${
               data.ProductCategory.toLowerCase() === "laptop"
-                ? "Laptop Rental"
+                ? "Laptop Hire"
                 : "Technology Rental"
             }`,
           }}
           subcategory={{
             href: `${
               data.ProductCategory.toLowerCase() === "laptop"
-                ? `/laptop-rental/${data.productcategory.slug}`
+                ? `/laptop-hire/${data.productcategory.slug}`
                 : `/technology-rental/${data.productcategory.slug}`
             }`,
             title: `${data.ProductSubCategory}`,
