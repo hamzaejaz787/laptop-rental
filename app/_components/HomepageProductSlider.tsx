@@ -14,32 +14,32 @@ import Autoplay from "embla-carousel-autoplay";
 const images = [
   {
     imageurl: "/header-product-dell.png",
-    href: "/laptop-rental/dell-laptop-rental",
+    href: "/laptop-hire/dell-laptop-rental",
     title: "Dell Laptops",
   },
   {
     imageurl: "/header-product-hp.png",
-    href: "/laptop-rental/hp-laptop-rental",
+    href: "/laptop-hire/hp-laptop-rental",
     title: "HP Laptops",
   },
   {
     imageurl: "/header-product-gaming-laptop.png",
-    href: "/laptop-rental/gaming-laptop-rental",
+    href: "/laptop-hire/gaming-laptop-rental",
     title: "Gaming Laptops",
   },
   {
     imageurl: "/header-product-lenovo-laptop.png",
-    href: "/laptop-rental/lenovo-laptop-rental",
+    href: "/laptop-hire/lenovo-laptop-rental",
     title: "Lenovo Laptops",
   },
   {
     imageurl: "/header-product-macbook.png",
-    href: "/laptop-rental/macbook-pro-rental",
+    href: "/laptop-hire/macbook-pro-rental",
     title: "Macbooks",
   },
   {
     imageurl: "/header-product-microsoft-surface-pro.png",
-    href: "/laptop-rental/microsoft-surface-pro-rental",
+    href: "/laptop-hire/microsoft-surface-pro-rental",
     title: "Microsoft Laptops",
   },
 ];
