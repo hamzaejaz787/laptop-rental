@@ -6,6 +6,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Laptop Rental For Events | Privacy Policy",
   description: "",
+  alternates: {
+    canonical: "https://laptop-rental.com.au/privacy-policy",
+  },
 };
 
 const PrivacyPolicy = () => {

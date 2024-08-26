@@ -6,7 +6,7 @@ import {
   getProduct,
   getProductCategoryBySlug,
 } from "@/data/loaders";
-import { PageProps } from "@/lib/definitions";
+import { PageProps, SingleProductProps } from "@/lib/definitions";
 import { notFound } from "next/navigation";
 import ServicesTimeline from "@/components/ServicesTimeline";
 import BannerWithImageUrl from "@/components/DynamicBanner";
@@ -19,13 +19,13 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const slug = params.slug;
-  const data = await getProductCategoryBySlug(slug);
+  const data: SingleProductProps = await getProductCategoryBySlug(slug);
   return {
     title: data.MetaTitle,
     description: data.MetaDescription,
     keywords: data.MetaKeywords,
     alternates: {
-      canonical: data?.MetaCanonical,
+      canonical: `https://laptop-rental.com.au/laptop-hire/${data.slug}`,
     },
   };
 }
