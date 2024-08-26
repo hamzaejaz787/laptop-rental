@@ -36,13 +36,19 @@ export function MobileMenu({
   const handleClose = () => setOpen(false);
 
   //filter items for laptop and other product categories
-  const laptopItems = productCategoryItems?.data.filter((item) =>
-    item.products.data.some((product) => product.ProductCategory === "Laptop")
-  );
-  const otherItems = productCategoryItems?.data.filter((item) =>
-    item.products.data.every((product) => product.ProductCategory !== "Laptop")
-  );
+  const laptopItems = productCategoryItems?.data
+    .filter((item) =>
+      item.products.data.some((product) => product.ProductCategory === "Laptop")
+    )
+    .sort((a, b) => a.Title.localeCompare(b.Title));
 
+  const otherItems = productCategoryItems?.data
+    .filter((item) =>
+      item.products.data.every(
+        (product) => product.ProductCategory !== "Laptop"
+      )
+    )
+    .sort((a, b) => a.Title.localeCompare(b.Title));
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>

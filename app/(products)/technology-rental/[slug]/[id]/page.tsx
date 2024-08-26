@@ -115,9 +115,9 @@ async function ProductPage({ params }: PageProps) {
         )}
 
         <div className="flex flex-col items-center lg:items-start justify-between gap-4 flex-1">
-          <h3 className="font-sans font-bold text-3xl text-center lg:text-left">
+          <h1 className="font-sans font-bold text-3xl text-center lg:text-left">
             {data.Title}
-          </h3>
+          </h1>
 
           <ul className="space-y-3 max-w-xl">
             {data.ProductFeatures.map((feature) => (
@@ -134,7 +134,7 @@ async function ProductPage({ params }: PageProps) {
           </ul>
 
           <h5 className="font-bold text-lg text-center lg:text-left">
-            Specifications
+            Minimum Specifications
           </h5>
           <div className="grid grid-cols-3 gap-3 mx-auto lg:mx-0 max-w-[250px] w-full">
             {data.Specs.map((item) => (

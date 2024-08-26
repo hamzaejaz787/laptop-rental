@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import { MdOutlineScreenshot } from "react-icons/md";
+import { MdOutlineNetworkCheck, MdOutlineScreenshot } from "react-icons/md";
 import { SiTicktick } from "react-icons/si";
 import { IoHardwareChipOutline } from "react-icons/io5";
 import Faqs from "@/components/Faqs";
@@ -10,7 +10,7 @@ import {
   ProductSpecsProps,
   SingleProductProps,
 } from "@/lib/definitions";
-import { PiHardDrives } from "react-icons/pi";
+import { PiDevices, PiHardDrives } from "react-icons/pi";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CtaButton from "@/components/CtaButton";
 import { getProductBySlug } from "@/data/loaders";
@@ -19,10 +19,14 @@ import AddToCartButton from "@/components/AddToCartButton";
 import { getStrapiURL } from "@/lib/utils";
 import { AiOutlineAndroid, AiOutlineApple } from "react-icons/ai";
 import ProductCarousel from "@/components/ProductCarousel";
+import ProductIconTooltip from "@/components/ProductIconTooltip";
 import { LucideMonitor } from "lucide-react";
 import JsonLdSchema from "@/components/JsonLdSchema";
 import CardsSlider from "@/components/CardsSlider";
 import ProductCard from "@/components/ProductCard";
+import { GiRadarSweep } from "react-icons/gi";
+import { TbSignalLte } from "react-icons/tb";
+import { VscRadioTower } from "react-icons/vsc";
 
 export async function generateMetadata({
   params,
@@ -49,30 +53,60 @@ async function ProductPage({ params }: PageProps) {
 
   //Render icons for specs base on the value
   const IconProps = { className: "text-red-500", size: 24 };
+
   const getIconForSpec = (spec: ProductSpecsProps) => {
-    switch (spec.Spec.toLowerCase()) {
-      case "display resolution":
-        return <LucideMonitor {...IconProps} aria-label="Display resolution" />;
-      case "screen size":
-        return <MdOutlineScreenshot {...IconProps} aria-label="Screen size" />;
-      case "ram":
-        return <IoHardwareChipOutline {...IconProps} aria-label="RAM" />;
-      case "storage":
-        return <PiHardDrives {...IconProps} aria-label="Storage" />;
-      case "os":
-        if (spec.value.toLowerCase().includes("android")) {
-          return <AiOutlineAndroid {...IconProps} aria-label="Android OS" />;
-        } else if (
-          spec.value.toLowerCase().includes("ios") ||
-          spec.value.toLowerCase().includes("ipados") ||
-          spec.value.toLowerCase().includes("ipad os")
-        ) {
-          return <AiOutlineApple {...IconProps} aria-label="iOS/iPadOS" />;
-        }
-        return null;
-      default:
-        return null;
+    //Stores specs names and their corresponding icons
+    const iconMap: Record<string, JSX.Element> = {
+      "display resolution": (
+        <LucideMonitor {...IconProps} aria-label="Display resolution" />
+      ),
+      "screen size": (
+        <MdOutlineScreenshot {...IconProps} aria-label="Screen size" />
+      ),
+      ram: <IoHardwareChipOutline {...IconProps} aria-label="RAM" />,
+      range: <GiRadarSweep {...IconProps} aria-label="Range" />,
+      storage: <PiHardDrives {...IconProps} aria-label="Storage" />,
+      "number of devices": <PiDevices {...IconProps} aria-label="Devices" />,
+      bandwidth: (
+        <MdOutlineNetworkCheck {...IconProps} aria-label="Bandwidth" />
+      ),
+      carrier: <TbSignalLte {...IconProps} aria-label="Carrier" />,
+      frequency: <VscRadioTower {...IconProps} aria-label="Frequency" />,
+    };
+
+    const specKey = spec.Spec.toLowerCase();
+
+    //Handle operating system icons
+    if (specKey === "os") {
+      if (spec.value.toLowerCase().includes("android")) {
+        return (
+          <ProductIconTooltip value={spec.tooltiptext || spec.value}>
+            <AiOutlineAndroid {...IconProps} aria-label="Android OS" />
+          </ProductIconTooltip>
+        );
+      } else if (
+        spec.value.toLowerCase().includes("ios") ||
+        spec.value.toLowerCase().includes("ipados") ||
+        spec.value.toLowerCase().includes("ipad os")
+      ) {
+        return (
+          <ProductIconTooltip value={spec.tooltiptext || spec.value}>
+            <AiOutlineApple {...IconProps} aria-label="iOS/iPadOS" />
+          </ProductIconTooltip>
+        );
+      }
     }
+
+    if (specKey in iconMap) {
+      const icon = iconMap[specKey];
+      return (
+        <ProductIconTooltip value={spec.tooltiptext || spec.value}>
+          {icon}
+        </ProductIconTooltip>
+      );
+    }
+
+    return null;
   };
 
   return (
@@ -118,9 +152,9 @@ async function ProductPage({ params }: PageProps) {
         )}
 
         <div className="flex flex-col items-center lg:items-start justify-center gap-4 w-full md:max-w-md">
-          <h3 className="font-sans font-bold text-3xl text-center lg:text-left">
+          <h1 className="font-sans font-bold text-3xl text-center lg:text-left">
             {data.Title}
-          </h3>
+          </h1>
 
           <ul className="space-y-3">
             {data.ProductFeatures.map((feature) => (
@@ -137,7 +171,7 @@ async function ProductPage({ params }: PageProps) {
           </ul>
 
           <h5 className="font-bold text-lg text-center lg:text-left">
-            Specifications
+            Minimum Specifications
           </h5>
           <div className="grid grid-cols-3 gap-3 mx-auto lg:mx-0 max-w-[250px] w-full">
             {data.Specs.map((item) => (

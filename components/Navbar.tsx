@@ -36,12 +36,19 @@ export function Navbar({
   productCategoryItems: ProductCategoryItemTypes;
 }) {
   //filter items for laptop and other product categories
-  const laptopItems = productCategoryItems?.data.filter((item) =>
-    item.products.data.some((product) => product.ProductCategory === "Laptop")
-  );
-  const otherItems = productCategoryItems?.data.filter((item) =>
-    item.products.data.every((product) => product.ProductCategory !== "Laptop")
-  );
+  const laptopItems = productCategoryItems?.data
+    .filter((item) =>
+      item.products.data.some((product) => product.ProductCategory === "Laptop")
+    )
+    .sort((a, b) => a.Title.localeCompare(b.Title));
+
+  const otherItems = productCategoryItems?.data
+    .filter((item) =>
+      item.products.data.every(
+        (product) => product.ProductCategory !== "Laptop"
+      )
+    )
+    .sort((a, b) => a.Title.localeCompare(b.Title));
 
   return (
     <>

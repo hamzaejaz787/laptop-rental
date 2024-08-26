@@ -19,6 +19,7 @@ import { IoHardwareChipOutline } from "react-icons/io5";
 import { AiOutlineAndroid, AiOutlineApple } from "react-icons/ai";
 import { TbSignalLte } from "react-icons/tb";
 import { VscRadioTower } from "react-icons/vsc";
+import ProductIconTooltip from "./ProductIconTooltip";
 
 interface ProductCardImageProps {
   alternativeText: string;
@@ -43,40 +44,58 @@ export interface ProductCardItemsProps {
 
 //Render icons for specs base on the value
 const IconProps = { className: "text-red-500", size: 24 };
+
 const getIconForSpec = (spec: ProductSpecsProps) => {
-  switch (spec.Spec.toLowerCase()) {
-    case "display resolution":
-      return <LucideMonitor {...IconProps} aria-label="Display resolution" />;
-    case "screen size":
-      return <MdOutlineScreenshot {...IconProps} aria-label="Screen size" />;
-    case "ram":
-      return <IoHardwareChipOutline {...IconProps} aria-label="RAM" />;
-    case "range":
-      return <GiRadarSweep {...IconProps} aria-label="Range" />;
-    case "storage":
-      return <PiHardDrives {...IconProps} aria-label="Storage" />;
-    case "number of devices":
-      return <PiDevices {...IconProps} aria-label="Devices" />;
-    case "bandwidth":
-      return <MdOutlineNetworkCheck {...IconProps} aria-label="Bandwidth" />;
-    case "carrier":
-      return <TbSignalLte {...IconProps} aria-label="Carrier" />;
-    case "frequency":
-      return <VscRadioTower {...IconProps} aria-label="Frequency" />;
-    case "os":
-      if (spec.value.toLowerCase().includes("android")) {
-        return <AiOutlineAndroid {...IconProps} aria-label="Android OS" />;
-      } else if (
-        spec.value.toLowerCase().includes("ios") ||
-        spec.value.toLowerCase().includes("ipados") ||
-        spec.value.toLowerCase().includes("ipad os")
-      ) {
-        return <AiOutlineApple {...IconProps} aria-label="iOS/iPadOS" />;
-      }
-      return null;
-    default:
-      return null;
+  //Stores specs names and their corresponding icons
+  const iconMap: Record<string, JSX.Element> = {
+    "display resolution": (
+      <LucideMonitor {...IconProps} aria-label="Display resolution" />
+    ),
+    "screen size": (
+      <MdOutlineScreenshot {...IconProps} aria-label="Screen size" />
+    ),
+    ram: <IoHardwareChipOutline {...IconProps} aria-label="RAM" />,
+    range: <GiRadarSweep {...IconProps} aria-label="Range" />,
+    storage: <PiHardDrives {...IconProps} aria-label="Storage" />,
+    "number of devices": <PiDevices {...IconProps} aria-label="Devices" />,
+    bandwidth: <MdOutlineNetworkCheck {...IconProps} aria-label="Bandwidth" />,
+    carrier: <TbSignalLte {...IconProps} aria-label="Carrier" />,
+    frequency: <VscRadioTower {...IconProps} aria-label="Frequency" />,
+  };
+
+  const specKey = spec.Spec.toLowerCase();
+
+  //Handle operating system icons
+  if (specKey === "os") {
+    if (spec.value.toLowerCase().includes("android")) {
+      return (
+        <ProductIconTooltip value={spec.tooltiptext || spec.value}>
+          <AiOutlineAndroid {...IconProps} aria-label="Android OS" />
+        </ProductIconTooltip>
+      );
+    } else if (
+      spec.value.toLowerCase().includes("ios") ||
+      spec.value.toLowerCase().includes("ipados") ||
+      spec.value.toLowerCase().includes("ipad os")
+    ) {
+      return (
+        <ProductIconTooltip value={spec.tooltiptext || spec.value}>
+          <AiOutlineApple {...IconProps} aria-label="iOS/iPadOS" />
+        </ProductIconTooltip>
+      );
+    }
   }
+
+  if (specKey in iconMap) {
+    const icon = iconMap[specKey];
+    return (
+      <ProductIconTooltip value={spec.tooltiptext || spec.value}>
+        {icon}
+      </ProductIconTooltip>
+    );
+  }
+
+  return null;
 };
 
 const ProductCard = ({

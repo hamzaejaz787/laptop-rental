@@ -113,6 +113,7 @@ export interface ProductSpecsProps {
   id: number;
   value: string;
   Spec: string;
+  tooltiptext?: string;
 }
 
 export interface ProductInfoTabItemProps {
