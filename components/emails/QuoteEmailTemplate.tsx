@@ -27,7 +27,6 @@ interface QuoteEmailTemplateProps {
 }
 
 const EmailTemplate = (EmailItems: QuoteEmailTemplateProps) => {
-  //Format date
   const formattedStartDate = format(
     new Date(EmailItems.startdate),
     "dd/MM/yyyy"
