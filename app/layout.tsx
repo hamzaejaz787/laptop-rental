@@ -93,7 +93,7 @@ export default async function RootLayout({
 }>) {
   const breadcrumbJson = await getBreadCrumbJsonSchema();
   return (
-    <html lang="en">
+    <html lang="en-au">
       <body
         className={cn(
           "font-Poppins",

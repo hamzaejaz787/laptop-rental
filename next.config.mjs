@@ -15,6 +15,20 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/laptop-rental",
+        destination: "/laptop-hire",
+        permanent: true,
+      },
+      {
+        source: "/laptop-rental/:slug*",
+        destination: "/laptop-hire/:slug*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

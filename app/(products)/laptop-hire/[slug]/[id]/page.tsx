@@ -39,7 +39,7 @@ export async function generateMetadata({
     description: data.MetaDescription,
     keywords: data.MetaKeywords,
     alternates: {
-      canonical: `{https://laptop-rental.com.au/laptop-hire/${data.productcategory.slug}/${data.slug}`,
+      canonical: `https://laptop-rental.com.au/laptop-hire/${data.productcategory.slug}/${data.slug}`,
     },
   };
 }
