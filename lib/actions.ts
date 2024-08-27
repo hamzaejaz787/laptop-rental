@@ -6,6 +6,8 @@ import { formSchema, quoteFormSchema } from "@/lib/definitions";
 import { action } from "@/lib/safe-action";
 import { cookies } from "next/headers";
 import { z } from "zod";
+import { renderQuoteEmailTemplate } from "@/components/emails/QuoteEmailTemplate";
+import { renderContactEmailTemplate } from "@/components/emails/ContactEmailTemplate";
 
 //Function for nodemailer transporter
 function getNodemailerTransporter(): Transporter {
@@ -72,6 +74,17 @@ export const sendQuoteFormData = action
         return { error: "Something went wrong" };
       }
 
+      const emailHtml = renderQuoteEmailTemplate({
+        name,
+        email,
+        enddate,
+        location,
+        message,
+        phone,
+        company,
+        startdate,
+      });
+
       //Nodemailer config
       const transporter = getNodemailerTransporter();
 
@@ -79,15 +92,7 @@ export const sendQuoteFormData = action
         from: process.env.NODEMAILER_USERNAME,
         to: process.env.NODEMAILER_EMAILTO,
         subject: `New Quote from ${name}`,
-        text: `${name} sent the following data:
-        Name: ${name},
-        Email: ${email},
-        Phone Number: ${phone},
-        Company Name: ${company},
-        Location: ${location},
-        Start Date: ${startdate},
-        End Date: ${enddate},
-        Message: ${message}`,
+        html: emailHtml,
       };
 
       const sendMailPromise = () => {
@@ -121,6 +126,14 @@ export const handleContactForm = action
       parsedInput: { company, email, contact, location, message, name },
     }) => {
       if (!name || !email || !contact) return { error: "Something went wrong" };
+      const emailHtml = renderContactEmailTemplate({
+        name,
+        email,
+        location,
+        message,
+        contact,
+        company,
+      });
 
       //Nodemailer config
       const transporter = getNodemailerTransporter();
@@ -129,14 +142,7 @@ export const handleContactForm = action
         from: process.env.NODEMAILER_USERNAME,
         to: process.env.NODEMAILER_EMAILTO,
         subject: `Message from ${name} ${email}`,
-        text: `${name} submitted the following data on Laptop Rental contact form:
-    Name: ${name}
-    Email: ${email}
-    Phone Numer: ${contact}
-    Company: ${company}
-    Location: ${location}
-    Message: ${message}
-    `,
+        html: emailHtml,
       };
 
       const sendMailPromise = () => {

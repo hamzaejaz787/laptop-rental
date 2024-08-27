@@ -148,9 +148,10 @@ export function ContactForm() {
                   <FormItem className="flex-1 min-w-fit">
                     <FormControl>
                       <Input
-                        placeholder="Contact Number"
+                        placeholder="Contact Number *"
                         type="tel"
                         {...field}
+                        required
                       />
                     </FormControl>
                     <FormMessage />
