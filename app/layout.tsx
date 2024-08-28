@@ -34,6 +34,20 @@ export const metadata: Metadata = {
     follow: true,
     index: true,
   },
+  openGraph: {
+    title: "Laptop Rental for Business Events in Australia",
+    description:
+      "Looking to rent laptop for a business event? Laptop Rental offers high-quality laptops for conferences, exhibitions, and other events across Australia and New Zealand.",
+    images: [
+      {
+        url: "https://laptop-rental.com.au/laptop_rental_logo.png",
+        width: 128,
+        height: 75,
+      },
+    ],
+    type: "website",
+    siteName: "Laptop Rental",
+  },
 };
 const jsonLd = [
   {
