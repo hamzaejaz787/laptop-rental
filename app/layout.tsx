@@ -16,7 +16,7 @@ import { getBreadCrumbJsonSchema } from "@/data/loaders";
 export const metadata: Metadata = {
   title: "Laptop Rental For Events | Your Event Tech Partner",
   description:
-    "Worldwide corporations and businesses trust Laptop Rental for perfect events. For all IT & event technology services, call us at +61-390711893 !",
+    "Trust Laptop Rental for top-notch laptops & tech for events across Australia & New Zealand. Call us at +61-390711893 for fast, reliable service!",
   keywords: [
     "laptop hire",
     "laptop rental",

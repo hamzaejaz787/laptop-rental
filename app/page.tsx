@@ -18,7 +18,7 @@ export default async function LaptopRental() {
       header: "Australia's Biggest",
       title: "Laptop Rentals",
       description:
-        "Unmatched selection, unbeatable service. Get the best devices for your events anytime, anywhere!",
+        "Unmatched selection, unbeatable service. Get the ideal laptop rental solutions for your events anytime, anywhere!",
     },
     {
       header: "Australia's Biggest",

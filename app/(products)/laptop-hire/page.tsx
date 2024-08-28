@@ -10,9 +10,9 @@ import CtaWithModal from "../technology-rental/_components/CtaWithModal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Laptop Rental For Events in Australia",
+  title: "Laptop Hire For Events in Australia",
   description:
-    "Global enterprises rely on our flawless laptop rental services for events. For all IT & event tech needs, dial +61 383 730 303. Trust us for excellence!",
+    "Reliable laptop hire services across Australia and New Zealand. Choose from top brands like Dell, Lenovo, HP, and MacBook Pros for your next event. Contact Us",
   keywords: [
     "laptop rental (laptop rental for events)",
     "laptop rental for short term",
