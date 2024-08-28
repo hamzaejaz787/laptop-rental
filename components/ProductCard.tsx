@@ -20,6 +20,7 @@ import { AiOutlineAndroid, AiOutlineApple } from "react-icons/ai";
 import { TbSignalLte } from "react-icons/tb";
 import { VscRadioTower } from "react-icons/vsc";
 import ProductIconTooltip from "./ProductIconTooltip";
+import Link from "next/link";
 
 interface ProductCardImageProps {
   alternativeText: string;
@@ -125,18 +126,37 @@ const ProductCard = ({
   return (
     <Card
       className={cn(
-        "h-full sm:max-w-xs justify-self-center flex flex-col justify-between border-2 border-dashed border-gray-400 rounded-none p-4 hover:border-red-500",
+        "h-full sm:max-w-xs justify-self-center flex flex-col justify-between border-2 border-dashed border-gray-400 rounded-none p-4 hover:border-red-500 group",
         className
       )}
     >
       <CardHeader className="p-0 lg:space-x-1">
-        <Image
-          src={imageurl}
-          alt={ProductCardImage?.alternativeText || ""}
-          width={200}
-          height={200}
-          className="self-center"
-        />
+        {ProductCategory?.toLowerCase() === "laptop" ? (
+          <Link
+            className="w-fit mx-auto"
+            href={`/${
+              ProductCategory?.toLowerCase() === "laptop"
+                ? "laptop-hire"
+                : "technology-rental"
+            }/${productcategory.slug}/${slug}`}
+          >
+            <Image
+              src={imageurl}
+              alt={ProductCardImage?.alternativeText || ""}
+              width={200}
+              height={200}
+              className="self-center group-hover:scale-105 transition-transform duration-150 ease-in"
+            />
+          </Link>
+        ) : (
+          <Image
+            src={imageurl}
+            alt={ProductCardImage?.alternativeText || ""}
+            width={200}
+            height={200}
+            className="self-center group-hover:scale-105 transition-transform duration-150 ease-in"
+          />
+        )}
         <CardTitle>{Title}</CardTitle>
         {/* <CardDescription className="line-clamp-3">
           {Description}
