@@ -75,7 +75,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/privacy-policy`, lastModified: new Date() },
     { url: `${baseUrl}/terms-and-conditions`, lastModified: new Date() },
     { url: `${baseUrl}/event-rental`, lastModified: new Date() },
-    { url: `${baseUrl}/laptop-rental`, lastModified: new Date() },
+    { url: `${baseUrl}/laptop-hire`, lastModified: new Date() },
     { url: `${baseUrl}/technology-rental`, lastModified: new Date() },
   ];
 
@@ -104,7 +104,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   //Product category
   laptopItems.map((laptop) => {
     links.push({
-      url: `${baseUrl}/laptop-rental/${laptop.slug}`,
+      url: `${baseUrl}/laptop-hire/${laptop.slug}`,
       lastModified: laptop.updatedAt,
     });
   });

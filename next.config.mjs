@@ -27,6 +27,26 @@ const nextConfig = {
         destination: "/laptop-hire/:slug*",
         permanent: true,
       },
+      {
+        source: "/contactus",
+        destination: "/contact-us",
+        permanent: true,
+      },
+      {
+        source: "/eventrental",
+        destination: "/event-rental",
+        permanent: true,
+      },
+      {
+        source: "/eventrental/:slug*",
+        destination: "/event-rental/:slug*",
+        permanent: true,
+      },
+      {
+        source: "/privacy",
+        destination: "/privacy-policy",
+        permanent: true,
+      },
     ];
   },
 };
