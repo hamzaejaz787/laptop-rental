@@ -15,6 +15,7 @@ import { notFound } from "next/navigation";
 import ServicesTimeline from "@/components/ServicesTimeline";
 import CtaWithModal from "../_components/CtaWithModal";
 import PaginationComponent from "@/components/PaginationComponent";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export async function generateMetadata({
   params,
@@ -96,6 +97,11 @@ async function TechRental({
             : "Contact us"
         }
         image={productCategory.BannerImage}
+      />
+      <Breadcrumbs
+        className="sr-only"
+        category={{ href: "/technology-rental", title: "Technology Rental" }}
+        currentPage={productCategory.BannerTitle}
       />
 
       <div className="flex flex-col lg:flex-row gap-8 justify-between container p-8">

@@ -10,6 +10,7 @@ import BannerWithImageUrl from "@/components/DynamicBanner";
 import { BannerImageProps, PageProps } from "@/lib/definitions";
 import CardsSlider from "@/components/CardsSlider";
 import { BlocksContent } from "@strapi/blocks-react-renderer";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export async function generateMetadata({
   params,
@@ -49,6 +50,13 @@ const Page = async ({ params }: PageProps) => {
         text={data.IntroText}
         image={data.IntroBanner}
       />
+
+      <Breadcrumbs
+        className="sr-only"
+        category={{ href: "/event-rental", title: "Event Rental" }}
+        currentPage={data.NavMenuName}
+      />
+
       {data?.TextImage?.map(
         (
           item: {

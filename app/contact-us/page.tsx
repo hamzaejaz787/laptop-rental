@@ -2,6 +2,7 @@ import React from "react";
 import ContactForm from "@/components/ContactForm";
 import Banner from "@/components/Banner";
 import { Metadata } from "next";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Contact US page of Laptop Rental AU",
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
 
 const Page = () => {
   return (
-    <div>
+    <>
       <Banner
         image={{
           url: "/contact-us-banner.png",
@@ -24,6 +25,7 @@ const Page = () => {
         title="Contact us"
         text="Feel free to contact Laptop Rental in Australia. Whether you have inquiries about our rental offerings, need assistance choosing the right IT equipment for your event, or require technical support during your rental period, our dedicated team is ready to assist you!"
       />
+      <Breadcrumbs className="sr-only" currentPage="Contact Us" />
 
       <div className="container p-8 space-y-4">
         <h2 className="w-full text-center font-extrabold text-3xl">
@@ -43,7 +45,7 @@ const Page = () => {
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe> */}
       </div>
-    </div>
+    </>
   );
 };
 

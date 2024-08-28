@@ -4,6 +4,7 @@ import Cta from "./_components/Cta";
 import AboutCards from "./_components/AboutCards";
 import { Metadata } from "next";
 import ReviewCarousel from "./_components/ReviewCarousel";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "About Us page of Laptop Rental AU",
@@ -28,6 +29,8 @@ const Aboutus = () => {
         title="About Us"
         text="Laptop Rental is a global leader in providing cutting-edge event technology services, addressing the persistent challenges businesses face in organising successful events."
       />
+
+      <Breadcrumbs className="sr-only" currentPage="About Us" />
       <Video />
       <Cta />
       <AboutCards />

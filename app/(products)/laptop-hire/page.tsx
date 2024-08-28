@@ -7,6 +7,7 @@ import PaginationComponent from "@/components/PaginationComponent";
 import SidebarWithTab from "../technology-rental/_components/SidebarWithTab";
 import TabCards from "../technology-rental/_components/TabCards";
 import CtaWithModal from "../technology-rental/_components/CtaWithModal";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Laptop Rental For Events in Australia",
@@ -55,6 +56,8 @@ const LaptopRental = async ({
           alternativeText: "Laptop Rental",
         }}
       />
+
+      <Breadcrumbs className="sr-only" currentPage="Laptop Hire" />
 
       <div className="flex flex-col lg:flex-row gap-8 justify-between container p-8">
         <SidebarWithTab tabItems={allProducts.data} />

@@ -4,6 +4,7 @@ import { getStrapiURL } from "@/lib/utils";
 import Image from "next/image";
 import { Metadata } from "next";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 interface GalleryItemProps {
   id: number;
@@ -37,6 +38,7 @@ const Gallery = async () => {
         title="Discover Our Event Transformations"
         text="Explore our Gallery to see how Laptop Rental transforms events with top-tier tech solutions. Serving Australia, New Zealand, and worldwide, we provide unmatched quality and service."
       />
+      <Breadcrumbs className="sr-only" currentPage="Gallery" />
 
       <section className="container px-8 py-4 space-y-4">
         <h3 className="font-bold font-Barlow text-3xl text-center pt-8">

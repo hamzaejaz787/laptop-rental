@@ -2,6 +2,7 @@ import Banner from "@/components/Banner";
 import Link from "next/link";
 import React from "react";
 import { Metadata } from "next";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Laptop Rental For Events | Privacy Policy",
@@ -23,6 +24,8 @@ const PrivacyPolicy = () => {
           alternativeText: "Privacy policy banner",
         }}
       />
+      <Breadcrumbs className="sr-only" currentPage="Privacy Policy" />
+
       <section className="container p-8 space-y-4">
         <h2 className="font-bold text-3xl text-center capitalize">
           Interpretation and Definitions

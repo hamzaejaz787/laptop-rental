@@ -2,6 +2,7 @@ import React from "react";
 import Banner from "@/components/Banner";
 import Link from "next/link";
 import { Metadata } from "next";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Laptop Rental For Events | Terms and Conditions",
@@ -22,6 +23,8 @@ const TermsAndConditions = () => {
           alternativeText: "Terms and conditions banner",
         }}
       />
+      <Breadcrumbs className="sr-only" currentPage="Terms and Conditions" />
+
       <section className="container p-8 space-y-4">
         <h2 className="font-bold text-3xl text-center capitalize">
           Interpretation and Definitions

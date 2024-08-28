@@ -7,6 +7,7 @@ import TabCards from "./_components/TabCards";
 import { Metadata } from "next";
 import { getAllProducts, getProduct } from "@/data/loaders";
 import PaginationComponent from "@/components/PaginationComponent";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Event Technology Rental Excellence",
@@ -58,6 +59,8 @@ async function TechRental({
             "Laptop Rental is your premier destination for event technology rental solutions in Australia",
         }}
       />
+
+      <Breadcrumbs className="sr-only" currentPage="Technology Rental" />
 
       {/* <ImageInfo
         image={{

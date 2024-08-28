@@ -7,6 +7,7 @@ import { EventCardProps } from "@/lib/definitions";
 import EventCard from "@/components/EventCard";
 import ServicesTimeline from "@/components/ServicesTimeline";
 import { getEvents } from "@/data/loaders";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "IT Event Rental",
@@ -50,6 +51,8 @@ const EventPage = async () => {
           alternativeText: "IT Event Rental",
         }}
       />
+      <Breadcrumbs className="sr-only" currentPage="Event Rental" />
+
       <ImageInfo
         reverse={true}
         image={{

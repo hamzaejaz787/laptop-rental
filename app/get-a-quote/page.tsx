@@ -1,4 +1,5 @@
 import Banner from "@/components/Banner";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import QuoteForm from "@/components/QuoteForm";
 import { useCart } from "@/providers/CartContext";
 import { Metadata } from "next";
@@ -25,6 +26,7 @@ export default function GetAQuote() {
           alternativeText: "Get A Quote",
         }}
       />
+      <Breadcrumbs className="sr-only" currentPage="Get A Quote" />
 
       <div className="container flex items-center flex-col lg:flex-row gap-8 justify-between p-8">
         <div className="space-y-4 flex-1 min-w-min">

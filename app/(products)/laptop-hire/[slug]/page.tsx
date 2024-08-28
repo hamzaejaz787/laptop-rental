@@ -14,6 +14,7 @@ import SidebarWithTab from "../../technology-rental/_components/SidebarWithTab";
 import TabCards from "../../technology-rental/_components/TabCards";
 import CtaWithModal from "../../technology-rental/_components/CtaWithModal";
 import PaginationComponent from "@/components/PaginationComponent";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export async function generateMetadata({
   params,
@@ -91,6 +92,15 @@ async function TechRental({
             : "Contact us"
         }
         image={productCategory.BannerImage}
+      />
+
+      <Breadcrumbs
+        className="sr-only"
+        category={{
+          href: "/laptop-hire",
+          title: "Laptop Hire",
+        }}
+        currentPage={productCategory.BannerTitle}
       />
 
       <div className="flex flex-col lg:flex-row gap-8 justify-between container p-8">
