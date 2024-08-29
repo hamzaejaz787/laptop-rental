@@ -12,7 +12,7 @@ import CookieConsentPopup from "@/components/CookieConsentPopup";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import JsonLdSchema from "@/components/JsonLdSchema";
 import { getBreadCrumbJsonSchema } from "@/data/loaders";
-
+//Global metadata
 export const metadata: Metadata = {
   title: "Laptop Rental For Events | Your Event Tech Partner",
   description:
@@ -49,6 +49,8 @@ export const metadata: Metadata = {
     siteName: "Laptop Rental",
   },
 };
+
+//Global schema
 const jsonLd = [
   {
     "@context": "https://schema.org",

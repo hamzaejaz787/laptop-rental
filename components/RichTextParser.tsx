@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import {
   BlocksRenderer,
   type BlocksContent,
@@ -7,7 +8,26 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
-const ParseRichText = ({ content }: { readonly content: BlocksContent }) => {
+const ParseRichText = ({
+  content,
+  linkProps,
+  headingProps,
+  imageProps,
+  paragraphProps,
+}: {
+  readonly content: BlocksContent;
+  linkProps?: string;
+  headingProps?: {
+    h1?: string;
+    h2?: string;
+    h3?: string;
+    h4?: string;
+    h5?: string;
+    h6?: string;
+  };
+  imageProps?: string;
+  paragraphProps?: string;
+}) => {
   if (!content) return null;
   return (
     <BlocksRenderer
@@ -19,10 +39,14 @@ const ParseRichText = ({ content }: { readonly content: BlocksContent }) => {
             width={image.width}
             height={image.height}
             alt={image.alternativeText || ""}
-            className="rounded"
+            className={cn("rounded", imageProps)}
           />
         ),
-        link: ({ children, url }) => <Link href={url}>{children}</Link>,
+        link: ({ children, url }) => (
+          <Link href={url} className={linkProps}>
+            {children}
+          </Link>
+        ),
         list: (props) => {
           if (props.format === "ordered") {
             return (
@@ -39,21 +63,78 @@ const ParseRichText = ({ content }: { readonly content: BlocksContent }) => {
         heading: ({ children, level }) => {
           switch (level) {
             case 1:
-              return <h1 className="font-bold">{children}</h1>;
+              return (
+                <h1 className={cn("font-sans font-bold", headingProps?.h1)}>
+                  {children}
+                </h1>
+              );
             case 2:
-              return <h2 className="font-bold text-3xl">{children}</h2>;
+              return (
+                <h2
+                  className={cn(
+                    "font-sans font-bold text-3xl",
+                    headingProps?.h2
+                  )}
+                >
+                  {children}
+                </h2>
+              );
             case 3:
-              return <h3 className="font-bold text-2xl">{children}</h3>;
+              return (
+                <h3
+                  className={cn(
+                    "font-sans font-bold text-2xl",
+                    headingProps?.h3
+                  )}
+                >
+                  {children}
+                </h3>
+              );
             case 4:
-              return <h4 className="font-bold text-xl">{children}</h4>;
+              return (
+                <h4
+                  className={cn(
+                    "font-sans font-bold text-xl",
+                    headingProps?.h4
+                  )}
+                >
+                  {children}
+                </h4>
+              );
             case 5:
-              return <h5 className="font-bold text-lg">{children}</h5>;
+              return (
+                <h5
+                  className={cn(
+                    "font-sans font-bold text-lg",
+                    headingProps?.h5
+                  )}
+                >
+                  {children}
+                </h5>
+              );
             case 6:
-              return <h6 className="font-bold text-base">{children}</h6>;
+              return (
+                <h6
+                  className={cn(
+                    "font-sans font-bold text-base",
+                    headingProps?.h6
+                  )}
+                >
+                  {children}
+                </h6>
+              );
             default:
-              return <h1>{children}</h1>;
+              return (
+                <h1 className={cn("font-sans font-bold", headingProps?.h1)}>
+                  {children}
+                </h1>
+              );
           }
         },
+
+        paragraph: ({ children }) => (
+          <p className={paragraphProps}>{children}</p>
+        ),
       }}
     />
   );

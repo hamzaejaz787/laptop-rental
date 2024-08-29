@@ -185,7 +185,7 @@ const ProductCard = ({
                 : "technology-rental"
             }/${productcategory.slug}/${slug}`}
             text="Learn More"
-            className="rounded-r-none w-full"
+            className="rounded-r-none w-full px-4 md:px-4"
           />
         )}
         <AddToCartButton

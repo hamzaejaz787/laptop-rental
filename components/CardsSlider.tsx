@@ -21,12 +21,12 @@ const CardsSlider: React.FC<CardsSliderProps> = ({ children }) => {
         align: "start",
         loop: true,
       }}
-      plugins={[
-        Autoplay({
-          delay: 2500,
-        }),
-      ]}
-      className="w-full md:px-8"
+      // plugins={[
+      //   Autoplay({
+      //     delay: 2500,
+      //   }),
+      // ]}
+      className="w-full lg:px-8"
     >
       <CarouselContent className="p-1">
         {React.Children.map(children, (child) => (

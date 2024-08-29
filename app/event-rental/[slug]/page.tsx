@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import ImageInfo from "@/components/ImageInfo";
 import Eventslist from "../_components/eventslist";
 import ProductCard from "@/components/ProductCard";
-import { getEventBySlug, getEvents } from "@/data/loaders";
+import { getEventBySlug } from "@/data/loaders";
 import BannerWithImageUrl from "@/components/DynamicBanner";
 import { BannerImageProps, PageProps } from "@/lib/definitions";
 import CardsSlider from "@/components/CardsSlider";
@@ -81,7 +81,7 @@ const Page = async ({ params }: PageProps) => {
       )}
 
       {data.relatedproducts.data.length > 0 && (
-        <div className="container space-y-4 pb-8 px-4 md:px-8">
+        <section className="container space-y-4 pb-8 px-4 md:px-8">
           <h3 className="font-bold text-3xl text-center font-Barlow">
             {data.RelatedProductsTitle || "Related Products"}
           </h3>
@@ -93,18 +93,23 @@ const Page = async ({ params }: PageProps) => {
 
           <CardsSlider>
             {data.relatedproducts?.data.map((item: any) => (
-              <ProductCard key={item.id} productCardItem={item} />
+              <ProductCard
+                key={item.id}
+                productCardItem={item}
+                className="mx-auto"
+              />
             ))}
           </CardsSlider>
-        </div>
+        </section>
       )}
       <CTA ctaItems={ctaitems} />
-      <div className="pt-8">
-        <Eventslist
-          relatedEventsTitle={data.EventsTitle}
-          relatedEventsText={data.EventsText}
-        />
-      </div>
+
+      <Eventslist
+        currentEventSlug={data.slug}
+        relatedEventsTitle={data.EventsTitle}
+        relatedEventsText={data.EventsText}
+        className="pt-8"
+      />
       <Faqs
         faqItems={data.Faq}
         description={

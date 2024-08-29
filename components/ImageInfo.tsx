@@ -59,7 +59,14 @@ const ImageInfo = ({
         </div>
       ) : (
         <div className="space-y-4">
-          <ParseRichText content={content!} />
+          <ParseRichText
+            linkProps="underline hover:text-primary-red"
+            content={content!}
+            headingProps={{
+              h2: "font-sans font-bold text-3xl lg:text-4xl text-center lg:text-left max-w-2xl",
+            }}
+            paragraphProps="font-sans text-sm xl:text-base text-center lg:text-left max-w-2xl"
+          />
         </div>
       )}
     </div>

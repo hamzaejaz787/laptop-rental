@@ -32,10 +32,10 @@ const AddToCartButton = ({
         </Button>
       ) : (
         <Button
-          className="w-full text-center font-Poppins bg-primary-red text-white mx-auto text-lg hover:bg-red-500 focus-within:bg-red-500 px-10 md:px-10 rounded-sm capitalize"
+          className="w-full text-center gap-2 font-Poppins bg-primary-red text-white mx-auto text-lg hover:bg-red-500 focus-within:bg-red-500 px-10 md:px-10 rounded-sm capitalize"
           onClick={handleAddToCart}
         >
-          Add To Cart
+          Add To Cart <MdAddShoppingCart size={20} />
         </Button>
       )}
     </>
