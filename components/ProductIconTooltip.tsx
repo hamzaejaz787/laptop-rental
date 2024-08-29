@@ -18,7 +18,7 @@ const ProductIconTooltip: React.FC<ProductIconTooltipProps> = ({
   value,
 }) => {
   return (
-    <TooltipProvider>
+    <TooltipProvider delayDuration={200}>
       <Tooltip>
         <TooltipTrigger>{children}</TooltipTrigger>
         <TooltipContent>
