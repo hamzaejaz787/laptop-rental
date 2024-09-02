@@ -12,7 +12,10 @@ import { renderContactEmailTemplate } from "@/components/emails/ContactEmailTemp
 //Function for nodemailer transporter
 function getNodemailerTransporter(): Transporter {
   return createTransport({
-    service: process.env.NODEMAILER_HOST as string,
+    host: process.env.NODEMAILER_HOST as string,
+    port: 587,
+    secure: false,
+    tls: { ciphers: "SSLv3" },
     auth: {
       user: process.env.NODEMAILER_USERNAME,
       pass: process.env.NODEMAILER_PASSWORD,
