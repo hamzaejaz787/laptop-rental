@@ -48,6 +48,9 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Laptop Rental",
   },
+  verification: {
+    google: "vNWmPR5hwgZ-TRlxaOGCWxkZMtHZdO20cnEpZhNVgZM",
+  },
 };
 
 //Global schema
