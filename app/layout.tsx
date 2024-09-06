@@ -137,9 +137,7 @@ export default async function RootLayout({
           <JsonLdSchema key={index} schema={JSON.stringify(schema)} />
         ))}
 
-        <JsonLdSchema
-          schema={JSON.stringify(breadcrumbJson.breadcrumbJsonLd)}
-        />
+        <JsonLdSchema schema={breadcrumbJson.breadcrumbJsonLd} />
       </body>
     </html>
   );
