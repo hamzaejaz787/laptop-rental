@@ -70,7 +70,7 @@ const getIconForSpec = (spec: ProductSpecsProps) => {
   if (specKey === "os") {
     if (spec.value.toLowerCase().includes("android")) {
       return (
-        <ProductIconTooltip value={spec.tooltiptext || spec.value}>
+        <ProductIconTooltip value={spec.tooltiptext || spec.Spec}>
           <AiOutlineAndroid {...IconProps} aria-label="Android OS" />
         </ProductIconTooltip>
       );
@@ -80,7 +80,7 @@ const getIconForSpec = (spec: ProductSpecsProps) => {
       spec.value.toLowerCase().includes("ipad os")
     ) {
       return (
-        <ProductIconTooltip value={spec.tooltiptext || spec.value}>
+        <ProductIconTooltip value={spec.tooltiptext || spec.Spec}>
           <AiOutlineApple {...IconProps} aria-label="iOS/iPadOS" />
         </ProductIconTooltip>
       );
@@ -90,7 +90,7 @@ const getIconForSpec = (spec: ProductSpecsProps) => {
   if (specKey in iconMap) {
     const icon = iconMap[specKey];
     return (
-      <ProductIconTooltip value={spec.tooltiptext || spec.value}>
+      <ProductIconTooltip value={spec.tooltiptext || spec.Spec}>
         {icon}
       </ProductIconTooltip>
     );
@@ -109,7 +109,6 @@ const ProductCard = ({
   //Destructure data
   const {
     ProductCardImage,
-    Description,
     Title,
     Specs,
     id,
@@ -158,9 +157,6 @@ const ProductCard = ({
           />
         )}
         <CardTitle>{Title}</CardTitle>
-        {/* <CardDescription className="line-clamp-3">
-          {Description}
-        </CardDescription> */}
       </CardHeader>
 
       <CardContent className="p-0 flex gap-4 justify-between py-2">
