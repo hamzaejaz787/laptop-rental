@@ -75,6 +75,7 @@ const HomepageProductSlider = () => {
               </h6>
               <Link
                 href={`${image.href}`}
+                aria-label={image.title}
                 className="hover:text-primary-red text-2xl transition-all"
               >
                 <MdAdsClick />
