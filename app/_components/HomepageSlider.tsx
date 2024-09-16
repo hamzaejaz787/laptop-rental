@@ -48,6 +48,7 @@ const HomepageSlider: React.FC<HomepageSliderProps> = ({ carouselData }) => {
                 alt={data.text.title}
                 fill={true}
                 className="object-cover"
+                loading={index === 0 ? "eager" : "lazy"}
               />
               <HomeSliderText
                 index={index}
