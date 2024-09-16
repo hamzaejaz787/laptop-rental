@@ -22,7 +22,7 @@ const Cart = () => {
 
   return (
     <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
-      <PopoverTrigger className="relative">
+      <PopoverTrigger className="relative" aria-label="shopping cart">
         <MdAddShoppingCart size={20} />
         {cartItems?.length > 0 && (
           <span className="absolute -top-2 -right-1 text-sm bg-primary-red text-white rounded-full size-4 flex items-center justify-center">
