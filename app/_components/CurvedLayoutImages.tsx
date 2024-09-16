@@ -9,12 +9,19 @@ interface AnimatedImageTypes {
   src: string;
   index: number;
   className?: string;
+  alternativeText: string;
+}
+
+interface LayoutImageTypes {
+  src: string;
+  alternativeText: string;
 }
 
 const AnimatedImage: React.FC<AnimatedImageTypes> = ({
   src,
   index,
   className,
+  alternativeText,
 }) => {
   const ref = React.useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
@@ -26,19 +33,25 @@ const AnimatedImage: React.FC<AnimatedImageTypes> = ({
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.5, delay: index * 0.2 }}
     >
-      <Image src={src} alt="" width={150} height={500} className={className} />
+      <Image
+        src={src}
+        alt={alternativeText}
+        width={150}
+        height={500}
+        className={className}
+      />
     </motion.div>
   );
 };
 
 const CurvedLayoutImages = () => {
-  const layoutImages: string[] = [
-    "/Intro-1.png",
-    "/Intro-2.png",
-    "/Intro-3.png",
-    "/Intro-4.png",
-    "/Intro-5.png",
-    "/Intro-6.png",
+  const layoutImages: LayoutImageTypes[] = [
+    { src: "/Intro-1.png", alternativeText: "gaming event" },
+    { src: "/Intro-2.png", alternativeText: "lenovo laptops" },
+    { src: "/Intro-3.png", alternativeText: "hire laptops for event" },
+    { src: "/Intro-4.png", alternativeText: "hire laptops for exams" },
+    { src: "/Intro-5.png", alternativeText: "hire laptops for conference" },
+    { src: "/Intro-6.png", alternativeText: "hire msi laptops" },
   ];
 
   return (
@@ -46,7 +59,8 @@ const CurvedLayoutImages = () => {
       {layoutImages.map((image, index) => (
         <AnimatedImage
           key={index}
-          src={image}
+          src={image.src}
+          alternativeText={image.alternativeText}
           index={index}
           className={cn(
             `${
