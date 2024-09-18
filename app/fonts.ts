@@ -7,13 +7,12 @@ export const poppins = Poppins({
 });
 
 export const fontExo = Exo({
-  weight: ["400", "500", "700"],
   variable: "--font-Exo",
-  subsets: ["latin", "latin-ext", "vietnamese"],
+  subsets: ["latin"],
 });
 
 export const barlow = Barlow({
   weight: ["400", "500", "600", "700", "900"],
   variable: "--font-Barlow",
-  subsets: ["latin", "latin-ext", "vietnamese"],
+  subsets: ["latin"],
 });

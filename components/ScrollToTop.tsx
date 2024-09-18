@@ -51,6 +51,7 @@ export function ScrollToTopButton() {
       variants={ScrollToTopContainerVariants}
       initial="hide"
       animate={controls}
+      aria-label="Scroll to top button"
       onClick={() => scrollToTop({ top: 0, behavior: "smooth" })}
     >
       <FaArrowUp />
