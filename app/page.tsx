@@ -85,7 +85,7 @@ export default async function LaptopRental() {
 
       <EventDateCards />
       <Cta />
-      <ServicesTimeline description="Laptop Rental Australia steps in as your trusted laptop rental partner. We empower your event with cutting-edge technology and unparalleled service, ensuring every moment is an opportunity to impress. Supported by dedicated teams, enjoy 24/7 technical and customer support for seamless corporate events. Contact our experts and rent laptops for corporate events in Australia & New Zealand" />
+      <ServicesTimeline description="Laptop Rental Australia steps in as your trusted laptop rental partner. We empower your event with cutting-edge technology and unparalleled service, ensuring every moment is an opportunity to impress. Supported by dedicated teams, enjoy 24/7 technical and customer support for seamless corporate events. Contact our experts and rent laptops for corporate events in Australia & New Zealand." />
       <div className="container flex items-center flex-col lg:flex-row gap-8 justify-between p-8">
         <div className="space-y-4 flex-1 min-w-min">
           <strong className="bg-primary-red text-white text-base font-semibold uppercase rounded-sm px-2 py-1">
