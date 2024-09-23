@@ -15,7 +15,6 @@ function getNodemailerTransporter(): Transporter {
     host: process.env.NODEMAILER_HOST as string,
     port: 587,
     secure: false,
-    tls: { ciphers: "SSLv3" },
     auth: {
       user: process.env.NODEMAILER_USERNAME,
       pass: process.env.NODEMAILER_PASSWORD,
@@ -114,8 +113,9 @@ export const sendQuoteFormData = action
         await sendMailPromise();
         return { success: true, message: "Form submitted successfully" };
       } catch (error) {
+        console.log(error);
         return {
-          success: false,
+          error: true,
           message: `An error occurred: ${(error as Error).message}`,
         };
       }
@@ -164,8 +164,9 @@ export const handleContactForm = action
         await sendMailPromise();
         return { success: true, message: "Form submitted successfully" };
       } catch (error) {
+        console.log(error);
         return {
-          success: false,
+          error: true,
           message: `An error occurred: ${(error as Error).message}`,
         };
       }

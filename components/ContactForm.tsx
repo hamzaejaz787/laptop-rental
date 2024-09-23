@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -12,7 +13,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
-import Link from "next/link";
 import { FaPhone, FaLocationDot } from "react-icons/fa6";
 import { IoMail } from "react-icons/io5";
 import { handleContactForm, verifyRecaptcha } from "@/lib/actions";
@@ -54,7 +54,7 @@ export function ContactForm() {
       if (data.data?.error) {
         toast({
           title: "Error",
-          description: data.data.error,
+          description: data.data.message,
           variant: "destructive",
         });
         setIsSubmitting(false);
