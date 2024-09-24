@@ -58,10 +58,10 @@ type Sitemap = Array<{
     | "yearly"
     | "never";
   priority?: number;
+  images?: string[];
   alternates?: {
     languages?: Record<string, string>;
   };
-  images?: string[];
 }>;
 
 const baseUrl = "https://laptop-rental.com.au";
