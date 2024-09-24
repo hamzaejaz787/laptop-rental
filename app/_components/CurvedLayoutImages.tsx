@@ -55,7 +55,7 @@ const CurvedLayoutImages = () => {
   ];
 
   return (
-    <div className="flex items-center md:items-start gap-4 justify-center px-4 md:px-10 flex-wrap lg:flex-nowrap">
+    <div className="hidden sm:flex items-center md:items-start gap-4 justify-center px-4 md:px-10 flex-wrap lg:flex-nowrap">
       {layoutImages.map((image, index) => (
         <AnimatedImage
           key={index}

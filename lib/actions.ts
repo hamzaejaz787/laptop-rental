@@ -55,17 +55,8 @@ export const sendQuoteFormData = action
         startdate,
       },
     }) => {
-      if (
-        !company ||
-        !email ||
-        !enddate ||
-        !location ||
-        !name ||
-        !phone ||
-        !startdate
-      ) {
+      if (!email || !enddate || !location || !name || !phone || !startdate) {
         console.error("Missing required fields:", {
-          company,
           email,
           enddate,
           location,
