@@ -17,8 +17,8 @@ async function Header() {
   return (
     <>
       <TopBar />
-      <div className="sticky left-0 right-0 top-0 z-50 container">
-        <div className="flex relative justify-between items-center md:py-4 px-8 md:px-20 py-2 before:content-[''] before:block before:absolute before:left-0 before:top-0 before:bg-white before:w-full before:h-full before:zigzag-border-top">
+      <div className="sticky left-0 right-0 top-0 z-50 before:content-[''] before:block before:absolute before:left-0 before:top-0 before:bg-white before:w-full before:h-full before:zigzag-border-top">
+        <div className="flex justify-between items-center md:py-4 px-8 md:px-20 py-2 container">
           <Link href={"/"}>
             <Image
               src="/laptop_rental_logo.png"

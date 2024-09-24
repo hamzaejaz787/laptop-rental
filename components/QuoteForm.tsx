@@ -64,16 +64,16 @@ const formInputItems: FormInputItemTypes[] = [
     type: "tel",
   },
   {
-    name: "company",
-    label: "Company Name *",
-    placeholder: "Enter Your Company Name",
-    required: true,
-  },
-  {
     name: "location",
     label: "Location *",
     placeholder: "Enter Your Location",
     required: true,
+  },
+  {
+    name: "company",
+    label: "Company Name",
+    placeholder: "Enter Your Company Name",
+    required: false,
   },
 ];
 

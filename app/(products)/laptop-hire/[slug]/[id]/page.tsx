@@ -204,13 +204,14 @@ async function ProductPage({ params }: PageProps) {
       </section>
 
       <ProductInfoTabs TabItems={data.info} />
+
       {data.relatedproducts?.data.length > 0 && (
         <section className="container">
           <h3 className="text-4xl font-bold text-center mt-10 mb-5">
             Related Products
           </h3>
 
-          <CardsSlider>
+          <CardsSlider className="px-4">
             {data.relatedproducts.data.map((product, index) => (
               <ProductCard key={index} productCardItem={product} />
             ))}

@@ -209,7 +209,7 @@ export function ContactForm() {
             <Button
               type="submit"
               disabled={status === "executing" || isSubmitting}
-              className="bg-primary-red text-white hover:bg-red-500 px-8 md:px-14 w-full sm:w-auto"
+              className="bg-primary-red text-white hover:bg-red-500 px-8 md:px-14 w-full sm:w-auto rounded-sm"
             >
               {status === "executing" || isSubmitting ? "Sending..." : "Submit"}
             </Button>

@@ -108,7 +108,7 @@ const Page = async ({ params }: PageProps) => {
         currentEventSlug={data.slug}
         relatedEventsTitle={data.EventsTitle}
         relatedEventsText={data.EventsText}
-        className="pt-8"
+        className="pt-8 px-4 md:px-8"
       />
       <Faqs
         faqItems={data.Faq}

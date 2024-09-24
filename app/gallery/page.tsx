@@ -1,17 +1,16 @@
 import Banner from "@/components/Banner";
 import { getGalleryItemsById } from "@/data/loaders";
 import { getStrapiURL } from "@/lib/utils";
-import Image from "next/image";
 import { Metadata } from "next";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import ImagesLoader from "./_components/ImagesLoader";
 
 interface GalleryItemProps {
   id: number;
   url: string;
   alternativeText: string;
-  width?: number;
-  height?: number;
+  width: number;
+  height: number;
 }
 
 export const metadata: Metadata = {
@@ -54,35 +53,7 @@ const Gallery = async () => {
           reliable, cutting-edge solutions that make your events stand out.
         </p>
 
-        {/* <div className="flex flex-col md:flex-row gap-8 justify-between my-8">
-          <TabSidebar tabItems={tabItems} />
-          <GalleryTabCards />
-        </div> */}
-
-        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
-          {images.map((item) => (
-            <Dialog key={item.id}>
-              <DialogTrigger>
-                <Image
-                  src={`${baseurl}${item.url}`}
-                  alt={item.alternativeText}
-                  width={500}
-                  height={500}
-                  className="h-full object-cover rounded-sm hover:scale-105 transition-transform hover:shadow-lg"
-                />
-              </DialogTrigger>
-              <DialogContent>
-                <Image
-                  src={`${baseurl}${item.url}`}
-                  alt={item.alternativeText}
-                  width={500}
-                  height={500}
-                  className="h-full w-full object-cover"
-                />
-              </DialogContent>
-            </Dialog>
-          ))}
-        </div>
+        <ImagesLoader baseurl={baseurl} images={images} />
       </section>
     </>
   );

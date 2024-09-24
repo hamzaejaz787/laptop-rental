@@ -30,7 +30,7 @@ const EventCardsCarousel = ({ data }: { data: EventCardProps[] }) => {
         {data.map((data, index) => (
           <CarouselItem
             key={index}
-            className="sm:basis-1/2 xl:basis-1/3 2xl:basis-1/4"
+            className="sm:basis-1/2 xl:basis-1/3 2xl:basis-1/4 pl-0 px-2"
           >
             <EventCard data={data} />
           </CarouselItem>

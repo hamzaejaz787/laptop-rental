@@ -28,7 +28,7 @@ export default function GetAQuote() {
       />
       <Breadcrumbs className="sr-only" currentPage="Get A Quote" />
 
-      <div className="container flex items-center flex-col lg:flex-row gap-8 justify-between p-8">
+      <div className="container flex items-center flex-col lg:flex-row gap-8 justify-between py-8 px-4 sm:px-8">
         <div className="space-y-4 flex-1 min-w-min">
           <strong className="bg-primary-red text-white text-base font-semibold uppercase rounded-sm px-2 py-1">
             Rent Event

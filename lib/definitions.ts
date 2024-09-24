@@ -70,7 +70,6 @@ export const quoteFormSchema = z
         message: "Phone number is not valid!!",
       })
       .transform((val) => val.replace(/\D/g, "")),
-    // recaptchaToken: z.string(),
   })
   .superRefine((values, ctx) => {
     if (values.enddate < values.startdate) {

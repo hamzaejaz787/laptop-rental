@@ -61,6 +61,7 @@ type Sitemap = Array<{
   alternates?: {
     languages?: Record<string, string>;
   };
+  images?: string[];
 }>;
 
 const baseUrl = "https://laptop-rental.com.au";

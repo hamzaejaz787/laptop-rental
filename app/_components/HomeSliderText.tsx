@@ -14,7 +14,7 @@ const HomeSliderText = ({
 }) => {
   return (
     <div className="z-10 relative text-center md:text-left space-y-3 md:space-y-4 content-center h-full px-8 md:pl-20">
-      <strong className="block text-lg text-white text-center md:text-left uppercase font-normal font-Barlow tracking-[0.5em] 3xl:text-3xl">
+      <strong className="block text-lg text-white text-center md:text-left uppercase font-normal font-Barlow tracking-[0.5em] 3xl:text-3xl max-w-72 mx-auto md:mx-0 md:max-w-full">
         {header}
       </strong>
       {index === 0 ? (

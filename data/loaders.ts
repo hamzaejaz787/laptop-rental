@@ -223,6 +223,7 @@ export const getGalleryItemsById = async (id: string | number) => {
     populate: {
       galleryimage: true,
     },
+    pagination: { pageSize: 100 },
   });
 
   return await fetchData(url.href);

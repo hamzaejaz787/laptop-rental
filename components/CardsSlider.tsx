@@ -9,28 +9,30 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import { cn } from "@/lib/utils";
 
 interface CardsSliderProps {
   children: React.ReactNode;
+  className?: string;
 }
 
-const CardsSlider: React.FC<CardsSliderProps> = ({ children }) => {
+const CardsSlider: React.FC<CardsSliderProps> = ({ children, className }) => {
   return (
     <Carousel
       opts={{
         align: "start",
         loop: true,
       }}
-      // plugins={[
-      //   Autoplay({
-      //     delay: 2500,
-      //   }),
-      // ]}
-      className="w-full lg:px-8"
+      plugins={[
+        Autoplay({
+          delay: 2500,
+        }),
+      ]}
+      className={cn("w-full lg:px-8", className)}
     >
-      <CarouselContent className="p-1">
+      <CarouselContent className="m-4 lg:mx-0">
         {React.Children.map(children, (child) => (
-          <CarouselItem className="sm:basis-1/2 md:basis-1/3 xl:basis-1/4">
+          <CarouselItem className="sm:basis-1/2 md:basis-1/3 xl:basis-1/4 px-2">
             {child}
           </CarouselItem>
         ))}
