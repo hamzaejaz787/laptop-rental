@@ -66,7 +66,7 @@ export const quoteFormSchema = z
     location: z.string(),
     phone: z
       .string()
-      .regex(/^\+?\d{9,}$/, {
+      .regex(/^\+?\d[\d\s\-().]{7,}$/, {
         message: "Phone number is not valid!!",
       })
       .transform((val) => val.replace(/\D/g, "")),
@@ -86,7 +86,7 @@ export const formSchema = z.object({
   email: z.string().email().min(1, { message: "Cannot be empty" }),
   contact: z
     .string()
-    .regex(/^\+?\d{9,}$/, {
+    .regex(/^\+?\d[\d\s\-().]{7,}$/, {
       message: "Phone number is not valid!!",
     })
     .transform((val) => val.replace(/\D/g, "")),
