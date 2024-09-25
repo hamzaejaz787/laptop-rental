@@ -25,7 +25,7 @@ const ServicesTimeline = ({ description }: { description?: string }) => {
     },
   ];
   return (
-    <section className="container space-y-8 p-8">
+    <section className="container space-y-8 py-8 px-4 md:px-8">
       <div className="flex items-center justify-center md:justify-between gap-4 md:px-12 flex-col md:flex-row">
         <div className="space-y-2 text-center md:text-left">
           <strong className="inline-block text-primary-red border-b-2 border-dashed border-b-primary-red uppercase font-medium">

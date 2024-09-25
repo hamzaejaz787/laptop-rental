@@ -42,7 +42,7 @@ const eventsData = [
 
 function EventDateCards() {
   return (
-    <section className="container space-y-4 p-8 text-center">
+    <section className="container space-y-4 py-8 px-4 md:px-8 text-center">
       <h2 className="text-3xl lg:text-4xl max-w-3xl mx-auto text-center font-Barlow font-bold">
         Hello to Event Organisers and Attendees in Australia
       </h2>
