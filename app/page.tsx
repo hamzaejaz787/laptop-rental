@@ -127,7 +127,6 @@ export default async function LaptopRental() {
             height={75}
             className="mx-auto"
           />
-
           <h2 className="font-bold text-3xl capitalize relative after:content-[''] after:block after:w-1/2 after:border-x-2 after:border after:my-4 after:border-white after:border-dashed after:mx-auto">
             Rent your event
           </h2>
