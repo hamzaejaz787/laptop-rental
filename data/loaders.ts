@@ -1,5 +1,6 @@
 import qs from "qs";
 import { getStrapiURL, flattenAttributes } from "@/lib/utils";
+import { notFound } from "next/navigation";
 
 const baseURL = getStrapiURL();
 
@@ -9,12 +10,18 @@ async function fetchData(url: string) {
       next: { revalidate: 120 },
     });
 
-    if (!response.ok) throw new Error(`Http error! status ${response.status}`);
+    if (response.status === 404) {
+      return notFound();
+    }
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch the data");
+    }
 
     const data = await response.json();
     return flattenAttributes(data);
   } catch (error) {
-    console.error("Error fetching data:", error);
+    console.error(error);
     throw error;
   }
 }

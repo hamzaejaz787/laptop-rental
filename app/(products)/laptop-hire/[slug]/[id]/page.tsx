@@ -47,7 +47,9 @@ export async function generateMetadata({
 async function ProductPage({ params }: PageProps) {
   const data: SingleProductProps = await getProductBySlug(params.id);
   const baseurl = getStrapiURL();
-
+  if (!data) {
+    return null; // Stop rendering if data is not available
+  }
   let imageurl = "";
   if (data.ProductCardImage) imageurl = baseurl + data.ProductCardImage?.url;
 
