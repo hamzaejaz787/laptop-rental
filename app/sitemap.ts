@@ -68,16 +68,28 @@ const baseUrl = "https://laptop-rental.com.au";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const links: Sitemap = [
-    { url: baseUrl, lastModified: new Date() },
-    { url: `${baseUrl}/about-us`, lastModified: new Date() },
-    { url: `${baseUrl}/contact-us`, lastModified: new Date() },
-    { url: `${baseUrl}/gallery`, lastModified: new Date() },
-    { url: `${baseUrl}/get-a-quote`, lastModified: new Date() },
-    { url: `${baseUrl}/privacy-policy`, lastModified: new Date() },
-    { url: `${baseUrl}/terms-and-conditions`, lastModified: new Date() },
-    { url: `${baseUrl}/event-rental`, lastModified: new Date() },
-    { url: `${baseUrl}/laptop-hire`, lastModified: new Date() },
-    { url: `${baseUrl}/technology-rental`, lastModified: new Date() },
+    { url: baseUrl, lastModified: new Date(), priority: 1.0 },
+    { url: `${baseUrl}/about-us`, lastModified: new Date(), priority: 0.8 },
+    { url: `${baseUrl}/contact-us`, lastModified: new Date(), priority: 0.8 },
+    { url: `${baseUrl}/gallery`, lastModified: new Date(), priority: 0.8 },
+    { url: `${baseUrl}/get-a-quote`, lastModified: new Date(), priority: 0.8 },
+    {
+      url: `${baseUrl}/privacy-policy`,
+      lastModified: new Date(),
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/terms-and-conditions`,
+      lastModified: new Date(),
+      priority: 0.8,
+    },
+    { url: `${baseUrl}/event-rental`, lastModified: new Date(), priority: 0.8 },
+    { url: `${baseUrl}/laptop-hire`, lastModified: new Date(), priority: 0.8 },
+    {
+      url: `${baseUrl}/technology-rental`,
+      lastModified: new Date(),
+      priority: 0.8,
+    },
   ];
 
   const [events, productCategory, products]: [
@@ -91,6 +103,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     links.push({
       url: `${baseUrl}/event-rental/${event.slug}`,
       lastModified: event.updatedAt,
+      priority: 0.8,
     });
   });
 
@@ -107,12 +120,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     links.push({
       url: `${baseUrl}/laptop-hire/${laptop.slug}`,
       lastModified: laptop.updatedAt,
+      priority: 0.7,
     });
   });
   otherItems.map((item) => {
     links.push({
       url: `${baseUrl}/technology-rental/${item.slug}`,
       lastModified: item.updatedAt,
+      priority: 0.7,
     });
   });
 
@@ -128,6 +143,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       links.push({
         url,
         lastModified: product.updatedAt,
+        priority: 0.64,
       });
     }
   });
