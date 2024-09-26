@@ -5,7 +5,7 @@ import { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Contact US page of Laptop Rental AU",
+  title: "Laptop Rental For Events | Contact US",
   description:
     "Transform your events with cutting-edge technology. Laptop Rental offers top-tier solutions for seamless engagement. Contact us today!",
   keywords: "",

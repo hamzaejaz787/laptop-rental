@@ -7,7 +7,7 @@ import ReviewCarousel from "./_components/ReviewCarousel";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "About Us page of Laptop Rental AU",
+  title: "Laptop Rental For Events | About Us",
   description:
     "The business events industry uplifts and unites people. We're fortunate to be part of it. For all your IT and event technology needs, contact us.",
   keywords: "",

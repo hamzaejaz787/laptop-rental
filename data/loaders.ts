@@ -20,7 +20,7 @@ async function fetchData(url: string) {
 
     const data = await response.json();
     return flattenAttributes(data);
-  } catch (error) {
+  } catch (error: any) {
     console.error(error);
     throw error;
   }
