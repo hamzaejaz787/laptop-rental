@@ -1,8 +1,6 @@
 import { getAllProducts, getEvents, getProductCategory } from "@/data/loaders";
 import { MetadataRoute } from "next";
 
-export const dynamic = "force-dynamic";
-
 interface ProductItem {
   id: number;
   Title: string;

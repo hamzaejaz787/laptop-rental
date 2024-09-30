@@ -35,9 +35,9 @@ export default async function LaptopRental() {
   ];
 
   const carouselData = [
-    { image: "/Header-1.png", text: homepagetext[0] },
-    { image: "/Header-2.png", text: homepagetext[1] },
-    { image: "/Header-3.png", text: homepagetext[2] },
+    { image: "/Header-1.webp", text: homepagetext[0] },
+    { image: "/Header-2.webp", text: homepagetext[1] },
+    { image: "/Header-3.webp", text: homepagetext[2] },
   ];
 
   const eventCardData = await getEvents();
