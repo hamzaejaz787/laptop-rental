@@ -12,6 +12,7 @@ import CookieConsentPopup from "@/components/CookieConsentPopup";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import JsonLdSchema from "@/components/JsonLdSchema";
 import { getBreadCrumbJsonSchema } from "@/data/loaders";
+import Script from "next/script";
 //Global metadata
 export const metadata: Metadata = {
   title: "Laptop Rental For Events | Your Event Tech Partner",
@@ -132,6 +133,34 @@ export default async function RootLayout({
           </CartProvider>
           <CookieConsentPopup />
         </ReCaptchaProvider>
+
+        <Script
+          id="zendesk"
+          strategy="lazyOnload"
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.$zopim || (function(d, s) {
+               var z = $zopim = function(c) {
+                       z._.push(c)
+                   },
+                   $ = z.s =
+                   d.createElement(s),
+                   e = d.getElementsByTagName(s)[0];
+               z.set = function(o) {
+                   z.set._.push(o)
+               };
+               z._ = [];
+               z.set._ = [];
+               $.async = !0;
+               $.setAttribute('charset', 'utf-8');
+               $.src = 'https://v2.zopim.com/?4YOlgTDJ2HbpxTyZYudYvBBfMrWsGVaA';
+               z.t = +new Date;
+               $.type = 'text/javascript';
+               e.parentNode.insertBefore($, e)
+            })(document, 'script');
+          `,
+          }}
+        />
 
         {jsonLd.map((schema, index) => (
           <JsonLdSchema key={index} schema={JSON.stringify(schema)} />
