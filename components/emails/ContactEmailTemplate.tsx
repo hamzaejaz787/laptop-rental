@@ -46,6 +46,7 @@ const ContactEmailTemplate = (EmailItems: ContactEmailTemplateProps) => {
             </Row>
           </Section>
           <Section style={{ padding: "20px" }}>
+            <Text style={paragraph}>Site: laptop-rental.com.au/contact-us</Text>
             <Text style={paragraph}>
               <strong>Name:</strong> {EmailItems.name}
             </Text>

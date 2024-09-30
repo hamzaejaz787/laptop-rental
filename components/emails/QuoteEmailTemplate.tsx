@@ -55,6 +55,7 @@ const EmailTemplate = (EmailItems: QuoteEmailTemplateProps) => {
             </Row>
           </Section>
           <Section style={{ padding: "20px" }}>
+            <Text style={paragraph}>Site: laptop-rental.com.au</Text>
             <Text style={paragraph}>
               <strong>Name:</strong> {EmailItems.name}
             </Text>
