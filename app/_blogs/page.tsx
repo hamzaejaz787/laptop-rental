@@ -13,7 +13,7 @@ const resourceCardsData: ResourceCardTypes[] = [
     title: "Lorem ipsum dolor sit amet",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porttitor dictum lectus atLorem ipsum dolor sit amet, consectetur adipiscing elit. In porttitor dictum lectus atLorem ipsum dolor sit amet, consectetur adipiscing elit. In porttitor dictum lectus atLorem ipsum dolor sit amet, consectetur adipiscing elit. In porttitor dictum lectus.",
-    href: "/news/blogs",
+    href: "/blogs/1",
   },
   {
     image: "/blog2.png",
@@ -23,7 +23,7 @@ const resourceCardsData: ResourceCardTypes[] = [
     title: "Lorem ipsum dolor sit amet",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porttitor dictum lectus atLorem ipsum dolor sit amet, consectetur adipiscing elit. In porttitor dictum lectus atLorem ipsum dolor sit amet, consectetur adipiscing elit. In porttitor dictum lectus atLorem ipsum dolor sit amet, consectetur adipiscing elit. In porttitor dictum lectus.",
-    href: "/news/blogs",
+    href: "/blogs/2",
   },
   {
     image: "/blog1.png",
@@ -33,7 +33,7 @@ const resourceCardsData: ResourceCardTypes[] = [
     title: "Lorem ipsum dolor sit amet",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porttitor dictum lectus atLorem ipsum dolor sit amet, consectetur adipiscing elit. In porttitor dictum lectus atLorem ipsum dolor sit amet, consectetur adipiscing elit. In porttitor dictum lectus atLorem ipsum dolor sit amet, consectetur adipiscing elit. In porttitor dictum lectus.",
-    href: "/news/blogs",
+    href: "/blogs/3",
   },
 ];
 
