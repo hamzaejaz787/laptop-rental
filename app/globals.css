@@ -109,4 +109,5 @@ h6 {
 }
 .grecaptcha-badge:hover {
   width: 256px !important;
+  border-radius: 0 ;
 }

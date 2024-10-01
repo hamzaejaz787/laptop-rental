@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://laptop-rental.com.au/get-a-quote",
   },
+  other: { title: "Laptop Rental For Events | Get A Quote" },
 };
 
 export default function GetAQuote() {

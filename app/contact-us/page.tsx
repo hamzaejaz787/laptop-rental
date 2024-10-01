@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://laptop-rental.com.au/contact-us",
   },
+  other: { title: "Laptop Rental For Events | Contact Us" },
 };
 
 const Page = () => {

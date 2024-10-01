@@ -20,6 +20,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://laptop-rental.com.au/gallery",
   },
+  other: { title: "Laptop Rental For Events | Gallery" },
 };
 
 const Gallery = async () => {

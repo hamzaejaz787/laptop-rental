@@ -10,7 +10,7 @@ import {
   getProduct,
   getProductCategoryBySlug,
 } from "@/data/loaders";
-import { PageProps } from "@/lib/definitions";
+import { PageProps, SingleProductProps } from "@/lib/definitions";
 import { notFound } from "next/navigation";
 import ServicesTimeline from "@/components/ServicesTimeline";
 import CtaWithModal from "../_components/CtaWithModal";
@@ -21,7 +21,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const slug = params.slug;
-  const data = await getProductCategoryBySlug(slug);
+  const data: SingleProductProps = await getProductCategoryBySlug(slug);
   return {
     title: data.MetaTitle,
     description: data.MetaDescription,
@@ -29,6 +29,7 @@ export async function generateMetadata({
     alternates: {
       canonical: `https://laptop-rental.com.au/technology-rental/${data.slug}`,
     },
+    other: { title: data.MetaTitle },
   };
 }
 

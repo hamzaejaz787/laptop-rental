@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://laptop-rental.com.au/privacy-policy",
   },
+  other: { title: "Laptop Rental For Events | Privacy Policy" },
 };
 
 const PrivacyPolicy = () => {

@@ -29,6 +29,7 @@ export async function generateMetadata({
     alternates: {
       canonical: `https://laptop-rental.com.au/event-rental/${data.slug}`,
     },
+    other: { title: data.MetaTitle },
   };
 }
 

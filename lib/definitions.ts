@@ -155,7 +155,7 @@ export interface SingleProductProps {
   MetaDescription: string | null;
   MetaKeywords: string | null;
   MetaCanonical: string | null;
-  MetaTitle: string | null;
+  MetaTitle: string;
   ProductCategory: string;
   ProductSubCategory: string;
   slug: string;

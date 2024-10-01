@@ -33,6 +33,7 @@ export async function generateMetadata({
     alternates: {
       canonical: `https://laptop-rental.com.au/technology-rental/${data.productcategory.slug}/${data.slug}`,
     },
+    other: { title: data.MetaTitle },
   };
 }
 

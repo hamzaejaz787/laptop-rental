@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://laptop-rental.com.au/terms-and-conditions",
   },
+  other: { title: "Laptop Rental For Events | Terms and Conditions" },
 };
 
 const TermsAndConditions = () => {

@@ -25,6 +25,7 @@ export const metadata: Metadata = {
     "rent laptop for business",
     "business laptop rental",
   ],
+  other: { title: "Laptop Rental For Events | Your Event Tech Partner" },
   alternates: {
     canonical: "https://laptop-rental.com.au/",
   },
