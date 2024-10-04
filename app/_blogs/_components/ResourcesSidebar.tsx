@@ -1,9 +1,14 @@
+"use client";
+
 import React from "react";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useDebouncedCallback } from "use-debounce";
+import { cn } from "@/lib/utils";
 
 export interface RecentBlogCardTypes {
   image: string;
@@ -39,18 +44,41 @@ const recentCardData: RecentBlogCardTypes[] = [
   },
 ];
 
-const ResourcesSidebar = () => {
+const ResourcesSidebar = ({ searchBarClass }: { searchBarClass?: string }) => {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const handleSearch = useDebouncedCallback((query: string) => {
+    const params = new URLSearchParams(searchParams);
+
+    if (query) {
+      params.set("search", query.toLowerCase());
+    } else {
+      params.delete("search");
+    }
+
+    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+  }, 300);
+
   return (
-    <div className="space-y-8">
-      <div className="md:max-w-xs h-fit w-full bg-gray-100 border-2 border-gray-300 rounded-sm p-4 space-y-4">
+    <div className="flex flex-col gap-8 w-full lg:w-auto lg:min-w-[300px]">
+      <div
+        className={cn(
+          searchBarClass,
+          "lg:max-w-xs h-fit w-full bg-gray-100 border-2 border-gray-300 rounded-sm p-4 space-y-4"
+        )}
+      >
         <h2 className="text-lg font-semibold relative pl-2">
-          Search Here
+          Search Blogs
           <div className="h-full w-[2px] bg-primary-red absolute top-0 left-0" />
         </h2>
 
         <Input
           placeholder="Search Here..."
           className="focus-visible:ring-primary-red transition-all ease-in rounded-sm"
+          onChange={(e) => handleSearch(e.target.value)}
+          defaultValue={searchParams.get("search")?.toString()}
         />
       </div>
       <RecentResources />
@@ -61,7 +89,7 @@ const ResourcesSidebar = () => {
 
 const RecentResources = () => {
   return (
-    <div className="md:max-w-xs h-fit w-full bg-gray-100 border-2 border-gray-300 rounded-sm p-4 space-y-4">
+    <div className="lg:max-w-xs h-fit w-full bg-gray-100 border-2 border-gray-300 rounded-sm p-4 space-y-4">
       <h2 className="text-lg font-semibold relative pl-2">
         Recent Blogs
         <div className="h-full w-[2px] bg-primary-red absolute top-0 left-0" />
@@ -113,7 +141,7 @@ const tags = [
 
 const PopularTags = () => {
   return (
-    <div className="md:max-w-xs h-fit w-full bg-gray-100 border-2 border-gray-300 rounded-sm p-4 space-y-4">
+    <div className="lg:max-w-xs h-fit w-full bg-gray-100 border-2 border-gray-300 rounded-sm p-4 space-y-4">
       <h2 className="text-lg font-semibold relative pl-2">
         Popular Tags
         <div className="h-full w-[2px] bg-primary-red absolute top-0 left-0" />

@@ -192,6 +192,20 @@ export function MobileMenu({
               </NavigationMenuLink>
             </NavigationMenuItem>
 
+            {/* <NavigationMenuItem>
+              <NavigationMenuLink
+                className={navigationMenuTriggerStyle()}
+                onClick={handleClose}
+              >
+                <Link
+                  href={"/blogs"}
+                  className="text-white focus-within:text-red-400 hover:text-red-400 transition-all duration-200 ease-in"
+                >
+                  Blogs
+                </Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem> */}
+
             <NavigationMenuItem>
               <NavigationMenuLink
                 className={navigationMenuTriggerStyle()}

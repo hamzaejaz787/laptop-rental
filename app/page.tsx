@@ -33,13 +33,11 @@ export default async function LaptopRental() {
         "Experience seamless, cutting-edge technology for unforgettable events every time!",
     },
   ];
-
   const carouselData = [
     { image: "/Header-1.webp", text: homepagetext[0] },
     { image: "/Header-2.webp", text: homepagetext[1] },
     { image: "/Header-3.webp", text: homepagetext[2] },
   ];
-
   const eventCardData = await getEvents();
 
   return (

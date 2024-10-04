@@ -10,14 +10,9 @@ async function fetchData(url: string) {
       next: { revalidate: 120 },
     });
 
-    if (response.status === 404) {
-      return notFound();
-    }
-
     if (!response.ok) {
-      throw new Error("Failed to fetch the data");
+      if (response.status === 404) return notFound();
     }
-
     const data = await response.json();
     return flattenAttributes(data);
   } catch (error: any) {
@@ -102,7 +97,6 @@ export const getProduct = async (
     if (queryString) {
       filters.$or = [
         { Title: { $containsi: queryString } },
-        // { Description: { $containsi: queryString } },
         { ProductCategory: { $containsi: queryString } },
         { ProductSubCategory: { $containsi: queryString } },
       ];
@@ -231,6 +225,81 @@ export const getGalleryItemsById = async (id: string | number) => {
       galleryimage: true,
     },
     pagination: { pageSize: 100 },
+  });
+
+  return await fetchData(url.href);
+};
+
+export const getBlogs = async (queryString?: string) => {
+  const baseUrl = new URL("/api/blogs", baseURL);
+
+  const createSearchParams = () => {
+    const filters: any = {};
+
+    if (queryString) {
+      filters.$or = [
+        { Title: { $containsi: queryString } },
+        { Description: { $containsi: queryString } },
+        { IntroText: { $containsi: queryString } },
+      ];
+    }
+
+    return qs.stringify({
+      populate: {
+        MainImage: {
+          fields: ["url", "alternativeText", "width", "height"],
+        },
+        ThumbnailImage: {
+          fields: ["url", "alternativeText", "width", "height"],
+        },
+        BlogTag: {
+          fields: ["tag"],
+        },
+        createdBy: {
+          fields: ["id", "firstname", "lastname"],
+        },
+        updatedBy: {
+          fields: ["id", "firstname", "lastname"],
+        },
+      },
+      filters: filters,
+    });
+  };
+
+  const fetchBlogs = async () => {
+    const url = new URL(baseUrl);
+    url.search = createSearchParams();
+    return await fetchData(url.href);
+  };
+
+  let result = await fetchBlogs();
+  return result;
+};
+
+export const getBlogBySlug = async (slug: string) => {
+  const url = new URL(`/api/blogs/${slug}`, baseURL);
+
+  url.search = qs.stringify({
+    populate: {
+      MainImage: {
+        fields: ["url", "alternativeText", "width", "height"],
+      },
+      HeaderImage: {
+        fields: ["url", "alternativeText", "width", "height"],
+      },
+      ThumbnailImage: {
+        fields: ["url", "alternativeText", "width", "height"],
+      },
+      BlogTag: {
+        fields: ["tag"],
+      },
+      createdBy: {
+        fields: ["id", "firstname", "lastname"],
+      },
+      updatedBy: {
+        fields: ["id", "firstname", "lastname"],
+      },
+    },
   });
 
   return await fetchData(url.href);

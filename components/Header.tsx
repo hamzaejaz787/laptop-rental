@@ -25,7 +25,7 @@ async function Header() {
               alt="laptop Logo"
               width={120}
               height={75}
-              className="z-50 relative"
+              className="z-50 relative h-auto w-full"
             />
           </Link>
           <div className="hidden lg:flex md:pl-10 md:pr-10">

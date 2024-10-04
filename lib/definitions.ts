@@ -153,7 +153,7 @@ export interface SingleProductProps {
   id: number;
   Title: string;
   MetaDescription: string | null;
-  MetaKeywords: string | null;
+  MetaKeywords: string[] | string | null;
   MetaCanonical: string | null;
   MetaTitle: string;
   ProductCategory: string;
@@ -182,4 +182,36 @@ export interface SingleProductProps {
   };
   jsonSchema: JsonLdSchemaItem[];
   relatedproducts: { data: RelatedProductsTypes[] };
+}
+
+export interface ResourceCardTypes {
+  MetaDescription: string | null;
+  MetaKeywords: string[] | string | null;
+  MetaCanonical: string | null;
+  MetaTitle: string;
+  MainImage: {
+    url: string;
+    alternativeText: string;
+  };
+  HeaderImage: {
+    url: string;
+    alternativeText: string;
+  };
+  Title: string;
+  Description: string;
+  BlogContent: BlocksContent;
+  IntroText: string;
+  slug: string;
+  ReadingTime: number;
+  updatedAt: string;
+  updatedBy: {
+    id: number;
+    firstname: string;
+    lastname: string;
+  };
+  createdBy: {
+    id: number;
+    firstname: string;
+    lastname: string;
+  };
 }

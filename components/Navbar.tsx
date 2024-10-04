@@ -113,9 +113,10 @@ export function Navbar({
           <NavigationMenuItem>
             <ListItem href="/gallery" title="Gallery" />
           </NavigationMenuItem>
-
+          {/* <NavigationMenuItem>
+            <ListItem href="/blogs" title="Blogs" />
+          </NavigationMenuItem> */}
           <NavigationMenuItem>
-            {" "}
             <ListItem href="/contact-us" title="Contact Us" />
           </NavigationMenuItem>
         </NavigationMenuList>
