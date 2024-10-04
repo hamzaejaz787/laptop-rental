@@ -10,7 +10,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { format, startOfToday } from "date-fns";
+import { format, startOfToday, addDays } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -32,6 +32,7 @@ import { useCart } from "@/providers/CartContext";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 const today = startOfToday();
+const tomorrow = addDays(today, 1);
 type FormInputName = "name" | "email" | "phone" | "company" | "location";
 
 interface FormInputItemTypes {
@@ -314,7 +315,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
           }}
           initialFocus
           required
-          fromDate={minDate || today}
+          fromDate={minDate || tomorrow}
           classNames={{
             nav_button: "bg-primary-red text-white",
             day_selected:
