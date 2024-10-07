@@ -13,14 +13,7 @@ export const metadata: Metadata = {
   title: "Event Technology Rental Excellence",
   description:
     "Boost your events with our event technology rental in Australia. Smooth solutions for events like conferences, festivals, and more. Contact us",
-  keywords: [
-    "Technology rental (event technology rental)",
-    "tech rental for events",
-    "technology rental company",
-    "technology rental service",
-    "IT rental (IT rental for events)",
-    "Hire IT equipment (Hire IT equipment for events)",
-  ],
+  keywords: ["Technology rental", "tech rental for events", "hire technology"],
   alternates: {
     canonical: "https://laptop-rental.com.au/technology-rental",
   },

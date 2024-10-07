@@ -230,17 +230,21 @@ export const getGalleryItemsById = async (id: string | number) => {
   return await fetchData(url.href);
 };
 
-export const getBlogs = async (queryString?: string) => {
+export const getBlogs = async (
+  queryString?: string,
+  currentPage = 1,
+  pageSize = 10
+) => {
   const baseUrl = new URL("/api/blogs", baseURL);
 
   const createSearchParams = () => {
     const filters: any = {};
 
+    // Apply filters only if a query string is provided
     if (queryString) {
       filters.$or = [
         { Title: { $containsi: queryString } },
         { Description: { $containsi: queryString } },
-        { IntroText: { $containsi: queryString } },
       ];
     }
 
@@ -263,6 +267,8 @@ export const getBlogs = async (queryString?: string) => {
         },
       },
       filters: filters,
+      sort: ["id:ASC"], // Adjust sorting as needed
+      pagination: { pageSize: pageSize, page: currentPage }, // Use pagination for results
     });
   };
 
@@ -273,6 +279,11 @@ export const getBlogs = async (queryString?: string) => {
   };
 
   let result = await fetchBlogs();
+
+  if (result.data.length === 0 && queryString) {
+    result = await fetchBlogs();
+  }
+
   return result;
 };
 

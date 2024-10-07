@@ -8,43 +8,29 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
-import { cn } from "@/lib/utils";
+import { cn, getStrapiURL } from "@/lib/utils";
+import { ResourceProps } from "./ResourceCard";
+import { format } from "date-fns";
 
 export interface RecentBlogCardTypes {
-  image: string;
-  date: string;
-  title: string;
-  href: string;
+  BlogThumbnail: {
+    url: string;
+    alternativeText: string;
+  };
+  updatedAt: string;
+  Title: string;
+  slug: string;
 }
 
-const recentCardData: RecentBlogCardTypes[] = [
-  {
-    title: "Some title for news 1",
-    date: "05 June, 2024",
-    href: "/news/blogs",
-    image: "/apple.png",
-  },
-  {
-    title: "Some title for news 2",
-    date: "05 December, 2023",
-    href: "/news/blogs",
-    image: "/dell.png",
-  },
-  {
-    title: "Some title for news 3",
-    date: "25 May, 2024",
-    href: "/news/blogs",
-    image: "/dragon.png",
-  },
-  {
-    title: "Some title for news 4",
-    date: "05 June, 2024",
-    href: "/news/blogs",
-    image: "/hp.png",
-  },
-];
+const baseUrl = getStrapiURL();
 
-const ResourcesSidebar = ({ searchBarClass }: { searchBarClass?: string }) => {
+const ResourcesSidebar = ({
+  searchBarClass,
+  blogsData,
+}: {
+  searchBarClass?: string;
+  blogsData: ResourceProps;
+}) => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
@@ -81,13 +67,13 @@ const ResourcesSidebar = ({ searchBarClass }: { searchBarClass?: string }) => {
           defaultValue={searchParams.get("search")?.toString()}
         />
       </div>
-      <RecentResources />
+      <RecentResources blogsData={blogsData} />
       <PopularTags />
     </div>
   );
 };
 
-const RecentResources = () => {
+const RecentResources = ({ blogsData }: { blogsData: ResourceProps }) => {
   return (
     <div className="lg:max-w-xs h-fit w-full bg-gray-100 border-2 border-gray-300 rounded-sm p-4 space-y-4">
       <h2 className="text-lg font-semibold relative pl-2">
@@ -95,35 +81,37 @@ const RecentResources = () => {
         <div className="h-full w-[2px] bg-primary-red absolute top-0 left-0" />
       </h2>
 
-      {recentCardData.slice(0, 3).map((item) => (
-        <RecentBlogCard key={item.title} cardData={item} />
+      {blogsData.data.slice(0, 3).map((item) => (
+        <RecentBlogCard key={item.id} cardData={item} />
       ))}
     </div>
   );
 };
 
 const RecentBlogCard = ({ cardData }: { cardData: RecentBlogCardTypes }) => {
+  const formattedDate = format(new Date(cardData.updatedAt), "dd MMM, yy");
+
   return (
     <div className="flex items-center gap-4">
       <Image
-        src={cardData.image}
-        alt={cardData.title}
+        src={baseUrl + cardData.BlogThumbnail.url}
+        alt={cardData.BlogThumbnail.alternativeText}
         width={100}
         height={100}
-        className="rounded"
+        className="object-cover rounded"
       />
 
       <div className="space-y-2">
         <div className="flex items-center gap-2">
           <FaRegCalendarAlt size={20} className="text-primary-red" />
-          <span className="text-gray-500 text-sm">{cardData.date}</span>
+          <span className="text-gray-500 text-sm">{formattedDate}</span>
         </div>
 
         <Link
-          href={cardData.href}
-          className="block text-xl font-bold cursor-pointer capitalize hover:text-primary-red focus-within:text-primary-red transition-all duration-200 ease-in"
+          href={`/blogs/${cardData.slug}`}
+          className="text-lg font-bold cursor-pointer capitalize hover:text-primary-red focus-within:text-primary-red transition-all duration-200 ease-in line-clamp-2"
         >
-          {cardData.title}
+          {cardData.Title}
         </Link>
       </div>
     </div>

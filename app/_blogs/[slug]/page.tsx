@@ -84,7 +84,7 @@ const SingleBlogPage = async ({ params }: { params: PageProps["params"] }) => {
           />
         </div>
 
-        <ResourcesSidebar searchBarClass="hidden" />
+        {/* <ResourcesSidebar searchBarClass="hidden" /> */}
       </div>
 
       <div className="container p-8 pt-0 text-center space-y-4">

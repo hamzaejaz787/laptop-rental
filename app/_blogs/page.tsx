@@ -23,6 +23,8 @@ const Blogs = async ({
   const query = searchParams?.search?.toString();
   const blogsData: ResourceProps = await getBlogs(query);
 
+  // console.log(blogsData);
+
   return (
     <>
       <Banner
@@ -41,7 +43,7 @@ const Blogs = async ({
             <ResourceCard key={index} data={card} />
           ))}
         </div>
-        <ResourcesSidebar />
+        <ResourcesSidebar blogsData={blogsData} />
       </div>
     </>
   );

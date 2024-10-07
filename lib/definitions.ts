@@ -185,6 +185,7 @@ export interface SingleProductProps {
 }
 
 export interface ResourceCardTypes {
+  id: number;
   MetaDescription: string | null;
   MetaKeywords: string[] | string | null;
   MetaCanonical: string | null;
@@ -194,6 +195,10 @@ export interface ResourceCardTypes {
     alternativeText: string;
   };
   HeaderImage: {
+    url: string;
+    alternativeText: string;
+  };
+  BlogThumbnail: {
     url: string;
     alternativeText: string;
   };

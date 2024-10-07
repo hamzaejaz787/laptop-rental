@@ -14,11 +14,10 @@ export const metadata: Metadata = {
   description:
     "Reliable laptop hire services across Australia and New Zealand. Choose from top brands like Dell, Lenovo, HP, and MacBook Pros for your next event. Contact Us",
   keywords: [
-    "laptop rental (laptop rental for events)",
-    "laptop rental for short term",
-    "Hire laptop (Hire laptop for business )",
-    "Rent laptops (Rent laptops for corporate events)",
-    "Laptop Hire for business",
+    "laptop hire",
+    "hire laptop for short term",
+    "Hire laptop",
+    "Laptop Hire for events",
   ],
   alternates: {
     canonical: "https://laptop-rental.com.au/laptop-hire",
