@@ -56,9 +56,7 @@ const SingleBlogPage = async ({ params }: { params: PageProps["params"] }) => {
             <div className="inline-flex items-center gap-2">
               <FaUser className="text-primary-red" size={18} />
 
-              <h6 className="text-sm text-gray-600">
-                {`${blogData.updatedBy.firstname} ${blogData.updatedBy.lastname}`}
-              </h6>
+              <h6 className="text-sm text-gray-600">{blogData.AuthorName}</h6>
             </div>
             <span className="text-primary-red font-bold">/</span>
             <div className="inline-flex items-center gap-2">
@@ -78,8 +76,10 @@ const SingleBlogPage = async ({ params }: { params: PageProps["params"] }) => {
 
           <ParseRichText
             content={blogData.BlogContent}
-            paragraphProps="max-w-[950px] text-gray-600"
-            headingProps={{ h2: "text-4xl font-bold" }}
+            paragraphProps="text-gray-600"
+            headingProps={{
+              h2: "text-4xl font-bold",
+            }}
             linkProps="text-primary-red hover:underline"
           />
         </div>
@@ -89,9 +89,6 @@ const SingleBlogPage = async ({ params }: { params: PageProps["params"] }) => {
 
       <div className="container p-8 pt-0 text-center space-y-4">
         <h2 className="text-4xl font-bold">Recent Blogs</h2>
-        <p className="text-gray-600 text-sm max-w-3xl mx-auto text-center">
-          Read some of our recent blogs
-        </p>
       </div>
     </div>
   );

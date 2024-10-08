@@ -16,6 +16,7 @@ export interface FooterLinkProps {
 async function Footer() {
   const companyListItems: FooterLinkProps[] = [
     { title: "About", href: "/about-us" },
+    { title: "Blogs", href: "/blogs" },
     { title: "Events", href: "/event-rental" },
     { title: "Get A Quote", href: "/get-a-quote" },
     { title: "Terms & Conditions", href: "/terms-and-conditions" },

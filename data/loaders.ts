@@ -230,6 +230,28 @@ export const getGalleryItemsById = async (id: string | number) => {
   return await fetchData(url.href);
 };
 
+export const getRecentBlogs = async () => {
+  const url = new URL("/api/blogs", baseURL);
+
+  url.search = qs.stringify({
+    populate: {
+      MainImage: {
+        fields: ["url", "alternativeText", "width", "height"],
+      },
+      BlogThumbnail: {
+        fields: ["url", "alternativeText", "width", "height"],
+      },
+      BlogTag: {
+        fields: ["tag"],
+      },
+    },
+    sort: ["updatedAt:ASC"],
+    pagination: { pageSize: 5, page: 1 },
+  });
+
+  return await fetchData(url.href);
+};
+
 export const getBlogs = async (
   queryString?: string,
   currentPage = 1,
@@ -240,7 +262,6 @@ export const getBlogs = async (
   const createSearchParams = () => {
     const filters: any = {};
 
-    // Apply filters only if a query string is provided
     if (queryString) {
       filters.$or = [
         { Title: { $containsi: queryString } },
@@ -253,22 +274,16 @@ export const getBlogs = async (
         MainImage: {
           fields: ["url", "alternativeText", "width", "height"],
         },
-        ThumbnailImage: {
+        BlogThumbnail: {
           fields: ["url", "alternativeText", "width", "height"],
         },
         BlogTag: {
           fields: ["tag"],
         },
-        createdBy: {
-          fields: ["id", "firstname", "lastname"],
-        },
-        updatedBy: {
-          fields: ["id", "firstname", "lastname"],
-        },
       },
       filters: filters,
-      sort: ["id:ASC"], // Adjust sorting as needed
-      pagination: { pageSize: pageSize, page: currentPage }, // Use pagination for results
+      // sort: ["id:ASC"],
+      pagination: { pageSize: pageSize, page: currentPage },
     });
   };
 
@@ -298,17 +313,11 @@ export const getBlogBySlug = async (slug: string) => {
       HeaderImage: {
         fields: ["url", "alternativeText", "width", "height"],
       },
-      ThumbnailImage: {
+      BlogThumbnail: {
         fields: ["url", "alternativeText", "width", "height"],
       },
       BlogTag: {
         fields: ["tag"],
-      },
-      createdBy: {
-        fields: ["id", "firstname", "lastname"],
-      },
-      updatedBy: {
-        fields: ["id", "firstname", "lastname"],
       },
     },
   });

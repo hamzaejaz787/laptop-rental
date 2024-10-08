@@ -29,9 +29,7 @@ const ResourceCard = ({ data }: { data: ResourceCardTypes }) => {
         <div className="inline-flex items-center gap-2">
           <FaUser className="text-primary-red" size={18} />
 
-          <h6 className="text-sm text-gray-600">
-            {data.updatedBy.firstname} {data.updatedBy.lastname}
-          </h6>
+          <h6 className="text-sm text-gray-600">{data.AuthorName}</h6>
         </div>
         <span className="text-primary-red font-bold">/</span>
         <div className="inline-flex items-center gap-2">

@@ -192,7 +192,7 @@ export function MobileMenu({
               </NavigationMenuLink>
             </NavigationMenuItem>
 
-            {/* <NavigationMenuItem>
+            <NavigationMenuItem>
               <NavigationMenuLink
                 className={navigationMenuTriggerStyle()}
                 onClick={handleClose}
@@ -204,7 +204,7 @@ export function MobileMenu({
                   Blogs
                 </Link>
               </NavigationMenuLink>
-            </NavigationMenuItem> */}
+            </NavigationMenuItem>
 
             <NavigationMenuItem>
               <NavigationMenuLink

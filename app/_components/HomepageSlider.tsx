@@ -37,7 +37,7 @@ const HomepageSlider: React.FC<HomepageSliderProps> = ({ carouselData }) => {
           }),
         ]}
       >
-        <CarouselContent className="ml-0 min-h-screen">
+        <CarouselContent className="ml-0 h-screen sm:max-h-[550px]">
           {carouselData.map((data, index) => (
             <CarouselItem
               key={index}

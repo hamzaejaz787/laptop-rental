@@ -27,9 +27,11 @@ const baseUrl = getStrapiURL();
 const ResourcesSidebar = ({
   searchBarClass,
   blogsData,
+  recentBlogs,
 }: {
   searchBarClass?: string;
   blogsData: ResourceProps;
+  recentBlogs: ResourceProps;
 }) => {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -67,13 +69,13 @@ const ResourcesSidebar = ({
           defaultValue={searchParams.get("search")?.toString()}
         />
       </div>
-      <RecentResources blogsData={blogsData} />
-      <PopularTags />
+      <RecentResources recentBlogs={recentBlogs} />
+      {/* <PopularTags /> */}
     </div>
   );
 };
 
-const RecentResources = ({ blogsData }: { blogsData: ResourceProps }) => {
+const RecentResources = ({ recentBlogs }: { recentBlogs: ResourceProps }) => {
   return (
     <div className="lg:max-w-xs h-fit w-full bg-gray-100 border-2 border-gray-300 rounded-sm p-4 space-y-4">
       <h2 className="text-lg font-semibold relative pl-2">
@@ -81,7 +83,7 @@ const RecentResources = ({ blogsData }: { blogsData: ResourceProps }) => {
         <div className="h-full w-[2px] bg-primary-red absolute top-0 left-0" />
       </h2>
 
-      {blogsData.data.slice(0, 3).map((item) => (
+      {recentBlogs.data.slice(0, 3).map((item) => (
         <RecentBlogCard key={item.id} cardData={item} />
       ))}
     </div>

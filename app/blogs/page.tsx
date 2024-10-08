@@ -2,7 +2,7 @@ import Banner from "@/components/Banner";
 import React from "react";
 import ResourcesSidebar from "./_components/ResourcesSidebar";
 import ResourceCard, { ResourceProps } from "./_components/ResourceCard";
-import { getBlogs } from "@/data/loaders";
+import { getBlogs, getRecentBlogs } from "@/data/loaders";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -21,9 +21,9 @@ const Blogs = async ({
   searchParams?: { [key: string]: string | string[] | undefined };
 }) => {
   const query = searchParams?.search?.toString();
-  const blogsData: ResourceProps = await getBlogs(query);
 
-  // console.log(blogsData);
+  const [blogsData, recentBlogs]: [ResourceProps, ResourceProps] =
+    await Promise.all([getBlogs(query), getRecentBlogs()]);
 
   return (
     <>
@@ -43,7 +43,7 @@ const Blogs = async ({
             <ResourceCard key={index} data={card} />
           ))}
         </div>
-        <ResourcesSidebar blogsData={blogsData} />
+        <ResourcesSidebar blogsData={blogsData} recentBlogs={recentBlogs} />
       </div>
     </>
   );

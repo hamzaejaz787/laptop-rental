@@ -209,14 +209,5 @@ export interface ResourceCardTypes {
   slug: string;
   ReadingTime: number;
   updatedAt: string;
-  updatedBy: {
-    id: number;
-    firstname: string;
-    lastname: string;
-  };
-  createdBy: {
-    id: number;
-    firstname: string;
-    lastname: string;
-  };
+  AuthorName: string;
 }
