@@ -55,7 +55,7 @@ const CurvedLayoutImages = () => {
   ];
 
   return (
-    <div className="hidden sm:flex items-center md:items-start gap-4 justify-center px-4 md:px-10 flex-wrap lg:flex-nowrap">
+    <div className="hidden sm:flex items-center md:items-start gap-4 justify-center px-4 md:px-10 flex-nowrap">
       {layoutImages.map((image, index) => (
         <AnimatedImage
           key={index}
@@ -65,12 +65,11 @@ const CurvedLayoutImages = () => {
           className={cn(
             `${
               index === 1 || index === 4
-                ? "lg:mt-14"
+                ? "mt-14"
                 : index === 2 || index === 3
-                ? "lg:mt-32"
+                ? "mt-32"
                 : ""
             }`
-            // `${index > 0 ? "hidden sm:block" : ""}`
           )}
         />
       ))}

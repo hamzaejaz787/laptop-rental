@@ -1,5 +1,11 @@
-import { getAllProducts, getEvents, getProductCategory } from "@/data/loaders";
+import {
+  getAllProducts,
+  getBlogs,
+  getEvents,
+  getProductCategory,
+} from "@/data/loaders";
 import { MetadataRoute } from "next";
+import { ResourceProps } from "./blogs/_components/ResourceCard";
 
 export const dynamic = "force-dynamic";
 
@@ -90,13 +96,33 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       priority: 0.8,
     },
+    {
+      url: `${baseUrl}/blogs`,
+      lastModified: new Date(),
+      priority: 0.8,
+    },
   ];
 
-  const [events, productCategory, products]: [
+  const [events, productCategory, products, blogs]: [
     GetEventsResponse,
     GetProductCategoryResponse,
-    GetAllProductsResponse
-  ] = await Promise.all([getEvents(), getProductCategory(), getAllProducts()]);
+    GetAllProductsResponse,
+    ResourceProps
+  ] = await Promise.all([
+    getEvents(),
+    getProductCategory(),
+    getAllProducts(),
+    getBlogs(),
+  ]);
+
+  //Blogs
+  blogs.data.map((blog) => {
+    links.push({
+      url: `${baseUrl}/blogs/${blog.slug}`,
+      lastModified: blog.updatedAt,
+      priority: 0.7,
+    });
+  });
 
   //Single Event
   events.data.map((event) => {

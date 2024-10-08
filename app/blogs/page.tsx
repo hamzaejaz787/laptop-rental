@@ -6,13 +6,14 @@ import { getBlogs, getRecentBlogs } from "@/data/loaders";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Laptop Rental For Events | Blogs",
-  description: "Meta description for Laptop Rental Blogs",
+  title: "Blogs | Laptop Rental For Events",
+  description:
+    "Explore the latest trends, tips, and insights for business events, conferences, and more. Stay updated with expert advice from Laptop Rental.",
   keywords: "",
   alternates: {
     canonical: "https://laptop-rental.com.au/blogs",
   },
-  other: { title: "Laptop Rental For Events | Blogs" },
+  other: { title: "Blogs | Laptop Rental For Events" },
 };
 
 const Blogs = async ({
@@ -31,10 +32,8 @@ const Blogs = async ({
         title="Blogs"
         image={{
           url: "/Dell-banner.png",
-          alternativeText:
-            "We at Laptop Rentals understand whether you're hosting whether you're hosting We at Laptop Rentals understand at Laptop Rentals understand",
+          alternativeText: "Laptop rental blogs banner",
         }}
-        text="We at Laptop Rentals understand whether you're hosting whether you're hosting We at Laptop Rentals understand at Laptop Rentals understand"
       />
 
       <div className="flex items-start justify-between flex-col-reverse lg:flex-row gap-8 px-6 py-8 md:py-12 container">
