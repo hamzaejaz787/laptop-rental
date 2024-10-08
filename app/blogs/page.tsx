@@ -30,7 +30,7 @@ const Blogs = async ({
       <Banner
         title="Blogs"
         image={{
-          url: "/dell-banner.png",
+          url: "/Dell-banner.png",
           alternativeText:
             "We at Laptop Rentals understand whether you're hosting whether you're hosting We at Laptop Rentals understand at Laptop Rentals understand",
         }}
