@@ -29,9 +29,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://laptop-rental.com.au/",
   },
-  icons: {
-    icon: "/favicon.png",
-  },
+  // icons: {
+  //   icon: "/favicon.png",
+  // },
   robots: {
     follow: true,
     index: true,
@@ -115,6 +115,7 @@ export default async function RootLayout({
   const breadcrumbJson = await getBreadCrumbJsonSchema();
   return (
     <html lang="en-au">
+      {/* <link rel="icon" href="/favicon.ico" sizes="any" /> */}
       <body
         className={cn(
           "font-Poppins",
