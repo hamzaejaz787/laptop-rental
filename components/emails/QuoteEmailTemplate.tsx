@@ -45,7 +45,7 @@ const EmailTemplate = (EmailItems: QuoteEmailTemplateProps) => {
               <Column align="center">
                 <Link href="https://laptop-rental.com.au/">
                   <Img
-                    src="https://laptop-rental.com.au/logo_red.png"
+                    src="https://laptop-rental.com.au/laptop_rental_logo.png"
                     alt="logo"
                     width={200}
                     height={100}
@@ -95,11 +95,11 @@ const container = {
   margin: "0 auto",
   maxWidth: "720px",
   width: "100%",
-  backgroundColor: "#eee",
+  backgroundColor: "#fff",
 };
 
 const headerContainer = {
-  backgroundColor: "rgb(214, 24, 55)",
+  backgroundColor: "#fff",
 };
 
 const messageParagraph = {
