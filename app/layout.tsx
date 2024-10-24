@@ -115,7 +115,6 @@ export default async function RootLayout({
   const breadcrumbJson = await getBreadCrumbJsonSchema();
   return (
     <html lang="en-au">
-      {/* <link rel="icon" href="/favicon.ico" sizes="any" /> */}
       <body
         className={cn(
           "font-Poppins",

@@ -125,7 +125,7 @@ const ProductCard = ({
   return (
     <Card
       className={cn(
-        "h-full sm:max-w-xs justify-self-center flex flex-col justify-between border-2 border-dashed border-gray-400 rounded-none p-4 hover:border-red-500 group",
+        "h-full sm:max-w-xs justify-self-center flex flex-col justify-between border-2 border-dashed border-gray-400 rounded-none p-4 hover:border-red-500 group space-y-4",
         className
       )}
     >
@@ -159,7 +159,7 @@ const ProductCard = ({
         <CardTitle>{Title}</CardTitle>
       </CardHeader>
 
-      <CardContent className="p-0 flex gap-4 justify-between py-2">
+      <CardContent className="p-0 flex gap-4 justify-between">
         {Specs.map((item) => (
           <div
             key={item.id}
@@ -172,7 +172,7 @@ const ProductCard = ({
           </div>
         ))}
       </CardContent>
-      <CardFooter className="p-0 pt-2">
+      <CardFooter className="p-0">
         {ProductCategory?.toLowerCase() === "laptop" && (
           <CtaButton
             href={`/${

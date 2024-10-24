@@ -65,6 +65,12 @@ const SidebarWithTab = ({
   const handleTabChange = (value: string) => {
     const url = new URL(window.location.href);
     const currentCategory = url.searchParams.get("category");
+    const currentPage = Number(url.searchParams.get("page")) || 1;
+
+    // If current page isnt the first page then reset to first page
+    if (currentPage !== 1) {
+      url.searchParams.set("page", "1");
+    }
 
     if (currentCategory === value.toLowerCase()) {
       url.searchParams.delete("category");
@@ -80,6 +86,12 @@ const SidebarWithTab = ({
   const handleOptionClick = (option: string) => {
     const url = new URL(window.location.href);
     const currentSubcategory = url.searchParams.get("subcategory");
+    const currentPage = Number(url.searchParams.get("page")) || 1;
+
+    // If current page isnt the first page then reset to first page
+    if (currentPage !== 1) {
+      url.searchParams.set("page", "1");
+    }
 
     if (currentSubcategory === option.toLowerCase()) {
       // If the current subcategory is the same as the clicked one, remove the subcategory param
@@ -93,6 +105,13 @@ const SidebarWithTab = ({
 
   const handleSearch = useDebouncedCallback((term: string) => {
     const params = new URLSearchParams(searchParams);
+    const currentPage = Number(params.get("page")) || 1;
+
+    // If current page isnt the first page then reset to first page
+    if (currentPage !== 1) {
+      params.set("page", "1");
+    }
+
     if (term) {
       params.set("search", term.toLowerCase());
     } else {

@@ -33,7 +33,7 @@ const AddToCartButton = ({
         </Button>
       ) : (
         <Button
-          className="w-full text-center gap-2 font-Poppins bg-primary-red text-white mx-auto text-lg hover:bg-red-500 focus-within:bg-red-500 px-10 md:px-10 rounded-sm capitalize"
+          className="w-full text-center gap-2 font-Poppins bg-primary-red text-white mx-auto text-lg hover:bg-red-500 focus-within:bg-red-500 px-6 rounded-sm capitalize"
           onClick={handleAddToCart}
           aria-label="add to cart button"
         >
