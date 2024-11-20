@@ -22,16 +22,21 @@ export interface RecentBlogCardTypes {
   slug: string;
 }
 
+interface BlogTagTypes {
+  id: number;
+  tag: string;
+}
+
 const baseUrl = getStrapiURL();
 
 const ResourcesSidebar = ({
   searchBarClass,
-  blogsData,
   recentBlogs,
+  blogTags,
 }: {
   searchBarClass?: string;
-  blogsData: ResourceProps;
   recentBlogs: ResourceProps;
+  blogTags?: BlogTagTypes[];
 }) => {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -70,7 +75,7 @@ const ResourcesSidebar = ({
         />
       </div>
       <RecentResources recentBlogs={recentBlogs} />
-      {/* <PopularTags /> */}
+      {blogTags ? <PopularTags blogTags={blogTags} /> : ""}
     </div>
   );
 };
@@ -98,9 +103,9 @@ const RecentBlogCard = ({ cardData }: { cardData: RecentBlogCardTypes }) => {
       <Image
         src={baseUrl + cardData.BlogThumbnail.url}
         alt={cardData.BlogThumbnail.alternativeText}
-        width={100}
-        height={100}
-        className="object-cover rounded"
+        width={150}
+        height={150}
+        className="object-cover rounded h-20 w-20"
       />
 
       <div className="space-y-2">
@@ -120,30 +125,21 @@ const RecentBlogCard = ({ cardData }: { cardData: RecentBlogCardTypes }) => {
   );
 };
 
-const tags = [
-  "Event Planning",
-  "Tech",
-  "Rental Planning",
-  "Rentals",
-  "Tech Rental Events",
-  "Tech Products",
-];
-
-const PopularTags = () => {
+const PopularTags = ({ blogTags }: { blogTags: BlogTagTypes[] }) => {
   return (
     <div className="lg:max-w-xs h-fit w-full bg-gray-100 border-2 border-gray-300 rounded-sm p-4 space-y-4">
       <h2 className="text-lg font-semibold relative pl-2">
-        Popular Tags
+        Tags
         <div className="h-full w-[2px] bg-primary-red absolute top-0 left-0" />
       </h2>
 
       <div className="flex items-center gap-3 flex-wrap">
-        {tags.map((tag, index) => (
+        {blogTags.map((item) => (
           <Button
-            key={index}
-            className="bg-primary-red text-white font-semibold rounded-sm hover:bg-red-500 focus-within:bg-red-500 transition-all ease-in p-4 md:p-4"
+            key={item.id}
+            className="bg-primary-red text-white font-semibold capitalize rounded-sm hover:bg-red-500 focus-within:bg-red-500 transition-all ease-in p-4 md:p-4"
           >
-            {tag}
+            {item.tag}
           </Button>
         ))}
       </div>

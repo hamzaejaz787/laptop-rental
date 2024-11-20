@@ -20,8 +20,8 @@ const ResourceCard = ({ data }: { data: ResourceCardTypes }) => {
     <div className="space-y-3">
       <Image
         width={950}
-        height={550}
-        className="object-cover w-full"
+        height={350}
+        className="object-cover w-full h-full max-h-80 rounded-sm"
         src={baseUrl + data.MainImage.url}
         alt={data.MainImage.alternativeText}
       />

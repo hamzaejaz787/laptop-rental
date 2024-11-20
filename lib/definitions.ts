@@ -210,4 +210,8 @@ export interface ResourceCardTypes {
   ReadingTime: number;
   updatedAt: string;
   AuthorName: string;
+  BlogTag: {
+    id: number;
+    tag: string;
+  }[];
 }

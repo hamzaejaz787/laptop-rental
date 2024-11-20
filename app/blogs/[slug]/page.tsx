@@ -2,13 +2,14 @@ import React from "react";
 import Banner from "@/components/Banner";
 import ResourcesSidebar from "../_components/ResourcesSidebar";
 import { PageProps, ResourceCardTypes } from "@/lib/definitions";
-import { getBlogBySlug } from "@/data/loaders";
+import { getBlogBySlug, getRecentBlogs } from "@/data/loaders";
 import { getStrapiURL } from "@/lib/utils";
 import { Metadata } from "next";
 import ParseRichText from "@/components/RichTextParser";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { FaStopwatch, FaUser } from "react-icons/fa6";
 import { format } from "date-fns";
+import { ResourceProps } from "../_components/ResourceCard";
 
 const getBlogData = async (slug: string): Promise<ResourceCardTypes> => {
   const data: ResourceCardTypes = await getBlogBySlug(slug);
@@ -35,7 +36,11 @@ export const generateMetadata = async ({
 const SingleBlogPage = async ({ params }: { params: PageProps["params"] }) => {
   const slug = params.slug;
   const baseurl = getStrapiURL();
-  const blogData: ResourceCardTypes = await getBlogData(slug);
+  // const blogData: ResourceCardTypes = await getBlogData(slug);
+
+  const [blogData, recentBlogs]: [ResourceCardTypes, ResourceProps] =
+    await Promise.all([getBlogData(slug), getRecentBlogs()]);
+
   const formattedDate = format(new Date(blogData.updatedAt), "dd MMM, yy");
 
   return (
@@ -84,12 +89,16 @@ const SingleBlogPage = async ({ params }: { params: PageProps["params"] }) => {
           />
         </div>
 
-        {/* <ResourcesSidebar searchBarClass="hidden" /> */}
+        <ResourcesSidebar
+          searchBarClass="hidden"
+          recentBlogs={recentBlogs}
+          blogTags={blogData.BlogTag}
+        />
       </div>
 
-      <div className="container p-8 pt-0 text-center space-y-4">
+      {/* <div className="container p-8 pt-0 text-center space-y-4">
         <h2 className="text-4xl font-bold">Recent Blogs</h2>
-      </div>
+      </div> */}
     </div>
   );
 };

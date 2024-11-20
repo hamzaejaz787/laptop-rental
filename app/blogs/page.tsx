@@ -42,7 +42,7 @@ const Blogs = async ({
             <ResourceCard key={index} data={card} />
           ))}
         </div>
-        <ResourcesSidebar blogsData={blogsData} recentBlogs={recentBlogs} />
+        <ResourcesSidebar recentBlogs={recentBlogs} />
       </div>
     </>
   );
