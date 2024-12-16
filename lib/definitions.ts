@@ -209,6 +209,7 @@ export interface ResourceCardTypes {
   slug: string;
   ReadingTime: number;
   updatedAt: string;
+  createdAt: string;
   AuthorName: string;
   BlogTag: {
     id: number;

@@ -35,8 +35,17 @@ async function TechRental({
   const subcategory = searchParams?.subcategory?.toString();
   const pageSize = 24;
 
+  //Sort iPhones by updated at date
+  let sort;
+  if (
+    query?.toLowerCase() === "iphone" ||
+    category?.toLowerCase() === "mobile phones" ||
+    subcategory?.toLowerCase() === "iphone"
+  )
+    sort = "updatedAt:desc";
+
   const [product, allProducts] = await Promise.all([
-    getProduct(query, currentPage, pageSize, category, subcategory),
+    getProduct(query, currentPage, pageSize, category, subcategory, sort),
     getAllProducts(),
   ]);
 

@@ -15,7 +15,7 @@ const ResourceCard = ({ data }: { data: ResourceCardTypes }) => {
   const baseUrl = getStrapiURL();
 
   //Format updatedAt date
-  const formattedDate = format(new Date(data.updatedAt), "dd MMM, yy");
+  const formattedDate = format(new Date(data.createdAt), "dd MMM, yy");
   return (
     <div className="space-y-3">
       <Link

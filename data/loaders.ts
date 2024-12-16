@@ -82,7 +82,8 @@ export const getProduct = async (
   currentPage = 1,
   pageSize?: number,
   category?: string,
-  subcategory?: string
+  subcategory?: string,
+  sort?: string
 ) => {
   const baseUrl = new URL("/api/products", baseURL);
 
@@ -108,7 +109,7 @@ export const getProduct = async (
         ProductCardImage: { fields: ["name", "url", "alternativeText"] },
         productcategory: { fields: ["slug"] },
       },
-      sort: ["id:ASC"],
+      sort: [sort || "id:ASC"],
       filters: filters,
       pagination: { pageSize: pageSize, page: currentPage },
     });

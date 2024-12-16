@@ -18,6 +18,7 @@ export interface RecentBlogCardTypes {
     alternativeText: string;
   };
   updatedAt: string;
+  createdAt: string;
   Title: string;
   slug: string;
 }
@@ -96,7 +97,7 @@ const RecentResources = ({ recentBlogs }: { recentBlogs: ResourceProps }) => {
 };
 
 const RecentBlogCard = ({ cardData }: { cardData: RecentBlogCardTypes }) => {
-  const formattedDate = format(new Date(cardData.updatedAt), "dd MMM, yy");
+  const formattedDate = format(new Date(cardData.createdAt), "dd MMM, yy");
 
   return (
     <div className="flex items-center gap-4">

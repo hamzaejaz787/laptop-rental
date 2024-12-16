@@ -39,8 +39,17 @@ const LaptopRental = async ({
   const pageSize = 24;
   const category = searchParams?.category?.toString();
   const subcategory = searchParams?.subcategory?.toString();
+  //Sort iPhones by updated at date
+  let sort;
+  if (
+    query?.toLowerCase() === "iphone" ||
+    category?.toLowerCase() === "mobile phones" ||
+    subcategory?.toLowerCase() === "iphone"
+  )
+    sort = "updatedAt:desc";
+
   const [product, allProducts] = await Promise.all([
-    getProduct(query, currentPage, pageSize, category, subcategory),
+    getProduct(query, currentPage, pageSize, category, subcategory, sort),
     getAllProducts(),
   ]);
 
