@@ -245,7 +245,7 @@ export const getRecentBlogs = async () => {
         fields: ["tag"],
       },
     },
-    sort: ["updatedAt:ASC"],
+    sort: ["createdAt:desc"],
     pagination: { pageSize: 5, page: 1 },
   });
 
@@ -283,6 +283,7 @@ export const getBlogs = async (
       },
       filters: filters,
       // sort: ["id:ASC"],
+      sort: ["createdAt:desc"],
       pagination: { pageSize: pageSize, page: currentPage },
     });
   };

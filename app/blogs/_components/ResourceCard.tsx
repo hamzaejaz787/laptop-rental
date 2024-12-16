@@ -18,13 +18,18 @@ const ResourceCard = ({ data }: { data: ResourceCardTypes }) => {
   const formattedDate = format(new Date(data.updatedAt), "dd MMM, yy");
   return (
     <div className="space-y-3">
-      <Image
-        width={950}
-        height={350}
-        className="object-cover w-full h-full max-h-80 rounded-sm"
-        src={baseUrl + data.MainImage.url}
-        alt={data.MainImage.alternativeText}
-      />
+      <Link
+        href={`/blogs/${data.slug}`}
+        className="group block overflow-hidden rounded-sm"
+      >
+        <Image
+          width={950}
+          height={350}
+          className="object-cover w-full h-full max-h-80 group-hover:scale-105 transition-transform duration-300"
+          src={baseUrl + data.MainImage.url}
+          alt={data.MainImage.alternativeText}
+        />
+      </Link>
       <div className="flex items-center gap-4">
         <div className="inline-flex items-center gap-2">
           <FaUser className="text-primary-red" size={18} />

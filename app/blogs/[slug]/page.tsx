@@ -86,6 +86,7 @@ const SingleBlogPage = async ({ params }: { params: PageProps["params"] }) => {
               h2: "text-4xl font-bold",
             }}
             linkProps="text-primary-red hover:underline"
+            imageProps="w-full"
           />
         </div>
 
