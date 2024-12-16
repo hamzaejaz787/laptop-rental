@@ -55,7 +55,9 @@ const SingleBlogPage = async ({ params }: { params: PageProps["params"] }) => {
 
       <div className="flex items-start justify-between flex-col lg:flex-row gap-8 p-8 md:py-12 container">
         <div className="space-y-4">
-          <h2 className="text-4xl font-bold">{blogData.IntroText} </h2>
+          <h2 className="text-2xl sm:text-3xl font-bold">
+            {blogData.IntroText}{" "}
+          </h2>
 
           <div className="flex items-center gap-4">
             <div className="inline-flex items-center gap-2">
@@ -83,7 +85,7 @@ const SingleBlogPage = async ({ params }: { params: PageProps["params"] }) => {
             content={blogData.BlogContent}
             paragraphProps="text-gray-600"
             headingProps={{
-              h2: "text-4xl font-bold",
+              h2: "text-2xl sm:text-3xl font-bold",
             }}
             linkProps="text-primary-red hover:underline"
             imageProps="w-full"
