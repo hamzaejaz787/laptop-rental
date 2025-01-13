@@ -26,7 +26,7 @@ const ServicesTimeline = ({ description }: { description?: string }) => {
   ];
   return (
     <section className="container space-y-8 py-8 px-4 md:px-8">
-      <div className="flex items-center justify-center md:justify-between gap-4 md:px-12 flex-col md:flex-row">
+      <div className="flex items-center justify-center md:justify-between gap-8 md:px-0 flex-col md:flex-row">
         <div className="space-y-2 text-center md:text-left">
           <strong className="inline-block text-primary-red border-b-2 border-dashed border-b-primary-red uppercase font-medium">
             Your Event, Our Expertise
@@ -38,7 +38,7 @@ const ServicesTimeline = ({ description }: { description?: string }) => {
         </div>
 
         <div className="md:border-l-4 border-l-primary-red h-full md:px-4 text-center md:text-left">
-          <p className="max-w-xl text-xs lg:text-base">
+          <p className="max-w-5xl text-xs lg:text-base">
             {description && description !== ""
               ? description
               : "Laptop Rental Australia steps in as your trusted Dell laptop rental partner. We empower your event with cutting-edge technology and unparalleled service, ensuring every moment is an opportunity to impress. Supported by dedicated teams, enjoy 24/7 technical and customer support for seamless corporate events. Contact our experts and rent Dell laptops for corporate events in Australia, New Zealand and Worldwide."}
