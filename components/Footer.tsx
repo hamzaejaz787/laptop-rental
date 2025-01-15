@@ -149,7 +149,7 @@ async function Footer() {
 
         {/* <div className="flex items-center justify-center md:justify-between flex-col md:flex-row gap-4"> */}
         <p className="text-white text-center">
-          Copyright © 2024 Laptop Rental. All Rights Reserved.
+          Copyright © 2025 Laptop Rental. All Rights Reserved.
         </p>
       </div>
     </footer>
