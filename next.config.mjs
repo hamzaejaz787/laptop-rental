@@ -47,6 +47,11 @@ const nextConfig = {
         destination: "/privacy-policy",
         permanent: true,
       },
+      {
+        source: "/location",
+        destination: "/",
+        permanent: true,
+      },
     ];
   },
 };

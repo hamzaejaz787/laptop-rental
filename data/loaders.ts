@@ -192,6 +192,29 @@ export const getProductCategoryBySlug = async (slug: string) => {
   return await fetchData(url.href);
 };
 
+export const getLocationPage = async (slug: string) => {
+  const url = new URL(`/api/location-pages/${slug}`, baseURL);
+
+  url.search = qs.stringify({
+    populate: {
+      BannerImage: {
+        fields: ["name", "url", "alternativeText"],
+      },
+      CtaImage: {
+        fields: ["name", "url", "alternativeText"],
+      },
+      IntroImage: {
+        fields: ["name", "url", "alternativeText"],
+      },
+      products: {
+        fields: ["ProductCategory", "ProductSubCategory"],
+      },
+    },
+  });
+
+  return await fetchData(url.href);
+};
+
 export const getProductBySlug = async (slug: string) => {
   const url = new URL(`/api/products/${slug}`, baseURL);
 
