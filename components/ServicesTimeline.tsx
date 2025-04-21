@@ -1,3 +1,4 @@
+import { BlocksContent } from "@strapi/blocks-react-renderer";
 import Image from "next/image";
 import React from "react";
 
@@ -39,7 +40,7 @@ const ServicesTimeline = ({ description }: { description?: string }) => {
 
         <div className="md:border-l-4 border-l-primary-red h-full md:px-4 text-center md:text-left">
           <p className="max-w-5xl text-xs lg:text-base">
-            {description && description !== ""
+            {description !== ""
               ? description
               : "Laptop Rental Australia steps in as your trusted Dell laptop rental partner. We empower your event with cutting-edge technology and unparalleled service, ensuring every moment is an opportunity to impress. Supported by dedicated teams, enjoy 24/7 technical and customer support for seamless corporate events. Contact our experts and rent Dell laptops for corporate events in Australia, New Zealand and Worldwide."}
           </p>

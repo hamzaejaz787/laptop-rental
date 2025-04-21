@@ -6,7 +6,11 @@ import {
   getProduct,
   getProductCategoryBySlug,
 } from "@/data/loaders";
-import { PageProps, SingleProductProps } from "@/lib/definitions";
+import {
+  BannerImageProps,
+  PageProps,
+  SingleProductProps,
+} from "@/lib/definitions";
 import { notFound } from "next/navigation";
 import ServicesTimeline from "@/components/ServicesTimeline";
 import BannerWithImageUrl from "@/components/DynamicBanner";
@@ -15,6 +19,8 @@ import TabCards from "../../technology-rental/_components/TabCards";
 import CtaWithModal from "../../technology-rental/_components/CtaWithModal";
 import PaginationComponent from "@/components/PaginationComponent";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import ImageInfo from "@/components/ImageInfo";
+import { BlocksContent } from "@strapi/blocks-react-renderer";
 
 export async function generateMetadata({
   params,
@@ -102,7 +108,6 @@ async function TechRental({
         }
         image={productCategory.BannerImage}
       />
-
       <Breadcrumbs
         className="sr-only"
         category={{
@@ -111,7 +116,6 @@ async function TechRental({
         }}
         currentPage={productCategory.BannerTitle}
       />
-
       <div className="flex flex-col lg:flex-row gap-8 justify-between container p-8">
         <SidebarWithTab
           tabItems={allProducts.data}
@@ -121,9 +125,30 @@ async function TechRental({
         <TabCards tabCardsItems={product.data} />
       </div>
       <PaginationComponent pageCount={product.meta.pagination.pageCount} />
-
       <CtaWithModal ctaItems={ctaItems} />
       <ServicesTimeline description={productCategory?.TimelineText} />
+      {productCategory?.TextImage.map(
+        (
+          item: {
+            __component: string;
+            HeroTitle: string;
+            HeroDescription: string;
+            HeroImage: BannerImageProps;
+            Content: BlocksContent;
+          },
+          index: number
+        ) => (
+          <ImageInfo
+            key={index}
+            title={item.HeroTitle}
+            image={item.HeroImage}
+            text={item.HeroDescription}
+            reverse={index % 2 !== 0}
+            __component={item.__component}
+            content={item.Content}
+          />
+        )
+      )}
     </>
   );
 }

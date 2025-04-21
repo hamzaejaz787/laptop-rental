@@ -18,7 +18,7 @@ const ImageInfo = ({
   if (image && image.url.includes("uploads")) imageurl = baseurl + image?.url;
   return (
     <div
-      className={`container p-8 lg:px-16 gap-8 lg:gap-20 flex justify-center items-center flex-col-reverse ${
+      className={`container p-8 lg:px-16 2xl:px-0 gap-8 lg:gap-20 flex justify-between items-center flex-col-reverse ${
         reverse ? "lg:flex-row-reverse" : "lg:flex-row"
       }`}
     >
@@ -27,14 +27,14 @@ const ImageInfo = ({
         alt={image?.alternativeText || ""}
         width={500}
         height={500}
-        className=""
+        className="object-cover"
       />
       {__component !== "hero-section.rich-hero-text" ? (
         <div className="space-y-4">
-          <h2 className="font-sans font-bold text-3xl lg:text-4xl text-center lg:text-left max-w-2xl">
+          <h2 className="font-sans font-bold text-3xl lg:text-4xl text-center lg:text-left max-w-5xl">
             {title}
           </h2>
-          <p className="font-sans text-sm xl:text-base text-center lg:text-left max-w-2xl">
+          <p className="font-sans text-sm xl:text-base text-center lg:text-left max-w-5xl">
             {text}
           </p>
 
@@ -63,9 +63,9 @@ const ImageInfo = ({
             linkProps="underline hover:text-primary-red"
             content={content!}
             headingProps={{
-              h2: "font-sans font-bold text-3xl lg:text-4xl text-center lg:text-left max-w-2xl",
+              h2: "font-sans font-bold text-3xl lg:text-4xl text-center lg:text-left max-w-5xl",
             }}
-            paragraphProps="font-sans text-sm xl:text-base text-center lg:text-left max-w-2xl"
+            paragraphProps="font-sans text-sm xl:text-base text-center lg:text-left max-w-5xl"
           />
         </div>
       )}

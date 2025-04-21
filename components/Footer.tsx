@@ -33,19 +33,20 @@ async function Footer() {
   );
   return (
     <footer>
-      <div className="zigzag-border bg-black py-8 px-14 relative flex flex-col md:flex-row items-center gap-4 justify-center md:justify-between w-full content-center md:rounded-t-full">
-        <h6 className="text-white max-w-sm text-lg capitalize text-center md:text-left">
-          Need any outdoor event rental services?
-        </h6>
-
-        <CtaButton
-          text="Request a quote"
-          href="/get-a-quote"
-          className="md:mr-0"
-        />
+      <div className="zigzag-border bg-black py-8 px-14 relative md:rounded-t-full">
+        <div className="container flex flex-col md:flex-row items-center gap-4 justify-center md:justify-between w-full content-center">
+          <h6 className="text-white max-w-sm text-lg capitalize text-center md:text-left">
+            Need any outdoor event rental services?
+          </h6>
+          <CtaButton
+            text="Request a quote"
+            href="/get-a-quote"
+            className="md:mr-0"
+          />
+        </div>
       </div>
       <div className="bg-primary-red p-8 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 container">
           <div className="space-y-4 xl:justify-self-center">
             <Link href={"/"}>
               <Image

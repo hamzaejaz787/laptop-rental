@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { FaRegFaceFrown } from "react-icons/fa6";
 
-export default function NotFoundRoot() {
+export default function NotFound() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <div className="space-y-4 text-center">
