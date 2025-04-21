@@ -84,7 +84,7 @@ export const sendQuoteFormData = action
       const mailoptions: Mail.Options = {
         from: process.env.NODEMAILER_USERNAME,
         to: process.env.NODEMAILER_EMAILTO,
-        subject: `New Quote from ${name}`,
+        subject: "New quote from https://laptop-rental.com.au",
         html: emailHtml,
       };
 
@@ -134,7 +134,7 @@ export const handleContactForm = action
       const mailoptions: Mail.Options = {
         from: process.env.NODEMAILER_USERNAME,
         to: process.env.NODEMAILER_EMAILTO,
-        subject: `Message from ${name} ${email}`,
+        subject: "New inquiry from https://laptop-rental.com.au",
         html: emailHtml,
       };
 
