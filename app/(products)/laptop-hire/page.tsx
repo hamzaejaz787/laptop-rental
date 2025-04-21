@@ -59,20 +59,19 @@ const LaptopRental = async ({
       image: {
         url: "/Technology-Intro.png",
         alternativeText:
-          "Connect to Excellence: Unlock the Future with Event Technology Rental",
+          "Laptop Hire for Events, Offices, and Businesses in Australia",
       },
-      title:
-        "Connect to Excellence: Unlock the Future with Event Technology Rental",
-      text: "Enter Laptop Rental - your premier partner for event technology rental in Australia. We specialise in providing a wide range of top-quality tech rental for events. From business conferences and seminars to festivals and product launches, we offer tailored solutions to meet diverse event needs",
+      title: "Laptop Hire for Events, Offices, and Businesses in Australia",
+      text: "Enter Laptop Rental – your trusted partner for laptop hire in Australia. We specialise in supplying a wide selection of laptops for events, office setups, and business needs. Whether you're organising a corporate seminar, a product launch, or need temporary equipment for a project, we offer practical solutions backed by dependable hardware and expert support. We provide laptop hire services in major Canadian cities, as well as in Sydney, Melbourne, Brisbane, Perth, Adelaide, Canberra, Hobart, and across Australia.",
     },
     {
       image: {
         url: "/IT-Rental.png",
-        alternativeText: "IT Rental for Events",
+        alternativeText: "Hire Laptops for Events in Australia",
       },
-      title: "IT Rental for Events",
+      title: "Hire Laptops for Events in Australia",
       reverse: true,
-      text: "As a leading technology rental company, our mission is to empower businesses and individuals by providing cutting-edge and reliable technology solutions for their short-term and long-term events needs. Our comprehensive IT rental for events caters to a diverse range of needs, providing top-notch laptops, iPads, and other essential technology. With a focus on reliability and flexibility, our offerings ensure that your event runs smoothly, from hassle-free check-ins to flawless presentations. Our dedicated team is committed to providing 24/7 assistance, both on-site and remotely, ensuring that technical support is readily available whenever you need it. Hire IT equipment for events, and let us contribute to the success of your gatherings with cutting-edge technology and professional support",
+      text: "As one of the leading providers of laptop hire, we support various short-term and long-term projects for businesses, event organisers, and office teams. Our range includes powerful Windows laptops, MacBooks, and high-performance devices suitable for presentations, registration desks, training sessions, and more. With 24/7 technical assistance and on-site and remote support options, you can rely on us to help keep your event or workplace running efficiently. We also supply related solutions such as IT rental for events in Australia, making it easier to source all your temporary tech from a single partner.",
     },
   ];
 
