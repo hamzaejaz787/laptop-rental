@@ -8,9 +8,15 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import SidebarWithTab from "../../technology-rental/_components/SidebarWithTab";
 import TabCards from "../../technology-rental/_components/TabCards";
 import CtaWithModal from "../../technology-rental/_components/CtaWithModal";
-import { PageProps, SingleProductProps } from "@/lib/definitions";
+import {
+  BannerImageProps,
+  PageProps,
+  SingleProductProps,
+} from "@/lib/definitions";
 import BannerWithImageUrl from "@/components/DynamicBanner";
 import { CtaProps } from "@/components/CTA";
+import ImageInfo from "@/components/ImageInfo";
+import { BlocksContent } from "@strapi/blocks-react-renderer";
 
 export async function generateMetadata({
   params,
@@ -22,7 +28,7 @@ export async function generateMetadata({
     description: data.MetaDescription,
     keywords: data.MetaKeywords,
     alternates: {
-      canonical: `https://laptop-rental.com.au/laptop-hire/${data.slug}`,
+      canonical: `https://laptop-rental.com.au/location/${data.slug}`,
     },
     other: { title: data.MetaTitle },
   };
@@ -95,6 +101,29 @@ const LaptopRental = async ({
 
       <CtaWithModal ctaItems={ctaItems} />
       <ServicesTimeline description={locationPage?.TimelineText} />
+
+      {locationPage?.TextImage.map(
+        (
+          item: {
+            __component: string;
+            HeroTitle: string;
+            HeroDescription: string;
+            HeroImage: BannerImageProps;
+            Content: BlocksContent;
+          },
+          index: number
+        ) => (
+          <ImageInfo
+            key={index}
+            title={item.HeroTitle}
+            image={item.HeroImage}
+            text={item.HeroDescription}
+            reverse={index % 2 !== 0}
+            __component={item.__component}
+            content={item.Content}
+          />
+        )
+      )}
     </>
   );
 };
