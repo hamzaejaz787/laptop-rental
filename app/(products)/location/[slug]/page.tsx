@@ -17,6 +17,7 @@ import BannerWithImageUrl from "@/components/DynamicBanner";
 import { CtaProps } from "@/components/CTA";
 import ImageInfo from "@/components/ImageInfo";
 import { BlocksContent } from "@strapi/blocks-react-renderer";
+import Faqs from "@/components/Faqs";
 
 export async function generateMetadata({
   params,
@@ -124,6 +125,8 @@ const LaptopRental = async ({
           />
         )
       )}
+
+      <Faqs faqItems={locationPage.Faqs} />
     </>
   );
 };
