@@ -22,13 +22,15 @@ const ImageInfo = ({
         reverse ? "lg:flex-row-reverse" : "lg:flex-row"
       }`}
     >
-      <Image
-        src={imageurl || image?.url || "/imageframe.png"}
-        alt={image?.alternativeText || ""}
-        width={500}
-        height={500}
-        className="object-cover"
-      />
+      <div className="w-full self-stretch min-h-full overflow-hidden rounded-sm">
+        <Image
+          src={imageurl || image?.url || "/imageframe.png"}
+          alt={image?.alternativeText || ""}
+          width={500}
+          height={500}
+          className="w-full h-full object-cover max-h-80 lg:max-h-full"
+        />
+      </div>
       {__component !== "hero-section.rich-hero-text" ? (
         <div className="space-y-4">
           <h2 className="font-sans font-bold text-3xl lg:text-4xl text-center lg:text-left max-w-5xl">
