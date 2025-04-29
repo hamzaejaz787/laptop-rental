@@ -27,8 +27,8 @@ const Faqs = ({
       {description && (
         <p className="text-gray-600 lg:mx-auto lg:max-w-2xl text-center">
           {description
-            ? "Find answers to frequently asked questions about our event rental services. Our team is here to provide quick assistance and expert guidance. Contact us today for reliable and speedy support."
-            : ""}
+            ? description
+            : "Find answers to frequently asked questions about our event rental services. Our team is here to provide quick assistance and expert guidance. Contact us today for reliable and speedy support."}
         </p>
       )}
 

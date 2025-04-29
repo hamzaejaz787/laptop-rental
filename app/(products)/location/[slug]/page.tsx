@@ -126,7 +126,10 @@ const LaptopRental = async ({
         )
       )}
 
-      <Faqs faqItems={locationPage.Faqs} />
+      <Faqs
+        description={locationPage?.FaqText || ""}
+        faqItems={locationPage.Faqs}
+      />
     </>
   );
 };
