@@ -22,7 +22,7 @@ const ImageInfo = ({
         reverse ? "lg:flex-row-reverse" : "lg:flex-row"
       }`}
     >
-      <div className="w-full self-stretch min-h-full overflow-hidden rounded-sm max-w-xl">
+      <div className="w-full self-stretch min-h-full overflow-hidden rounded-sm lg:max-w-xl">
         <Image
           src={imageurl || image?.url || "/imageframe.png"}
           alt={image?.alternativeText || ""}
