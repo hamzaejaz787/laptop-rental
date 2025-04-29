@@ -18,11 +18,11 @@ const ImageInfo = ({
   if (image && image.url.includes("uploads")) imageurl = baseurl + image?.url;
   return (
     <div
-      className={`container p-8 lg:px-16 2xl:px-0 gap-8 lg:gap-20 flex justify-between items-center flex-col-reverse ${
+      className={`container p-8 lg:px-16 2xl:px-4 gap-8 lg:gap-20 flex justify-between items-center flex-col-reverse ${
         reverse ? "lg:flex-row-reverse" : "lg:flex-row"
       }`}
     >
-      <div className="w-full self-stretch min-h-full overflow-hidden rounded-sm">
+      <div className="w-full self-stretch min-h-full overflow-hidden rounded-sm max-w-xl">
         <Image
           src={imageurl || image?.url || "/imageframe.png"}
           alt={image?.alternativeText || ""}
