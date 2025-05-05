@@ -9,6 +9,14 @@ import { ResourceCardTypes } from "@/lib/definitions";
 
 export interface ResourceProps {
   data: ResourceCardTypes[];
+  meta: {
+    pagination: {
+      page: number;
+      pageSize: number;
+      pageCount: number;
+      total: number;
+    };
+  };
 }
 
 const ResourceCard = ({ data }: { data: ResourceCardTypes }) => {

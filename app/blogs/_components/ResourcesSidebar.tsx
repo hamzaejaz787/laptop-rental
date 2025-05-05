@@ -48,8 +48,10 @@ const ResourcesSidebar = ({
 
     if (query) {
       params.set("search", query.toLowerCase());
+      params.set("page", "1");
     } else {
       params.delete("search");
+      params.set("page", "1");
     }
 
     router.replace(`${pathname}?${params.toString()}`, { scroll: false });

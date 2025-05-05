@@ -4,6 +4,7 @@ import ResourcesSidebar from "./_components/ResourcesSidebar";
 import ResourceCard, { ResourceProps } from "./_components/ResourceCard";
 import { getBlogs, getRecentBlogs } from "@/data/loaders";
 import { Metadata } from "next";
+import PaginationComponent from "@/components/PaginationComponent";
 
 export const metadata: Metadata = {
   title: "Blogs | Laptop Rental For Events",
@@ -22,9 +23,11 @@ const Blogs = async ({
   searchParams?: { [key: string]: string | string[] | undefined };
 }) => {
   const query = searchParams?.search?.toString();
-
+  const currentPage = searchParams?.page
+    ? parseInt(searchParams.page as string)
+    : 1;
   const [blogsData, recentBlogs]: [ResourceProps, ResourceProps] =
-    await Promise.all([getBlogs(query), getRecentBlogs()]);
+    await Promise.all([getBlogs(query, currentPage), getRecentBlogs()]);
 
   return (
     <>
@@ -41,6 +44,9 @@ const Blogs = async ({
           {blogsData.data.map((card, index) => (
             <ResourceCard key={index} data={card} />
           ))}
+          <PaginationComponent
+            pageCount={blogsData.meta.pagination.pageCount}
+          />
         </div>
         <ResourcesSidebar recentBlogs={recentBlogs} />
       </div>
