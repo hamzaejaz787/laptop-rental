@@ -3,6 +3,7 @@ import {
   getBlogs,
   getEvents,
   getProductCategory,
+  getAllLocationPages,
 } from "@/data/loaders";
 import { MetadataRoute } from "next";
 import { ResourceProps } from "./blogs/_components/ResourceCard";
@@ -103,16 +104,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  const [events, productCategory, products, blogs]: [
+  const [events, productCategory, products, blogs, locationPages]: [
     GetEventsResponse,
     GetProductCategoryResponse,
     GetAllProductsResponse,
-    ResourceProps
+    ResourceProps,
+    GetProductCategoryResponse
   ] = await Promise.all([
     getEvents(),
     getProductCategory(),
     getAllProducts(),
     getBlogs(),
+    getAllLocationPages(),
   ]);
 
   //Blogs
@@ -172,6 +175,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.64,
       });
     }
+  });
+
+  locationPages.data.forEach((location) => {
+    links.push({
+      url: `${baseUrl}/location/${location.slug}`,
+      lastModified: location.updatedAt || new Date(),
+      priority: 0.7,
+    });
   });
 
   return links;

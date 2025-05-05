@@ -215,6 +215,12 @@ export const getLocationPage = async (slug: string) => {
   return await fetchData(url.href);
 };
 
+export const getAllLocationPages = async () => {
+  const url = new URL("/api/location-pages", baseURL);
+
+  return await fetchData(url.href);
+};
+
 export const getProductBySlug = async (slug: string) => {
   const url = new URL(`/api/products/${slug}`, baseURL);
 
