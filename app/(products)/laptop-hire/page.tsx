@@ -9,6 +9,7 @@ import TabCards from "../technology-rental/_components/TabCards";
 import CtaWithModal from "../technology-rental/_components/CtaWithModal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ImageInfo from "@/components/ImageInfo";
+import { BannerProps } from "@/lib/definitions";
 
 export const metadata: Metadata = {
   title: "Laptop Hire For Events in Australia",
@@ -54,24 +55,222 @@ const LaptopRental = async ({
     getAllProducts(),
   ]);
 
-  const ImageInfoData = [
+  const ImageInfoData: BannerProps[] = [
     {
       image: {
         url: "/Technology-Intro.png",
         alternativeText:
           "Laptop Hire for Events, Offices, and Businesses in Australia",
       },
-      title: "Laptop Hire for Events, Offices, and Businesses in Australia",
-      text: "Enter Laptop Rental – your trusted partner for laptop hire in Australia. We specialise in supplying a wide selection of laptops for events, office setups, and business needs. Whether you're organising a corporate seminar, a product launch, or need temporary equipment for a project, we offer practical solutions backed by dependable hardware and expert support. We provide laptop hire services in major Canadian cities, as well as in Sydney, Melbourne, Brisbane, Perth, Adelaide, Canberra, Hobart, and across Australia.",
+      __component: "hero-section.rich-hero-text",
+      content: [
+        {
+          type: "paragraph",
+          children: [
+            {
+              type: "text",
+              text: "Looking for laptop hire in Australia? Laptop Rental is your go-to partner for short-term and bulk laptop solutions. We provide a wide range of laptops for corporate events, office setups, training sessions, conferences, and business projects, all backed by expert technical support.",
+            },
+          ],
+        },
+        {
+          type: "paragraph",
+          children: [
+            {
+              type: "text",
+              text: "From Sydney to Melbourne, Brisbane to Perth, Adelaide to Canberra, and Hobart, we deliver high-performance laptops wherever you need them. Whether it’s for a product launch, a temporary team setup, or a business seminar, we make sure your tech is ready on time and works flawlessly.",
+            },
+          ],
+        },
+        {
+          type: "heading",
+          level: 3,
+          children: [{ type: "text", text: "Why choose Laptop Rental?" }],
+        },
+        {
+          type: "list",
+          format: "unordered",
+          children: [
+            {
+              type: "list-item",
+              children: [
+                {
+                  type: "text",
+                  text: "Wide range of business-grade laptops (Windows & macOS)",
+                },
+              ],
+            },
+            {
+              type: "list-item",
+              children: [
+                {
+                  type: "text",
+                  text: "Same-day or next-day delivery available in major cities",
+                },
+              ],
+            },
+            {
+              type: "list-item",
+              children: [
+                {
+                  type: "text",
+                  text: "Short-term and long-term rental options",
+                },
+              ],
+            },
+            {
+              type: "list-item",
+              children: [
+                {
+                  type: "text",
+                  text: "Pre-installed software and accessories upon request",
+                },
+              ],
+            },
+            {
+              type: "list-item",
+              children: [
+                {
+                  type: "text",
+                  text: "Bulk rental discounts and flexible bundles",
+                },
+              ],
+            },
+            {
+              type: "list-item",
+              children: [
+                {
+                  type: "text",
+                  text: "On-site support available for larger events",
+                },
+              ],
+            },
+          ],
+        },
+        {
+          type: "heading",
+          level: 4,
+          children: [
+            {
+              type: "text",
+              text: "Fast delivery. Flexible rental terms. Expert support—nationwide.",
+            },
+          ],
+        },
+      ],
     },
     {
       image: {
         url: "/IT-Rental.png",
         alternativeText: "Hire Laptops for Events in Australia",
       },
-      title: "Hire Laptops for Events in Australia",
       reverse: true,
-      text: "As one of the leading providers of laptop hire, we support various short-term and long-term projects for businesses, event organisers, and office teams. Our range includes powerful Windows laptops, MacBooks, and high-performance devices suitable for presentations, registration desks, training sessions, and more. With 24/7 technical assistance and on-site and remote support options, you can rely on us to help keep your event or workplace running efficiently. We also supply related solutions such as IT rental for events in Australia, making it easier to source all your temporary tech from a single partner.",
+      __component: "hero-section.rich-hero-text",
+      content: [
+        {
+          type: "paragraph",
+          children: [
+            {
+              type: "text",
+              text: "As one of Australia’s leading providers of laptop hire services, we support short-term and long-term projects for businesses, event organisers, training providers, and office teams. Our diverse inventory is designed to meet professional demands:",
+            },
+          ],
+        },
+        {
+          type: "list",
+          format: "unordered",
+          children: [
+            {
+              type: "list-item",
+              children: [
+                {
+                  type: "text",
+                  text: "High-performance Windows laptops for day-to-day operations",
+                },
+              ],
+            },
+            {
+              type: "list-item",
+              children: [
+                {
+                  type: "text",
+                  text: "MacBooks for creative, media, and executive use",
+                },
+              ],
+            },
+            {
+              type: "list-item",
+              children: [
+                {
+                  type: "text",
+                  text: "Specialised devices for presentations, registration desks, remote work, and corporate training",
+                },
+              ],
+            },
+          ],
+        },
+        {
+          type: "heading",
+          level: 3,
+          children: [
+            {
+              type: "text",
+              text: "We make it easy to hire laptops with reliable service features:",
+            },
+          ],
+        },
+        {
+          type: "list",
+          format: "unordered",
+          children: [
+            {
+              type: "list-item",
+              children: [
+                {
+                  type: "text",
+                  text: "24/7 technical assistance to ensure minimal downtime",
+                },
+              ],
+            },
+            {
+              type: "list-item",
+              children: [
+                {
+                  type: "text",
+                  text: "On-site and remote support, available Australia-wide",
+                },
+              ],
+            },
+            {
+              type: "list-item",
+              children: [
+                {
+                  type: "text",
+                  text: "Pre-installed software and accessories based on your requirements",
+                },
+              ],
+            },
+            {
+              type: "list-item",
+              children: [
+                {
+                  type: "text",
+                  text: "Flexible rental durations to suit your event or business timeline",
+                },
+              ],
+            },
+          ],
+        },
+        {
+          type: "paragraph",
+          children: [
+            {
+              type: "text",
+              text: "In addition to hire laptop options, we offer a complete range of IT rental services for events across Australia, making it convenient to source laptops, tablets, printers, and Wi-Fi kits from one trusted partner.",
+            },
+          ],
+        },
+      ],
     },
   ];
 
@@ -79,7 +278,7 @@ const LaptopRental = async ({
     <>
       <Banner
         title="Laptop Hire"
-        text="Partnering for Success: Comprehensive Laptop Hire For Events & Dedicated Support for Businesses in Australia and New Zealand. Book Now!"
+        text="Get business-ready laptop hire delivered anywhere in Australia. We supply top models for meetings, conferences, and corporate events with fast delivery and expert support."
         link="/get-a-quote"
         btn="Get A Quote"
         image={{
@@ -102,9 +301,10 @@ const LaptopRental = async ({
         }}
       />
       <ServicesTimeline description="Whether it's Melbourne's dynamic energy or Sydney's harborside charm, we deliver event-ready solutions across Australia, backed by dedicated regional teams for unparalleled service. Enjoy 24/7 technical and customer support, covering consultation, installation, on-site assistance, and equipment recovery, guaranteeing a smooth and hassle-free event experience. Contact our team and hire laptops for corporate events in Australia and New Zealand." />
+
       {ImageInfoData.map((info, index) => (
         <ImageInfo key={index} {...info} />
-      ))}{" "}
+      ))}
     </>
   );
 };

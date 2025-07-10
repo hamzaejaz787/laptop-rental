@@ -23,8 +23,8 @@ export interface BannerItem {
 export interface BannerProps {
   btn?: string;
   link?: string;
-  title: string;
-  text: string;
+  title?: string;
+  text?: string;
   reverse?: boolean;
   image?: BannerImageProps;
   items?: BannerItem[];
