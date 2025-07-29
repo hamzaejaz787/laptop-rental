@@ -266,7 +266,34 @@ const LaptopRental = async ({
           children: [
             {
               type: "text",
-              text: "In addition to hire laptop options, we offer a complete range of IT rental services for events across Australia, making it convenient to source laptops, tablets, printers, and Wi-Fi kits from one trusted partner.",
+              text: "In addition to hire laptop options, we offer a complete range of ",
+            },
+            {
+              type: "link",
+              url: "/technology-rental",
+              children: [{ type: "text", text: "IT rental" }],
+            },
+            {
+              type: "text",
+              text: " services for events across Australia, making it convenient to source laptops, ",
+            },
+            {
+              type: "link",
+              url: "/laptop-hire?category=tablet+rental",
+              children: [{ type: "text", text: "tablets" }],
+            },
+            {
+              type: "text",
+              text: ", printers, and ",
+            },
+            {
+              type: "link",
+              url: "/technology-rental/wifi-rental",
+              children: [{ type: "text", text: "Wi-Fi kits" }],
+            },
+            {
+              type: "text",
+              text: " from one trusted partner.",
             },
           ],
         },
