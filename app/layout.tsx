@@ -112,7 +112,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const breadcrumbJson = await getBreadCrumbJsonSchema();
+  // const breadcrumbJson = await getBreadCrumbJsonSchema();
   return (
     <html lang="en-au">
       <body
@@ -181,7 +181,7 @@ export default async function RootLayout({
           <JsonLdSchema key={index} schema={JSON.stringify(schema)} />
         ))}
 
-        <JsonLdSchema schema={breadcrumbJson.breadcrumbJsonLd} />
+        {/* <JsonLdSchema schema={breadcrumbJson.breadcrumbJsonLd} /> */}
       </body>
     </html>
   );
